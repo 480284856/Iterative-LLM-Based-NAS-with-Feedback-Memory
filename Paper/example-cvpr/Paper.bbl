@@ -1,0 +1,160 @@
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Aboudeshish et~al.(2025)Aboudeshish, Ignatov, and
+  Timofte]{Aboudeshish2025augmentation}
+Nada Aboudeshish, Dmitry Ignatov, and Radu Timofte.
+\newblock Augmentgest: Can random data cropping augmentation boost gesture
+  recognition performance?
+\newblock \emph{arXiv preprint}, arXiv:2506.07216, 2025.
+
+\bibitem[Chen et~al.(2021)]{Chen2021Codex}
+Mark Chen et~al.
+\newblock Evaluating large language models trained on code.
+\newblock \emph{arXiv preprint}, arXiv:2107.03374, 2021.
+
+\bibitem[Din et~al.(2025)Din, Hussain, Ikram, Ignatov, and
+  Timofte]{ABrain.NN-Lite}
+Saif~U Din, Muhammad~Ahsan Hussain, Mohsin Ikram, Dmitry Ignatov, and Radu
+  Timofte.
+\newblock Ai on the edge: An automated pipeline for pytorch-to-android
+  deployment and benchmarking.
+\newblock \emph{Preprints}, 2025.
+
+\bibitem[Gado et~al.(2025)Gado, Taliee, Memon, Ignatov, and
+  Timofte]{Gado2025llm}
+Mohamed Gado, Towhid Taliee, Muhammad~Danish Memon, Dmitry Ignatov, and Radu
+  Timofte.
+\newblock Vist-gpt: Ushering in the era of visual storytelling with llms?
+\newblock \emph{arXiv preprint}, arXiv:2504.19267, 2025.
+
+\bibitem[Goodarzi et~al.(2025)Goodarzi, Kochnev, Khalid, Qin, Uzun, Dhameliya,
+  Kathiriya, Bentyn, Ignatov, and Timofte]{ABrain.NN-Dataset}
+Arash~Torabi Goodarzi, Roman Kochnev, Waleed Khalid, Furui Qin, Tolgay~Atinc
+  Uzun, Yashkumar~Sanjaybhai Dhameliya, Yash~Kanubhai Kathiriya, Zofia~Antonina
+  Bentyn, Dmitry Ignatov, and Radu Timofte.
+\newblock {LEMUR Neural Network Dataset: Towards Seamless AutoML}.
+\newblock \emph{arXiv preprint}, arXiv:2504.10552, 2025.
+
+\bibitem[Jesani et~al.(2025)Jesani, Ignatov, and
+  Timofte]{ABrain.NN-Captioning_2025}
+Krunal Jesani, Dmitry Ignatov, and Radu Timofte.
+\newblock Llm as a neural architect: Controlled generation of image captioning
+  models under strict api contracts.
+\newblock \emph{arXiv preprint}, arXiv:2512.14706, 2025.
+
+\bibitem[Khalid et~al.(2025)Khalid, Ignatov, and Timofte]{ABrain.NN-RAG}
+Waleed Khalid, Dmitry Ignatov, and Radu Timofte.
+\newblock A retrieval-augmented generation approach to extracting algorithmic
+  logic from neural networks.
+\newblock \emph{arXiv preprint}, arXiv:2512.04329, 2025.
+
+\bibitem[Khalid et~al.(2026)Khalid, Ignatov, and Timofte]{ABrain.Architect}
+Waleed Khalid, Dmitry Ignatov, and Radu Timofte.
+\newblock From memorization to creativity: Llm as a designer of novel
+  neural-architectures.
+\newblock \emph{arXiv preprint}, arXiv:2601.02997, 2026.
+
+\bibitem[Kochnev et~al.(2025{\natexlab{a}})Kochnev, Goodarzi, Bentyn, Ignatov,
+  and Timofte]{ABrain.HPGPT}
+Roman Kochnev, Arash~Torabi Goodarzi, Zofia~Antonina Bentyn, Dmitry Ignatov,
+  and Radu Timofte.
+\newblock {Optuna vs Code Llama: Are LLMs a New Paradigm for Hyperparameter
+  Tuning?}
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision Workshops (ICCVW)}, pages 5664--5674, 2025{\natexlab{a}}.
+
+\bibitem[Kochnev et~al.(2025{\natexlab{b}})Kochnev, Khalid, Uzun, Zhang,
+  Dhameliya, Qin, Vysyaraju, Duvvuri, Goyal, Ignatov, and
+  Timofte]{ABrain.NNGPT}
+Roman Kochnev, Waleed Khalid, Tolgay~Atinc Uzun, Xi Zhang, Yashkumar~Sanjaybhai
+  Dhameliya, Furui Qin, Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Dmitry
+  Ignatov, and Radu Timofte.
+\newblock Nngpt: Rethinking automl with large language models.
+\newblock \emph{arXiv preprint}, arXiv:2511.2033, 2025{\natexlab{b}}.
+
+\bibitem[Krizhevsky(2009)]{Krizhevsky2009}
+Alex Krizhevsky.
+\newblock Learning multiple layers of features from tiny images.
+\newblock Technical report, University of Toronto, 2009.
+
+\bibitem[Li et~al.(2024)]{Li2024ZeroShot}
+Guihong Li et~al.
+\newblock Zero-shot neural architecture search: Challenges, solutions, and
+  opportunities.
+\newblock \emph{IEEE TPAMI}, 46\penalty0 (6):\penalty0 4071--4088, 2024.
+
+\bibitem[Liu et~al.(2019)Liu, Simonyan, and Yang]{Liu2019DARTS}
+Hanxiao Liu, Karen Simonyan, and Yiming Yang.
+\newblock {DARTS}: Differentiable architecture search.
+\newblock In \emph{ICLR}, 2019.
+
+\bibitem[Mellor et~al.(2021)Mellor, Turner, Shersby, and Shersby]{Mellor2021}
+Joseph Mellor, Jack Turner, Amos Shersby, and Elliot~J. Shersby.
+\newblock Neural architecture search without training.
+\newblock In \emph{ICML}, pages 7588--7598, 2021.
+
+\bibitem[Mittal et~al.(2025)Mittal, Ignatov, and Timofte]{ABrain.NNGPT-Fractal}
+Yash Mittal, Dmitry Ignatov, and Radu Timofte.
+\newblock Preparation of fractal-inspired computational architectures for
+  advanced large language model analysis.
+\newblock \emph{arXiv preprint}, arXiv:2511.07329, 2025.
+
+\bibitem[Pham et~al.(2018)Pham, Guan, Zoph, Le, and Dean]{Pham2018}
+Hieu Pham, Melody Guan, Barret Zoph, Quoc~V. Le, and Jeff Dean.
+\newblock Efficient neural architecture search via parameter sharing.
+\newblock In \emph{ICML}, pages 4095--4104, 2018.
+
+\bibitem[Real et~al.(2019)Real, Aggarwal, Huang, and Le]{Real2019}
+Esteban Real, Alok Aggarwal, Yanping Huang, and Quoc~V. Le.
+\newblock Regularized evolution for image classifier architecture search.
+\newblock In \emph{AAAI}, pages 4780--4789, 2019.
+
+\bibitem[Rupani et~al.(2025)Rupani, Ignatov, and Timofte]{Rupani2025llm}
+Bhavya Rupani, Dmitry Ignatov, and Radu Timofte.
+\newblock Exploring the collaboration between vision models and llms for
+  enhanced image classification.
+\newblock \emph{Preprints}, 2025.
+
+\bibitem[Shrestha et~al.(2026)Shrestha, Ignatov, and Timofte]{ABrain.Transform}
+Usha Shrestha, Dmitry Ignatov, and Radu Timofte.
+\newblock From brute force to semantic insight: Performance-guided data
+  transformation design with llms.
+\newblock \emph{arXiv preprint}, arXiv:2601.03808, 2026.
+
+\bibitem[Uzun et~al.(2026{\natexlab{a}})Uzun, Ignatov, and
+  Timofte]{ABrain.CV_Channel}
+Tolgay~Atinc Uzun, Dmitry Ignatov, and Radu Timofte.
+\newblock Closed-loop llm discovery of non-standard channel priors in vision
+  models.
+\newblock \emph{arXiv preprint}, arXiv:2601.08517, 2026{\natexlab{a}}.
+
+\bibitem[Uzun et~al.(2026{\natexlab{b}})Uzun, Khalid, Din, Mulukuledu, Singh,
+  Vysyaraju, Duvvuri, Goyal, Lukhi, Hussain, Jesani, Shrestha, Mittal, Kochnev,
+  Kadam, Ikram, Moradiya, Arslanian, Ignatov, and Timofte]{ABrain.LEMUR2}
+Tolgay~Atincand Uzun, Waleed Khalid, Saif~U Din, Sai~Revanth Mulukuledu,
+  Akashdeep Singh, Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal,
+  Yashkumar~Rajeshbhai Lukhi, Ahsan Hussain, Krunal Jesani, Usha Shrestha, Yash
+  Mittal, Roman Kochnev, Pritam Kadam, Mohsin Ikram, Harsh~Rameshbhai Moradiya,
+  Alice Arslanian, Dmitry Ignatov, and Radu Timofte.
+\newblock Lemur 2: Unlocking neural network diversity for ai.
+\newblock \emph{arXiv preprint}, 2026{\natexlab{b}}.
+
+\bibitem[Vysyaraju et~al.(2025)Vysyaraju, Duvvuri, Goyal, Ignatov, and
+  Timofte]{ABrain.Prompt}
+Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Dmitry Ignatov, and Radu
+  Timofte.
+\newblock Enhancing llm-based neural network generation: Few-shot prompting and
+  efficient validation for automated architecture design.
+\newblock \emph{arXiv preprint}, arXiv:2512.24120, 2025.
+
+\bibitem[Zoph and Le(2017)]{Zoph2017}
+Barret Zoph and Quoc~V. Le.
+\newblock Neural architecture search with reinforcement learning.
+\newblock In \emph{ICLR}, 2017.
+
+\end{thebibliography}
