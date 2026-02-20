@@ -175,33 +175,18 @@ class Pipeline:
             Tuple of (success, accuracy, feedback, generated_code)
         """
         self.iteration += 1
-        print(f"\n{'='*60}")
-        print(f"Iteration {self.iteration}")
-        print(f"{'='*60}")
         
         # Step 1: Generate code (with best code as reference)
-        print("\n[Step 1] Generating code...")
-        if self.best_code:
-            print(f"Using best code as reference (iter {self.best_iteration}, acc {self.best_accuracy*100:.2f}%")
-        else:
-            print("No reference code (first iteration)")
-        
-        if self.current_improvement_suggestions:
-            print(f"Using improvement suggestions...)")
-        else:
-            print("No improvement suggestions (first iteration)")
-        
+        print("\n[Step 1] Generating code...")        
         response = self.code_generator.generate(
             prompt_template=self.current_prompt_template,
             reference_code=self.best_code,
             improvement_suggestions=self.current_improvement_suggestions
         )
-        print(f"Generated response length: {len(response)} characters")
         
         # Step 2: Extract code
         print("\n[Step 2] Extracting code...")
         code, extract_message = self._code_extractor.extract(response)
-        print(f"Extraction result: {extract_message}")
         
         if code is None:
             feedback = f"Code extraction failed: {extract_message}"
@@ -211,8 +196,8 @@ class Pipeline:
         # Save the generated code
         self.save_code(self.iteration, code)
         
-        # Step 3: Quick validation
-        print("\n[Step 3] Quick validation...")
+        # Step 3.1: Quick validation
+        print("\n[Step 3.1] Quick validation...")
         is_valid, valid_message = self.evaluator.quick_validate(code)
         print(f"Validation result: {valid_message}")
         
@@ -221,8 +206,8 @@ class Pipeline:
             self.log_result(self.iteration, None, False, feedback)
             return False, None, feedback, code
         
-        # Step 4: Full training and evaluation
-        print("\n[Step 4] Training and evaluating model...")
+        # Step 3.2: Full training and evaluation
+        print("\n[Step 3.2] Training and evaluating model...")
         result = self.evaluator.train_and_evaluate(code)
         
         if result.success:
