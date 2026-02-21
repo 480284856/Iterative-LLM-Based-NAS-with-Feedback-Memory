@@ -33,7 +33,7 @@
 	
 	%%%%%%%%% ABSTRACT
 	\begin{abstract}
-		Neural Architecture Search (NAS) automates network design but typically demands substantial computational resources. We propose a closed-loop pipeline that leverages large language models (LLMs) to iteratively generate, evaluate, and refine convolutional neural network architectures for image classification. Central to our approach is a \emph{historical feedback memory} mechanism inspired by Markov chains: a sliding window of the most recent improvement attempts is fed back to the LLM, enabling it to learn from past successes and failures without additional training. Using one-epoch proxy accuracy on CIFAR-10~\cite{Krizhevsky2009} as a fast architecture ranking signal, we evaluate the pipeline with two instruction-tuned LLMs of different sizes. Qwen2.5-7B-Instruct improves generated architectures from 38.0\% to 59.3\% over 77 successful evaluations within 100 iterations (Spearman $\rho = 0.67$, $p < 10^{-10}$), while the smaller Qwen3-4B-Instruct improves from 10.0\% to 37.9\% over 41 successful evaluations (Spearman $\rho = 0.79$, $p < 10^{-9}$). Both models exhibit statistically significant upward trends. Compared to prior iterative LLM optimization methods that rely on unbounded history accumulation~\cite{Yang2023OPRO,Romera2023FunSearch} or operate in constrained discrete search spaces~\cite{Zhong2024LLMO}, our bounded Markovian memory ensures constant context size while explicitly modeling code execution failures in an open code space---a critical requirement for neural architecture generation that distinguishes our approach from existing work. These results establish that even small LLMs can serve as effective architecture designers when equipped with iterative feedback and historical memory, offering a lightweight and accessible paradigm for LLM-driven NAS.
+		Neural Architecture Search (NAS) automates network design but typically demands substantial computational resources. We propose a closed-loop pipeline that leverages large language models (LLMs) to iteratively generate, evaluate, and refine convolutional neural network architectures for image classification. Central to our approach is a \emph{historical feedback memory} mechanism inspired by Markov chains: a sliding window of the most recent improvement attempts is fed back to the LLM, enabling it to learn from past successes and failures without additional training. Using one-epoch proxy accuracy on CIFAR-10~\cite{Krizhevsky2009} as a fast architecture ranking signal, we evaluate the pipeline with two instruction-tuned LLMs of different sizes. Qwen2.5-7B-Instruct improves generated architectures from 38.0\% to 59.3\% over 77 successful evaluations within 100 iterations (Spearman $\rho = 0.67$, $p < 10^{-10}$), while the smaller Qwen3-4B-Instruct improves from 10.0\% to 37.9\% over 41 successful evaluations (Spearman $\rho = 0.79$, $p < 10^{-9}$). Both models exhibit statistically significant upward trends. Compared to prior iterative LLM optimization methods that rely on global elite retention (discarding failure trajectories)~\cite{Yang2023OPRO,Romera2023FunSearch}, require complex population maintenance~\cite{Chen2023EvoPrompting}, or operate in constrained discrete search spaces~\cite{Zhong2024LLMO}, our bounded Markovian memory explicitly models sequential code execution failures in an open code space. This structured causal learning from recent mistakes is a critical requirement for neural architecture generation that distinguishes our approach from existing work. These results establish that even small LLMs can serve as effective architecture designers when equipped with iterative feedback and historical memory, offering a lightweight and accessible paradigm for LLM-driven NAS.
 	\end{abstract}
 	
 	%%%%%%%%% BODY TEXT
@@ -77,11 +77,11 @@
 	LLM-driven heuristic algorithm design. More directly related to NAS, 
 	LLMO~\cite{Zhong2024LLMO} used LLMs as combinatorial optimizers within the 
 	predefined cell-based search space of NAS-Bench-201, replacing traditional 
-	meta-heuristics. However, existing methods face key limitations: unbounded 
-	memory structures risking context overflow~\cite{Yang2023OPRO,Romera2023FunSearch}, 
-	requirements for LLM fine-tuning~\cite{Chen2023EvoPrompting}, operation in 
-	constrained discrete search spaces~\cite{Zhong2024LLMO}, or targeting domains 
-	without structural code constraints~\cite{Ye2024ReEvo}. Our work introduces 
+	meta-heuristics. However, existing methods face key limitations: reliance on 
+	global elite histories that discard crucial failure trajectories~\cite{Yang2023OPRO,Romera2023FunSearch}, 
+	the computational overhead of maintaining evolutionary populations~\cite{Chen2023EvoPrompting}, 
+	operation in constrained discrete search spaces~\cite{Zhong2024LLMO}, or 
+	targeting domains without structural code constraints~\cite{Ye2024ReEvo}. Our work introduces 
 	bounded Markovian memory specifically designed for iterative neural architecture 
 	code generation in open search spaces, with explicit failure modeling enabling 
 	effectiveness on small frozen LLMs.
@@ -261,6 +261,28 @@
 	The dominant validation failure mode for both models is tensor shape mismatches between layers, followed by \texttt{AttributeError}s from hallucinated layer names. Despite the different success rates, both models produce architectures that exhibit consistent improvement across their respective successful evaluations, confirming the pipeline's resilience to high failure rates.
 	
 	
+	\begin{table*}[t]
+	\caption{Systematic comparison with most similar LLM-based NAS and optimization methods. 
+	Our method uniquely combines open code space, bounded Markovian failure modeling, 
+	and small-model viability without population overhead.}
+	\label{table:comparison}
+	\centering
+	\fontsize{7.5}{9}\selectfont
+	\begin{tabular}{l c c c c c c}
+	\toprule
+	\textbf{Method} & \textbf{Target Domain} & \textbf{Search Space} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
+	\midrule
+	OPRO~\cite{Yang2023OPRO} & Text prompts, discrete & N/A & Top-K global elite & $\times$ & $\times$ Scores only & GPT-4, PaLM 2 \\
+	FunSearch~\cite{Romera2023FunSearch} & Math functions & Open Python & Multi-island pools & $\times$ & $\times$ Scores only & Codey (PaLM 2) \\
+	EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Open code & Population diversity & $\times$ & $\times$ Selection only & Frozen / Soft-tuned \\
+	ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Open code & Dual-layer reflection & $\times$ & $\checkmark$ Verbal comparison & GPT-3.5 / GPT-4 \\
+	LLMO~\cite{Zhong2024LLMO} & NAS (CIFAR) & \textbf{Closed cell} & Historical score pairs & $\times$ & N/A (no code errors) & Gemini Pro (large) \\
+	\midrule
+	\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{Open code} & \textbf{K=5 sliding window} & \textbf{$\checkmark$} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
+	\bottomrule
+	\end{tabular}
+	\end{table*}
+
 	\section{Discussion}
 	\label{sec:discussion}
 	
@@ -276,20 +298,20 @@
 	differs in three critical dimensions that enable its effectiveness on neural 
 	architecture search:
 	
-	\textbf{Bounded Markovian memory.} Unlike OPRO's unbounded top-K retention 
-	by quality~\cite{Yang2023OPRO} or FunSearch's growing population pools~\cite{Romera2023FunSearch}, 
-	our sliding window of exactly $K{=}5$ recent attempts ensures constant context 
-	size regardless of iteration count. This is crucial for long-running NAS where 
-	hundreds of iterations would otherwise exhaust LLM context windows. The Markov 
-	property---conditioning only on recent history rather than the full trajectory---reflects 
-	the observation that in code generation, recent failures provide more relevant 
-	signals than distant successes for guiding architectural refinement.
+	\textbf{Bounded Markovian memory.} Unlike OPRO~\cite{Yang2023OPRO} or FunSearch~\cite{Romera2023FunSearch}, 
+	which populate prompts with historically global top-performing solutions (global elite retention), 
+	our sliding window maintains strictly the last $K{=}5$ sequential attempts. In code-level NAS, 
+	the architecture's structure evolves rapidly; therefore, ancient successes are less informative 
+	than immediate recent failures. The Markov property enforces that the LLM focuses entirely on 
+	local causal relationships (what modification just caused what specific error), avoiding the 
+	distraction of irrelevant global history. 
 	
 	\textbf{Structured failure modeling.} Our diagnostic triples explicitly encode 
 	code execution failures (tensor shape mismatches, \texttt{AttributeError}s from 
 	undefined modules, syntax errors) as first-class entries in the history, enabling 
 	the LLM to learn from structural mistakes. This is fundamentally different from 
-	prior work where low-performing solutions are simply discarded~\cite{Yang2023OPRO,Romera2023FunSearch}. 
+	prior work where low-performing solutions are simply discarded from the prompt~\cite{Yang2023OPRO,Romera2023FunSearch} 
+	or managed implicitly through population selection~\cite{Chen2023EvoPrompting}. 
 	As shown in Section~\ref{sec:experiments}, failure rates of 23--59\% across our 
 	runs highlight that code generation for neural architectures is inherently 
 	error-prone; ignoring these failures would discard critical learning signals.
@@ -303,27 +325,6 @@
 	Improver handles diagnostic reasoning. This task decomposition reduces per-call 
 	cognitive load compared to end-to-end generation~\cite{Chen2023EvoPrompting}.
 	
-	\begin{table*}[t]
-	\caption{Systematic comparison with most similar LLM-based NAS and optimization methods. 
-	Our method uniquely combines open code space, bounded Markovian memory, 
-	explicit failure modeling, and small-model viability.}
-	\label{table:comparison}
-	\centering
-	\fontsize{7.5}{9}\selectfont
-	\begin{tabular}{l c c c c c c}
-	\toprule
-	\textbf{Method} & \textbf{Target Domain} & \textbf{Search Space} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
-	\midrule
-	OPRO~\cite{Yang2023OPRO} & Text prompts, discrete & N/A & Top-K by quality (unbounded) & $\times$ & $\times$ Scores only & GPT-4, PaLM 2-L \\
-	FunSearch~\cite{Romera2023FunSearch} & Math functions & Open Python & Multi-island pools (unbounded) & $\times$ & $\times$ Population selection & Not specified \\
-	EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Open code & Population diversity (implicit) & $\times$ & $\times$ Selection only & Requires tuning \\
-	ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Open code & Dual-layer reflection & $\times$ & $\checkmark$ Verbal comparison & Not specified \\
-	LLMO~\cite{Zhong2024LLMO} & NAS (CIFAR) & \textbf{Closed cell-based} & $\times$ No memory & $\times$ & N/A (no code errors) & Gemini (large) \\
-	\midrule
-	\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{Open code} & \textbf{K=5 sliding window} & \textbf{$\checkmark$ Yes} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
-	\bottomrule
-	\end{tabular}
-	\end{table*}
 	
 	Table~\ref{table:comparison} positions our method relative to the five most 
 	similar LLM-based NAS and optimization approaches. We are the \textbf{only 
