@@ -33,7 +33,7 @@
 	
 	%%%%%%%%% ABSTRACT
 	\begin{abstract}
-		Neural Architecture Search (NAS) automates network design but typically demands substantial computational resources. We propose a closed-loop pipeline that leverages large language models (LLMs) to iteratively generate, evaluate, and refine convolutional neural network architectures for image classification. Central to our approach is a \emph{historical feedback memory} mechanism inspired by Markov chains: a sliding window of the most recent improvement attempts is fed back to the LLM, enabling it to learn from past successes and failures without additional training. Using one-epoch proxy accuracy on CIFAR-10~\cite{Krizhevsky2009} as a fast architecture ranking signal, we evaluate the pipeline with two instruction-tuned LLMs of different sizes. Qwen2.5-7B-Instruct improves generated architectures from 38.0\% to 59.3\% over 77 successful evaluations within 100 iterations (Spearman $\rho = 0.67$, $p < 10^{-10}$), while the smaller Qwen3-4B-Instruct improves from 10.0\% to 37.9\% over 41 successful evaluations (Spearman $\rho = 0.79$, $p < 10^{-9}$). Both models exhibit statistically significant upward trends. Compared to prior iterative LLM optimization methods that rely on unbounded history accumulation~\cite{Yang2023OPRO,Romera2023FunSearch}, our bounded Markovian memory ensures constant context size while explicitly modeling code execution failures---a critical requirement for neural architecture generation that distinguishes our approach from existing work. These results establish that even small LLMs can serve as effective architecture designers when equipped with iterative feedback and historical memory, offering a lightweight and accessible paradigm for LLM-driven NAS.
+		Neural Architecture Search (NAS) automates network design but typically demands substantial computational resources. We propose a closed-loop pipeline that leverages large language models (LLMs) to iteratively generate, evaluate, and refine convolutional neural network architectures for image classification. Central to our approach is a \emph{historical feedback memory} mechanism inspired by Markov chains: a sliding window of the most recent improvement attempts is fed back to the LLM, enabling it to learn from past successes and failures without additional training. Using one-epoch proxy accuracy on CIFAR-10~\cite{Krizhevsky2009} as a fast architecture ranking signal, we evaluate the pipeline with two instruction-tuned LLMs of different sizes. Qwen2.5-7B-Instruct improves generated architectures from 38.0\% to 59.3\% over 77 successful evaluations within 100 iterations (Spearman $\rho = 0.67$, $p < 10^{-10}$), while the smaller Qwen3-4B-Instruct improves from 10.0\% to 37.9\% over 41 successful evaluations (Spearman $\rho = 0.79$, $p < 10^{-9}$). Both models exhibit statistically significant upward trends. Compared to prior iterative LLM optimization methods that rely on unbounded history accumulation~\cite{Yang2023OPRO,Romera2023FunSearch} or operate in constrained discrete search spaces~\cite{Zhong2024LLMO}, our bounded Markovian memory ensures constant context size while explicitly modeling code execution failures in an open code space---a critical requirement for neural architecture generation that distinguishes our approach from existing work. These results establish that even small LLMs can serve as effective architecture designers when equipped with iterative feedback and historical memory, offering a lightweight and accessible paradigm for LLM-driven NAS.
 	\end{abstract}
 	
 	%%%%%%%%% BODY TEXT
@@ -74,13 +74,17 @@
 	evolutionary search. EvoPrompting~\cite{Chen2023EvoPrompting} applied evolutionary 
 	prompting with LLMs as mutation operators for code-level neural architecture 
 	search. ReEvo~\cite{Ye2024ReEvo} introduced dual-layer reflective memory for 
-	LLM-driven heuristic algorithm design. However, these methods either operate 
-	on unbounded memory structures risking context overflow~\cite{Yang2023OPRO,Romera2023FunSearch}, 
-	require LLM fine-tuning~\cite{Chen2023EvoPrompting}, or target optimization 
-	domains without the structural code constraints inherent to neural architecture 
-	generation~\cite{Ye2024ReEvo}. Our work introduces bounded Markovian memory 
-	specifically designed for iterative neural architecture code generation with 
-	explicit failure modeling, demonstrating effectiveness on small frozen LLMs.
+	LLM-driven heuristic algorithm design. More directly related to NAS, 
+	LLMO~\cite{Zhong2024LLMO} used LLMs as combinatorial optimizers within the 
+	predefined cell-based search space of NAS-Bench-201, replacing traditional 
+	meta-heuristics. However, existing methods face key limitations: unbounded 
+	memory structures risking context overflow~\cite{Yang2023OPRO,Romera2023FunSearch}, 
+	requirements for LLM fine-tuning~\cite{Chen2023EvoPrompting}, operation in 
+	constrained discrete search spaces~\cite{Zhong2024LLMO}, or targeting domains 
+	without structural code constraints~\cite{Ye2024ReEvo}. Our work introduces 
+	bounded Markovian memory specifically designed for iterative neural architecture 
+	code generation in open search spaces, with explicit failure modeling enabling 
+	effectiveness on small frozen LLMs.
 	
 	
 	\section{Methodology}
@@ -300,32 +304,35 @@
 	cognitive load compared to end-to-end generation~\cite{Chen2023EvoPrompting}.
 	
 	\begin{table*}[t]
-	\caption{Systematic comparison with most similar iterative LLM optimization methods. 
-	Our method is the only one combining open code space, bounded Markovian memory, 
+	\caption{Systematic comparison with most similar LLM-based NAS and optimization methods. 
+	Our method uniquely combines open code space, bounded Markovian memory, 
 	explicit failure modeling, and small-model viability.}
 	\label{table:comparison}
 	\centering
-	\fontsize{8}{9.5}\selectfont
-	\begin{tabular}{l c c c c c}
+	\fontsize{7.5}{9}\selectfont
+	\begin{tabular}{l c c c c c c}
 	\toprule
-	\textbf{Method} & \textbf{Target Domain} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
+	\textbf{Method} & \textbf{Target Domain} & \textbf{Search Space} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
 	\midrule
-	OPRO~\cite{Yang2023OPRO} & Text prompts, discrete solutions & Top-K by quality (unbounded growth) & $\times$ & $\times$ Scores only & GPT-4, PaLM 2-L \\
-	FunSearch~\cite{Romera2023FunSearch} & Math functions (Python) & Multi-island pools (unbounded) & $\times$ & $\times$ Population selection & Not specified \\
-	EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Population diversity (implicit) & $\times$ & $\times$ Selection only & Requires fine-tuning \\
-	ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Dual-layer reflection & $\times$ & $\checkmark$ Verbal comparison & Not specified \\
+	OPRO~\cite{Yang2023OPRO} & Text prompts, discrete & N/A & Top-K by quality (unbounded) & $\times$ & $\times$ Scores only & GPT-4, PaLM 2-L \\
+	FunSearch~\cite{Romera2023FunSearch} & Math functions & Open Python & Multi-island pools (unbounded) & $\times$ & $\times$ Population selection & Not specified \\
+	EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Open code & Population diversity (implicit) & $\times$ & $\times$ Selection only & Requires tuning \\
+	ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Open code & Dual-layer reflection & $\times$ & $\checkmark$ Verbal comparison & Not specified \\
+	LLMO~\cite{Zhong2024LLMO} & NAS (CIFAR) & \textbf{Closed cell-based} & $\times$ No memory & $\times$ & N/A (no code errors) & Gemini (large) \\
 	\midrule
-	\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{K=5 sliding window} & \textbf{$\checkmark$ Yes} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
+	\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{Open code} & \textbf{K=5 sliding window} & \textbf{$\checkmark$ Yes} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
 	\bottomrule
 	\end{tabular}
 	\end{table*}
 	
-	Table~\ref{table:comparison} positions our method relative to the four most 
-	similar iterative LLM-based optimization approaches. We are the \textbf{only 
+	Table~\ref{table:comparison} positions our method relative to the five most 
+	similar LLM-based NAS and optimization approaches. We are the \textbf{only 
 	method} that simultaneously satisfies three critical properties: (1)~open code 
 	space with structural constraints, (2)~bounded Markovian memory with explicit 
 	failure handling, and (3)~demonstrated effectiveness on small ($\leq$7B) 
-	instruction-tuned LLMs without additional training.
+	instruction-tuned LLMs without additional training. Notably, while LLMO also 
+	applies LLMs to NAS without training, it operates in predefined discrete search 
+	spaces that fundamentally limit architectural expressiveness.
 	
 	\paragraph{One-epoch proxy as architecture ranking signal.}
 	Using one-epoch accuracy as a ranking signal offers a pragmatic trade-off between evaluation cost and informativeness. While the absolute accuracy values (10--59\%) are well below state-of-the-art CIFAR-10 results with full training (exceeding 95\%), prior work on training-free NAS~\cite{Mellor2021,Li2024ZeroShot} has established that cheap proxy metrics can effectively rank architectures. Our one-epoch proxy serves a similar role: it distinguishes between architectures of varying quality at minimal cost, enabling the feedback loop to guide the LLM toward better designs. Retraining the best-discovered architectures with full training schedules could verify whether the one-epoch ranking transfers to converged performance.
@@ -340,7 +347,7 @@
 	\section{Conclusion}
 	\label{sec:conclusion}
 	
-	We presented an iterative NAS pipeline that leverages instruction-tuned LLMs to progressively generate and improve neural network architectures through a closed loop of code generation, evaluation, and prompt refinement with historical feedback memory. Evaluated on CIFAR-10 with two LLMs of different sizes, the pipeline improved one-epoch proxy accuracy from 38.0\% to 59.3\% with Qwen2.5-7B-Instruct ($\rho = 0.67$, $p < 10^{-10}$) and from 10.0\% to 37.9\% with Qwen3-4B-Instruct ($\rho = 0.79$, $p < 10^{-9}$), demonstrating that iterative feedback with bounded historical memory significantly outperforms single-shot generation across model sizes. Three design principles distinguish our approach from prior iterative LLM optimization methods: (1)~bounded K-step Markovian memory prevents context overflow while retaining relevant failure patterns, (2)~structured diagnostic triples explicitly model code execution failures unique to neural architecture generation, and (3)~dual-LLM specialization (Code Generator and Prompt Improver) enables effective operation on small (4B) frozen models without fine-tuning. Our results establish that even small LLMs can serve as effective architecture search agents when equipped with structured iterative feedback, offering a lightweight and accessible approach to neural architecture search.
+	We presented an iterative NAS pipeline that leverages instruction-tuned LLMs to progressively generate and improve neural network architectures through a closed loop of code generation, evaluation, and prompt refinement with historical feedback memory. Evaluated on CIFAR-10 with two LLMs of different sizes, the pipeline improved one-epoch proxy accuracy from 38.0\% to 59.3\% with Qwen2.5-7B-Instruct ($\rho = 0.67$, $p < 10^{-10}$) and from 10.0\% to 37.9\% with Qwen3-4B-Instruct ($\rho = 0.79$, $p < 10^{-9}$), demonstrating that iterative feedback with bounded historical memory significantly outperforms single-shot generation across model sizes. Three design principles distinguish our approach from prior iterative LLM optimization methods: (1)~operating in an open code space rather than constrained predefined cells, (2)~bounded K-step Markovian memory prevents context overflow while retaining relevant failure patterns, and (3)~structured diagnostic triples explicitly model code execution failures, which alongside dual-LLM specialization (Code Generator and Prompt Improver) enables effective operation on small (4B) frozen models without fine-tuning. Our results establish that even small LLMs can serve as effective architecture search agents when equipped with structured iterative feedback, offering a lightweight and accessible approach to neural architecture search.
 	
 	{
 		\small
