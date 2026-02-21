@@ -106,7 +106,7 @@
 	
 	\textbf{Quick validation.} The model is instantiated and a forward pass is performed with a dummy input tensor of shape $2 \times 3 \times 32 \times 32$. The output shape is verified to match $B \times 10$ (for batch size $B$ and 10 CIFAR-10 classes). Models failing this check are discarded with an error message forwarded to the Prompt Improver.
 	
-	\textbf{Proxy training.} Models passing validation are trained for \textbf{one epoch} on CIFAR-10 using SGD (momentum $0.9$, weight decay $5 \times 10^{-4}$), an initial learning rate of $0.01$ with cosine annealing, and a batch size of $128$. Standard data augmentation is applied: random crop with 4-pixel padding and random horizontal flip. Top-1 test accuracy on the 10,000-image test set serves as the proxy metric. Training is executed in an isolated subprocess with a 30-minute timeout. One-epoch accuracy provides a fast, informative signal for ranking architectures~\cite{Mellor2021}, enabling rapid iteration without the cost of full convergence training.
+	\textbf{Proxy training.} Models passing validation are trained for \textbf{one epoch} on CIFAR-10 using SGD (momentum $0.9$, weight decay $5 \times 10^{-4}$), an initial learning rate of $0.01$ with cosine annealing, and a batch size of $128$. Standard data augmentation is applied: random crop with 4-pixel padding and random horizontal flip. Top-1 test accuracy on the 10,000-image test set serves as the proxy metric. Training is executed in an isolated subprocess with a 30-minute timeout. This one-epoch accuracy provides a fast, informative signal for ranking architectures~\cite{ru2021speedy}, enabling rapid iteration without the cost of full convergence training.
 	
 	\subsection{Prompt Improver with Historical Feedback Memory}
 	\label{sec:history}
@@ -205,7 +205,9 @@
 	\subsection{Evaluation Metrics}
 	\label{sec:metrics}
 	
-	We report top-1 test accuracy after one-epoch training as the primary architecture quality metric. To characterize search dynamics, we compute: Spearman rank correlation $\rho$ between iteration index and accuracy (trend strength), linear regression slope (improvement rate per 10 iterations), coefficient of determination $R^2$, and descriptive statistics (mean $\pm$ SD) for early and late evaluation blocks.
+	To evaluate our approach rigorously, we adopt true validation accuracy after the first training epoch as our primary architecture quality metric~\cite{egele2024unreasonable}, rather than relying on zero-shot NAS proxies. Although zero-shot proxies are correlated with fully trained accuracy~\cite{mellor2021neural, chen2021tenas, lin2021zen}, they remain indirect indicators of performance. Even the strongest reported Spearman rank-correlation coefficients ($\rho \approx 0.5$--$0.82$) on standard benchmarks such as NAS-Bench-101 and NAS-Bench-201 correspond to a coefficient of determination of at most $R^2 \approx 0.67$, leaving substantial variance unexplained~\cite{abdelfattah2021zerocost, white2023neural, yu2020evaluating, yin2022bmnas}. By using first-epoch validation accuracy instead, we aim to demonstrate more directly that our algorithm can reliably influence and accelerate early-stage performance trajectories of neural networks. 
+	
+	To characterize search dynamics, we compute: Spearman rank correlation $\rho$ between iteration index and accuracy (trend strength), linear regression slope (improvement rate per 10 iterations), coefficient of determination $R^2$, and descriptive statistics (mean $\pm$ SD) for early and late evaluation blocks.
 	
 	
 	\subsection{Main Results}
