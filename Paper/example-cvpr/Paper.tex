@@ -24,16 +24,16 @@
 
 \begin{document}
 	
-	\title{Iterative Neural Architecture Search via LLM-Driven Code Generation with Historical Feedback Memory}
+	\title{Iterative LLM-Based NAS with Feedback Memory}
 	
-	\author{Name Surname{\thanks{Corresponding author: email@uni-wuerzburg.de}}, \space\space\space Name Surname,\space\space\space Name Surname,\space\space\space Dmitry Ignatov,\space\space\space Radu Timofte\\
+	\author{Xiaojie Gu,\space\space\space Dmitry Ignatov,\space\space\space Radu Timofte\\
 		\small{Computer Vision Lab, CAIDAS \& IFI, University of W\"urzburg, Germany}}
 	\maketitle
 	
 	
 	%%%%%%%%% ABSTRACT
 	\begin{abstract}
-		Neural Architecture Search (NAS) automates network design but typically demands substantial computational resources. We propose a closed-loop pipeline that leverages a small (4-billion-parameter) large language model (LLM) to iteratively generate, evaluate, and refine convolutional neural network architectures for image classification. Central to our approach is a \emph{historical feedback memory} mechanism inspired by Markov chains: a sliding window of the most recent improvement attempts is fed back to the LLM, enabling it to learn from past successes and failures without additional training. Using one-epoch proxy accuracy on CIFAR-10 as a fast architecture ranking signal, our pipeline improves generated architectures from 22.2\% to 59.2\% top-1 accuracy over 100 successful evaluations (Spearman $\rho = 0.70$, $p < 10^{-15}$), representing a $2.7\times$ improvement over single-shot generation. These results demonstrate that even small LLMs can serve as effective architecture designers when equipped with iterative feedback and historical memory, offering a lightweight and accessible paradigm for LLM-driven NAS.
+		Neural Architecture Search (NAS) automates network design but typically demands substantial computational resources. We propose a closed-loop pipeline that leverages large language models (LLMs) to iteratively generate, evaluate, and refine convolutional neural network architectures for image classification. Central to our approach is a \emph{historical feedback memory} mechanism inspired by Markov chains: a sliding window of the most recent improvement attempts is fed back to the LLM, enabling it to learn from past successes and failures without additional training. Using one-epoch proxy accuracy on CIFAR-10~\cite{Krizhevsky2009} as a fast architecture ranking signal, we evaluate the pipeline with two instruction-tuned LLMs of different sizes. Qwen2.5-7B-Instruct improves generated architectures from 38.0\% to 59.3\% over 77 successful evaluations within 100 iterations (Spearman $\rho = 0.67$, $p < 10^{-10}$), while the smaller Qwen3-4B-Instruct improves from 10.0\% to 37.9\% over 41 successful evaluations (Spearman $\rho = 0.79$, $p < 10^{-9}$). Both models exhibit statistically significant upward trends. Compared to prior iterative LLM optimization methods that rely on unbounded history accumulation~\cite{Yang2023OPRO,Romera2023FunSearch}, our bounded Markovian memory ensures constant context size while explicitly modeling code execution failures---a critical requirement for neural architecture generation that distinguishes our approach from existing work. These results establish that even small LLMs can serve as effective architecture designers when equipped with iterative feedback and historical memory, offering a lightweight and accessible paradigm for LLM-driven NAS.
 	\end{abstract}
 	
 	%%%%%%%%% BODY TEXT
@@ -46,13 +46,13 @@
 	
 	A critical limitation of single-shot LLM generation is that it treats architecture design as a one-pass prediction, discarding the evaluation signal entirely. In contrast, human engineers iterate: they build, test, analyze failures, and refine their designs based on accumulated experience. This observation motivates our central question: \emph{Can a small LLM iteratively improve neural network architectures by learning from a structured history of its own attempts?}
 	
-	We propose a closed-loop pipeline comprising three components: (1)~a \textbf{Code Generator} that prompts a 4-billion-parameter LLM to produce PyTorch model implementations, (2)~an \textbf{Evaluator} that trains each generated model for a single epoch on CIFAR-10 as a fast proxy for architecture quality, and (3)~a \textbf{Prompt Improver} that analyzes evaluation results alongside a sliding window of recent iteration history---a mechanism we term \emph{historical feedback memory}---to produce targeted improvement suggestions for the next iteration. This design draws on the Markov property: the improvement decision at each step depends on the current best architecture and a bounded window of recent transitions, rather than the full trajectory.
+	We propose a closed-loop pipeline comprising three components: (1)~a \textbf{Code Generator} that prompts an instruction-tuned LLM to produce PyTorch model implementations, (2)~an \textbf{Evaluator} that trains each generated model for a single epoch on CIFAR-10 as a fast proxy for architecture quality, and (3)~a \textbf{Prompt Improver} that analyzes evaluation results alongside a sliding window of recent iteration history---a mechanism we term \emph{historical feedback memory}---to produce targeted improvement suggestions for the next iteration. This design draws on the Markov property: the improvement decision at each step depends on the current best architecture and a bounded window of recent transitions, rather than the full trajectory.
 	
 	Our main contributions are:
 	\begin{itemize}
-		\item A closed-loop, iterative NAS pipeline driven by a small (4B-parameter) LLM that progressively discovers better architectures through code generation, evaluation, and prompt refinement.
-		\item A \emph{historical feedback memory} mechanism that maintains a sliding window of past improvement attempts, enabling the LLM to avoid repeating failed strategies and build on successful ones.
-		\item An empirical demonstration that this pipeline improves architecture quality from 22.2\% to 59.2\% one-epoch proxy accuracy on CIFAR-10 over 100 evaluations, with a strong positive trend (Spearman $\rho = 0.70$, $p < 10^{-15}$).
+		\item A closed-loop, iterative NAS pipeline driven by LLMs that progressively discovers better architectures through code generation, evaluation, and prompt refinement.
+		\item A \emph{historical feedback memory} mechanism that maintains a sliding window of past improvement attempts, enabling the LLM to mitigate repeating failed strategies and build on successful ones.
+		\item An empirical demonstration across two LLMs of different sizes (4B and 7B parameters) showing that the pipeline consistently improves architecture quality---from 38.0\% to 59.3\% (Qwen2.5-7B) and from 10.0\% to 37.9\% (Qwen3-4B)---with strong positive trends (Spearman $\rho \geq 0.67$, $p < 10^{-9}$).
 	\end{itemize}
 	
 	
@@ -64,6 +64,23 @@
 	
 	\paragraph{LLMs for Code Generation and AutoML.}
 	Large language models have demonstrated strong capabilities in code generation~\cite{Chen2021Codex}, and their application to machine learning automation is an active research area. The NNGPT framework~\cite{ABrain.NNGPT} pioneered the use of LLMs as neural network generators, showing that language models can produce functional vision models from textual prompts. Subsequent work explored fractal-inspired architectures~\cite{ABrain.NNGPT-Fractal}, few-shot prompting strategies~\cite{ABrain.Prompt}, novel architecture creativity~\cite{ABrain.Architect}, and non-standard channel priors~\cite{ABrain.CV_Channel}. LLMs have also been applied to hyperparameter optimization~\cite{ABrain.HPGPT}, data transformation design~\cite{ABrain.Transform}, and collaborative vision-language pipelines~\cite{Rupani2025llm,Gado2025llm,ABrain.NN-RAG}. These efforts are supported by curated datasets of neural network architectures~\cite{ABrain.NN-Dataset,ABrain.LEMUR2} and deployment pipelines~\cite{ABrain.NN-Lite}. However, most existing approaches treat LLM-based architecture generation as a single-step process, without leveraging iterative refinement from evaluation feedback. Our work extends this line by introducing a closed-loop pipeline with historical memory that enables progressive architecture improvement.
+	
+	\paragraph{Iterative LLM Optimization.}
+	Recent work has explored using LLMs as iterative optimizers that progressively 
+	improve solutions by learning from historical attempts. OPRO~\cite{Yang2023OPRO} 
+	demonstrated that LLMs can optimize text prompts and discrete solutions by 
+	conditioning on sorted history of past candidates and scores. FunSearch~\cite{Romera2023FunSearch} 
+	extended this to program synthesis for mathematical discovery using island-based 
+	evolutionary search. EvoPrompting~\cite{Chen2023EvoPrompting} applied evolutionary 
+	prompting with LLMs as mutation operators for code-level neural architecture 
+	search. ReEvo~\cite{Ye2024ReEvo} introduced dual-layer reflective memory for 
+	LLM-driven heuristic algorithm design. However, these methods either operate 
+	on unbounded memory structures risking context overflow~\cite{Yang2023OPRO,Romera2023FunSearch}, 
+	require LLM fine-tuning~\cite{Chen2023EvoPrompting}, or target optimization 
+	domains without the structural code constraints inherent to neural architecture 
+	generation~\cite{Ye2024ReEvo}. Our work introduces bounded Markovian memory 
+	specifically designed for iterative neural architecture code generation with 
+	explicit failure modeling, demonstrating effectiveness on small frozen LLMs.
 	
 	
 	\section{Methodology}
@@ -77,7 +94,7 @@
 	
 	\subsection{Code Generator}
 	
-	The Code Generator uses a pre-trained LLM (Qwen3-4B-Instruct, a 4-billion-parameter instruction-tuned model) to produce a complete PyTorch model class implementing \texttt{nn.Module}. The LLM receives a fixed prompt template comprising: (i)~a role description positioning the model as a ``visionary deep learning architect,'' (ii)~the task specification (CIFAR-10 image classification without pre-trained weights), (iii)~the current best implementation $\mathcal{A}^*$ as reference code, and (iv)~the improvement suggestions $s_{t-1}$ from the previous iteration. The generated code must define a \texttt{Net(nn.Module)} class with standard \texttt{\_\_init\_\_} and \texttt{forward} methods. Generation uses temperature $\tau = 0.7$ and nucleus sampling ($p = 0.9$) to balance architectural diversity with code coherence.
+	The Code Generator uses a pre-trained, instruction-tuned LLM to produce a complete PyTorch model class implementing \texttt{nn.Module}. The LLM receives a fixed prompt template comprising: (i)~a role description positioning the model as a ``visionary deep learning architect,'' (ii)~the task specification (CIFAR-10 image classification without pre-trained weights), (iii)~the current best implementation $\mathcal{A}^*$ as reference code, and (iv)~the improvement suggestions $s_{t-1}$ from the previous iteration. The generated code must define a \texttt{Net(nn.Module)} class with standard \texttt{\_\_init\_\_} and \texttt{forward} methods. Generation uses temperature $\tau = 0.7$ and nucleus sampling ($p = 0.9$) to balance architectural diversity with code coherence. The specific LLMs used in our experiments are described in Section~\ref{sec:experiments}.
 	
 	\subsection{Evaluator}
 	
@@ -94,9 +111,35 @@
 	
 	Each history entry $h_i \in \mathcal{H}_t$ is a triple recording: the identified problem, the suggested improvement, and the resulting outcome (accuracy achieved or error encountered). This sliding-window design draws on the Markov property: the improvement decision at step $t$ depends on the current state (best architecture plus recent history window) rather than the complete trajectory. The bounded window prevents context overflow while providing sufficient signal for the LLM to identify recurring failure patterns.
 	
-	The Prompt Improver produces a structured response containing: (a)~a \textbf{reason} diagnosing the current result, (b)~an \textbf{inspiration} drawing on cross-disciplinary insights, and (c)~concrete \textbf{improvement suggestions} for the next iteration. These suggestions, together with the best code, form the input to the Code Generator in the subsequent iteration, closing the feedback loop.
+	\paragraph{Markov Property Formalization.}
+	Let $\mathcal{A}_t$ denote the architecture generated at step $t$, $a_t$ its 
+	evaluation outcome (accuracy or error), and $s_t$ the improvement suggestions. 
+	Our historical feedback memory $\mathcal{H}_t^{(K)}$ maintains exactly the most 
+	recent $K{=}5$ improvement attempts:
+	\begin{equation}
+	\mathcal{H}_t^{(K)} = \{(s_{t-K}, a_{t-K}), \ldots, (s_{t-1}, a_{t-1})\}.
+	\end{equation}
+	The improvement suggestion generation satisfies the \textbf{K-order Markov property}:
+	\begin{equation}
+	P(s_t \mid \mathcal{A}^*, \mathcal{H}_t) = P(s_t \mid \mathcal{A}^*, \mathcal{H}_t^{(K)}),
+	\end{equation}
+	meaning the next suggestion depends only on the current best architecture and 
+	the bounded recent history, not the complete trajectory. This design ensures 
+	\textbf{constant context size} and avoids the context overflow problem faced 
+	by unbounded history approaches like OPRO~\cite{Yang2023OPRO}.
 	
-	The overall procedure is summarized in Algorithm~\ref{alg:pipeline}.
+	Each history entry $(s_i, a_i)$ is structured as a \textbf{diagnostic triple}:
+	\begin{equation}
+	s_i = (\text{problem}_i, \text{suggestion}_i, \text{outcome}_i),
+	\end{equation}
+	where $\text{problem}_i$ identifies the architectural deficiency, 
+	$\text{suggestion}_i$ proposes concrete code modifications, and $\text{outcome}_i$ 
+	records whether the suggestion succeeded (accuracy gain) or failed (error type). 
+	This structured format enables the LLM to learn causal patterns between design 
+	decisions and outcomes, unlike scalar-score histories in prior work~\cite{Yang2023OPRO,Romera2023FunSearch}.
+	
+	The Prompt Improver produces a structured response containing: (a)~a \textbf{reason} diagnosing the current result, (b)~an \textbf{inspiration} drawing on cross-disciplinary insights, and (c)~concrete \textbf{improvement suggestions} for the next iteration. These suggestions, together with the best code, form the input to the Code Generator in the subsequent iteration, closing the feedback loop.
+    
 	
 	\begin{algorithm}[t]
 		\caption{Iterative LLM-Driven NAS Pipeline}
@@ -149,9 +192,9 @@
 	
 	\paragraph{Dataset.} We use CIFAR-10~\cite{Krizhevsky2009}, comprising 60,000 $32 \times 32$ color images across 10 classes (50,000 training, 10,000 test). Standard augmentation (random crop with 4-pixel padding, random horizontal flip, normalization) is applied during training, inspired by~\cite{Aboudeshish2025augmentation}.
 	
-	\paragraph{Language model.} Architecture generation and prompt improvement both use Qwen3-4B-Instruct, a 4-billion-parameter instruction-tuned language model. Generation parameters: temperature $0.7$, nucleus sampling $p = 0.9$, maximum 2,048 new tokens. A fixed seed with incremental call counter ensures reproducible but diverse generation across iterations.
+	\paragraph{Language models.} To evaluate the pipeline across model sizes, we run separate experiments with two instruction-tuned LLMs from the Qwen family: \textbf{Qwen2.5-7B-Instruct} and \textbf{Qwen3-4B-Instruct}. Both models use the same generation parameters: temperature $0.7$, nucleus sampling $p = 0.9$, maximum 2,048 new tokens. A fixed seed with incremental call counter ensures reproducible but diverse generation across iterations. Each model is run for 100 iterations.
 	
-	\paragraph{Training protocol.} Each candidate architecture is trained for one epoch with SGD (momentum $0.9$, weight decay $5 \times 10^{-4}$), learning rate $0.01$ with cosine annealing, and batch size $128$. A fixed random seed ($43$) and deterministic CUDA operations ensure reproducibility. Training runs in isolated subprocesses with a 30-minute timeout. Fine-tuning of LLMs and training of computer vision models are performed using the AI Linux docker image \texttt{abrainone/ai-linux}\footnote{AI Linux: \scriptsize \url{https://hub.docker.com/r/abrainone/ai-linux}} on NVIDIA GeForce RTX 3090/4090 24G GPUs of the CVL Kubernetes cluster at the University of W\"urzburg.
+	\paragraph{Training protocol.} Each candidate architecture is trained for one epoch with SGD (momentum $0.9$, weight decay $5 \times 10^{-4}$), learning rate $0.01$ with cosine annealing, and batch size $128$. A fixed random seed ($43$) and deterministic CUDA operations ensure reproducibility. Training runs in isolated subprocesses with a 30-minute timeout. Fine-tuning of LLMs and training of computer vision models are performed on NVIDIA GeForce RTX 4090 24G GPU.
 	
 	\paragraph{Baseline.} We compare against \textbf{single-shot generation}: the accuracy of the first successfully generated and evaluated architecture (iteration~1), representing what the LLM produces from its pre-trained knowledge alone without any feedback signal.
 	
@@ -163,33 +206,36 @@
 	
 	\subsection{Main Results}
 	
-	Table~\ref{table:summary} summarizes the key results over 100 successful architecture evaluations. The pipeline improved one-epoch proxy accuracy from an initial 22.2\% (single-shot baseline) to a peak of 59.2\% at iteration 65, with the last 5 evaluations averaging $53.9\% \pm 4.7\%$. The overall mean accuracy across all 100 evaluations is $50.9\% \pm 10.9\%$, with a median of 55.5\%.
+	Table~\ref{table:summary} compares the key results for both LLMs over 100 iterations each. Both models exhibit statistically significant upward trends in architecture quality, confirming that the iterative pipeline with historical feedback memory consistently drives improvement regardless of model size.
 	
-	The Spearman correlation between iteration index and accuracy is $\rho = 0.705$ ($p < 10^{-15}$), indicating a strong, statistically significant positive trend. The linear regression slope of $+2.3$ percentage points per 10 iterations (with $R^2 = 0.365$) confirms steady improvement throughout the search. Compared to single-shot generation (22.2\%), the iterative pipeline achieves a $2.7\times$ improvement in best accuracy and a $2.4\times$ improvement in late-phase mean accuracy.
+	\paragraph{Qwen2.5-7B-Instruct.} The larger model achieved 77 successful evaluations out of 100 iterations (77\% success rate). One-epoch proxy accuracy improved from 38.0\% (single-shot baseline) to a peak of 59.3\% at the 68th successful evaluation, with the last 5 evaluations averaging $57.1\% \pm 3.2\%$. The Spearman correlation between evaluation index and accuracy is $\rho = 0.670$ ($p < 10^{-10}$), and the linear regression slope is $+1.2$ percentage points per 10 evaluations ($R^2 = 0.203$).
 	
-	Figure~\ref{fig:accuracy} shows the accuracy trajectory across iterations. The curve exhibits three characteristic phases: (1)~a \emph{rapid improvement} phase (iterations 1--15) where accuracy jumps from ${\sim}22\%$ to ${\sim}50\%$ as the LLM quickly discovers effective basic patterns such as convolutional feature hierarchies; (2)~a \emph{refinement} phase (iterations 15--65) with continued but slower gains as the model explores deeper architectural modifications; and (3)~a \emph{plateau} phase (iterations 65--100) where accuracy stabilizes in the 55--59\% range, suggesting diminishing returns from further prompt-driven refinement under the one-epoch training constraint.
+	\paragraph{Qwen3-4B-Instruct.} The smaller model achieved 41 successful evaluations out of 100 iterations (41\% success rate). One-epoch proxy accuracy improved from 10.0\% to a peak of 37.9\% at the 31st successful evaluation, with the last 5 evaluations averaging $37.1\% \pm 1.6\%$. Despite the lower absolute accuracy, the Spearman correlation is higher at $\rho = 0.787$ ($p < 10^{-9}$), with a steeper linear slope of $+6.5$ percentage points per 10 evaluations ($R^2 = 0.557$), reflecting the larger room for improvement from a lower starting point.
+	
+	Figure~\ref{fig:accuracy} shows the accuracy trajectories for both models. Qwen2.5-7B (left) starts at a higher baseline (${\sim}38\%$) and steadily climbs to the $55$--$59\%$ range. Qwen3-4B (right) starts near random (${\sim}10\%$) and exhibits a pronounced rapid-improvement phase before plateauing around $35$--$38\%$. Both curves display characteristic convergence behavior with diminishing returns in later evaluations.
 	
 	\begin{table}[t]
-		\caption{Summary statistics for the iterative NAS pipeline on CIFAR-10 (one-epoch proxy accuracy). The pipeline achieves a $2.7\times$ improvement over single-shot generation.} \label{table:summary}
+		\caption{Comparison of the iterative NAS pipeline on CIFAR-10 (one-epoch proxy accuracy) across two LLMs. Both models show significant improvement over single-shot generation.} \label{table:summary}
 		\centering
 		\fontsize{8}{9.5}\selectfont
-		\begin{tabular}{l r}
+		\begin{tabular}{l r r}
 			\toprule
-			\textbf{Metric} & \textbf{Value} \\
+			\textbf{Metric} & \textbf{Qwen2.5-7B} & \textbf{Qwen3-4B} \\
 			\midrule
-			Successful evaluations & 100 \\
-			Mean accuracy (all) & $0.509 \pm 0.109$ \\
-			Median accuracy & $0.555$ \\
-			Best accuracy (iteration) & $0.592$ \;(iter.~65) \\
-			Single-shot accuracy (iter.~1) & $0.222$ \\
+			Total iterations & 100 & 100 \\
+			Successful evaluations & 77 & 41 \\
+			Success rate & 77\% & 41\% \\
 			\midrule
-			First 5 evals (mean $\pm$ SD) & $0.258 \pm 0.034$ \\
-			Last 5 evals (mean $\pm$ SD) & $0.539 \pm 0.047$ \\
-			Improvement (last $-$ first 5) & $+0.281$ \\
+			Single-shot accuracy & $0.380$ & $0.100$ \\
+			Best accuracy (eval \#) & $0.593$ \;(\#68) & $0.379$ \;(\#31) \\
 			\midrule
-			Spearman $\rho$ & $0.705$ \;($p < 10^{-15}$) \\
-			Linear slope (per 10 iter.) & $+0.023$ \\
-			$R^2$ & $0.365$ \\
+			First 5 evals (mean $\pm$ SD) & $0.440 \pm 0.062$ & $0.134 \pm 0.076$ \\
+			Last 5 evals (mean $\pm$ SD) & $0.571 \pm 0.032$ & $0.371 \pm 0.016$ \\
+			Improvement (last $-$ first 5) & $+0.131$ & $+0.237$ \\
+			\midrule
+			Spearman $\rho$ \;($p$-value) & $0.670$ \;($< 10^{-10}$) & $0.787$ \;($< 10^{-9}$) \\
+			Slope (per 10 evals) & $+0.012$ & $+0.065$ \\
+			$R^2$ & $0.203$ & $0.557$ \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
@@ -197,44 +243,104 @@
 	\begin{figure}[t]
 		\centering
 		\includegraphics[width=1.00\linewidth]{img/accuracy_curve.png}
-		\caption{One-epoch proxy accuracy on CIFAR-10 across 100 successful architecture evaluations. The pipeline exhibits three phases: rapid improvement (${\sim}22\%$ to ${\sim}50\%$), refinement (${\sim}50\%$ to ${\sim}59\%$), and plateau (${\sim}55$--$59\%$). Spearman $\rho = 0.70$ ($p < 10^{-15}$).}
+		\caption{One-epoch proxy accuracy on CIFAR-10 across successful architecture evaluations for Qwen2.5-7B-Instruct (left, 77 evaluations) and Qwen3-4B-Instruct (right, 41 evaluations). Both models exhibit clear upward trends (Spearman $\rho = 0.67$ and $\rho = 0.79$, respectively).}
 		\label{fig:accuracy}
 	\end{figure}
 	
 	
 	\subsection{Failure Analysis}
 	
-	Of the approximately 1,000 total generation attempts across the experimental run, roughly 60\% failed before reaching the training stage. We categorize failures into three types:
+	The two models exhibit markedly different failure profiles. Qwen2.5-7B-Instruct achieved a 77\% success rate (77 of 100 iterations), with all 23 failures attributable to \textbf{code validation errors}---tensor shape mismatches, channel dimension conflicts, and \texttt{AttributeError}s from undefined modules. Notably, the 7B model produced zero code extraction errors, indicating reliable generation of syntactically valid Python.
 	
-	\begin{itemize}
-		\item \textbf{Code validation errors} (47.2\%): The generated model fails structural checks---most commonly \texttt{AttributeError} (referencing undefined layers or modules) and tensor shape mismatches between layers.
-		\item \textbf{Code extraction errors} (12.7\%): The LLM output cannot be parsed as valid Python, typically due to syntax errors, unclosed string literals, or malformed code blocks.
-		\item \textbf{Other runtime errors} ($<$2\%): Errors during training execution, such as device mismatches or batch normalization failures.
-	\end{itemize}
+	Qwen3-4B-Instruct achieved a lower 41\% success rate (41 of 100 iterations), with failures split between \textbf{code validation errors} (48 of 100) and \textbf{code extraction errors} (11 of 100). The extraction failures---unclosed parentheses, unterminated string literals, and syntax errors---suggest that the smaller model more frequently produces malformed code that cannot even be parsed.
 	
-	The dominant failure mode---\texttt{AttributeError}---occurs when the LLM hallucinates layer names or forgets to define modules referenced in the forward pass. Despite the approximately 40\% overall success rate, the pipeline's resilience (discarding invalid attempts and continuing) ensures that successfully evaluated architectures exhibit consistent improvement across iterations.
+	The dominant validation failure mode for both models is tensor shape mismatches between layers, followed by \texttt{AttributeError}s from hallucinated layer names. Despite the different success rates, both models produce architectures that exhibit consistent improvement across their respective successful evaluations, confirming the pipeline's resilience to high failure rates.
 	
 	
 	\section{Discussion}
 	\label{sec:discussion}
 	
 	\paragraph{Effectiveness of iterative refinement.}
-	The strong positive correlation ($\rho = 0.70$) across 100 evaluations confirms that historical feedback memory enables systematic architectural improvement. Access to the last $K{=}5$ improvement attempts provides the LLM with sufficient context to identify recurring failure patterns and avoid previously unsuccessful strategies. Notably, the three-phase convergence behavior (rapid improvement, refinement, plateau) mirrors patterns in traditional optimization, suggesting that the LLM-driven search exhibits meaningful optimization dynamics rather than random exploration.
+	Both models exhibit statistically significant positive correlations between evaluation index and accuracy (Qwen2.5-7B: $\rho = 0.67$; Qwen3-4B: $\rho = 0.79$), confirming that historical feedback memory enables systematic architectural improvement across different LLM sizes. Access to the last $K{=}5$ improvement attempts provides the LLM with sufficient context to identify recurring failure patterns and avoid previously unsuccessful strategies. Both accuracy curves display characteristic increasing behavior---rapid early gains followed by gradual increasing---mirroring patterns in traditional optimization and suggesting that the LLM-driven search exhibits meaningful optimization dynamics rather than random exploration.
+	
+	\paragraph{Effect of model size.}
+	The comparison between the 7B and 4B models reveals a clear trade-off. The larger Qwen2.5-7B starts from a substantially higher baseline (38.0\% vs.\ 10.0\%), reaches a higher peak accuracy (59.3\% vs.\ 37.9\%), and generates structurally valid code nearly twice as reliably (77\% vs.\ 41\% success rate). However, the smaller Qwen3-4B exhibits a stronger relative improvement trend ($\rho = 0.79$ vs.\ $\rho = 0.67$, slope $5.4\times$ steeper), reflecting greater room for improvement from its lower starting point. This suggests that while larger models provide better ``raw material,'' the iterative feedback mechanism is proportionally more impactful for weaker generators.
+	
+	\paragraph{Comparison with iterative LLM optimization methods.}
+	Our approach shares conceptual similarities with recent work on using LLMs as 
+	iterative optimizers~\cite{Yang2023OPRO,Romera2023FunSearch,Ye2024ReEvo}, but 
+	differs in three critical dimensions that enable its effectiveness on neural 
+	architecture search:
+	
+	\textbf{Bounded Markovian memory.} Unlike OPRO's unbounded top-K retention 
+	by quality~\cite{Yang2023OPRO} or FunSearch's growing population pools~\cite{Romera2023FunSearch}, 
+	our sliding window of exactly $K{=}5$ recent attempts ensures constant context 
+	size regardless of iteration count. This is crucial for long-running NAS where 
+	hundreds of iterations would otherwise exhaust LLM context windows. The Markov 
+	property---conditioning only on recent history rather than the full trajectory---reflects 
+	the observation that in code generation, recent failures provide more relevant 
+	signals than distant successes for guiding architectural refinement.
+	
+	\textbf{Structured failure modeling.} Our diagnostic triples explicitly encode 
+	code execution failures (tensor shape mismatches, \texttt{AttributeError}s from 
+	undefined modules, syntax errors) as first-class entries in the history, enabling 
+	the LLM to learn from structural mistakes. This is fundamentally different from 
+	prior work where low-performing solutions are simply discarded~\cite{Yang2023OPRO,Romera2023FunSearch}. 
+	As shown in Section~\ref{sec:experiments}, failure rates of 23--59\% across our 
+	runs highlight that code generation for neural architectures is inherently 
+	error-prone; ignoring these failures would discard critical learning signals.
+	
+	\textbf{Small-model viability.} Our results demonstrate that 4B-parameter LLMs 
+	can effectively perform NAS when equipped with structured feedback (Qwen3-4B: 
+	$\rho{=}0.79$, $p{<}10^{-9}$), whereas prior iterative LLM optimization work 
+	primarily relies on large models (OPRO uses GPT-4 and PaLM 2-L~\cite{Yang2023OPRO}). 
+	We hypothesize this is enabled by our dual-LLM specialization: the Code Generator 
+	focuses solely on code synthesis given structured suggestions, while the Prompt 
+	Improver handles diagnostic reasoning. This task decomposition reduces per-call 
+	cognitive load compared to end-to-end generation~\cite{Chen2023EvoPrompting}.
+	
+	\begin{table*}[t]
+	\caption{Systematic comparison with most similar iterative LLM optimization methods. 
+	Our method is the only one combining open code space, bounded Markovian memory, 
+	explicit failure modeling, and small-model viability.}
+	\label{table:comparison}
+	\centering
+	\fontsize{8}{9.5}\selectfont
+	\begin{tabular}{l c c c c c}
+	\toprule
+	\textbf{Method} & \textbf{Target Domain} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
+	\midrule
+	OPRO~\cite{Yang2023OPRO} & Text prompts, discrete solutions & Top-K by quality (unbounded growth) & $\times$ & $\times$ Scores only & GPT-4, PaLM 2-L \\
+	FunSearch~\cite{Romera2023FunSearch} & Math functions (Python) & Multi-island pools (unbounded) & $\times$ & $\times$ Population selection & Not specified \\
+	EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Population diversity (implicit) & $\times$ & $\times$ Selection only & Requires fine-tuning \\
+	ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Dual-layer reflection & $\times$ & $\checkmark$ Verbal comparison & Not specified \\
+	\midrule
+	\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{K=5 sliding window} & \textbf{$\checkmark$ Yes} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
+	\bottomrule
+	\end{tabular}
+	\end{table*}
+	
+	Table~\ref{table:comparison} positions our method relative to the four most 
+	similar iterative LLM-based optimization approaches. We are the \textbf{only 
+	method} that simultaneously satisfies three critical properties: (1)~open code 
+	space with structural constraints, (2)~bounded Markovian memory with explicit 
+	failure handling, and (3)~demonstrated effectiveness on small ($\leq$7B) 
+	instruction-tuned LLMs without additional training.
 	
 	\paragraph{One-epoch proxy as architecture ranking signal.}
-	Using one-epoch accuracy as a ranking signal offers a pragmatic trade-off between evaluation cost and informativeness. While the absolute accuracy values (22--59\%) are well below state-of-the-art CIFAR-10 results with full training (exceeding 95\%), prior work on training-free NAS~\cite{Mellor2021,Li2024ZeroShot} has established that cheap proxy metrics can effectively rank architectures. Our one-epoch proxy serves a similar role: it distinguishes between architectures of varying quality at minimal cost, enabling the feedback loop to guide the LLM toward better designs. Retraining the best-discovered architectures with full training schedules could verify whether the one-epoch ranking transfers to converged performance.
+	Using one-epoch accuracy as a ranking signal offers a pragmatic trade-off between evaluation cost and informativeness. While the absolute accuracy values (10--59\%) are well below state-of-the-art CIFAR-10 results with full training (exceeding 95\%), prior work on training-free NAS~\cite{Mellor2021,Li2024ZeroShot} has established that cheap proxy metrics can effectively rank architectures. Our one-epoch proxy serves a similar role: it distinguishes between architectures of varying quality at minimal cost, enabling the feedback loop to guide the LLM toward better designs. Retraining the best-discovered architectures with full training schedules could verify whether the one-epoch ranking transfers to converged performance.
 	
 	\paragraph{Limitations.}
-	Our study has several limitations. First, we report a single experimental run with one LLM (Qwen3-4B-Instruct); multi-run experiments and cross-model comparisons would strengthen generalizability. Second, the one-epoch proxy may not perfectly correlate with full-training performance; retraining top architectures to convergence is needed to assess their true potential. Third, the ${\sim}40\%$ code generation success rate indicates that current LLMs still struggle with structurally valid neural network code, suggesting opportunities for improved prompting strategies or constrained decoding. Finally, our evaluation is limited to CIFAR-10; experiments on larger-scale benchmarks and diverse tasks would better demonstrate versatility.
+	Our study has several limitations. First, although we compare two LLMs of different sizes, each is evaluated with a single run of 100 iterations; multi-run experiments would strengthen statistical confidence. Second, the one-epoch proxy may not perfectly correlate with full-training performance; retraining top architectures to convergence is needed to assess their true potential. Third, the code generation success rates (41--77\%) indicate that current LLMs still struggle with structurally valid neural network code, suggesting opportunities for improved prompting strategies or constrained decoding. Finally, our evaluation is limited to CIFAR-10; experiments on larger-scale benchmarks and diverse tasks would better demonstrate versatility.
 	
 	\paragraph{Future work.}
-	Promising directions include: (1)~retraining the top-$K$ discovered architectures with full training schedules to verify their converged performance; (2)~comparing across LLMs of varying sizes and families; (3)~integrating zero-shot proxy metrics~\cite{Mellor2021,Li2024ZeroShot} as complementary evaluation signals to further accelerate the search; and (4)~extending to larger datasets (e.g., ImageNet) and tasks beyond image classification.
+	Promising directions include: (1)~retraining the top-$K$ discovered architectures with full training schedules to verify their converged performance; (2)~extending the cross-model comparison to additional LLM families and sizes; (3)~integrating zero-shot proxy metrics~\cite{Mellor2021,Li2024ZeroShot} as complementary evaluation signals to further accelerate the search; (4)~extending to larger datasets (e.g., ImageNet) and tasks beyond image classification; and (5) apply genetic algorithm for historical feedback memory.
 	
 	
 	\section{Conclusion}
 	\label{sec:conclusion}
 	
-	We presented an iterative NAS pipeline that leverages a small (4B-parameter) LLM to progressively generate and improve neural network architectures through a closed loop of code generation, evaluation, and prompt refinement with historical feedback memory. Over 100 successful evaluations on CIFAR-10, the pipeline improved one-epoch proxy accuracy from 22.2\% to 59.2\% (Spearman $\rho = 0.70$, $p < 10^{-15}$), demonstrating that iterative feedback with bounded historical memory significantly outperforms single-shot generation. Our results establish that small LLMs can serve as effective architecture search agents when equipped with structured iterative feedback, offering a lightweight and accessible approach to neural architecture search.
+	We presented an iterative NAS pipeline that leverages instruction-tuned LLMs to progressively generate and improve neural network architectures through a closed loop of code generation, evaluation, and prompt refinement with historical feedback memory. Evaluated on CIFAR-10 with two LLMs of different sizes, the pipeline improved one-epoch proxy accuracy from 38.0\% to 59.3\% with Qwen2.5-7B-Instruct ($\rho = 0.67$, $p < 10^{-10}$) and from 10.0\% to 37.9\% with Qwen3-4B-Instruct ($\rho = 0.79$, $p < 10^{-9}$), demonstrating that iterative feedback with bounded historical memory significantly outperforms single-shot generation across model sizes. Three design principles distinguish our approach from prior iterative LLM optimization methods: (1)~bounded K-step Markovian memory prevents context overflow while retaining relevant failure patterns, (2)~structured diagnostic triples explicitly model code execution failures unique to neural architecture generation, and (3)~dual-LLM specialization (Code Generator and Prompt Improver) enables effective operation on small (4B) frozen models without fine-tuning. Our results establish that even small LLMs can serve as effective architecture search agents when equipped with structured iterative feedback, offering a lightweight and accessible approach to neural architecture search.
 	
 	{
 		\small
