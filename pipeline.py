@@ -23,6 +23,7 @@ from code_generator import CodeGenerator, INITIAL_PROMPT_TEMPLATE
 from code_extractor import CodeExtractor
 from evaluator import Evaluator, EvaluationResult
 from prompt_improver import PromptImprover
+from huggingface_hub import login
 
 
 class Pipeline:
@@ -422,4 +423,5 @@ if __name__ == "__main__":
     np.random.seed(43)
     random.seed(43)
 
+    login(token = os.getenv("HF_TOKEN"))
     main()

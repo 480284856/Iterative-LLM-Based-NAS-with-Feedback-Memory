@@ -178,6 +178,48 @@ mismatches, syntax errors), which are absent in heuristic optimization.
 
 ---
 
+### 5. LLMO (Large Language Model Aided Adversarial Robustness NAS, IEEE 2024)
+
+**Why Critical:** Direct LLM application to NAS, but constrained to predefined search spaces—highlights the novelty of open code space approaches.
+
+**Key Reference:**
+Zhong, Y., Liu, Y., Liu, X., & Chen, T. (2024). 
+Large language model assisted adversarial robustness neural architecture search. 
+IEEE Transactions on Artificial Intelligence.
+
+**Suggested Addition:**
+
+\textbf{LLMO}~\cite{Zhong2024LLMO} demonstrated that LLMs (Gemini) can directly 
+serve as combinatorial optimizers for NAS, replacing traditional meta-heuristics 
+like genetic algorithms and particle swarm optimization. Using the CRISPE 
+prompting framework, LLMO iteratively refines candidate architectures within 
+the \emph{predefined cell-based search space} of NAS-Bench-201, achieving 
+competitive performance on CIFAR-10 and CIFAR-100. However, LLMO operates on 
+discrete architecture encodings (edge operation selections within fixed cell 
+graphs) rather than generating executable code, fundamentally limiting its 
+expressiveness—the LLM cannot invent novel layer types, connection patterns, 
+or architectural motifs beyond the predefined cell template. Additionally, 
+LLMO does not incorporate historical feedback memory, treating each optimization 
+step independently. Our approach addresses both limitations: by generating 
+complete PyTorch code, we enable exploration of unrestricted architectural 
+patterns, and our bounded Markovian memory allows systematic learning from 
+past attempts across iterations.
+
+**Comparison Table:**
+
+| **Aspect** | **LLMO** | **Our Method** |
+|-----------|----------|----------------|
+| Search space | Predefined cell-based (NAS-Bench-201) | Open code space (unrestricted PyTorch) |
+| Architecture representation | Discrete encoding vectors | Executable PyTorch classes |
+| Historical memory | ❌ No explicit memory | ✅ K=5 sliding window with triples |
+| LLM training required | ❌ No (frozen Gemini) | ❌ No (frozen Qwen) |
+| Failure handling | N/A (no code syntax errors) | ✅ Structured error diagnosis |
+| Architectural creativity | Constrained to predefined cells | Unrestricted novel patterns |
+| Code execution | Not applicable | Required, with failure modeling |
+
+
+---
+
 ## Part II: Formal Novelty Statement
 
 ### Mathematical Formalization
@@ -260,30 +302,33 @@ cognitive load compared to end-to-end generation~\cite{Chen2023EvoPrompting}.
 
 **Insert into Discussion or create new subsection "Positioning in the LLM-NAS Landscape":**
 
-Table~\ref{table:comparison} positions our method relative to the four most 
-similar iterative LLM-based optimization approaches. We are the \textbf{only 
+Table~\ref{table:comparison} positions our method relative to the five most 
+similar LLM-based NAS and optimization approaches. We are the \textbf{only 
 method} that simultaneously satisfies three critical properties: (1)~open code 
 space with structural constraints, (2)~bounded Markovian memory with explicit 
 failure handling, and (3)~demonstrated effectiveness on small ($\leq$7B) 
-instruction-tuned LLMs without additional training.
+instruction-tuned LLMs without additional training. Notably, while LLMO also 
+applies LLMs to NAS without training, it operates in predefined discrete search 
+spaces that fundamentally limit architectural expressiveness.
 
 \begin{table*}[t]
-\caption{Systematic comparison with most similar iterative LLM optimization methods. 
-Our method is the only one combining open code space, bounded Markovian memory, 
+\caption{Systematic comparison with most similar LLM-based NAS and optimization methods. 
+Our method uniquely combines open code space, bounded Markovian memory, 
 explicit failure modeling, and small-model viability.}
 \label{table:comparison}
 \centering
-\fontsize{8}{9.5}\selectfont
-\begin{tabular}{l c c c c c}
+\fontsize{7.5}{9}\selectfont
+\begin{tabular}{l c c c c c c}
 \toprule
-\textbf{Method} & \textbf{Target Domain} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
+\textbf{Method} & \textbf{Target Domain} & \textbf{Search Space} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
 \midrule
-OPRO~\cite{Yang2023OPRO} & Text prompts, discrete solutions & Top-K by quality (unbounded growth) & ❌ & ❌ Scores only & GPT-4, PaLM 2-L \\
-FunSearch~\cite{Romera2023FunSearch} & Math functions (Python) & Multi-island pools (unbounded) & ❌ & ❌ Population selection & Not specified \\
-EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Population diversity (implicit) & ❌ & ❌ Selection only & Requires fine-tuning \\
-ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Dual-layer reflection & ❌ & ✅ Verbal comparison & Not specified \\
+OPRO~\cite{Yang2023OPRO} & Text prompts, discrete & N/A & Top-K by quality (unbounded) & ❌ & ❌ Scores only & GPT-4, PaLM 2-L \\
+FunSearch~\cite{Romera2023FunSearch} & Math functions & Open Python & Multi-island pools (unbounded) & ❌ & ❌ Population selection & Not specified \\
+EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Open code & Population diversity (implicit) & ❌ & ❌ Selection only & Requires tuning \\
+ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Open code & Dual-layer reflection & ❌ & ✅ Verbal comparison & Not specified \\
+LLMO~\cite{Zhong2024LLMO} & NAS (CIFAR) & \textbf{Closed cell-based} & ❌ No memory & ❌ & N/A (no code errors) & Gemini (large) \\
 \midrule
-\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{K=5 sliding window} & \textbf{✅ Yes} & \textbf{✅ Diagnostic triples} & \textbf{4B/7B frozen} \\
+\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{Open code} & \textbf{K=5 sliding window} & \textbf{✅ Yes} & \textbf{✅ Diagnostic triples} & \textbf{4B/7B frozen} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -313,13 +358,17 @@ extended this to program synthesis for mathematical discovery using island-based
 evolutionary search. EvoPrompting~\cite{Chen2023EvoPrompting} applied evolutionary 
 prompting with LLMs as mutation operators for code-level neural architecture 
 search. ReEvo~\cite{Ye2024ReEvo} introduced dual-layer reflective memory for 
-LLM-driven heuristic algorithm design. However, these methods either operate 
-on unbounded memory structures risking context overflow~\cite{Yang2023OPRO,Romera2023FunSearch}, 
-require LLM fine-tuning~\cite{Chen2023EvoPrompting}, or target optimization 
-domains without the structural code constraints inherent to neural architecture 
-generation~\cite{Ye2024ReEvo}. Our work introduces bounded Markovian memory 
-specifically designed for iterative neural architecture code generation with 
-explicit failure modeling, demonstrating effectiveness on small frozen LLMs.
+LLM-driven heuristic algorithm design. More directly related to NAS, 
+LLMO~\cite{Zhong2024LLMO} used LLMs as combinatorial optimizers within the 
+predefined cell-based search space of NAS-Bench-201, replacing traditional 
+meta-heuristics. However, existing methods face key limitations: unbounded 
+memory structures risking context overflow~\cite{Yang2023OPRO,Romera2023FunSearch}, 
+requirements for LLM fine-tuning~\cite{Chen2023EvoPrompting}, operation in 
+constrained discrete search spaces~\cite{Zhong2024LLMO}, or targeting domains 
+without structural code constraints~\cite{Ye2024ReEvo}. Our work introduces 
+bounded Markovian memory specifically designed for iterative neural architecture 
+code generation in open search spaces, with explicit failure modeling enabling 
+effectiveness on small frozen LLMs.
 
 
 ---
@@ -359,13 +408,13 @@ enables effective operation on small (4B) frozen models without fine-tuning.
 
 ### Immediate Actions (High Priority)
 
-- [ ] Add OPRO, FunSearch, EvoPrompting, ReEvo to bibliography
-- [ ] Insert "Iterative LLM Optimization" paragraph in Related Work
+- [ ] Add OPRO, FunSearch, EvoPrompting, ReEvo, LLMO to bibliography
+- [ ] Insert "Iterative LLM Optimization" paragraph in Related Work (with LLMO mention)
 - [ ] Add mathematical formalization of Markov property in Methodology (Sec 3.4)
-- [ ] Insert comparison table (Table comparing 5 methods) in Discussion
+- [ ] Insert comparison table (Table comparing 6 methods including LLMO) in Discussion
 - [ ] Add "Comparison with iterative LLM optimization methods" paragraph in Discussion
-- [ ] Revise abstract to mention comparison with unbounded-history methods
-- [ ] Enhance conclusion with three-principle distinction statement
+- [ ] Revise abstract to mention comparison with unbounded-history and closed-space methods
+- [ ] Enhance conclusion with three-principle distinction statement emphasizing open code space
 
 ### Secondary Enhancements (Medium Priority)
 
@@ -393,7 +442,7 @@ Your method is NOT just "another LLM-NAS paper." It addresses three critical gap
 3. **Accessibility:** Small-model effectiveness (4B) democratizes LLM-NAS beyond large-model-only approaches
 
 **One-Sentence Positioning:**
-"We introduce the first iterative LLM-based NAS pipeline with bounded Markovian memory and explicit code failure modeling, enabling effective architecture search on small frozen LLMs—a capability not demonstrated by prior unbounded-history or population-based methods."
+"We introduce the first iterative LLM-based NAS pipeline operating in open code space with bounded Markovian memory and explicit code failure modeling, enabling effective architecture search on small frozen LLMs—a capability not demonstrated by prior unbounded-history methods (OPRO, FunSearch), population-based approaches (EvoPrompting, ReEvo), or constrained-space methods (LLMO)."
 
 
 ---
@@ -429,6 +478,14 @@ Your method is NOT just "another LLM-NAS paper." It addresses three critical gap
   author={Ye, Fei and Yang, Haoran and Cai, Xiaohan and others},
   booktitle={Advances in Neural Information Processing Systems},
   year={2024}
+}
+
+@article{Zhong2024LLMO,
+  title={Large language model assisted adversarial robustness neural architecture search},
+  author={Zhong, Yuhang and Liu, Yuhao and Liu, Xiaotong and Chen, Tao},
+  journal={IEEE Transactions on Artificial Intelligence},
+  year={2024},
+  publisher={IEEE}
 }
 
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,12 @@ Nada Aboudeshish, Dmitry Ignatov, and Radu Timofte.
 \newblock Augmentgest: Can random data cropping augmentation boost gesture
   recognition performance?
 \newblock \emph{arXiv preprint}, arXiv:2506.07216, 2025.
+
+\bibitem[Chen et~al.(2023)Chen, Dohan, and Hutchins]{Chen2023EvoPrompting}
+Angelica Chen, David Dohan, and Daved Hutchins.
+\newblock Evoprompting: Language models for code-level neural architecture
+  search.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2023.
 
 \bibitem[Chen et~al.(2021)]{Chen2021Codex}
 Mark Chen et~al.
@@ -114,6 +120,13 @@ Esteban Real, Alok Aggarwal, Yanping Huang, and Quoc~V. Le.
 \newblock Regularized evolution for image classifier architecture search.
 \newblock In \emph{AAAI}, pages 4780--4789, 2019.
 
+\bibitem[Romera-Paredes et~al.(2023)Romera-Paredes, Barekatain, Novikov,
+  et~al.]{Romera2023FunSearch}
+Bernardino Romera-Paredes, Mohammadamin Barekatain, Alexander Novikov, et~al.
+\newblock Mathematical discoveries from program search with large language
+  models.
+\newblock \emph{Nature}, 625\penalty0 (7995):\penalty0 468--475, 2023.
+
 \bibitem[Rupani et~al.(2025)Rupani, Ignatov, and Timofte]{Rupani2025llm}
 Bhavya Rupani, Dmitry Ignatov, and Radu Timofte.
 \newblock Exploring the collaboration between vision models and llms for
@@ -151,6 +164,25 @@ Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Dmitry Ignatov, and Radu
 \newblock Enhancing llm-based neural network generation: Few-shot prompting and
   efficient validation for automated architecture design.
 \newblock \emph{arXiv preprint}, arXiv:2512.24120, 2025.
+
+\bibitem[Yang et~al.(2023)Yang, Wang, Lu, Liu, Le, Zhou, and
+  Chen]{Yang2023OPRO}
+Chengrun Yang, Xuezhi Wang, Yifeng Lu, Hanxiao Liu, Quoc~V Le, Denny Zhou, and
+  Xinyun Chen.
+\newblock Large language models as optimizers.
+\newblock \emph{arXiv preprint arXiv:2309.03409}, 2023.
+
+\bibitem[Ye et~al.(2024)Ye, Yang, Cai, et~al.]{Ye2024ReEvo}
+Fei Ye, Haoran Yang, Xiaohan Cai, et~al.
+\newblock Reevo: Large language models as hyper-heuristics with reflective
+  evolution.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2024.
+
+\bibitem[Zhong et~al.(2024)Zhong, Liu, Liu, and Chen]{Zhong2024LLMO}
+Yuhang Zhong, Yuhao Liu, Xiaotong Liu, and Tao Chen.
+\newblock Large language model assisted adversarial robustness neural
+  architecture search.
+\newblock \emph{IEEE Transactions on Artificial Intelligence}, 2024.
 
 \bibitem[Zoph and Le(2017)]{Zoph2017}
 Barret Zoph and Quoc~V. Le.
