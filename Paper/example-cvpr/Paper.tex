@@ -1,10 +1,12 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
-\usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
-\usepackage[article]{cvpr}
+% \usepackage[article]{cvpr}
+% \usepackage[review]{cvpr}
+\usepackage[pagenumbers]{cvpr}
 
 % Include other packages here, before hyperref.
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -284,9 +286,9 @@
 	FunSearch~\cite{Romera2023FunSearch} & Math functions & Open Python & Multi-island pools & $\times$ & $\times$ Scores only & Codey (PaLM 2) \\
 	EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Open code & Population diversity & $\times$ & $\times$ Selection only & Frozen / Soft-tuned \\
 	ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Open code & Dual-layer reflection & $\times$ & $\checkmark$ Verbal comparison & GPT-3.5 / GPT-4 \\
-	LLMO~\cite{Zhong2024LLMO} & NAS (CIFAR) & \textbf{Closed cell} & Historical score pairs & $\times$ & N/A (no code errors) & Gemini Pro (large) \\
+	LLMO~\cite{Zhong2024LLMO} & NAS & \textbf{Closed cell} & Historical score pairs & $\times$ & N/A (no code errors) & Gemini Pro (large) \\
 	\midrule
-	\textbf{Ours} & \textbf{PyTorch NAS} & \textbf{Open code} & \textbf{K=5 sliding window} & \textbf{$\checkmark$} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
+	\textbf{Ours} & \textbf{NAS} & \textbf{Open code} & \textbf{K=5 sliding window} & \textbf{$\checkmark$} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
 	\bottomrule
 	\end{tabular}
 	\end{table*}
