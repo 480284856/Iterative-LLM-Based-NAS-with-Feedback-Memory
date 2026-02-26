@@ -1,4 +1,4 @@
-# Set HF_TOKEN in environment before running
+# Set SiliconCloud_Key in environment before running
 
 CONDA_PATH="/home/$(whoami)/miniconda3"
 
@@ -9,19 +9,27 @@ else
     exit 1
 fi
 
+cd /home/gu/prompt_improvement
+mkdir -p ./output ./log
 
-conda activate promptimprove
-
-cd /home/gu/Desktop/prompt_improvement
-
-python pipeline.py  --model zai-org/glm-4-9b \
-                    --max-iterations 100 \
-                    --output-dir /home/gu/Desktop/prompt_improvement/output/glm4_9b
+python pipeline.py  --model Qwen/Qwen2.5-7B-Instruct \
+                    --dataset imagenette \
+                    --max-iterations 2000 \
+                    --target-accuracy 1.0 \
+                    --output-dir ./output/qwen2.5_7b_instruct_2000 \
+| tee ./log/qwen2.5_7b_instruct_2000.log
 
 python pipeline.py  --model deepseek-ai/deepseek-coder-6.7b-instruct \
-                    --max-iterations 100 \
-                    --output-dir /home/gu/Desktop/prompt_improvement/output/deepseek_coder_6.7b_instruct
+                    --dataset imagenette \
+                    --max-iterations 2000 \
+                    --target-accuracy 1.0 \
+                    --output-dir ./output/deepseek_coder_6.7b_instruct_2000 \
+| tee ./log/deepseek_coder_6.7b_instruct_2000.log
 
-python pipeline.py  --model codellama/CodeLlama-7b-Python-hf \
+python pipeline.py  --model Pro/zai-org/GLM-5 \
+                    --remote \
+                    --dataset imagenette \
                     --max-iterations 100 \
-                    --output-dir /home/gu/Desktop/prompt_improvement/output/codellama_7b_Python_hf
+                    --target-accuracy 1 \
+                    --output-dir ./output/glm5_500 \
+| tee ./log/glm5_500.log

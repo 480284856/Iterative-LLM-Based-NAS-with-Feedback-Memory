@@ -19,7 +19,7 @@ from typing import Optional
 
 from config import PipelineConfig, DEFAULT_CONFIG
 from llm_client import LLMClient
-from code_generator import CodeGenerator, INITIAL_PROMPT_TEMPLATE
+from code_generator import CodeGenerator, get_prompt_template
 from code_extractor import CodeExtractor
 from evaluator import Evaluator, EvaluationResult
 from prompt_improver import PromptImprover
@@ -46,11 +46,13 @@ class Pipeline:
         self._prompt_improver = None
         
         # State
-        self.current_prompt_template = INITIAL_PROMPT_TEMPLATE  # Fixed template, not modified
+        self.current_prompt_template = get_prompt_template(self.config.dataset)  # Fixed template, not modified
         self.best_code: Optional[str] = None  # Best performing code so far (used as reference)
         self.best_accuracy: float = 0.0  # Best accuracy achieved
         self.best_iteration: int = 0  # Iteration that achieved best accuracy
         self.current_improvement_suggestions: Optional[str] = None  # Improvement suggestions from prompt improver
+        self.last_generated_code: Optional[str] = None
+        self.last_accuracy: Optional[float] = None
         self.iteration = 0
         self.results_history = []
         
@@ -67,7 +69,10 @@ class Pipeline:
     def llm_client(self) -> LLMClient:
         """Lazy load LLM client."""
         if self._llm_client is None:
-            self._llm_client = LLMClient(model_name=self.config.model_name)
+            self._llm_client = LLMClient(
+                model_name=self.config.model_name,
+                use_remote=self.config.use_remote
+            )
         return self._llm_client
     
     @property
@@ -89,7 +94,8 @@ class Pipeline:
                 batch_size=self.config.batch_size,
                 learning_rate=self.config.learning_rate,
                 timeout=self.config.training_timeout,
-                data_dir=self.config.data_dir
+                data_dir=self.config.data_dir,
+                dataset=self.config.dataset
             )
         return self._evaluator
     
@@ -97,7 +103,7 @@ class Pipeline:
     def prompt_improver(self) -> PromptImprover:
         """Lazy load prompt improver."""
         if self._prompt_improver is None:
-            self._prompt_improver = PromptImprover(self.llm_client)
+            self._prompt_improver = PromptImprover(self.llm_client, dataset=self.config.dataset)
         return self._prompt_improver
     
     def log_result(self, iteration: int, accuracy: Optional[float], success: bool, error: Optional[str] = None):
@@ -182,7 +188,9 @@ class Pipeline:
         response = self.code_generator.generate(
             prompt_template=self.current_prompt_template,
             reference_code=self.best_code,
-            improvement_suggestions=self.current_improvement_suggestions
+            improvement_suggestions=self.current_improvement_suggestions,
+            current_code=self.last_generated_code,
+            current_accuracy=self.last_accuracy
         )
         
         # Step 2: Extract code
@@ -323,6 +331,10 @@ class Pipeline:
             # Update history with result from this iteration (for the previous suggestion)
             self.update_history_with_result(accuracy, feedback)
             
+            # Save the current iteration code and accuracy for the next generation
+            self.last_generated_code = generated_code
+            self.last_accuracy = accuracy
+            
             # Track best result and update best_code
             if success and accuracy is not None:
                 if accuracy > self.best_accuracy:
@@ -376,7 +388,12 @@ def main():
     
     parser = argparse.ArgumentParser(description='Run Prompt Improvement Pipeline')
     parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-7B-Instruct",
-                        help='HuggingFace model name')
+                        help='HuggingFace model name or remote model ID')
+    parser.add_argument('--remote', action='store_true',
+                        help='Use remote model API (reads SiliconCloud_Key environment variable)')
+    parser.add_argument('--dataset', type=str, default='imagenette',
+                        choices=['imagenette', 'cifar10'],
+                        help='Dataset to use for training (imagenette or cifar10)')
     parser.add_argument('--target-accuracy', type=float, default=0.8,
                         help='Target accuracy to reach')
     parser.add_argument('--max-iterations', type=int, default=1000,
@@ -395,9 +412,14 @@ def main():
     if args.test:
         from config import TEST_CONFIG
         config = TEST_CONFIG
+        config.model_name = args.model
+        config.use_remote = args.remote
+        config.dataset = args.dataset
     else:
         config = PipelineConfig(
             model_name=args.model,
+            use_remote=args.remote,
+            dataset=args.dataset,
             target_accuracy=args.target_accuracy,
             max_iterations=args.max_iterations,
             train_epochs=args.epochs,

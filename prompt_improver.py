@@ -12,7 +12,57 @@ from llm_client import LLMClient
 
 
 # Prompt template from Prompt Improver.md
-IMPROVER_PROMPT_TEMPLATE = """## Role
+IMAGENETTE_IMPROVER_PROMPT_TEMPLATE = """## Role
+
+You are an excellent vision model architect. You have much experience in designing vision models. You are good at improving the vision model code. You have a lot of experience of debugging the vision model code.
+
+## Task
+
+You are given:
+1. The BEST performing code so far (reference implementation)
+2. The CURRENT iteration's code and its evaluation result
+3. History of previous improvement attempts and their results (learn from past experience!)
+
+Analyze the problems and provide specific improvement suggestions for the next iteration.
+
+- The dataset is **ImageNette** (a 10-class subset of ImageNet, input shape: 3x160x160, 10 output classes).
+- The evaluation result is a float number between 0 and 1, meaning the accuracy of the vision model.
+- Sometimes the evaluation maybe a message string, meaning the error or other questions of the vision model. In this case, you should provide suggestions to fix the error.
+- Your suggestions should help improve upon the BEST code, not just fix the current iteration's issues.
+- IMPORTANT: Learn from the improvement history! Avoid repeating suggestions that didn't work, and build upon ideas that showed improvement.
+
+## Improvement History (Recent Iterations)
+{improvement_history}
+
+## Best Code (Reference - Accuracy: {best_accuracy})
+{best_code}
+
+## Current Iteration Code (Accuracy: {current_accuracy})
+{current_code}
+
+## Feedback from Evaluator
+{message_from_evaluator}
+
+## Tips
+
+- **Learn from history**: Review what was tried before and what results it produced. Don't repeat failed approaches.
+- Compare the current code with the best code to understand what changes led to performance differences.
+- Analyze the possible reasons why the accuracy is low or why the error occurred.
+- Provide specific, actionable improvement suggestions that build upon the BEST code.
+- You have a lot of knowledge, so the inspiration can come from any subject, such as computer science, philosophy, economics, biology, etc.
+- Focus on concrete architectural changes, hyperparameter suggestions, or bug fixes.
+
+## Output format
+```json
+{{
+    "reason": "The reason why the accuracy is low or the error occurred",
+    "inspiration": "The inspiration from any subject, such as computer science, philosophy, economics, biology, etc.",
+    "improvement_suggestions": "Specific, actionable suggestions on how to improve upon the best code. Be detailed and concrete."
+}}
+```
+"""
+
+CIFAR10_IMPROVER_PROMPT_TEMPLATE = """## Role
 
 You are an excellent vision model architect. You have much experience in designing vision models. You are good at improving the vision model code. You have a lot of experience of debugging the vision model code.
 
@@ -61,11 +111,10 @@ Analyze the problems and provide specific improvement suggestions for the next i
 ```
 """
 
-
 class PromptImprover:
     """Generates improvement suggestions based on evaluation feedback."""
     
-    def __init__(self, llm_client: LLMClient):
+    def __init__(self, llm_client: LLMClient, dataset: str = 'imagenette'):
         """
         Initialize the prompt improver.
         
@@ -73,6 +122,13 @@ class PromptImprover:
             llm_client: LLM client for text generation
         """
         self.llm_client = llm_client
+        self.dataset = dataset
+        if dataset == 'imagenette':
+            self.IMPROVER_PROMPT_TEMPLATE = IMAGENETTE_IMPROVER_PROMPT_TEMPLATE
+        elif dataset == 'cifar10':
+            self.IMPROVER_PROMPT_TEMPLATE = CIFAR10_IMPROVER_PROMPT_TEMPLATE
+        else:
+            raise ValueError(f"Invalid dataset: {dataset}")
     
     def improve(
         self,
@@ -97,6 +153,7 @@ class PromptImprover:
             history: List of previous improvement attempts with their results
             output_dir: The directory to save the prompt
             current_iteration: The current iteration number. We need this to save the prompt.
+            dataset: The dataset being used ('imagenette' or 'cifar10')
         Returns:
             Dictionary with keys: reason, inspiration, improvement_suggestions
         """
@@ -107,8 +164,7 @@ class PromptImprover:
         # Format history string
         history_str = self._format_history(history)
         
-        # Format the improver prompt
-        improver_prompt = IMPROVER_PROMPT_TEMPLATE.format(
+        improver_prompt = self.IMPROVER_PROMPT_TEMPLATE.format(
             best_code=best_code if best_code else "No best code yet (first iteration)",
             best_accuracy=best_acc_str,
             current_code=current_code if current_code else "No code was generated",

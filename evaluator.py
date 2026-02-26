@@ -30,7 +30,7 @@ class EvaluationResult:
 
 
 class Evaluator:
-    """Evaluates generated model code by training on CIFAR-10."""
+    """Evaluates generated model code by training on a chosen dataset."""
     
     def __init__(
         self,
@@ -38,7 +38,8 @@ class Evaluator:
         batch_size: int = 128,
         learning_rate: float = 0.01,
         timeout: int = 1800,  # 30 minutes default timeout
-        data_dir: str = './data'
+        data_dir: str = './data',
+        dataset: str = 'imagenette'
     ):
         """
         Initialize the evaluator.
@@ -48,13 +49,15 @@ class Evaluator:
             batch_size: Training batch size
             learning_rate: Learning rate for optimizer
             timeout: Maximum time in seconds for training
-            data_dir: Directory for CIFAR-10 data
+            data_dir: Directory for dataset data
+            dataset: Dataset to use ('imagenette' or 'cifar10')
         """
         self.epochs = epochs
         self.batch_size = batch_size
         self.learning_rate = learning_rate
         self.timeout = timeout
         self.data_dir = data_dir
+        self.dataset = dataset
         
         # Get the directory of this file for finding train_script.py
         self.script_dir = Path(__file__).parent
@@ -92,7 +95,8 @@ class Evaluator:
                 '--output_file', result_path,
                 '--batch_size', str(self.batch_size),
                 '--lr', str(self.learning_rate),
-                '--data_dir', self.data_dir
+                '--data_dir', self.data_dir,
+                '--dataset', self.dataset
             ]
             
             # Set environment variables for reproducibility
@@ -200,11 +204,14 @@ class Evaluator:
             
             model = model.to(device)
             
-            # Test forward pass with dummy input (CIFAR-10 shape: 3x32x32)
-            dummy_input = torch.randn(2, 3, 32, 32).to(device)
+            # Test forward pass with dummy input matching dataset shape
+            if getattr(self, 'dataset', 'imagenette') == 'cifar10':
+                dummy_input = torch.randn(2, 3, 32, 32).to(device)
+            else:
+                dummy_input = torch.randn(2, 3, 160, 160).to(device)
             output = model(dummy_input)
             
-            # Check output shape (should be batch_size x 10 for CIFAR-10)
+            # Check output shape (should be batch_size x 10)
             if output.shape[0] != 2:
                 return False, f"Output batch size mismatch: expected 2, got {output.shape[0]}"
             if output.shape[1] != 10:
@@ -217,7 +224,7 @@ class Evaluator:
 
 
 if __name__ == "__main__":
-    # Test with a simple model
+    # Test with a simple model (ImageNette: 3x160x160 input, 10 classes)
     test_code = """
 import torch
 import torch.nn as nn
@@ -229,13 +236,15 @@ class Net(nn.Module):
         self.conv1 = nn.Conv2d(3, 32, 3, padding=1)
         self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
         self.pool = nn.MaxPool2d(2, 2)
-        self.fc1 = nn.Linear(64 * 8 * 8, 512)
+        self.adaptive_pool = nn.AdaptiveAvgPool2d((4, 4))
+        self.fc1 = nn.Linear(64 * 4 * 4, 512)
         self.fc2 = nn.Linear(512, 10)
         self.dropout = nn.Dropout(0.5)
     
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
+        x = self.adaptive_pool(x)
         x = x.view(x.size(0), -1)
         x = F.relu(self.fc1(x))
         x = self.dropout(x)

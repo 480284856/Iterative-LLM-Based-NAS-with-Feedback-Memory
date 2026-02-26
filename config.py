@@ -12,9 +12,13 @@ class PipelineConfig:
     
     # LLM settings
     model_name: str = "Qwen/Qwen2.5-7B-Instruct"
+    use_remote: bool = False
     max_new_tokens: int = 2048
     temperature: float = 0.7
     
+    # Dataset settings
+    dataset: str = "imagenette"  # "imagenette" or "cifar10"
+
     # Training settings
     train_epochs: int = 1
     batch_size: int = 128
@@ -36,6 +40,8 @@ class PipelineConfig:
     
     def __post_init__(self):
         """Validate configuration."""
+        if self.dataset not in ("imagenette", "cifar10"):
+            raise ValueError("dataset must be 'imagenette' or 'cifar10'")
         if self.target_accuracy <= 0 or self.target_accuracy > 1:
             raise ValueError("target_accuracy must be between 0 and 1")
         if self.max_iterations < 1:

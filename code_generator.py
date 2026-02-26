@@ -1,6 +1,6 @@
 """
 Code Generator module.
-Uses LLM to generate PyTorch vision model code for CIFAR-10 classification.
+Uses LLM to generate PyTorch vision model code for image classification.
 """
 
 import torch
@@ -9,8 +9,48 @@ import numpy as np
 from typing import Optional
 from llm_client import LLMClient
 
-# Initial prompt template from CodeGenerator.md
-INITIAL_PROMPT_TEMPLATE = """## Role
+_PROMPT_COMMON_TAIL = """
+## Reference Code (Best Implementation So Far)
+{reference_code}
+
+## Current Iteration Code (Accuracy: {current_accuracy})
+{current_code}
+
+## Improvement Suggestions (from previous iteration)
+{improvement_suggestions}
+
+## Output format
+```python
+class Net(nn.Module):
+    def __init__(self,):
+        super(Net, self).__init__()
+        
+        self.xxx = xxx # output shape: (xxx)
+        ...
+
+    def forward(self, *args, **kwargs):
+        pass
+```"""
+
+IMAGENETTE_PROMPT_TEMPLATE = """## Role
+
+You are a visionary deep learning architect renowned for designing breakthrough neural networks by drawing inspiration from meta principles in diverse scientific domains.
+
+## Task
+
+Generate a vision model that maximizes the accuracy on the ImageNette dataset for the image classification task.
+ImageNette is a 10-class subset of ImageNet. The input images are RGB with shape 3x160x160 (channels x height x width), and the model should output logits for 10 classes.
+
+## Requirements
+
+- Don't use pre-trained models.
+- Contain the implementation of the model, no other code.
+- If reference code is provided, improve upon it based on the improvement suggestions.
+- IMPORTANT: Calculate and annotate the output shape of each layer after the definition of the layer in __init__.
+- The input tensor shape is (batch_size, 3, 160, 160).
+""" + _PROMPT_COMMON_TAIL
+
+CIFAR10_PROMPT_TEMPLATE = """## Role
 
 You are a visionary deep learning architect renowned for designing breakthrough neural networks by drawing inspiration from meta principles in diverse scientific domains.
 
@@ -23,31 +63,27 @@ Generate a vision model that maximizes the accuracy on the CIFAR-10 dataset for 
 - Don't use pre-trained models.
 - Contain the implementation of the model, no other code.
 - If reference code is provided, improve upon it based on the improvement suggestions.
+- IMPORTANT: Calculate and annotate the output shape of each layer after the definition of the layer in __init__.
+""" + _PROMPT_COMMON_TAIL
 
-## Reference Code (Best Implementation So Far)
-{reference_code}
+# Default prompt template (kept for backward compatibility)
+INITIAL_PROMPT_TEMPLATE = IMAGENETTE_PROMPT_TEMPLATE
 
-## Improvement Suggestions (from previous iteration)
-{improvement_suggestions}
 
-## Output format
-```python
-class Net(nn.Module):
-    def __init__(self, parameters: dict):
-        super(Net, self).__init__()
-        
-        self.xxx = xxx
-        ...
-
-    def forward(self, *args, **kwargs):
-        pass
-```"""
+def get_prompt_template(dataset: str) -> str:
+    """Return the appropriate initial prompt template for the given dataset."""
+    if dataset == 'cifar10':
+        return CIFAR10_PROMPT_TEMPLATE
+    return IMAGENETTE_PROMPT_TEMPLATE
 
 # For first iteration when there's no reference code
 NO_REFERENCE_CODE = "No reference code available. This is the first iteration."
 
 # For first iteration when there's no improvement suggestions
 NO_IMPROVEMENT_SUGGESTIONS = "No improvement suggestions yet. This is the first iteration."
+
+# For first iteration when there's no current iteration code
+NO_CURRENT_CODE = "No current iteration code available. This is the first iteration."
 
 
 class CodeGenerator:
@@ -65,12 +101,16 @@ class CodeGenerator:
         self.prompt_template = initial_prompt_template or INITIAL_PROMPT_TEMPLATE
         self.reference_code: Optional[str] = None
         self.improvement_suggestions: Optional[str] = None
+        self.current_code: Optional[str] = None
+        self.current_accuracy: Optional[float] = None
         
     def generate(
         self, 
         prompt_template: str = None, 
         reference_code: str = None,
-        improvement_suggestions: str = None
+        improvement_suggestions: str = None,
+        current_code: str = None,
+        current_accuracy: float = None
     ) -> str:
         """
         Generate vision model code.
@@ -79,6 +119,8 @@ class CodeGenerator:
             prompt_template: Optional custom prompt template. If None, uses stored template.
             reference_code: Optional reference code from previous iteration.
             improvement_suggestions: Optional improvement suggestions from previous iteration.
+            current_code: Optional code from the current/previous iteration.
+            current_accuracy: Optional accuracy from the current/previous iteration.
             
         Returns:
             LLM response containing the generated code
@@ -86,11 +128,18 @@ class CodeGenerator:
         template = prompt_template 
         ref_code = reference_code or NO_REFERENCE_CODE
         suggestions = improvement_suggestions or NO_IMPROVEMENT_SUGGESTIONS
+        c_code = current_code or NO_CURRENT_CODE
+        if current_accuracy is not None:
+            c_acc_str = f"{current_accuracy*100:.2f}%"
+        else:
+            c_acc_str = "Failed" if current_code else "N/A (first iteration)"
         
         # Format the prompt with reference code and improvement suggestions
         current_prompt = template.format(
             reference_code=ref_code,
-            improvement_suggestions=suggestions
+            improvement_suggestions=suggestions,
+            current_code=c_code,
+            current_accuracy=c_acc_str
         )
         
         response = self.llm_client.generate(
@@ -127,6 +176,13 @@ class CodeGenerator:
         """
         self.improvement_suggestions = suggestions
     
+    def update_current_code_and_accuracy(self, code: str, accuracy: float):
+        """
+        Update the current code and accuracy for next generation.
+        """
+        self.current_code = code
+        self.current_accuracy = accuracy
+    
     def get_prompt_template(self) -> str:
         """Get the current prompt template."""
         return self.prompt_template
@@ -138,6 +194,14 @@ class CodeGenerator:
     def get_improvement_suggestions(self) -> Optional[str]:
         """Get the current improvement suggestions."""
         return self.improvement_suggestions
+    
+    def get_current_code(self) -> Optional[str]:
+        """Get the current code."""
+        return self.current_code
+    
+    def get_current_accuracy(self) -> Optional[float]:
+        """Get the current accuracy."""
+        return self.current_accuracy
 
 
 if __name__ == "__main__":

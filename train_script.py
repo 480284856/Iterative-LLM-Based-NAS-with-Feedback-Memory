@@ -8,9 +8,12 @@ Usage:
 
 import json
 import sys
+import os
 import random
 import argparse
+import tarfile
 import traceback
+import urllib.request
 from pathlib import Path
 import torch
 import torch.nn as nn
@@ -42,18 +45,89 @@ def worker_init_fn(worker_id):
 # Set seeds at module load time
 set_all_seeds(SEED)
 
+IMAGENETTE_URL = "https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz"
+IMAGENETTE_DIR_NAME = "imagenette2-160"
+IMAGENETTE_SIZE = 160
+IMAGENET_MEAN = (0.485, 0.456, 0.406)
+IMAGENET_STD = (0.229, 0.224, 0.225)
+CIFAR10_MEAN = (0.4914, 0.4822, 0.4465)
+CIFAR10_STD = (0.2023, 0.1994, 0.2010)
+
+
+def download_imagenette(data_dir: str):
+    """Download and extract ImageNette if not already present."""
+    dest = Path(data_dir) / IMAGENETTE_DIR_NAME
+    if dest.exists() and (dest / "train").exists():
+        return
+    Path(data_dir).mkdir(parents=True, exist_ok=True)
+    tgz_path = Path(data_dir) / "imagenette2-160.tgz"
+    if not tgz_path.exists():
+        print(f"Downloading ImageNette to {tgz_path} ...")
+        urllib.request.urlretrieve(IMAGENETTE_URL, str(tgz_path))
+        print("Download complete.")
+    print(f"Extracting {tgz_path} ...")
+    with tarfile.open(str(tgz_path), "r:gz") as tar:
+        tar.extractall(path=data_dir)
+    print("Extraction complete.")
+
+
+def load_imagenette(batch_size: int = 128, data_dir: str = './data'):
+    """Load ImageNette dataset (160x160, 10 classes)."""
+    download_imagenette(data_dir)
+
+    train_dir = os.path.join(data_dir, IMAGENETTE_DIR_NAME, "train")
+    val_dir = os.path.join(data_dir, IMAGENETTE_DIR_NAME, "val")
+
+    transform_train = transforms.Compose([
+        transforms.Resize((IMAGENETTE_SIZE, IMAGENETTE_SIZE)),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize(IMAGENET_MEAN, IMAGENET_STD),
+    ])
+
+    transform_test = transforms.Compose([
+        transforms.Resize((IMAGENETTE_SIZE, IMAGENETTE_SIZE)),
+        transforms.ToTensor(),
+        transforms.Normalize(IMAGENET_MEAN, IMAGENET_STD),
+    ])
+
+    train_dataset = datasets.ImageFolder(train_dir, transform=transform_train)
+    test_dataset = datasets.ImageFolder(val_dir, transform=transform_test)
+
+    g = torch.Generator()
+    g.manual_seed(SEED)
+
+    train_loader = DataLoader(
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        num_workers=2,
+        worker_init_fn=worker_init_fn,
+        generator=g
+    )
+    test_loader = DataLoader(
+        test_dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=2,
+        worker_init_fn=worker_init_fn
+    )
+
+    return train_loader, test_loader
+
+
 def load_cifar10(batch_size: int = 128, data_dir: str = './data'):
-    """Load CIFAR-10 dataset."""
+    """Load CIFAR-10 dataset (32x32, 10 classes)."""
     transform_train = transforms.Compose([
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        transforms.Normalize(CIFAR10_MEAN, CIFAR10_STD),
     ])
 
     transform_test = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        transforms.Normalize(CIFAR10_MEAN, CIFAR10_STD),
     ])
 
     train_dataset = datasets.CIFAR10(
@@ -63,24 +137,21 @@ def load_cifar10(batch_size: int = 128, data_dir: str = './data'):
         root=data_dir, train=False, download=True, transform=transform_test
     )
 
-    # Create a generator for reproducible shuffling
     g = torch.Generator()
     g.manual_seed(SEED)
 
-    # Use worker_init_fn and generator for full reproducibility
-    # Note: num_workers=0 is most deterministic, but we use 2 with proper seeding
     train_loader = DataLoader(
-        train_dataset, 
-        batch_size=batch_size, 
-        shuffle=True, 
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
         num_workers=2,
         worker_init_fn=worker_init_fn,
         generator=g
     )
     test_loader = DataLoader(
-        test_dataset, 
-        batch_size=batch_size, 
-        shuffle=False, 
+        test_dataset,
+        batch_size=batch_size,
+        shuffle=False,
         num_workers=2,
         worker_init_fn=worker_init_fn
     )
@@ -140,6 +211,8 @@ def main():
     parser.add_argument('--batch_size', type=int, default=128, help='Batch size')
     parser.add_argument('--lr', type=float, default=0.01, help='Learning rate')
     parser.add_argument('--data_dir', type=str, default='./data', help='Data directory')
+    parser.add_argument('--dataset', type=str, default='imagenette',
+                        choices=['imagenette', 'cifar10'], help='Dataset to use')
     args = parser.parse_args()
 
     result = {
@@ -176,13 +249,7 @@ def main():
         Net = namespace['Net']
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
-        # Try to instantiate with empty parameters dict
-        try:
-            model = Net(parameters={})
-        except TypeError:
-            # If parameters not supported, try without
-            model = Net()
-        
+        model = Net()
         model = model.to(device)
         print(f"Model instantiated successfully on {device}")
         print(f"Model parameters: {sum(p.numel() for p in model.parameters()):,}")
@@ -191,11 +258,18 @@ def main():
         set_all_seeds(SEED)
         
         # Load dataset
-        print("Loading CIFAR-10 dataset...")
-        train_loader, test_loader = load_cifar10(
-            batch_size=args.batch_size,
-            data_dir=args.data_dir
-        )
+        if args.dataset == 'cifar10':
+            print("Loading CIFAR-10 dataset...")
+            train_loader, test_loader = load_cifar10(
+                batch_size=args.batch_size,
+                data_dir=args.data_dir
+            )
+        else:
+            print("Loading ImageNette dataset...")
+            train_loader, test_loader = load_imagenette(
+                batch_size=args.batch_size,
+                data_dir=args.data_dir
+            )
 
         # Setup training
         criterion = nn.CrossEntropyLoss()
