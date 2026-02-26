@@ -1,0 +1,125 @@
+[
+  {
+    "model": "deepseek_coder_6.7b",
+    "n_successful_iterations": 2000,
+    "spearman_rho": {
+      "value": 0.7537,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "迭代轮次与accuracy之间的Spearman秩相关系数，反映单调趋势强度"
+    },
+    "pearson_r": {
+      "value": 0.6767,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "迭代轮次与accuracy之间的Pearson线性相关系数"
+    },
+    "kendall_tau": {
+      "value": 0.5505,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "Kendall τ趋势检验，与Spearman互为佐证，对噪声更鲁棒"
+    },
+    "linear_slope_per_100iter": {
+      "value": 0.0084,
+      "r_squared": 0.4579,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "线性回归斜率（每100次迭代accuracy平均提升量），R²反映线性拟合优度"
+    },
+    "第一轮和最后一轮的accuracy差异": {
+      "first_accuracy": 0.2819,
+      "last_accuracy": 0.6534,
+      "delta (last - first)": 0.3715,
+      "说明": "最后一轮 - 第一轮，正值表示整体提升"
+    },
+    "最高accuracy与初始accuracy差异": {
+      "best_accuracy": 0.6919,
+      "delta_best (best - first)": 0.41,
+      "建议是否放到论文中": "是",
+      "说明": "曲线中最高accuracy - 第一轮accuracy，体现最大潜在提升"
+    }
+  },
+  {
+    "model": "qwen2.5_7b_instruct",
+    "n_successful_iterations": 2000,
+    "spearman_rho": {
+      "value": 0.6107,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "迭代轮次与accuracy之间的Spearman秩相关系数，反映单调趋势强度"
+    },
+    "pearson_r": {
+      "value": 0.5428,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "迭代轮次与accuracy之间的Pearson线性相关系数"
+    },
+    "kendall_tau": {
+      "value": 0.4891,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "Kendall τ趋势检验，与Spearman互为佐证，对噪声更鲁棒"
+    },
+    "linear_slope_per_100iter": {
+      "value": 0.0024,
+      "r_squared": 0.2946,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "线性回归斜率（每100次迭代accuracy平均提升量），R²反映线性拟合优度"
+    },
+    "第一轮和最后一轮的accuracy差异": {
+      "first_accuracy": 0.5002,
+      "last_accuracy": 0.6636,
+      "delta (last - first)": 0.1634,
+      "说明": "最后一轮 - 第一轮，正值表示整体提升"
+    },
+    "最高accuracy与初始accuracy差异": {
+      "best_accuracy": 0.7152,
+      "delta_best (best - first)": 0.215,
+      "建议是否放到论文中": "是",
+      "说明": "曲线中最高accuracy - 第一轮accuracy，体现最大潜在提升"
+    }
+  },
+  {
+    "model": "glm5",
+    "n_successful_iterations": 100,
+    "spearman_rho": {
+      "value": 0.7204,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "迭代轮次与accuracy之间的Spearman秩相关系数，反映单调趋势强度"
+    },
+    "pearson_r": {
+      "value": 0.557,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "迭代轮次与accuracy之间的Pearson线性相关系数"
+    },
+    "kendall_tau": {
+      "value": 0.5739,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "Kendall τ趋势检验，与Spearman互为佐证，对噪声更鲁棒"
+    },
+    "linear_slope_per_100iter": {
+      "value": 0.1278,
+      "r_squared": 0.3102,
+      "p_value": 0.0,
+      "建议是否放到论文中": "是",
+      "说明": "线性回归斜率（每100次迭代accuracy平均提升量），R²反映线性拟合优度"
+    },
+    "第一轮和最后一轮的accuracy差异": {
+      "first_accuracy": 0.5512,
+      "last_accuracy": 0.6813,
+      "delta (last - first)": 0.1301,
+      "说明": "最后一轮 - 第一轮，正值表示整体提升"
+    },
+    "最高accuracy与初始accuracy差异": {
+      "best_accuracy": 0.6813,
+      "delta_best (best - first)": 0.1301,
+      "建议是否放到论文中": "是",
+      "说明": "曲线中最高accuracy - 第一轮accuracy，体现最大潜在提升"
+    }
+  }
+]

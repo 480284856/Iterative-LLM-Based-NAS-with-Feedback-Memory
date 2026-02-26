@@ -1,8 +1,8 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
 % \usepackage[article]{cvpr}
-% \usepackage[review]{cvpr}
-\usepackage[pagenumbers]{cvpr}
+\usepackage[review]{cvpr}
+% \usepackage[pagenumbers]{cvpr}
 
 % Include other packages here, before hyperref.
 \usepackage{tikz}
@@ -260,8 +260,9 @@
 	\end{figure*}
 	
 	
-	\subsection{Failure Analysis}
-	
+	\section{Ablation Study}
+	\label{sec:ablation}
+    
 	The models exhibit markedly different failure profiles. Qwen2.5-7B-Instruct achieved a 77\% success rate (77 of 100 iterations), with all 23 failures attributable to \textbf{code validation errors}---tensor shape mismatches, channel dimension conflicts, and \texttt{AttributeError}s from undefined modules. Notably, the 7B model produced zero code extraction errors, indicating reliable generation of syntactically valid Python.
 	
 	Qwen3-4B-Instruct achieved a lower 41\% success rate (41 of 100 iterations), with failures split between \textbf{code validation errors} (48 of 100) and \textbf{code extraction errors} (11 of 100). The extraction failures---unclosed parentheses, unterminated string literals, and syntax errors---suggest that the smaller model more frequently produces malformed code that cannot even be parsed.
@@ -272,23 +273,23 @@
 	
 	
 	\begin{table*}[t]
-	\caption{Systematic comparison with most similar LLM-based NAS and optimization methods. 
-	Our method uniquely combines open code space, bounded Markovian failure modeling, 
-	and small-model viability without population overhead.}
+	\caption{Systematic comparison with most similar LLM-based NAS and optimization methods.
+	NAS target: method aims at neural architecture search; Open code space search: search over executable code rather than fixed cell encodings; Failure model: structured modeling of code execution failures (e.g., diagnostic triples); Small model: demonstrated effective with $\leq$7B LLMs.
+	Our method uniquely combines all four dimensions.}
 	\label{table:comparison}
 	\centering
 	\fontsize{7.5}{9}\selectfont
-	\begin{tabular}{l c c c c c c}
+	\begin{tabular}{l c c c c}
 	\toprule
-	\textbf{Method} & \textbf{Target Domain} & \textbf{Search Space} & \textbf{Memory Structure} & \textbf{Markov Bound} & \textbf{Failure Modeling} & \textbf{Model Size} \\
+	\textbf{Method} & \textbf{NAS target} & \textbf{Open code space search} & \textbf{Failure model} & \textbf{Small model} \\
 	\midrule
-	OPRO~\cite{Yang2023OPRO} & Text prompts, discrete & N/A & Top-K global elite & $\times$ & $\times$ Scores only & GPT-4, PaLM 2 \\
-	FunSearch~\cite{Romera2023FunSearch} & Math functions & Open Python & Multi-island pools & $\times$ & $\times$ Scores only & Codey (PaLM 2) \\
-	EvoPrompting~\cite{Chen2023EvoPrompting} & Code-level NAS & Open code & Population diversity & $\times$ & $\times$ Selection only & Frozen / Soft-tuned \\
-	ReEvo~\cite{Ye2024ReEvo} & Heuristic algorithms & Open code & Dual-layer reflection & $\times$ & $\checkmark$ Verbal comparison & GPT-3.5 / GPT-4 \\
-	LLMO~\cite{Zhong2024LLMO} & NAS & \textbf{Closed cell} & Historical score pairs & $\times$ & N/A (no code errors) & Gemini Pro (large) \\
+	OPRO~\cite{Yang2023OPRO} & $\times$ & $\times$ & $\times$ & $\times$ \\
+	FunSearch~\cite{Romera2023FunSearch} & $\times$ & $\checkmark$ & $\times$ & $\times$ \\
+	EvoPrompting~\cite{Chen2023EvoPrompting} & $\checkmark$ & $\checkmark$ & $\times$ & $\checkmark$ \\
+	ReEvo~\cite{Ye2024ReEvo} & $\times$ & $\checkmark$ & $\checkmark$ & $\times$ \\
+	LLMO~\cite{Zhong2024LLMO} & $\checkmark$ & $\times$ & $\times$ & $\times$ \\
 	\midrule
-	\textbf{Ours} & \textbf{NAS} & \textbf{Open code} & \textbf{K=5 sliding window} & \textbf{$\checkmark$} & \textbf{$\checkmark$ Diagnostic triples} & \textbf{4B/7B frozen} \\
+	\textbf{Ours} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
 	\bottomrule
 	\end{tabular}
 	\end{table*}

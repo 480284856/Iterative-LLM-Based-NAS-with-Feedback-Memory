@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.10)  21 FEB 2026 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.10)  21 FEB 2026 14:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -968,104 +968,94 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 5
 3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
+) [2]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
 01.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [2] [3]
-Overfull \hbox (5.5485pt too wide) in paragraph at lines 225--245
- [][] 
- []
-
-<img/accuracy_curve.png, id=212, 860.013pt x 317.2653pt>
+) [3] [4]
+<img/accuracy_curve.png, id=225, 860.013pt x 642.84164pt>
 File: img/accuracy_curve.png Graphic file (type png)
 <use img/accuracy_curve.png>
-Package pdftex.def Info: img/accuracy_curve.png  used on input line 249.
-(pdftex.def)             Requested size: 237.13594pt x 87.47816pt.
-[4]
-LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 271.
+Package pdftex.def Info: img/accuracy_curve.png  used on input line 253.
+(pdftex.def)             Requested size: 496.85625pt x 371.38687pt.
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 277.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 271.
+(Font)              size <7> substituted on input line 277.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.75> not available
-(Font)              size <5> substituted on input line 271.
+(Font)              size <5> substituted on input line 277.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
-(Font)              size <7> substituted on input line 271.
+(Font)              size <7> substituted on input line 277.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.75> not available
-(Font)              size <5> substituted on input line 271.
+(Font)              size <5> substituted on input line 277.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 271.
+(Font)              size <7> substituted on input line 277.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.75> not available
-(Font)              size <5> substituted on input line 271.
+(Font)              size <5> substituted on input line 277.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.67496> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.62498> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.67496> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.62498> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.67496> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.62498> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <1.875> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <1.875> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <1.875> not available
-(Font)              size <5> substituted on input line 278.
+(Font)              size <5> substituted on input line 284.
 
-
-Overfull \hbox (31.39714pt too wide) in paragraph at lines 271--284
- [][] 
- []
-
-[5 <./img/accuracy_curve.png>] [6] (./Paper.bbl (./Paper.brf)
+[5] [6 <./img/accuracy_curve.png>] (./Paper.bbl (./Paper.brf)
 \tf@brf=\write5
 \openout5 = `Paper.brf'.
 
- [7]) [8
+ [7] [8]) [9
 
 ]
 (./Paper.aux)
@@ -1076,37 +1066,36 @@ LaTeX Font Warning: Size substitutions with differences
 Package rerunfilecheck Info: File `Paper.out' has not changed.
 (rerunfilecheck)             Checksum: 62676C56F5ED77495C62B846711B830C;2022.
 Package rerunfilecheck Info: File `Paper.brf' has not changed.
-(rerunfilecheck)             Checksum: B2C3F2AB6BF70A853A6204E14D79CFBE;4254.
+(rerunfilecheck)             Checksum: FCD7C280A0C4CE879C32AD1AAD38D2C7;4369.
  ) 
 Here is how much of TeX's memory you used:
- 28015 strings out of 480171
- 527008 string characters out of 5894489
+ 28009 strings out of 480171
+ 526959 string characters out of 5894489
  837614 words of memory out of 5000000
- 45394 multiletter control sequences out of 15000+600000
- 510945 words of font info for 120 fonts, out of 8000000 for 9000
+ 45389 multiletter control sequences out of 15000+600000
+ 509400 words of font info for 114 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 100i,16n,104p,1830b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,16n,104p,2220b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Paper.pdf (8 pages, 419891 bytes).
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on Paper.pdf (9 pages, 578224 bytes).
 PDF statistics:
  436 PDF objects out of 1000 (max. 8388607)
- 384 compressed objects within 4 object streams
- 90 named destinations out of 1000 (max. 500000)
+ 387 compressed objects within 4 object streams
+ 93 named destinations out of 1000 (max. 500000)
  130 words of extra memory for PDF output out of 10000 (max. 10000000)
 
