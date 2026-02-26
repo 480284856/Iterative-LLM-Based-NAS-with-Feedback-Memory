@@ -23,7 +23,6 @@ from code_generator import CodeGenerator, get_prompt_template
 from code_extractor import CodeExtractor
 from evaluator import Evaluator, EvaluationResult
 from prompt_improver import PromptImprover
-from huggingface_hub import login
 
 
 class Pipeline:
@@ -58,7 +57,7 @@ class Pipeline:
         
         # Markov history for improvement tracking
         self.improvement_history: list[dict] = []  # History of improvements with results
-        self.max_history_size: int = 5  # Keep last N iterations of history
+        self.max_history_size: int = self.config.history_size  # Keep last N iterations of history
         self.pending_history_entry: Optional[dict] = None  # Entry waiting for result from next iteration
         
         # Setup output directory
@@ -183,11 +182,11 @@ class Pipeline:
         """
         self.iteration += 1
         
-        # Step 1: Generate code (with best code as reference)
+        # Step 1: Generate code (with best code as reference if enabled)
         print("\n[Step 1] Generating code...")        
         response = self.code_generator.generate(
             prompt_template=self.current_prompt_template,
-            reference_code=self.best_code,
+            reference_code=self.best_code if self.config.use_reference_code else None,
             improvement_suggestions=self.current_improvement_suggestions,
             current_code=self.last_generated_code,
             current_accuracy=self.last_accuracy
@@ -273,12 +272,12 @@ class Pipeline:
         print(f"[History] Current history size: {len(self.improvement_history)}")
         
         improvement = self.prompt_improver.improve(
-            best_code=self.best_code,
-            best_accuracy=self.best_accuracy,
+            best_code=self.best_code if self.config.use_reference_code else None,
+            best_accuracy=self.best_accuracy if self.config.use_reference_code else 0.0,
             current_code=current_code or "No code generated",
             current_accuracy=current_accuracy,
             feedback=feedback,
-            history=self.improvement_history,
+            history=self.improvement_history if self.config.use_history else None,
             output_dir=self.output_dir,
             current_iteration=current_iteration
         )
@@ -354,9 +353,14 @@ class Pipeline:
             
             # Generate suggestions for next iteration (if not last)
             if self.iteration < self.config.max_iterations:
-                if generated_code is None:
-                    print("\n[Using Step 2 extraction error as feedback for suggestions]")
-                self.generate_suggestions(generated_code, accuracy, feedback, self.iteration)
+                if self.config.use_prompt_improver:
+                    if generated_code is None:
+                        print("\n[Using Step 2 extraction error as feedback for suggestions]")
+                    self.generate_suggestions(generated_code, accuracy, feedback, self.iteration)
+                else:
+                    print("\n[Prompt Improver disabled for this run]")
+                    self.current_improvement_suggestions = None
+                    self.code_generator.update_improvement_suggestions(None)
         
         # Final summary
         final_result = {
@@ -406,6 +410,17 @@ def main():
                         help='Output directory')
     parser.add_argument('--test', action='store_true',
                         help='Run with test configuration')
+    
+    # Ablation study flags
+    parser.add_argument('--no-improver', action='store_true',
+                        help='Disable prompt improver (Random Search Baseline)')
+    parser.add_argument('--no-reference', action='store_true',
+                        help='Disable reference code (Best Implementation)')
+    parser.add_argument('--no-history', action='store_true',
+                        help='Disable history memory')
+    parser.add_argument('--history-size', type=int, default=5,
+                        help='Number of previous iterations to keep in history')
+    
     args = parser.parse_args()
     
     # Create configuration
@@ -424,7 +439,11 @@ def main():
             max_iterations=args.max_iterations,
             train_epochs=args.epochs,
             batch_size=args.batch_size,
-            output_dir=args.output_dir
+            output_dir=args.output_dir,
+            use_prompt_improver=not args.no_improver,
+            use_reference_code=not args.no_reference,
+            use_history=not args.no_history,
+            history_size=args.history_size
         )
     
     # Run pipeline
@@ -445,5 +464,4 @@ if __name__ == "__main__":
     np.random.seed(43)
     random.seed(43)
 
-    login(token = os.getenv("HF_TOKEN"))
     main()

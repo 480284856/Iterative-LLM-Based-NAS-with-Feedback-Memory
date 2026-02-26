@@ -38,6 +38,12 @@ class PipelineConfig:
     output_dir: str = "./output"
     save_models: bool = True
     
+    # Ablation Study Flags
+    use_prompt_improver: bool = True
+    use_reference_code: bool = True
+    use_history: bool = True
+    history_size: int = 5
+    
     def __post_init__(self):
         """Validate configuration."""
         if self.dataset not in ("imagenette", "cifar10"):
