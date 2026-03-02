@@ -12,55 +12,36 @@ fi
 cd /home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation
 mkdir -p ./output ./log
 
-BASE_MODEL="deepseek-ai/deepseek-coder-6.7b-instruct"
-DATASET="imagenette"
+MODELS=("deepseek-ai/deepseek-coder-6.7b-instruct" "Qwen/Qwen2.5-7B-Instruct")
+MODEL_NAMES=("deepseek_coder_6.7b" "qwen2.5")
+DATASETS=("cifar10" "imagenette")   # 新增 imagenette 数据集
 ITERATIONS=100
 TARGET=1.0
 
-# ========================================
-# Ablation 1: w/o Prompt Improver (Random Search Baseline)
-# ========================================
-echo "========================================"
-echo "Running Ablation 1: w/o Prompt Improver"
-echo "========================================"
-python pipeline.py  --model $BASE_MODEL \
-                    --dataset $DATASET \
-                    --max-iterations $ITERATIONS \
-                    --target-accuracy $TARGET \
-                    --no-improver \
-                    --output-dir ./output/ablation_no_improver \
-| tee ./log/ablation_no_improver.log
+for DATASET in "${DATASETS[@]}"; do
+    for i in "${!MODELS[@]}"; do
+        BASE_MODEL="${MODELS[$i]}"
+        MODEL_NAME="${MODEL_NAMES[$i]}"
 
-# ========================================
-# Ablation 2: w/o Reference Code (Best Implementation Anchor)
-# ========================================
-echo "========================================"
-echo "Running Ablation 2: w/o Reference Code"
-echo "========================================"
-python pipeline.py  --model $BASE_MODEL \
-                    --dataset $DATASET \
-                    --max-iterations $ITERATIONS \
-                    --target-accuracy $TARGET \
-                    --no-reference \
-                    --output-dir ./output/ablation_no_reference \
-| tee ./log/ablation_no_reference.log
-
-# ========================================
-# Ablation 3: w/o History Memory
-# ========================================
-echo "========================================"
-echo "Running Ablation 3: w/o History"
-echo "========================================"
-python pipeline.py  --model $BASE_MODEL \
-                    --dataset $DATASET \
-                    --max-iterations $ITERATIONS \
-                    --target-accuracy $TARGET \
-                    --no-history \
-                    --output-dir ./output/ablation_no_history \
-| tee ./log/ablation_no_history.log
+        # ========================================
+        # Ablation 1: w/o Prompt Improver (Random Search Baseline)
+        # ========================================
+        echo "========================================"
+        echo "Running Ablation 1: w/o Prompt Improver for $MODEL_NAME on $DATASET"
+        echo "========================================"
+        python pipeline.py  --model "$BASE_MODEL" \
+                            --dataset $DATASET \
+                            --max-iterations $ITERATIONS \
+                            --target-accuracy $TARGET \
+                            --no-improver \
+                            --no-reference \
+                            --output-dir ./output/${MODEL_NAME}_${DATASET}_ablation_no_improver_no_reference_2 \
+        | tee ./log/${MODEL_NAME}_${DATASET}_ablation_no_improver_no_reference_2.log
+    done
+done
 
 echo "========================================"
 echo "All ablation studies complete!"
-echo "Results saved in ./output/ablation_*"
-echo "Logs saved in ./log/ablation_*.log"
+echo "Results saved in ./output/*_ablation_*"
+echo "Logs saved in ./log/*_ablation_*.log"
 echo "========================================"

@@ -340,7 +340,6 @@ class Pipeline:
                     self.best_accuracy = accuracy
                     self.best_iteration = self.iteration
                     self.best_code = generated_code
-                    self.code_generator.update_reference_code(generated_code)
                     print(f"[NEW BEST] Updated best code: iteration {self.best_iteration}, accuracy {self.best_accuracy*100:.2f}%")
                 
                 # Check if target reached

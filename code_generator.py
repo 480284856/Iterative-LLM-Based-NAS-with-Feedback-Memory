@@ -99,7 +99,6 @@ class CodeGenerator:
         """
         self.llm_client = llm_client
         self.prompt_template = initial_prompt_template or INITIAL_PROMPT_TEMPLATE
-        self.reference_code: Optional[str] = None
         self.improvement_suggestions: Optional[str] = None
         self.current_code: Optional[str] = None
         self.current_accuracy: Optional[float] = None
@@ -158,15 +157,6 @@ class CodeGenerator:
         """
         self.prompt_template = new_template
     
-    def update_reference_code(self, code: str):
-        """
-        Update the reference code for next generation.
-        
-        Args:
-            code: Reference code from previous iteration
-        """
-        self.reference_code = code
-    
     def update_improvement_suggestions(self, suggestions: str):
         """
         Update the improvement suggestions for next generation.
@@ -186,10 +176,6 @@ class CodeGenerator:
     def get_prompt_template(self) -> str:
         """Get the current prompt template."""
         return self.prompt_template
-    
-    def get_reference_code(self) -> Optional[str]:
-        """Get the current reference code."""
-        return self.reference_code
     
     def get_improvement_suggestions(self) -> Optional[str]:
         """Get the current improvement suggestions."""
