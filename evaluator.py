@@ -50,7 +50,7 @@ class Evaluator:
             learning_rate: Learning rate for optimizer
             timeout: Maximum time in seconds for training
             data_dir: Directory for dataset data
-            dataset: Dataset to use ('imagenette' or 'cifar10')
+            dataset: Dataset to use ('imagenette', 'cifar10', or 'cifar100')
         """
         self.epochs = epochs
         self.batch_size = batch_size
@@ -205,17 +205,18 @@ class Evaluator:
             model = model.to(device)
             
             # Test forward pass with dummy input matching dataset shape
-            if getattr(self, 'dataset', 'imagenette') == 'cifar10':
+            if getattr(self, 'dataset', 'imagenette') in ['cifar10', 'cifar100']:
                 dummy_input = torch.randn(2, 3, 32, 32).to(device)
             else:
                 dummy_input = torch.randn(2, 3, 160, 160).to(device)
             output = model(dummy_input)
             
-            # Check output shape (should be batch_size x 10)
+            # Check output shape (should be batch_size x num_classes)
+            expected_classes = 100 if getattr(self, 'dataset', 'imagenette') == 'cifar100' else 10
             if output.shape[0] != 2:
                 return False, f"Output batch size mismatch: expected 2, got {output.shape[0]}"
-            if output.shape[1] != 10:
-                return False, f"Output classes mismatch: expected 10, got {output.shape[1]}"
+            if output.shape[1] != expected_classes:
+                return False, f"Output classes mismatch: expected {expected_classes}, got {output.shape[1]}"
             
             return True, f"Model validated successfully. Parameters: {sum(p.numel() for p in model.parameters()):,}"
             

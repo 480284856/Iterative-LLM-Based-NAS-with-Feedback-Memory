@@ -66,13 +66,33 @@ Generate a vision model that maximizes the accuracy on the CIFAR-10 dataset for 
 - IMPORTANT: Calculate and annotate the output shape of each layer after the definition of the layer in __init__.
 """ + _PROMPT_COMMON_TAIL
 
+CIFAR100_PROMPT_TEMPLATE = """## Role
+
+You are an expert PyTorch developer. Write clean and working PyTorch code.
+
+## Task
+
+Write a PyTorch vision model for the CIFAR-100 dataset (Input shape: 3x32x32, Output classes: 100).
+
+## STRICT Requirements
+
+1. The class MUST be named `Net`.
+2. ONLY output standard PyTorch code inside one ```python ... ``` block. NO explanations before or after the code.
+3. Apply the **Improvement Suggestions** strictly.
+4. IMPORTANT: Calculate and annotate the output shape as a comment `# shape: [B, C, H, W]` after every layer defined in `__init__`.
+5. The model MUST output logits for 100 classes.
+6. DO NOT use `__import__` or download any datasets inside the code.
+""" + _PROMPT_COMMON_TAIL
+
 # Default prompt template (kept for backward compatibility)
 INITIAL_PROMPT_TEMPLATE = IMAGENETTE_PROMPT_TEMPLATE
 
 
 def get_prompt_template(dataset: str) -> str:
     """Return the appropriate initial prompt template for the given dataset."""
-    if dataset == 'cifar10':
+    if dataset == 'cifar100':
+        return CIFAR100_PROMPT_TEMPLATE
+    elif dataset == 'cifar10':
         return CIFAR10_PROMPT_TEMPLATE
     return IMAGENETTE_PROMPT_TEMPLATE
 

@@ -395,8 +395,8 @@ def main():
     parser.add_argument('--remote', action='store_true',
                         help='Use remote model API (reads SiliconCloud_Key environment variable)')
     parser.add_argument('--dataset', type=str, default='imagenette',
-                        choices=['imagenette', 'cifar10'],
-                        help='Dataset to use for training (imagenette or cifar10)')
+                        choices=['imagenette', 'cifar10', 'cifar100'],
+                        help='Dataset to use for training (imagenette, cifar10, or cifar100)')
     parser.add_argument('--target-accuracy', type=float, default=0.8,
                         help='Target accuracy to reach')
     parser.add_argument('--max-iterations', type=int, default=1000,

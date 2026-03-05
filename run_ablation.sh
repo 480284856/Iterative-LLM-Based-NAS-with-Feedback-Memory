@@ -8,13 +8,15 @@ else
     echo "错误：未找到 conda 初始化脚本，请检查 CONDA_PATH 是否正确！"
     exit 1
 fi
+conda activate nngpt
 
 cd /home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation
 mkdir -p ./output ./log
 
-MODELS=("deepseek-ai/deepseek-coder-6.7b-instruct" "Qwen/Qwen2.5-7B-Instruct")
-MODEL_NAMES=("deepseek_coder_6.7b" "qwen2.5")
-DATASETS=("cifar10" "imagenette")   # 新增 imagenette 数据集
+MODELS=("deepseek-ai/deepseek-coder-6.7b-instruct")
+MODEL_NAMES=("deepseek_coder_6.7b")
+# DATASETS=("cifar10" "imagenette")   # 新增 imagenette 数据集
+DATASETS=("cifar100")
 ITERATIONS=100
 TARGET=1.0
 
@@ -35,8 +37,8 @@ for DATASET in "${DATASETS[@]}"; do
                             --target-accuracy $TARGET \
                             --no-improver \
                             --no-reference \
-                            --output-dir ./output/${MODEL_NAME}_${DATASET}_ablation_no_improver_no_reference_2 \
-        | tee ./log/${MODEL_NAME}_${DATASET}_ablation_no_improver_no_reference_2.log
+                            --output-dir ./output/${MODEL_NAME}_${DATASET}_ablation_no_improver_no_reference \
+        | tee ./log/${MODEL_NAME}_${DATASET}_ablation_no_improver_no_reference.log
     done
 done
 

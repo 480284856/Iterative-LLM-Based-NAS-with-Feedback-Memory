@@ -111,6 +111,44 @@ Analyze the problems and provide specific improvement suggestions for the next i
 ```
 """
 
+CIFAR100_IMPROVER_PROMPT_TEMPLATE = """## Role
+
+You are a PyTorch debugging and model optimization expert.
+
+## Task
+
+Analyze the current vision model's performance and provide specific, actionable code changes for the next iteration.
+
+## Rules
+
+- Dataset: CIFAR-100 (Input shape: 3x32x32, 100 output classes).
+- If there is an Error Message, your ONLY priority is to fix the bug.
+- Avoid repeating suggestions from the Improvement History that previously failed.
+- Do NOT hallucinate complex theories. Suggest practical, standard deep learning improvements (e.g., adding BatchNorm, changing strides, adding Residual Connections, adjusting Dropout).
+- The model MUST output logits for 100 classes.
+
+## Improvement History (Recent Iterations)
+{improvement_history}
+
+## Best Code (Reference - Accuracy: {best_accuracy})
+{best_code}
+
+## Current Iteration Code (Accuracy: {current_accuracy})
+{current_code}
+
+## Feedback from Evaluator
+{message_from_evaluator}
+
+## Output Format
+You must respond with valid JSON exactly matching this format:
+```json
+{{
+    "analysis": "Briefly explain why the model failed or why accuracy is low.",
+    "improvement_suggestions": "1. Change X to Y. 2. Add layer Z before layer W. (Be concrete and actionable for a coder)"
+}}
+```
+"""
+
 class PromptImprover:
     """Generates improvement suggestions based on evaluation feedback."""
     
@@ -127,6 +165,8 @@ class PromptImprover:
             self.IMPROVER_PROMPT_TEMPLATE = IMAGENETTE_IMPROVER_PROMPT_TEMPLATE
         elif dataset == 'cifar10':
             self.IMPROVER_PROMPT_TEMPLATE = CIFAR10_IMPROVER_PROMPT_TEMPLATE
+        elif dataset == 'cifar100':
+            self.IMPROVER_PROMPT_TEMPLATE = CIFAR100_IMPROVER_PROMPT_TEMPLATE
         else:
             raise ValueError(f"Invalid dataset: {dataset}")
     
@@ -246,10 +286,13 @@ class PromptImprover:
         
         # Try to find JSON object directly
         if json_str is None:
-            # Try to find JSON object pattern
-            match = re.search(r'\{[^{}]*"reason"[^{}]*\}', response, re.DOTALL)
-            if match:
-                json_str = match.group()
+            # Try to find JSON object pattern for analysis or reason
+            match_analysis = re.search(r'\{[^{}]*"analysis"[^{}]*\}', response, re.DOTALL)
+            match_reason = re.search(r'\{[^{}]*"reason"[^{}]*\}', response, re.DOTALL)
+            if match_analysis:
+                json_str = match_analysis.group()
+            elif match_reason:
+                json_str = match_reason.group()
         
         # Parse JSON
         if json_str:
@@ -258,7 +301,7 @@ class PromptImprover:
                 # Extract improvement_suggestions (support both field names)
                 suggestions = result.get('improvement_suggestions') or result.get('improvement_suggestion', 'No specific suggestions')
                 return {
-                    'reason': result.get('reason', 'Unknown'),
+                    'reason': result.get('analysis', result.get('reason', 'Unknown')),
                     'inspiration': result.get('inspiration', 'None'),
                     'improvement_suggestions': suggestions
                 }
@@ -296,15 +339,14 @@ class PromptImprover:
 
 
 if __name__ == "__main__":
-    # Test the prompt improver
+    # Test the prompt improver JSON parsing
     test_response = '''
 Here is my analysis:
 
 ```json
 {
-    "reason": "The model architecture is too simple with only 2 convolutional layers",
-    "inspiration": "From biology, we know that visual cortex has hierarchical structure with increasing abstraction",
-    "improvement_suggestions": "1. Add more convolutional layers (at least 4-6) to capture hierarchical features. 2. Implement residual connections to enable training of deeper networks. 3. Add batch normalization after each convolutional layer. 4. Use dropout for regularization."
+    "analysis": "The model lacks capacity to handle 100 classes with simple convolutions without batch normalization.",
+    "improvement_suggestions": "1. Add batch normalization after each convolutional layer. 2. Increase base channels."
 }
 ```
 '''

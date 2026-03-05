@@ -17,7 +17,7 @@ class PipelineConfig:
     temperature: float = 0.7
     
     # Dataset settings
-    dataset: str = "imagenette"  # "imagenette" or "cifar10"
+    dataset: str = "imagenette"  # "imagenette", "cifar10" or "cifar100"
 
     # Training settings
     train_epochs: int = 1
@@ -46,8 +46,8 @@ class PipelineConfig:
     
     def __post_init__(self):
         """Validate configuration."""
-        if self.dataset not in ("imagenette", "cifar10"):
-            raise ValueError("dataset must be 'imagenette' or 'cifar10'")
+        if self.dataset not in ("imagenette", "cifar10", "cifar100"):
+            raise ValueError("dataset must be 'imagenette', 'cifar10' or 'cifar100'")
         if self.target_accuracy <= 0 or self.target_accuracy > 1:
             raise ValueError("target_accuracy must be between 0 and 1")
         if self.max_iterations < 1:

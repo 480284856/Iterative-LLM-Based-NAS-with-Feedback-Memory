@@ -52,6 +52,8 @@ IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 CIFAR10_MEAN = (0.4914, 0.4822, 0.4465)
 CIFAR10_STD = (0.2023, 0.1994, 0.2010)
+CIFAR100_MEAN = (0.5071, 0.4865, 0.4409)
+CIFAR100_STD = (0.2673, 0.2564, 0.2762)
 
 
 def download_imagenette(data_dir: str):
@@ -159,6 +161,49 @@ def load_cifar10(batch_size: int = 128, data_dir: str = './data'):
     return train_loader, test_loader
 
 
+def load_cifar100(batch_size: int = 128, data_dir: str = './data'):
+    """Load CIFAR-100 dataset (32x32, 100 classes)."""
+    transform_train = transforms.Compose([
+        transforms.RandomCrop(32, padding=4),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize(CIFAR100_MEAN, CIFAR100_STD),
+    ])
+
+    transform_test = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize(CIFAR100_MEAN, CIFAR100_STD),
+    ])
+
+    train_dataset = datasets.CIFAR100(
+        root=data_dir, train=True, download=True, transform=transform_train
+    )
+    test_dataset = datasets.CIFAR100(
+        root=data_dir, train=False, download=True, transform=transform_test
+    )
+
+    g = torch.Generator()
+    g.manual_seed(SEED)
+
+    train_loader = DataLoader(
+        train_dataset,
+        batch_size=batch_size,
+        shuffle=True,
+        num_workers=2,
+        worker_init_fn=worker_init_fn,
+        generator=g
+    )
+    test_loader = DataLoader(
+        test_dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=2,
+        worker_init_fn=worker_init_fn
+    )
+
+    return train_loader, test_loader
+
+
 def train_epoch(model, train_loader, criterion, optimizer, device):
     """Train for one epoch."""
     model.train()
@@ -212,7 +257,7 @@ def main():
     parser.add_argument('--lr', type=float, default=0.01, help='Learning rate')
     parser.add_argument('--data_dir', type=str, default='./data', help='Data directory')
     parser.add_argument('--dataset', type=str, default='imagenette',
-                        choices=['imagenette', 'cifar10'], help='Dataset to use')
+                        choices=['imagenette', 'cifar10', 'cifar100'], help='Dataset to use')
     args = parser.parse_args()
 
     result = {
@@ -258,7 +303,13 @@ def main():
         set_all_seeds(SEED)
         
         # Load dataset
-        if args.dataset == 'cifar10':
+        if args.dataset == 'cifar100':
+            print("Loading CIFAR-100 dataset...")
+            train_loader, test_loader = load_cifar100(
+                batch_size=args.batch_size,
+                data_dir=args.data_dir
+            )
+        elif args.dataset == 'cifar10':
             print("Loading CIFAR-10 dataset...")
             train_loader, test_loader = load_cifar10(
                 batch_size=args.batch_size,
