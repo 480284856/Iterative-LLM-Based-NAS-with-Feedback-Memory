@@ -1,5 +1,5 @@
-# Set SiliconCloud_Key in environment before running
-
+# Set your API key in the environment before running, e.g.:
+#   export SiliconCloud_Key="your-key"
 CONDA_PATH="/home/$(whoami)/miniconda3"
 
 if [ -f "${CONDA_PATH}/etc/profile.d/conda.sh" ]; then
