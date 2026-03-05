@@ -1,0 +1,2231 @@
+iteration: 1, accuracy: 0.0502, timestamp: 2026-03-02 16:41:04
+iteration: 2, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 4096, timestamp: 2026-03-02 16:41:22
+iteration: 3, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 8192, timestamp: 2026-03-02 16:41:37
+iteration: 4, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 8192, timestamp: 2026-03-02 16:41:55
+iteration: 5, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:42:12
+iteration: 6, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:42:35
+iteration: 7, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:42:59
+iteration: 8, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:43:21
+iteration: 9, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:43:47
+iteration: 10, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:44:09
+iteration: 11, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:44:32
+iteration: 12, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:44:56
+iteration: 13, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 2048, timestamp: 2026-03-02 16:45:21
+iteration: 14, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:45:43
+iteration: 15, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 262144]' is invalid for input of size 2048, timestamp: 2026-03-02 16:46:11
+iteration: 16, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:46:35
+iteration: 17, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 262144]' is invalid for input of size 2048, timestamp: 2026-03-02 16:47:00
+iteration: 18, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 262144]' is invalid for input of size 2048, timestamp: 2026-03-02 16:47:25
+iteration: 19, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:47:49
+iteration: 20, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:48:11
+iteration: 21, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:48:31
+iteration: 22, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:48:53
+iteration: 23, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:49:14
+iteration: 24, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:49:34
+iteration: 25, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:49:54
+iteration: 26, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:50:17
+iteration: 27, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:50:40
+iteration: 28, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:51:02
+iteration: 29, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:51:25
+iteration: 30, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:51:46
+iteration: 31, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:52:08
+iteration: 32, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:52:28
+iteration: 33, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:52:50
+iteration: 34, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:53:15
+iteration: 35, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 16:53:36
+iteration: 36, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-02 16:54:00
+iteration: 37, error: Code validation failed: Validation error: RuntimeError: Given input size: (32x1x1). Calculated output size: (32x0x0). Output size is too small, timestamp: 2026-03-02 16:54:17
+iteration: 38, error: Code validation failed: Validation error: RuntimeError: Given input size: (32x1x1). Calculated output size: (32x0x0). Output size is too small, timestamp: 2026-03-02 16:54:33
+iteration: 39, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 1024, timestamp: 2026-03-02 16:54:52
+iteration: 40, accuracy: 0.0168, timestamp: 2026-03-02 16:55:16
+iteration: 41, accuracy: 0.0191, timestamp: 2026-03-02 16:55:40
+iteration: 42, accuracy: 0.0191, timestamp: 2026-03-02 16:56:04
+iteration: 43, accuracy: 0.0191, timestamp: 2026-03-02 16:56:27
+iteration: 44, accuracy: 0.0117, timestamp: 2026-03-02 16:56:52
+iteration: 45, accuracy: 0.0191, timestamp: 2026-03-02 16:57:18
+iteration: 46, accuracy: 0.0117, timestamp: 2026-03-02 16:57:43
+iteration: 47, accuracy: 0.0191, timestamp: 2026-03-02 16:58:07
+iteration: 48, accuracy: 0.0938, timestamp: 2026-03-02 16:58:32
+iteration: 49, accuracy: 0.0829, timestamp: 2026-03-02 16:58:54
+iteration: 50, accuracy: 0.1568, timestamp: 2026-03-02 16:59:14
+iteration: 51, accuracy: 0.2271, timestamp: 2026-03-02 16:59:42
+iteration: 52, accuracy: 0.2734, timestamp: 2026-03-02 17:00:05
+iteration: 53, accuracy: 0.1765, timestamp: 2026-03-02 17:00:32
+iteration: 54, accuracy: 0.2734, timestamp: 2026-03-02 17:00:53
+iteration: 55, accuracy: 0.0173, timestamp: 2026-03-02 17:01:20
+iteration: 56, accuracy: 0.1672, timestamp: 2026-03-02 17:01:44
+iteration: 57, accuracy: 0.1143, timestamp: 2026-03-02 17:02:07
+iteration: 58, accuracy: 0.1576, timestamp: 2026-03-02 17:02:33
+iteration: 59, accuracy: 0.1130, timestamp: 2026-03-02 17:02:58
+iteration: 60, accuracy: 0.1085, timestamp: 2026-03-02 17:03:24
+iteration: 61, accuracy: 0.1683, timestamp: 2026-03-02 17:03:49
+iteration: 62, accuracy: 0.2442, timestamp: 2026-03-02 17:04:11
+iteration: 63, accuracy: 0.2502, timestamp: 2026-03-02 17:04:33
+iteration: 64, accuracy: 0.2734, timestamp: 2026-03-02 17:04:54
+iteration: 65, accuracy: 0.2442, timestamp: 2026-03-02 17:05:16
+iteration: 66, accuracy: 0.2392, timestamp: 2026-03-02 17:05:43
+iteration: 67, accuracy: 0.2131, timestamp: 2026-03-02 17:06:10
+iteration: 68, accuracy: 0.2781, timestamp: 2026-03-02 17:06:30
+iteration: 69, accuracy: 0.2734, timestamp: 2026-03-02 17:06:51
+iteration: 70, accuracy: 0.1805, timestamp: 2026-03-02 17:07:20
+iteration: 71, accuracy: 0.2734, timestamp: 2026-03-02 17:07:42
+iteration: 72, accuracy: 0.2502, timestamp: 2026-03-02 17:08:03
+iteration: 73, accuracy: 0.2734, timestamp: 2026-03-02 17:08:26
+iteration: 74, accuracy: 0.2502, timestamp: 2026-03-02 17:08:49
+iteration: 75, accuracy: 0.2734, timestamp: 2026-03-02 17:09:13
+iteration: 76, accuracy: 0.2781, timestamp: 2026-03-02 17:09:32
+iteration: 77, accuracy: 0.2079, timestamp: 2026-03-02 17:09:59
+iteration: 78, accuracy: 0.2271, timestamp: 2026-03-02 17:10:27
+iteration: 79, accuracy: 0.2003, timestamp: 2026-03-02 17:10:50
+iteration: 80, accuracy: 0.2781, timestamp: 2026-03-02 17:11:10
+iteration: 81, accuracy: 0.2271, timestamp: 2026-03-02 17:11:33
+iteration: 82, accuracy: 0.2734, timestamp: 2026-03-02 17:11:54
+iteration: 83, accuracy: 0.2502, timestamp: 2026-03-02 17:12:16
+iteration: 84, accuracy: 0.2734, timestamp: 2026-03-02 17:12:37
+iteration: 85, accuracy: 0.2781, timestamp: 2026-03-02 17:12:57
+iteration: 86, accuracy: 0.2734, timestamp: 2026-03-02 17:13:17
+iteration: 87, accuracy: 0.2502, timestamp: 2026-03-02 17:13:38
+iteration: 88, accuracy: 0.2734, timestamp: 2026-03-02 17:13:58
+iteration: 89, accuracy: 0.2502, timestamp: 2026-03-02 17:14:19
+iteration: 90, accuracy: 0.2734, timestamp: 2026-03-02 17:14:40
+iteration: 91, accuracy: 0.2502, timestamp: 2026-03-02 17:15:03
+iteration: 92, accuracy: 0.1441, timestamp: 2026-03-02 17:15:26
+iteration: 93, accuracy: 0.2781, timestamp: 2026-03-02 17:15:46
+iteration: 94, accuracy: 0.2293, timestamp: 2026-03-02 17:16:09
+iteration: 95, accuracy: 0.2781, timestamp: 2026-03-02 17:16:28
+iteration: 96, accuracy: 0.2734, timestamp: 2026-03-02 17:16:48
+iteration: 97, accuracy: 0.2106, timestamp: 2026-03-02 17:17:12
+iteration: 98, accuracy: 0.2532, timestamp: 2026-03-02 17:17:37
+iteration: 99, accuracy: 0.2781, timestamp: 2026-03-02 17:17:59
+iteration: 100, accuracy: 0.2293, timestamp: 2026-03-02 17:18:22
+iteration: 101, accuracy: 0.2781, timestamp: 2026-03-02 17:18:44
+iteration: 102, accuracy: 0.2734, timestamp: 2026-03-02 17:19:06
+iteration: 103, accuracy: 0.2781, timestamp: 2026-03-02 17:19:26
+iteration: 104, accuracy: 0.2734, timestamp: 2026-03-02 17:19:48
+iteration: 105, accuracy: 0.2502, timestamp: 2026-03-02 17:20:11
+iteration: 106, accuracy: 0.2734, timestamp: 2026-03-02 17:20:33
+iteration: 107, accuracy: 0.2502, timestamp: 2026-03-02 17:20:56
+iteration: 108, accuracy: 0.2734, timestamp: 2026-03-02 17:21:17
+iteration: 109, accuracy: 0.2781, timestamp: 2026-03-02 17:21:41
+iteration: 110, accuracy: 0.2293, timestamp: 2026-03-02 17:22:02
+iteration: 111, accuracy: 0.1897, timestamp: 2026-03-02 17:22:27
+iteration: 112, accuracy: 0.0872, timestamp: 2026-03-02 17:22:52
+iteration: 113, accuracy: 0.0720, timestamp: 2026-03-02 17:23:18
+iteration: 114, accuracy: 0.0872, timestamp: 2026-03-02 17:23:42
+iteration: 115, accuracy: 0.2781, timestamp: 2026-03-02 17:24:03
+iteration: 116, accuracy: 0.2003, timestamp: 2026-03-02 17:24:26
+iteration: 117, accuracy: 0.1846, timestamp: 2026-03-02 17:24:54
+iteration: 118, accuracy: 0.2600, timestamp: 2026-03-02 17:25:17
+iteration: 119, accuracy: 0.2501, timestamp: 2026-03-02 17:25:39
+iteration: 120, accuracy: 0.2071, timestamp: 2026-03-02 17:26:03
+iteration: 121, accuracy: 0.2008, timestamp: 2026-03-02 17:26:28
+iteration: 122, accuracy: 0.2071, timestamp: 2026-03-02 17:26:51
+iteration: 123, accuracy: 0.1846, timestamp: 2026-03-02 17:27:17
+iteration: 124, accuracy: 0.0872, timestamp: 2026-03-02 17:27:38
+iteration: 125, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 17:28:00
+iteration: 126, accuracy: 0.2734, timestamp: 2026-03-02 17:28:20
+iteration: 127, accuracy: 0.2781, timestamp: 2026-03-02 17:28:42
+iteration: 128, accuracy: 0.1884, timestamp: 2026-03-02 17:29:05
+iteration: 129, accuracy: 0.2781, timestamp: 2026-03-02 17:29:26
+iteration: 130, accuracy: 0.2734, timestamp: 2026-03-02 17:29:48
+iteration: 131, accuracy: 0.2280, timestamp: 2026-03-02 17:30:14
+iteration: 132, accuracy: 0.2535, timestamp: 2026-03-02 17:30:38
+iteration: 133, accuracy: 0.1948, timestamp: 2026-03-02 17:31:04
+iteration: 134, accuracy: 0.2734, timestamp: 2026-03-02 17:31:29
+iteration: 135, accuracy: 0.2502, timestamp: 2026-03-02 17:31:50
+iteration: 136, accuracy: 0.2734, timestamp: 2026-03-02 17:32:13
+iteration: 137, accuracy: 0.2502, timestamp: 2026-03-02 17:32:34
+iteration: 138, accuracy: 0.2734, timestamp: 2026-03-02 17:32:55
+iteration: 139, accuracy: 0.2502, timestamp: 2026-03-02 17:33:17
+iteration: 140, accuracy: 0.2734, timestamp: 2026-03-02 17:33:38
+iteration: 141, accuracy: 0.2502, timestamp: 2026-03-02 17:33:59
+iteration: 142, accuracy: 0.0996, timestamp: 2026-03-02 17:34:23
+iteration: 143, accuracy: 0.2781, timestamp: 2026-03-02 17:34:43
+iteration: 144, accuracy: 0.2734, timestamp: 2026-03-02 17:35:05
+iteration: 145, accuracy: 0.2781, timestamp: 2026-03-02 17:35:26
+iteration: 146, accuracy: 0.2293, timestamp: 2026-03-02 17:35:49
+iteration: 147, accuracy: 0.2781, timestamp: 2026-03-02 17:36:12
+iteration: 148, accuracy: 0.2734, timestamp: 2026-03-02 17:36:34
+iteration: 149, accuracy: 0.2781, timestamp: 2026-03-02 17:36:54
+iteration: 150, accuracy: 0.2003, timestamp: 2026-03-02 17:37:16
+iteration: 151, accuracy: 0.2781, timestamp: 2026-03-02 17:37:36
+iteration: 152, accuracy: 0.2734, timestamp: 2026-03-02 17:37:57
+iteration: 153, accuracy: 0.2781, timestamp: 2026-03-02 17:38:16
+iteration: 154, accuracy: 0.2132, timestamp: 2026-03-02 17:38:41
+iteration: 155, accuracy: 0.2781, timestamp: 2026-03-02 17:39:01
+iteration: 156, accuracy: 0.2132, timestamp: 2026-03-02 17:39:26
+iteration: 157, accuracy: 0.2781, timestamp: 2026-03-02 17:39:47
+iteration: 158, accuracy: 0.2293, timestamp: 2026-03-02 17:40:08
+iteration: 159, accuracy: 0.2781, timestamp: 2026-03-02 17:40:29
+iteration: 160, accuracy: 0.2321, timestamp: 2026-03-02 17:40:53
+iteration: 161, accuracy: 0.2781, timestamp: 2026-03-02 17:41:13
+iteration: 162, accuracy: 0.2734, timestamp: 2026-03-02 17:41:35
+iteration: 163, accuracy: 0.0786, timestamp: 2026-03-02 17:42:00
+iteration: 164, accuracy: 0.0996, timestamp: 2026-03-02 17:42:22
+iteration: 165, accuracy: 0.1702, timestamp: 2026-03-02 17:42:43
+iteration: 166, accuracy: 0.2293, timestamp: 2026-03-02 17:43:05
+iteration: 167, accuracy: 0.1953, timestamp: 2026-03-02 17:43:30
+iteration: 168, accuracy: 0.2614, timestamp: 2026-03-02 17:43:52
+iteration: 169, accuracy: 0.2543, timestamp: 2026-03-02 17:44:16
+iteration: 170, accuracy: 0.2781, timestamp: 2026-03-02 17:44:38
+iteration: 171, accuracy: 0.2734, timestamp: 2026-03-02 17:45:00
+iteration: 172, accuracy: 0.2501, timestamp: 2026-03-02 17:45:23
+iteration: 173, accuracy: 0.2734, timestamp: 2026-03-02 17:45:48
+iteration: 174, accuracy: 0.1664, timestamp: 2026-03-02 17:46:15
+iteration: 175, accuracy: 0.2734, timestamp: 2026-03-02 17:46:39
+iteration: 176, accuracy: 0.2502, timestamp: 2026-03-02 17:47:01
+iteration: 177, accuracy: 0.2734, timestamp: 2026-03-02 17:47:24
+iteration: 178, accuracy: 0.2442, timestamp: 2026-03-02 17:47:46
+iteration: 179, accuracy: 0.2003, timestamp: 2026-03-02 17:48:08
+iteration: 180, accuracy: 0.2781, timestamp: 2026-03-02 17:48:30
+iteration: 181, accuracy: 0.2600, timestamp: 2026-03-02 17:48:52
+iteration: 182, accuracy: 0.2651, timestamp: 2026-03-02 17:49:14
+iteration: 183, accuracy: 0.2600, timestamp: 2026-03-02 17:49:36
+iteration: 184, accuracy: 0.2452, timestamp: 2026-03-02 17:49:59
+iteration: 185, accuracy: 0.2017, timestamp: 2026-03-02 17:50:24
+iteration: 186, accuracy: 0.2781, timestamp: 2026-03-02 17:50:44
+iteration: 187, accuracy: 0.2293, timestamp: 2026-03-02 17:51:11
+iteration: 188, accuracy: 0.1897, timestamp: 2026-03-02 17:51:37
+iteration: 189, accuracy: 0.2191, timestamp: 2026-03-02 17:52:02
+iteration: 190, accuracy: 0.2781, timestamp: 2026-03-02 17:52:26
+iteration: 191, accuracy: 0.2734, timestamp: 2026-03-02 17:52:47
+iteration: 192, accuracy: 0.2781, timestamp: 2026-03-02 17:53:09
+iteration: 193, accuracy: 0.2600, timestamp: 2026-03-02 17:53:35
+iteration: 194, accuracy: 0.2781, timestamp: 2026-03-02 17:53:58
+iteration: 195, accuracy: 0.2734, timestamp: 2026-03-02 17:54:21
+iteration: 196, accuracy: 0.2502, timestamp: 2026-03-02 17:54:46
+iteration: 197, accuracy: 0.2071, timestamp: 2026-03-02 17:55:16
+iteration: 198, accuracy: 0.2781, timestamp: 2026-03-02 17:55:40
+iteration: 199, accuracy: 0.2410, timestamp: 2026-03-02 17:56:10
+iteration: 200, accuracy: 0.1684, timestamp: 2026-03-02 17:56:34
+iteration: 201, accuracy: 0.2734, timestamp: 2026-03-02 17:56:58
+iteration: 202, accuracy: 0.2781, timestamp: 2026-03-02 17:57:19
+iteration: 203, accuracy: 0.2003, timestamp: 2026-03-02 17:57:42
+iteration: 204, accuracy: 0.2781, timestamp: 2026-03-02 17:58:04
+iteration: 205, accuracy: 0.2734, timestamp: 2026-03-02 17:58:25
+iteration: 206, accuracy: 0.2502, timestamp: 2026-03-02 17:58:47
+iteration: 207, accuracy: 0.1500, timestamp: 2026-03-02 17:59:11
+iteration: 208, accuracy: 0.2452, timestamp: 2026-03-02 17:59:36
+iteration: 209, accuracy: 0.1846, timestamp: 2026-03-02 18:00:00
+iteration: 210, accuracy: 0.2734, timestamp: 2026-03-02 18:00:25
+iteration: 211, accuracy: 0.2502, timestamp: 2026-03-02 18:00:47
+iteration: 212, accuracy: 0.2734, timestamp: 2026-03-02 18:01:11
+iteration: 213, accuracy: 0.2502, timestamp: 2026-03-02 18:01:35
+iteration: 214, accuracy: 0.2734, timestamp: 2026-03-02 18:01:57
+iteration: 215, accuracy: 0.1846, timestamp: 2026-03-02 18:02:22
+iteration: 216, accuracy: 0.2321, timestamp: 2026-03-02 18:02:45
+iteration: 217, accuracy: 0.2502, timestamp: 2026-03-02 18:03:07
+iteration: 218, accuracy: 0.2734, timestamp: 2026-03-02 18:03:30
+iteration: 219, accuracy: 0.2262, timestamp: 2026-03-02 18:04:00
+iteration: 220, accuracy: 0.2228, timestamp: 2026-03-02 18:04:26
+iteration: 221, accuracy: 0.2228, timestamp: 2026-03-02 18:04:53
+iteration: 222, accuracy: 0.2262, timestamp: 2026-03-02 18:05:23
+iteration: 223, accuracy: 0.2580, timestamp: 2026-03-02 18:05:49
+iteration: 224, accuracy: 0.2410, timestamp: 2026-03-02 18:06:16
+iteration: 225, accuracy: 0.2781, timestamp: 2026-03-02 18:06:41
+iteration: 226, accuracy: 0.2734, timestamp: 2026-03-02 18:07:05
+iteration: 227, accuracy: 0.2502, timestamp: 2026-03-02 18:07:27
+iteration: 228, accuracy: 0.2734, timestamp: 2026-03-02 18:07:49
+iteration: 229, accuracy: 0.0100, timestamp: 2026-03-02 18:08:13
+iteration: 230, accuracy: 0.2781, timestamp: 2026-03-02 18:08:34
+iteration: 231, accuracy: 0.2734, timestamp: 2026-03-02 18:08:56
+iteration: 232, accuracy: 0.2502, timestamp: 2026-03-02 18:09:21
+iteration: 233, accuracy: 0.2734, timestamp: 2026-03-02 18:09:45
+iteration: 234, accuracy: 0.2502, timestamp: 2026-03-02 18:10:07
+iteration: 235, accuracy: 0.2734, timestamp: 2026-03-02 18:10:28
+iteration: 236, accuracy: 0.2502, timestamp: 2026-03-02 18:10:50
+iteration: 237, accuracy: 0.2734, timestamp: 2026-03-02 18:11:13
+iteration: 238, accuracy: 0.2502, timestamp: 2026-03-02 18:11:36
+iteration: 239, accuracy: 0.2734, timestamp: 2026-03-02 18:11:59
+iteration: 240, accuracy: 0.2502, timestamp: 2026-03-02 18:12:22
+iteration: 241, accuracy: 0.2017, timestamp: 2026-03-02 18:12:48
+iteration: 242, accuracy: 0.2781, timestamp: 2026-03-02 18:13:10
+iteration: 243, accuracy: 0.2003, timestamp: 2026-03-02 18:13:34
+iteration: 244, accuracy: 0.2271, timestamp: 2026-03-02 18:14:01
+iteration: 245, accuracy: 0.2003, timestamp: 2026-03-02 18:14:25
+iteration: 246, accuracy: 0.2210, timestamp: 2026-03-02 18:14:50
+iteration: 247, accuracy: 0.2131, timestamp: 2026-03-02 18:15:14
+iteration: 248, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-02 18:15:31
+iteration: 249, accuracy: 0.1143, timestamp: 2026-03-02 18:15:55
+iteration: 250, accuracy: 0.2502, timestamp: 2026-03-02 18:16:20
+iteration: 251, accuracy: 0.2734, timestamp: 2026-03-02 18:16:42
+iteration: 252, accuracy: 0.1603, timestamp: 2026-03-02 18:17:08
+iteration: 253, accuracy: 0.0418, timestamp: 2026-03-02 18:17:33
+iteration: 254, accuracy: 0.2502, timestamp: 2026-03-02 18:17:59
+iteration: 255, accuracy: 0.2734, timestamp: 2026-03-02 18:18:22
+iteration: 256, accuracy: 0.1846, timestamp: 2026-03-02 18:18:45
+iteration: 257, accuracy: 0.2734, timestamp: 2026-03-02 18:19:08
+iteration: 258, accuracy: 0.2502, timestamp: 2026-03-02 18:19:33
+iteration: 259, accuracy: 0.2734, timestamp: 2026-03-02 18:19:55
+iteration: 260, accuracy: 0.2502, timestamp: 2026-03-02 18:20:19
+iteration: 261, accuracy: 0.2543, timestamp: 2026-03-02 18:20:42
+iteration: 262, accuracy: 0.2452, timestamp: 2026-03-02 18:21:07
+iteration: 263, accuracy: 0.2017, timestamp: 2026-03-02 18:21:34
+iteration: 264, accuracy: 0.1743, timestamp: 2026-03-02 18:22:03
+iteration: 265, accuracy: 0.1403, timestamp: 2026-03-02 18:22:28
+iteration: 266, accuracy: 0.2781, timestamp: 2026-03-02 18:22:53
+iteration: 267, accuracy: 0.2734, timestamp: 2026-03-02 18:23:16
+iteration: 268, accuracy: 0.2502, timestamp: 2026-03-02 18:23:42
+iteration: 269, accuracy: 0.2734, timestamp: 2026-03-02 18:24:05
+iteration: 270, accuracy: 0.2444, timestamp: 2026-03-02 18:24:31
+iteration: 271, accuracy: 0.2532, timestamp: 2026-03-02 18:24:55
+iteration: 272, accuracy: 0.2781, timestamp: 2026-03-02 18:25:17
+iteration: 273, accuracy: 0.2018, timestamp: 2026-03-02 18:25:41
+iteration: 274, accuracy: 0.0100, timestamp: 2026-03-02 18:26:05
+iteration: 275, accuracy: 0.2734, timestamp: 2026-03-02 18:26:27
+iteration: 276, accuracy: 0.2502, timestamp: 2026-03-02 18:26:50
+iteration: 277, accuracy: 0.2734, timestamp: 2026-03-02 18:27:16
+iteration: 278, accuracy: 0.1772, timestamp: 2026-03-02 18:27:43
+iteration: 279, accuracy: 0.2543, timestamp: 2026-03-02 18:28:06
+iteration: 280, accuracy: 0.2781, timestamp: 2026-03-02 18:28:28
+iteration: 281, accuracy: 0.2734, timestamp: 2026-03-02 18:28:49
+iteration: 282, accuracy: 0.2502, timestamp: 2026-03-02 18:29:11
+iteration: 283, accuracy: 0.2734, timestamp: 2026-03-02 18:29:35
+iteration: 284, accuracy: 0.2502, timestamp: 2026-03-02 18:30:01
+iteration: 285, accuracy: 0.2734, timestamp: 2026-03-02 18:30:22
+iteration: 286, accuracy: 0.2271, timestamp: 2026-03-02 18:30:48
+iteration: 287, accuracy: 0.2431, timestamp: 2026-03-02 18:31:13
+iteration: 288, accuracy: 0.1948, timestamp: 2026-03-02 18:31:36
+iteration: 289, accuracy: 0.2345, timestamp: 2026-03-02 18:32:00
+iteration: 290, accuracy: 0.1948, timestamp: 2026-03-02 18:32:28
+iteration: 291, accuracy: 0.2535, timestamp: 2026-03-02 18:32:52
+iteration: 292, accuracy: 0.2585, timestamp: 2026-03-02 18:33:18
+iteration: 293, accuracy: 0.2535, timestamp: 2026-03-02 18:33:43
+iteration: 294, accuracy: 0.2781, timestamp: 2026-03-02 18:34:04
+iteration: 295, accuracy: 0.2734, timestamp: 2026-03-02 18:34:24
+iteration: 296, accuracy: 0.2781, timestamp: 2026-03-02 18:34:48
+iteration: 297, accuracy: 0.2150, timestamp: 2026-03-02 18:35:11
+iteration: 298, accuracy: 0.1548, timestamp: 2026-03-02 18:35:37
+iteration: 299, accuracy: 0.2734, timestamp: 2026-03-02 18:36:01
+iteration: 300, accuracy: 0.2502, timestamp: 2026-03-02 18:36:25
+iteration: 301, accuracy: 0.2535, timestamp: 2026-03-02 18:36:49
+iteration: 302, accuracy: 0.2781, timestamp: 2026-03-02 18:37:12
+iteration: 303, accuracy: 0.2734, timestamp: 2026-03-02 18:37:35
+iteration: 304, accuracy: 0.2392, timestamp: 2026-03-02 18:38:01
+iteration: 305, accuracy: 0.2131, timestamp: 2026-03-02 18:38:27
+iteration: 306, accuracy: 0.2781, timestamp: 2026-03-02 18:38:49
+iteration: 307, accuracy: 0.2734, timestamp: 2026-03-02 18:39:12
+iteration: 308, accuracy: 0.2502, timestamp: 2026-03-02 18:39:34
+iteration: 309, accuracy: 0.2734, timestamp: 2026-03-02 18:39:57
+iteration: 310, accuracy: 0.2502, timestamp: 2026-03-02 18:40:20
+iteration: 311, accuracy: 0.2003, timestamp: 2026-03-02 18:40:43
+iteration: 312, accuracy: 0.2781, timestamp: 2026-03-02 18:41:07
+iteration: 313, accuracy: 0.2734, timestamp: 2026-03-02 18:41:28
+iteration: 314, accuracy: 0.2502, timestamp: 2026-03-02 18:41:53
+iteration: 315, accuracy: 0.0272, timestamp: 2026-03-02 18:42:18
+iteration: 316, accuracy: 0.2502, timestamp: 2026-03-02 18:42:41
+iteration: 317, accuracy: 0.2734, timestamp: 2026-03-02 18:43:03
+iteration: 318, accuracy: 0.1846, timestamp: 2026-03-02 18:43:28
+iteration: 319, accuracy: 0.2734, timestamp: 2026-03-02 18:43:52
+iteration: 320, accuracy: 0.2480, timestamp: 2026-03-02 18:44:16
+iteration: 321, accuracy: 0.2017, timestamp: 2026-03-02 18:44:43
+iteration: 322, accuracy: 0.2781, timestamp: 2026-03-02 18:45:05
+iteration: 323, accuracy: 0.2734, timestamp: 2026-03-02 18:45:28
+iteration: 324, accuracy: 0.2781, timestamp: 2026-03-02 18:45:52
+iteration: 325, accuracy: 0.2600, timestamp: 2026-03-02 18:46:15
+iteration: 326, accuracy: 0.2781, timestamp: 2026-03-02 18:46:37
+iteration: 327, accuracy: 0.2293, timestamp: 2026-03-02 18:47:00
+iteration: 328, accuracy: 0.2781, timestamp: 2026-03-02 18:47:22
+iteration: 329, accuracy: 0.2003, timestamp: 2026-03-02 18:47:45
+iteration: 330, accuracy: 0.2781, timestamp: 2026-03-02 18:48:07
+iteration: 331, accuracy: 0.2600, timestamp: 2026-03-02 18:48:29
+iteration: 332, accuracy: 0.2781, timestamp: 2026-03-02 18:48:52
+iteration: 333, accuracy: 0.2734, timestamp: 2026-03-02 18:49:16
+iteration: 334, accuracy: 0.2781, timestamp: 2026-03-02 18:49:39
+iteration: 335, accuracy: 0.2600, timestamp: 2026-03-02 18:50:03
+iteration: 336, accuracy: 0.1846, timestamp: 2026-03-02 18:50:28
+iteration: 337, accuracy: 0.2734, timestamp: 2026-03-02 18:50:50
+iteration: 338, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 18:51:10
+iteration: 339, accuracy: 0.2600, timestamp: 2026-03-02 18:51:33
+iteration: 340, accuracy: 0.2781, timestamp: 2026-03-02 18:52:00
+iteration: 341, accuracy: 0.2321, timestamp: 2026-03-02 18:52:25
+iteration: 342, accuracy: 0.2480, timestamp: 2026-03-02 18:52:50
+iteration: 343, accuracy: 0.2321, timestamp: 2026-03-02 18:53:12
+iteration: 344, accuracy: 0.1743, timestamp: 2026-03-02 18:53:38
+iteration: 345, accuracy: 0.2017, timestamp: 2026-03-02 18:54:04
+iteration: 346, accuracy: 0.2017, timestamp: 2026-03-02 18:54:31
+iteration: 347, accuracy: 0.2781, timestamp: 2026-03-02 18:54:52
+iteration: 348, accuracy: 0.2132, timestamp: 2026-03-02 18:55:16
+iteration: 349, accuracy: 0.2781, timestamp: 2026-03-02 18:55:40
+iteration: 350, accuracy: 0.2600, timestamp: 2026-03-02 18:56:05
+iteration: 351, accuracy: 0.1846, timestamp: 2026-03-02 18:56:31
+iteration: 352, accuracy: 0.2321, timestamp: 2026-03-02 18:56:53
+iteration: 353, accuracy: 0.1846, timestamp: 2026-03-02 18:57:20
+iteration: 354, accuracy: 0.2321, timestamp: 2026-03-02 18:57:45
+iteration: 355, accuracy: 0.1846, timestamp: 2026-03-02 18:58:11
+iteration: 356, accuracy: 0.2321, timestamp: 2026-03-02 18:58:35
+iteration: 357, accuracy: 0.2781, timestamp: 2026-03-02 18:58:56
+iteration: 358, accuracy: 0.2734, timestamp: 2026-03-02 18:59:17
+iteration: 359, accuracy: 0.1846, timestamp: 2026-03-02 18:59:43
+iteration: 360, accuracy: 0.2017, timestamp: 2026-03-02 19:00:11
+iteration: 361, accuracy: 0.2480, timestamp: 2026-03-02 19:00:34
+iteration: 362, accuracy: 0.2321, timestamp: 2026-03-02 19:01:02
+iteration: 363, accuracy: 0.1743, timestamp: 2026-03-02 19:01:28
+iteration: 364, accuracy: 0.1500, timestamp: 2026-03-02 19:01:51
+iteration: 365, accuracy: 0.2502, timestamp: 2026-03-02 19:02:17
+iteration: 366, accuracy: 0.2191, timestamp: 2026-03-02 19:02:43
+iteration: 367, accuracy: 0.2480, timestamp: 2026-03-02 19:03:08
+iteration: 368, accuracy: 0.2734, timestamp: 2026-03-02 19:03:30
+iteration: 369, accuracy: 0.2502, timestamp: 2026-03-02 19:03:58
+iteration: 370, accuracy: 0.2734, timestamp: 2026-03-02 19:04:22
+iteration: 371, accuracy: 0.2480, timestamp: 2026-03-02 19:04:50
+iteration: 372, accuracy: 0.1996, timestamp: 2026-03-02 19:05:17
+iteration: 373, accuracy: 0.2480, timestamp: 2026-03-02 19:05:42
+iteration: 374, accuracy: 0.1500, timestamp: 2026-03-02 19:06:06
+iteration: 375, accuracy: 0.2781, timestamp: 2026-03-02 19:06:29
+iteration: 376, accuracy: 0.2003, timestamp: 2026-03-02 19:06:53
+iteration: 377, accuracy: 0.2781, timestamp: 2026-03-02 19:07:15
+iteration: 378, accuracy: 0.2191, timestamp: 2026-03-02 19:07:41
+iteration: 379, accuracy: 0.2321, timestamp: 2026-03-02 19:08:07
+iteration: 380, accuracy: 0.2201, timestamp: 2026-03-02 19:08:32
+iteration: 381, accuracy: 0.2734, timestamp: 2026-03-02 19:08:57
+iteration: 382, accuracy: 0.2651, timestamp: 2026-03-02 19:09:21
+iteration: 383, accuracy: 0.2600, timestamp: 2026-03-02 19:09:45
+iteration: 384, accuracy: 0.2651, timestamp: 2026-03-02 19:10:10
+iteration: 385, accuracy: 0.2734, timestamp: 2026-03-02 19:10:33
+iteration: 386, accuracy: 0.2493, timestamp: 2026-03-02 19:10:55
+iteration: 387, accuracy: 0.2734, timestamp: 2026-03-02 19:11:18
+iteration: 388, accuracy: 0.2444, timestamp: 2026-03-02 19:11:44
+iteration: 389, accuracy: 0.2734, timestamp: 2026-03-02 19:12:08
+iteration: 390, accuracy: 0.2008, timestamp: 2026-03-02 19:12:35
+iteration: 391, accuracy: 0.2543, timestamp: 2026-03-02 19:13:00
+iteration: 392, accuracy: 0.2480, timestamp: 2026-03-02 19:13:24
+iteration: 393, accuracy: 0.2734, timestamp: 2026-03-02 19:13:46
+iteration: 394, accuracy: 0.2502, timestamp: 2026-03-02 19:14:10
+iteration: 395, accuracy: 0.2734, timestamp: 2026-03-02 19:14:34
+iteration: 396, accuracy: 0.2502, timestamp: 2026-03-02 19:15:03
+iteration: 397, accuracy: 0.2734, timestamp: 2026-03-02 19:15:28
+iteration: 398, accuracy: 0.2502, timestamp: 2026-03-02 19:15:51
+iteration: 399, accuracy: 0.2734, timestamp: 2026-03-02 19:16:14
+iteration: 400, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 4096]' is invalid for input of size 512, timestamp: 2026-03-02 19:16:38
+iteration: 401, accuracy: 0.2734, timestamp: 2026-03-02 19:17:00
+iteration: 402, accuracy: 0.2271, timestamp: 2026-03-02 19:17:25
+iteration: 403, accuracy: 0.2131, timestamp: 2026-03-02 19:17:50
+iteration: 404, accuracy: 0.2781, timestamp: 2026-03-02 19:18:12
+iteration: 405, accuracy: 0.2003, timestamp: 2026-03-02 19:18:34
+iteration: 406, accuracy: 0.2781, timestamp: 2026-03-02 19:18:55
+iteration: 407, accuracy: 0.2003, timestamp: 2026-03-02 19:19:18
+iteration: 408, accuracy: 0.2781, timestamp: 2026-03-02 19:19:41
+iteration: 409, accuracy: 0.2003, timestamp: 2026-03-02 19:20:04
+iteration: 410, accuracy: 0.2781, timestamp: 2026-03-02 19:20:26
+iteration: 411, accuracy: 0.2132, timestamp: 2026-03-02 19:20:51
+iteration: 412, accuracy: 0.1548, timestamp: 2026-03-02 19:21:17
+iteration: 413, accuracy: 0.2003, timestamp: 2026-03-02 19:21:40
+iteration: 414, accuracy: 0.2781, timestamp: 2026-03-02 19:22:01
+iteration: 415, accuracy: 0.2003, timestamp: 2026-03-02 19:22:24
+iteration: 416, accuracy: 0.2781, timestamp: 2026-03-02 19:22:46
+iteration: 417, accuracy: 0.2410, timestamp: 2026-03-02 19:23:12
+iteration: 418, accuracy: 0.2781, timestamp: 2026-03-02 19:23:34
+iteration: 419, accuracy: 0.2600, timestamp: 2026-03-02 19:23:56
+iteration: 420, accuracy: 0.1846, timestamp: 2026-03-02 19:24:22
+iteration: 421, accuracy: 0.2321, timestamp: 2026-03-02 19:24:47
+iteration: 422, accuracy: 0.2201, timestamp: 2026-03-02 19:25:12
+iteration: 423, accuracy: 0.2017, timestamp: 2026-03-02 19:25:39
+iteration: 424, accuracy: 0.2781, timestamp: 2026-03-02 19:26:01
+iteration: 425, accuracy: 0.2734, timestamp: 2026-03-02 19:26:24
+iteration: 426, accuracy: 0.2480, timestamp: 2026-03-02 19:26:50
+iteration: 427, accuracy: 0.2734, timestamp: 2026-03-02 19:27:15
+iteration: 428, accuracy: 0.2781, timestamp: 2026-03-02 19:27:39
+iteration: 429, accuracy: 0.2734, timestamp: 2026-03-02 19:28:01
+iteration: 430, accuracy: 0.0100, timestamp: 2026-03-02 19:28:27
+iteration: 431, accuracy: 0.1568, timestamp: 2026-03-02 19:28:49
+iteration: 432, accuracy: 0.2480, timestamp: 2026-03-02 19:29:15
+iteration: 433, accuracy: 0.2017, timestamp: 2026-03-02 19:29:44
+iteration: 434, accuracy: 0.2781, timestamp: 2026-03-02 19:30:08
+iteration: 435, accuracy: 0.2734, timestamp: 2026-03-02 19:30:31
+iteration: 436, accuracy: 0.1846, timestamp: 2026-03-02 19:30:55
+iteration: 437, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-02 19:31:18
+iteration: 438, accuracy: 0.2734, timestamp: 2026-03-02 19:31:39
+iteration: 439, accuracy: 0.2502, timestamp: 2026-03-02 19:32:03
+iteration: 440, accuracy: 0.2734, timestamp: 2026-03-02 19:32:26
+iteration: 441, accuracy: 0.2781, timestamp: 2026-03-02 19:32:50
+iteration: 442, accuracy: 0.2293, timestamp: 2026-03-02 19:33:12
+iteration: 443, accuracy: 0.2781, timestamp: 2026-03-02 19:33:35
+iteration: 444, accuracy: 0.2734, timestamp: 2026-03-02 19:33:59
+iteration: 445, accuracy: 0.2271, timestamp: 2026-03-02 19:34:25
+iteration: 446, accuracy: 0.2003, timestamp: 2026-03-02 19:34:49
+iteration: 447, accuracy: 0.1576, timestamp: 2026-03-02 19:35:14
+iteration: 448, accuracy: 0.2734, timestamp: 2026-03-02 19:35:38
+iteration: 449, accuracy: 0.2781, timestamp: 2026-03-02 19:36:03
+iteration: 450, accuracy: 0.2734, timestamp: 2026-03-02 19:36:27
+iteration: 451, accuracy: 0.1846, timestamp: 2026-03-02 19:36:53
+iteration: 452, accuracy: 0.2321, timestamp: 2026-03-02 19:37:18
+iteration: 453, accuracy: 0.2480, timestamp: 2026-03-02 19:37:42
+iteration: 454, accuracy: 0.2321, timestamp: 2026-03-02 19:38:05
+iteration: 455, accuracy: 0.2480, timestamp: 2026-03-02 19:38:30
+iteration: 456, accuracy: 0.2734, timestamp: 2026-03-02 19:38:51
+iteration: 457, accuracy: 0.2502, timestamp: 2026-03-02 19:39:16
+iteration: 458, accuracy: 0.2734, timestamp: 2026-03-02 19:39:39
+iteration: 459, accuracy: 0.2271, timestamp: 2026-03-02 19:40:04
+iteration: 460, accuracy: 0.2321, timestamp: 2026-03-02 19:40:32
+iteration: 461, accuracy: 0.2201, timestamp: 2026-03-02 19:40:58
+iteration: 462, accuracy: 0.2017, timestamp: 2026-03-02 19:41:24
+iteration: 463, accuracy: 0.2480, timestamp: 2026-03-02 19:41:47
+iteration: 464, accuracy: 0.2734, timestamp: 2026-03-02 19:42:13
+iteration: 465, accuracy: 0.2502, timestamp: 2026-03-02 19:42:39
+iteration: 466, accuracy: 0.2734, timestamp: 2026-03-02 19:43:01
+iteration: 467, accuracy: 0.2781, timestamp: 2026-03-02 19:43:23
+iteration: 468, accuracy: 0.2734, timestamp: 2026-03-02 19:43:46
+iteration: 469, accuracy: 0.2502, timestamp: 2026-03-02 19:44:13
+iteration: 470, accuracy: 0.2734, timestamp: 2026-03-02 19:44:35
+iteration: 471, accuracy: 0.2502, timestamp: 2026-03-02 19:45:00
+iteration: 472, accuracy: 0.2173, timestamp: 2026-03-02 19:45:26
+iteration: 473, accuracy: 0.1621, timestamp: 2026-03-02 19:45:51
+iteration: 474, accuracy: 0.1441, timestamp: 2026-03-02 19:46:15
+iteration: 475, accuracy: 0.2442, timestamp: 2026-03-02 19:46:39
+iteration: 476, accuracy: 0.2502, timestamp: 2026-03-02 19:47:06
+iteration: 477, accuracy: 0.2532, timestamp: 2026-03-02 19:47:29
+iteration: 478, accuracy: 0.1948, timestamp: 2026-03-02 19:47:54
+iteration: 479, accuracy: 0.2535, timestamp: 2026-03-02 19:48:19
+iteration: 480, accuracy: 0.2280, timestamp: 2026-03-02 19:48:46
+iteration: 481, accuracy: 0.2173, timestamp: 2026-03-02 19:49:13
+iteration: 482, accuracy: 0.2787, timestamp: 2026-03-02 19:49:36
+iteration: 483, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 512, timestamp: 2026-03-02 19:50:05
+iteration: 484, accuracy: 0.2062, timestamp: 2026-03-02 19:50:33
+iteration: 485, accuracy: 0.2018, timestamp: 2026-03-02 19:51:01
+iteration: 486, accuracy: 0.2041, timestamp: 2026-03-02 19:51:30
+iteration: 487, accuracy: 0.2346, timestamp: 2026-03-02 19:51:57
+iteration: 488, accuracy: 0.2787, timestamp: 2026-03-02 19:52:23
+iteration: 489, accuracy: 0.2532, timestamp: 2026-03-02 19:52:47
+iteration: 490, accuracy: 0.1948, timestamp: 2026-03-02 19:53:13
+iteration: 491, accuracy: 0.2532, timestamp: 2026-03-02 19:53:36
+iteration: 492, accuracy: 0.2444, timestamp: 2026-03-02 19:53:59
+iteration: 493, accuracy: 0.2532, timestamp: 2026-03-02 19:54:23
+iteration: 494, accuracy: 0.1948, timestamp: 2026-03-02 19:54:49
+iteration: 495, accuracy: 0.2535, timestamp: 2026-03-02 19:55:15
+iteration: 496, accuracy: 0.1948, timestamp: 2026-03-02 19:55:40
+iteration: 497, accuracy: 0.1915, timestamp: 2026-03-02 19:56:10
+iteration: 498, accuracy: 0.2280, timestamp: 2026-03-02 19:56:36
+iteration: 499, accuracy: 0.2173, timestamp: 2026-03-02 19:57:03
+iteration: 500, accuracy: 0.2444, timestamp: 2026-03-02 19:57:29
+iteration: 501, accuracy: 0.2532, timestamp: 2026-03-02 19:57:57
+iteration: 502, accuracy: 0.2304, timestamp: 2026-03-02 19:58:23
+iteration: 503, accuracy: 0.2532, timestamp: 2026-03-02 19:58:49
+iteration: 504, accuracy: 0.1948, timestamp: 2026-03-02 19:59:16
+iteration: 505, accuracy: 0.2532, timestamp: 2026-03-02 19:59:42
+iteration: 506, accuracy: 0.2106, timestamp: 2026-03-02 20:00:07
+iteration: 507, accuracy: 0.2532, timestamp: 2026-03-02 20:00:30
+iteration: 508, accuracy: 0.2787, timestamp: 2026-03-02 20:00:58
+iteration: 509, accuracy: 0.2532, timestamp: 2026-03-02 20:01:22
+iteration: 510, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 20:01:44
+iteration: 511, accuracy: 0.2532, timestamp: 2026-03-02 20:02:10
+iteration: 512, accuracy: 0.2787, timestamp: 2026-03-02 20:02:33
+iteration: 513, accuracy: 0.2345, timestamp: 2026-03-02 20:02:59
+iteration: 514, accuracy: 0.1948, timestamp: 2026-03-02 20:03:26
+iteration: 515, accuracy: 0.2532, timestamp: 2026-03-02 20:03:52
+iteration: 516, accuracy: 0.2787, timestamp: 2026-03-02 20:04:16
+iteration: 517, accuracy: 0.2532, timestamp: 2026-03-02 20:04:41
+iteration: 518, accuracy: 0.2304, timestamp: 2026-03-02 20:05:04
+iteration: 519, accuracy: 0.2532, timestamp: 2026-03-02 20:05:30
+iteration: 520, accuracy: 0.2787, timestamp: 2026-03-02 20:05:53
+iteration: 521, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-03-02 20:06:16
+iteration: 522, accuracy: 0.2787, timestamp: 2026-03-02 20:06:40
+iteration: 523, accuracy: 0.2532, timestamp: 2026-03-02 20:07:06
+iteration: 524, accuracy: 0.2787, timestamp: 2026-03-02 20:07:31
+iteration: 525, accuracy: 0.2532, timestamp: 2026-03-02 20:07:55
+iteration: 526, accuracy: 0.1948, timestamp: 2026-03-02 20:08:22
+iteration: 527, accuracy: 0.0996, timestamp: 2026-03-02 20:08:48
+iteration: 528, accuracy: 0.1948, timestamp: 2026-03-02 20:09:16
+iteration: 529, accuracy: 0.2532, timestamp: 2026-03-02 20:09:44
+iteration: 530, accuracy: 0.2787, timestamp: 2026-03-02 20:10:10
+iteration: 531, accuracy: 0.2532, timestamp: 2026-03-02 20:10:33
+iteration: 532, accuracy: 0.2444, timestamp: 2026-03-02 20:10:57
+iteration: 533, accuracy: 0.2532, timestamp: 2026-03-02 20:11:22
+iteration: 534, accuracy: 0.2444, timestamp: 2026-03-02 20:11:49
+iteration: 535, accuracy: 0.2532, timestamp: 2026-03-02 20:12:15
+iteration: 536, accuracy: 0.2444, timestamp: 2026-03-02 20:12:38
+iteration: 537, accuracy: 0.2532, timestamp: 2026-03-02 20:13:02
+iteration: 538, accuracy: 0.1948, timestamp: 2026-03-02 20:13:30
+iteration: 539, accuracy: 0.2532, timestamp: 2026-03-02 20:13:55
+iteration: 540, accuracy: 0.2787, timestamp: 2026-03-02 20:14:20
+iteration: 541, accuracy: 0.2532, timestamp: 2026-03-02 20:14:43
+iteration: 542, accuracy: 0.2787, timestamp: 2026-03-02 20:15:10
+iteration: 543, accuracy: 0.2343, timestamp: 2026-03-02 20:15:36
+iteration: 544, accuracy: 0.2787, timestamp: 2026-03-02 20:16:02
+iteration: 545, accuracy: 0.2343, timestamp: 2026-03-02 20:16:29
+iteration: 546, accuracy: 0.2330, timestamp: 2026-03-02 20:16:53
+iteration: 547, accuracy: 0.1948, timestamp: 2026-03-02 20:17:21
+iteration: 548, accuracy: 0.2532, timestamp: 2026-03-02 20:17:46
+iteration: 549, accuracy: 0.2787, timestamp: 2026-03-02 20:18:10
+iteration: 550, accuracy: 0.2532, timestamp: 2026-03-02 20:18:41
+iteration: 551, accuracy: 0.2444, timestamp: 2026-03-02 20:19:05
+iteration: 552, accuracy: 0.2532, timestamp: 2026-03-02 20:19:30
+iteration: 553, accuracy: 0.1948, timestamp: 2026-03-02 20:19:56
+iteration: 554, accuracy: 0.2532, timestamp: 2026-03-02 20:20:22
+iteration: 555, accuracy: 0.2444, timestamp: 2026-03-02 20:20:45
+iteration: 556, accuracy: 0.2532, timestamp: 2026-03-02 20:21:11
+iteration: 557, accuracy: 0.2304, timestamp: 2026-03-02 20:21:33
+iteration: 558, accuracy: 0.2173, timestamp: 2026-03-02 20:22:00
+iteration: 559, accuracy: 0.2787, timestamp: 2026-03-02 20:22:24
+iteration: 560, accuracy: 0.2532, timestamp: 2026-03-02 20:22:46
+iteration: 561, accuracy: 0.1948, timestamp: 2026-03-02 20:23:10
+iteration: 562, accuracy: 0.2532, timestamp: 2026-03-02 20:23:36
+iteration: 563, accuracy: 0.1948, timestamp: 2026-03-02 20:24:00
+iteration: 564, accuracy: 0.2532, timestamp: 2026-03-02 20:24:27
+iteration: 565, accuracy: 0.2787, timestamp: 2026-03-02 20:24:51
+iteration: 566, accuracy: 0.2532, timestamp: 2026-03-02 20:25:14
+iteration: 567, accuracy: 0.1948, timestamp: 2026-03-02 20:25:38
+iteration: 568, accuracy: 0.2532, timestamp: 2026-03-02 20:26:01
+iteration: 569, accuracy: 0.1948, timestamp: 2026-03-02 20:26:27
+iteration: 570, accuracy: 0.2532, timestamp: 2026-03-02 20:26:52
+iteration: 571, accuracy: 0.2444, timestamp: 2026-03-02 20:27:19
+iteration: 572, accuracy: 0.0996, timestamp: 2026-03-02 20:27:44
+iteration: 573, accuracy: 0.1948, timestamp: 2026-03-02 20:28:11
+iteration: 574, accuracy: 0.2532, timestamp: 2026-03-02 20:28:36
+iteration: 575, accuracy: 0.2787, timestamp: 2026-03-02 20:29:02
+iteration: 576, accuracy: 0.2532, timestamp: 2026-03-02 20:29:25
+iteration: 577, accuracy: 0.1948, timestamp: 2026-03-02 20:29:52
+iteration: 578, accuracy: 0.2532, timestamp: 2026-03-02 20:30:18
+iteration: 579, accuracy: 0.1948, timestamp: 2026-03-02 20:30:44
+iteration: 580, accuracy: 0.2532, timestamp: 2026-03-02 20:31:06
+iteration: 581, accuracy: 0.2444, timestamp: 2026-03-02 20:31:33
+iteration: 582, accuracy: 0.2532, timestamp: 2026-03-02 20:31:57
+iteration: 583, accuracy: 0.1948, timestamp: 2026-03-02 20:32:27
+iteration: 584, accuracy: 0.2532, timestamp: 2026-03-02 20:32:52
+iteration: 585, accuracy: 0.2444, timestamp: 2026-03-02 20:33:19
+iteration: 586, accuracy: 0.2532, timestamp: 2026-03-02 20:33:42
+iteration: 587, accuracy: 0.2444, timestamp: 2026-03-02 20:34:08
+iteration: 588, accuracy: 0.2532, timestamp: 2026-03-02 20:34:31
+iteration: 589, accuracy: 0.2304, timestamp: 2026-03-02 20:34:55
+iteration: 590, accuracy: 0.2532, timestamp: 2026-03-02 20:35:18
+iteration: 591, accuracy: 0.1948, timestamp: 2026-03-02 20:35:44
+iteration: 592, accuracy: 0.2532, timestamp: 2026-03-02 20:36:07
+iteration: 593, accuracy: 0.2444, timestamp: 2026-03-02 20:36:34
+iteration: 594, accuracy: 0.2532, timestamp: 2026-03-02 20:36:57
+iteration: 595, accuracy: 0.2444, timestamp: 2026-03-02 20:37:25
+iteration: 596, accuracy: 0.2532, timestamp: 2026-03-02 20:37:50
+iteration: 597, accuracy: 0.1948, timestamp: 2026-03-02 20:38:18
+iteration: 598, accuracy: 0.2535, timestamp: 2026-03-02 20:38:43
+iteration: 599, accuracy: 0.1948, timestamp: 2026-03-02 20:39:10
+iteration: 600, accuracy: 0.2532, timestamp: 2026-03-02 20:39:34
+iteration: 601, accuracy: 0.2787, timestamp: 2026-03-02 20:39:57
+iteration: 602, accuracy: 0.2532, timestamp: 2026-03-02 20:40:23
+iteration: 603, accuracy: 0.2304, timestamp: 2026-03-02 20:40:51
+iteration: 604, accuracy: 0.2532, timestamp: 2026-03-02 20:41:14
+iteration: 605, accuracy: 0.1948, timestamp: 2026-03-02 20:41:38
+iteration: 606, accuracy: 0.2532, timestamp: 2026-03-02 20:42:01
+iteration: 607, accuracy: 0.2787, timestamp: 2026-03-02 20:42:25
+iteration: 608, accuracy: 0.2532, timestamp: 2026-03-02 20:42:46
+iteration: 609, accuracy: 0.1948, timestamp: 2026-03-02 20:43:13
+iteration: 610, accuracy: 0.2532, timestamp: 2026-03-02 20:43:39
+iteration: 611, accuracy: 0.1948, timestamp: 2026-03-02 20:44:03
+iteration: 612, accuracy: 0.1441, timestamp: 2026-03-02 20:44:28
+iteration: 613, accuracy: 0.1948, timestamp: 2026-03-02 20:44:52
+iteration: 614, accuracy: 0.2532, timestamp: 2026-03-02 20:45:16
+iteration: 615, accuracy: 0.1948, timestamp: 2026-03-02 20:45:39
+iteration: 616, accuracy: 0.2532, timestamp: 2026-03-02 20:46:02
+iteration: 617, accuracy: 0.2444, timestamp: 2026-03-02 20:46:26
+iteration: 618, accuracy: 0.2532, timestamp: 2026-03-02 20:46:52
+iteration: 619, accuracy: 0.1948, timestamp: 2026-03-02 20:47:18
+iteration: 620, error: Code validation failed: Validation error: AttributeError: 'Net' object has no attribute 'in_planes', timestamp: 2026-03-02 20:47:45
+iteration: 621, accuracy: 0.2532, timestamp: 2026-03-02 20:48:08
+iteration: 622, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 20:48:31
+iteration: 623, accuracy: 0.1441, timestamp: 2026-03-02 20:48:56
+iteration: 624, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 20:49:16
+iteration: 625, accuracy: 0.2787, timestamp: 2026-03-02 20:49:40
+iteration: 626, accuracy: 0.2532, timestamp: 2026-03-02 20:50:05
+iteration: 627, accuracy: 0.2444, timestamp: 2026-03-02 20:50:31
+iteration: 628, accuracy: 0.2532, timestamp: 2026-03-02 20:50:55
+iteration: 629, accuracy: 0.1948, timestamp: 2026-03-02 20:51:23
+iteration: 630, accuracy: 0.2532, timestamp: 2026-03-02 20:51:48
+iteration: 631, accuracy: 0.1948, timestamp: 2026-03-02 20:52:13
+iteration: 632, accuracy: 0.2532, timestamp: 2026-03-02 20:52:38
+iteration: 633, accuracy: 0.1948, timestamp: 2026-03-02 20:53:03
+iteration: 634, accuracy: 0.2532, timestamp: 2026-03-02 20:53:29
+iteration: 635, accuracy: 0.1948, timestamp: 2026-03-02 20:53:57
+iteration: 636, accuracy: 0.2532, timestamp: 2026-03-02 20:54:22
+iteration: 637, accuracy: 0.2444, timestamp: 2026-03-02 20:54:48
+iteration: 638, accuracy: 0.2532, timestamp: 2026-03-02 20:55:13
+iteration: 639, accuracy: 0.1948, timestamp: 2026-03-02 20:55:37
+iteration: 640, accuracy: 0.2532, timestamp: 2026-03-02 20:56:03
+iteration: 641, accuracy: 0.1948, timestamp: 2026-03-02 20:56:30
+iteration: 642, accuracy: 0.2532, timestamp: 2026-03-02 20:56:56
+iteration: 643, accuracy: 0.1948, timestamp: 2026-03-02 20:57:21
+iteration: 644, accuracy: 0.2532, timestamp: 2026-03-02 20:57:44
+iteration: 645, accuracy: 0.1948, timestamp: 2026-03-02 20:58:09
+iteration: 646, accuracy: 0.2532, timestamp: 2026-03-02 20:58:32
+iteration: 647, accuracy: 0.2787, timestamp: 2026-03-02 20:58:57
+iteration: 648, accuracy: 0.2532, timestamp: 2026-03-02 20:59:19
+iteration: 649, accuracy: 0.2444, timestamp: 2026-03-02 20:59:42
+iteration: 650, accuracy: 0.2532, timestamp: 2026-03-02 21:00:05
+iteration: 651, accuracy: 0.1948, timestamp: 2026-03-02 21:00:28
+iteration: 652, accuracy: 0.2532, timestamp: 2026-03-02 21:00:53
+iteration: 653, accuracy: 0.1948, timestamp: 2026-03-02 21:01:22
+iteration: 654, accuracy: 0.1441, timestamp: 2026-03-02 21:01:47
+iteration: 655, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 21:02:06
+iteration: 656, accuracy: 0.2535, timestamp: 2026-03-02 21:02:31
+iteration: 657, accuracy: 0.2444, timestamp: 2026-03-02 21:02:59
+iteration: 658, accuracy: 0.2532, timestamp: 2026-03-02 21:03:23
+iteration: 659, accuracy: 0.2444, timestamp: 2026-03-02 21:03:48
+iteration: 660, accuracy: 0.2532, timestamp: 2026-03-02 21:04:14
+iteration: 661, accuracy: 0.1948, timestamp: 2026-03-02 21:04:41
+iteration: 662, accuracy: 0.2532, timestamp: 2026-03-02 21:05:06
+iteration: 663, accuracy: 0.1948, timestamp: 2026-03-02 21:05:31
+iteration: 664, accuracy: 0.2532, timestamp: 2026-03-02 21:05:56
+iteration: 665, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 21:06:18
+iteration: 666, accuracy: 0.2173, timestamp: 2026-03-02 21:06:45
+iteration: 667, accuracy: 0.2787, timestamp: 2026-03-02 21:07:07
+iteration: 668, accuracy: 0.2532, timestamp: 2026-03-02 21:07:29
+iteration: 669, accuracy: 0.1948, timestamp: 2026-03-02 21:07:57
+iteration: 670, accuracy: 0.2532, timestamp: 2026-03-02 21:08:22
+iteration: 671, accuracy: 0.1948, timestamp: 2026-03-02 21:08:48
+iteration: 672, accuracy: 0.1441, timestamp: 2026-03-02 21:09:13
+iteration: 673, accuracy: 0.1948, timestamp: 2026-03-02 21:09:39
+iteration: 674, accuracy: 0.2532, timestamp: 2026-03-02 21:10:05
+iteration: 675, accuracy: 0.2444, timestamp: 2026-03-02 21:10:29
+iteration: 676, accuracy: 0.1702, timestamp: 2026-03-02 21:10:54
+iteration: 677, accuracy: 0.2532, timestamp: 2026-03-02 21:11:17
+iteration: 678, accuracy: 0.2304, timestamp: 2026-03-02 21:11:43
+iteration: 679, accuracy: 0.2532, timestamp: 2026-03-02 21:12:07
+iteration: 680, accuracy: 0.2304, timestamp: 2026-03-02 21:12:31
+iteration: 681, accuracy: 0.2532, timestamp: 2026-03-02 21:12:59
+iteration: 682, accuracy: 0.1948, timestamp: 2026-03-02 21:13:28
+iteration: 683, accuracy: 0.2532, timestamp: 2026-03-02 21:13:52
+iteration: 684, accuracy: 0.2444, timestamp: 2026-03-02 21:14:16
+iteration: 685, accuracy: 0.2532, timestamp: 2026-03-02 21:14:40
+iteration: 686, accuracy: 0.1948, timestamp: 2026-03-02 21:15:05
+iteration: 687, accuracy: 0.2532, timestamp: 2026-03-02 21:15:27
+iteration: 688, accuracy: 0.2444, timestamp: 2026-03-02 21:15:50
+iteration: 689, accuracy: 0.2532, timestamp: 2026-03-02 21:16:14
+iteration: 690, accuracy: 0.1948, timestamp: 2026-03-02 21:16:39
+iteration: 691, accuracy: 0.2532, timestamp: 2026-03-02 21:17:06
+iteration: 692, accuracy: 0.2444, timestamp: 2026-03-02 21:17:30
+iteration: 693, accuracy: 0.2532, timestamp: 2026-03-02 21:17:54
+iteration: 694, accuracy: 0.2444, timestamp: 2026-03-02 21:18:19
+iteration: 695, accuracy: 0.2532, timestamp: 2026-03-02 21:18:44
+iteration: 696, accuracy: 0.1948, timestamp: 2026-03-02 21:19:10
+iteration: 697, accuracy: 0.2532, timestamp: 2026-03-02 21:19:35
+iteration: 698, accuracy: 0.2444, timestamp: 2026-03-02 21:20:02
+iteration: 699, accuracy: 0.2532, timestamp: 2026-03-02 21:20:24
+iteration: 700, accuracy: 0.1948, timestamp: 2026-03-02 21:20:53
+iteration: 701, accuracy: 0.2532, timestamp: 2026-03-02 21:21:18
+iteration: 702, accuracy: 0.1948, timestamp: 2026-03-02 21:21:44
+iteration: 703, accuracy: 0.2532, timestamp: 2026-03-02 21:22:11
+iteration: 704, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 21:22:30
+iteration: 705, accuracy: 0.2532, timestamp: 2026-03-02 21:22:55
+iteration: 706, accuracy: 0.1948, timestamp: 2026-03-02 21:23:22
+iteration: 707, accuracy: 0.2532, timestamp: 2026-03-02 21:23:44
+iteration: 708, accuracy: 0.1948, timestamp: 2026-03-02 21:24:11
+iteration: 709, accuracy: 0.2532, timestamp: 2026-03-02 21:24:37
+iteration: 710, accuracy: 0.2304, timestamp: 2026-03-02 21:25:00
+iteration: 711, accuracy: 0.2532, timestamp: 2026-03-02 21:25:22
+iteration: 712, accuracy: 0.1948, timestamp: 2026-03-02 21:25:50
+iteration: 713, accuracy: 0.2345, timestamp: 2026-03-02 21:26:15
+iteration: 714, accuracy: 0.1948, timestamp: 2026-03-02 21:26:41
+iteration: 715, accuracy: 0.2532, timestamp: 2026-03-02 21:27:06
+iteration: 716, accuracy: 0.2444, timestamp: 2026-03-02 21:27:30
+iteration: 717, accuracy: 0.2532, timestamp: 2026-03-02 21:27:53
+iteration: 718, accuracy: 0.1948, timestamp: 2026-03-02 21:28:19
+iteration: 719, accuracy: 0.1915, timestamp: 2026-03-02 21:28:48
+iteration: 720, accuracy: 0.2532, timestamp: 2026-03-02 21:29:13
+iteration: 721, accuracy: 0.1948, timestamp: 2026-03-02 21:29:39
+iteration: 722, accuracy: 0.2532, timestamp: 2026-03-02 21:30:03
+iteration: 723, accuracy: 0.1948, timestamp: 2026-03-02 21:30:33
+iteration: 724, accuracy: 0.2532, timestamp: 2026-03-02 21:30:58
+iteration: 725, accuracy: 0.1948, timestamp: 2026-03-02 21:31:24
+iteration: 726, accuracy: 0.1702, timestamp: 2026-03-02 21:31:49
+iteration: 727, accuracy: 0.2173, timestamp: 2026-03-02 21:32:13
+iteration: 728, accuracy: 0.2304, timestamp: 2026-03-02 21:32:36
+iteration: 729, accuracy: 0.2787, timestamp: 2026-03-02 21:33:03
+iteration: 730, accuracy: 0.2173, timestamp: 2026-03-02 21:33:27
+iteration: 731, accuracy: 0.2787, timestamp: 2026-03-02 21:33:54
+iteration: 732, accuracy: 0.2343, timestamp: 2026-03-02 21:34:20
+iteration: 733, accuracy: 0.1948, timestamp: 2026-03-02 21:34:44
+iteration: 734, accuracy: 0.2787, timestamp: 2026-03-02 21:35:07
+iteration: 735, accuracy: 0.2532, timestamp: 2026-03-02 21:35:29
+iteration: 736, accuracy: 0.1948, timestamp: 2026-03-02 21:35:55
+iteration: 737, accuracy: 0.2313, timestamp: 2026-03-02 21:36:23
+iteration: 738, accuracy: 0.2532, timestamp: 2026-03-02 21:36:52
+iteration: 739, accuracy: 0.2444, timestamp: 2026-03-02 21:37:16
+iteration: 740, accuracy: 0.2532, timestamp: 2026-03-02 21:37:38
+iteration: 741, accuracy: 0.1948, timestamp: 2026-03-02 21:38:04
+iteration: 742, accuracy: 0.2532, timestamp: 2026-03-02 21:38:26
+iteration: 743, accuracy: 0.1948, timestamp: 2026-03-02 21:38:49
+iteration: 744, accuracy: 0.2532, timestamp: 2026-03-02 21:39:12
+iteration: 745, accuracy: 0.1948, timestamp: 2026-03-02 21:39:37
+iteration: 746, accuracy: 0.2532, timestamp: 2026-03-02 21:40:00
+iteration: 747, accuracy: 0.1948, timestamp: 2026-03-02 21:40:24
+iteration: 748, accuracy: 0.2532, timestamp: 2026-03-02 21:40:49
+iteration: 749, accuracy: 0.2444, timestamp: 2026-03-02 21:41:13
+iteration: 750, accuracy: 0.2532, timestamp: 2026-03-02 21:41:36
+iteration: 751, accuracy: 0.1948, timestamp: 2026-03-02 21:42:00
+iteration: 752, accuracy: 0.2532, timestamp: 2026-03-02 21:42:25
+iteration: 753, accuracy: 0.2787, timestamp: 2026-03-02 21:42:49
+iteration: 754, accuracy: 0.2532, timestamp: 2026-03-02 21:43:15
+iteration: 755, accuracy: 0.1948, timestamp: 2026-03-02 21:43:39
+iteration: 756, accuracy: 0.2532, timestamp: 2026-03-02 21:44:04
+iteration: 757, accuracy: 0.1017, timestamp: 2026-03-02 21:44:40
+iteration: 758, accuracy: 0.2787, timestamp: 2026-03-02 21:45:02
+iteration: 759, accuracy: 0.2532, timestamp: 2026-03-02 21:45:26
+iteration: 760, accuracy: 0.1948, timestamp: 2026-03-02 21:45:50
+iteration: 761, accuracy: 0.2532, timestamp: 2026-03-02 21:46:14
+iteration: 762, accuracy: 0.2444, timestamp: 2026-03-02 21:46:37
+iteration: 763, accuracy: 0.2173, timestamp: 2026-03-02 21:47:02
+iteration: 764, accuracy: 0.2787, timestamp: 2026-03-02 21:47:26
+iteration: 765, accuracy: 0.2532, timestamp: 2026-03-02 21:47:55
+iteration: 766, accuracy: 0.1948, timestamp: 2026-03-02 21:48:21
+iteration: 767, accuracy: 0.2173, timestamp: 2026-03-02 21:48:48
+iteration: 768, accuracy: 0.2787, timestamp: 2026-03-02 21:49:11
+iteration: 769, accuracy: 0.1915, timestamp: 2026-03-02 21:49:39
+iteration: 770, accuracy: 0.1948, timestamp: 2026-03-02 21:50:06
+iteration: 771, accuracy: 0.2532, timestamp: 2026-03-02 21:50:30
+iteration: 772, accuracy: 0.1948, timestamp: 2026-03-02 21:50:56
+iteration: 773, accuracy: 0.2532, timestamp: 2026-03-02 21:51:21
+iteration: 774, accuracy: 0.2787, timestamp: 2026-03-02 21:51:45
+iteration: 775, accuracy: 0.2173, timestamp: 2026-03-02 21:52:13
+iteration: 776, accuracy: 0.2444, timestamp: 2026-03-02 21:52:39
+iteration: 777, accuracy: 0.2532, timestamp: 2026-03-02 21:53:05
+iteration: 778, accuracy: 0.2444, timestamp: 2026-03-02 21:53:30
+iteration: 779, accuracy: 0.2532, timestamp: 2026-03-02 21:53:55
+iteration: 780, accuracy: 0.2444, timestamp: 2026-03-02 21:54:22
+iteration: 781, accuracy: 0.2345, timestamp: 2026-03-02 21:54:49
+iteration: 782, accuracy: 0.1948, timestamp: 2026-03-02 21:55:14
+iteration: 783, accuracy: 0.2532, timestamp: 2026-03-02 21:55:40
+iteration: 784, accuracy: 0.1948, timestamp: 2026-03-02 21:56:07
+iteration: 785, accuracy: 0.2532, timestamp: 2026-03-02 21:56:30
+iteration: 786, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 21:56:48
+iteration: 787, accuracy: 0.2535, timestamp: 2026-03-02 21:57:11
+iteration: 788, accuracy: 0.1948, timestamp: 2026-03-02 21:57:43
+iteration: 789, accuracy: 0.2535, timestamp: 2026-03-02 21:58:07
+iteration: 790, accuracy: 0.1948, timestamp: 2026-03-02 21:58:33
+iteration: 791, accuracy: 0.2532, timestamp: 2026-03-02 21:58:59
+iteration: 792, accuracy: 0.1948, timestamp: 2026-03-02 21:59:28
+iteration: 793, accuracy: 0.2532, timestamp: 2026-03-02 21:59:54
+iteration: 794, accuracy: 0.1948, timestamp: 2026-03-02 22:00:21
+iteration: 795, accuracy: 0.2532, timestamp: 2026-03-02 22:00:46
+iteration: 796, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 22:01:15
+iteration: 797, accuracy: 0.2532, timestamp: 2026-03-02 22:01:38
+iteration: 798, accuracy: 0.2444, timestamp: 2026-03-02 22:02:05
+iteration: 799, accuracy: 0.2532, timestamp: 2026-03-02 22:02:33
+iteration: 800, accuracy: 0.2444, timestamp: 2026-03-02 22:03:02
+iteration: 801, accuracy: 0.2787, timestamp: 2026-03-02 22:03:25
+iteration: 802, accuracy: 0.1915, timestamp: 2026-03-02 22:03:52
+iteration: 803, accuracy: 0.1948, timestamp: 2026-03-02 22:04:18
+iteration: 804, accuracy: 0.2532, timestamp: 2026-03-02 22:04:43
+iteration: 805, accuracy: 0.1948, timestamp: 2026-03-02 22:05:10
+iteration: 806, accuracy: 0.2532, timestamp: 2026-03-02 22:05:34
+iteration: 807, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 22:05:52
+iteration: 808, accuracy: 0.2532, timestamp: 2026-03-02 22:06:18
+iteration: 809, accuracy: 0.1948, timestamp: 2026-03-02 22:06:43
+iteration: 810, accuracy: 0.2532, timestamp: 2026-03-02 22:07:09
+iteration: 811, accuracy: 0.1948, timestamp: 2026-03-02 22:07:37
+iteration: 812, accuracy: 0.2532, timestamp: 2026-03-02 22:08:01
+iteration: 813, accuracy: 0.1948, timestamp: 2026-03-02 22:08:26
+iteration: 814, accuracy: 0.1915, timestamp: 2026-03-02 22:08:50
+iteration: 815, accuracy: 0.2787, timestamp: 2026-03-02 22:09:12
+iteration: 816, accuracy: 0.2532, timestamp: 2026-03-02 22:09:36
+iteration: 817, accuracy: 0.2444, timestamp: 2026-03-02 22:10:01
+iteration: 818, accuracy: 0.2532, timestamp: 2026-03-02 22:10:24
+iteration: 819, accuracy: 0.1948, timestamp: 2026-03-02 22:10:49
+iteration: 820, accuracy: 0.2532, timestamp: 2026-03-02 22:11:15
+iteration: 821, accuracy: 0.2444, timestamp: 2026-03-02 22:11:39
+iteration: 822, accuracy: 0.2532, timestamp: 2026-03-02 22:12:02
+iteration: 823, accuracy: 0.1948, timestamp: 2026-03-02 22:12:27
+iteration: 824, accuracy: 0.2532, timestamp: 2026-03-02 22:12:52
+iteration: 825, accuracy: 0.1948, timestamp: 2026-03-02 22:13:18
+iteration: 826, accuracy: 0.2532, timestamp: 2026-03-02 22:13:42
+iteration: 827, accuracy: 0.1948, timestamp: 2026-03-02 22:14:07
+iteration: 828, accuracy: 0.2532, timestamp: 2026-03-02 22:14:32
+iteration: 829, accuracy: 0.1948, timestamp: 2026-03-02 22:14:58
+iteration: 830, accuracy: 0.2532, timestamp: 2026-03-02 22:15:23
+iteration: 831, accuracy: 0.1948, timestamp: 2026-03-02 22:15:50
+iteration: 832, accuracy: 0.2532, timestamp: 2026-03-02 22:16:13
+iteration: 833, accuracy: 0.1948, timestamp: 2026-03-02 22:16:39
+iteration: 834, accuracy: 0.2532, timestamp: 2026-03-02 22:17:05
+iteration: 835, accuracy: 0.2444, timestamp: 2026-03-02 22:17:30
+iteration: 836, accuracy: 0.2532, timestamp: 2026-03-02 22:17:55
+iteration: 837, accuracy: 0.1948, timestamp: 2026-03-02 22:18:21
+iteration: 838, accuracy: 0.2532, timestamp: 2026-03-02 22:18:47
+iteration: 839, accuracy: 0.1948, timestamp: 2026-03-02 22:19:12
+iteration: 840, accuracy: 0.2532, timestamp: 2026-03-02 22:19:35
+iteration: 841, accuracy: 0.2444, timestamp: 2026-03-02 22:20:00
+iteration: 842, accuracy: 0.2532, timestamp: 2026-03-02 22:20:27
+iteration: 843, accuracy: 0.1948, timestamp: 2026-03-02 22:20:53
+iteration: 844, accuracy: 0.2532, timestamp: 2026-03-02 22:21:16
+iteration: 845, accuracy: 0.1948, timestamp: 2026-03-02 22:21:42
+iteration: 846, accuracy: 0.2535, timestamp: 2026-03-02 22:22:07
+iteration: 847, accuracy: 0.1948, timestamp: 2026-03-02 22:22:30
+iteration: 848, accuracy: 0.2532, timestamp: 2026-03-02 22:22:52
+iteration: 849, accuracy: 0.1948, timestamp: 2026-03-02 22:23:18
+iteration: 850, accuracy: 0.2532, timestamp: 2026-03-02 22:23:42
+iteration: 851, accuracy: 0.1948, timestamp: 2026-03-02 22:24:07
+iteration: 852, accuracy: 0.2532, timestamp: 2026-03-02 22:24:32
+iteration: 853, accuracy: 0.1948, timestamp: 2026-03-02 22:24:59
+iteration: 854, accuracy: 0.2532, timestamp: 2026-03-02 22:25:22
+iteration: 855, accuracy: 0.2444, timestamp: 2026-03-02 22:25:50
+iteration: 856, accuracy: 0.2532, timestamp: 2026-03-02 22:26:15
+iteration: 857, accuracy: 0.1948, timestamp: 2026-03-02 22:26:42
+iteration: 858, accuracy: 0.2532, timestamp: 2026-03-02 22:27:07
+iteration: 859, accuracy: 0.1948, timestamp: 2026-03-02 22:27:31
+iteration: 860, accuracy: 0.2532, timestamp: 2026-03-02 22:27:53
+iteration: 861, accuracy: 0.1948, timestamp: 2026-03-02 22:28:20
+iteration: 862, accuracy: 0.2532, timestamp: 2026-03-02 22:28:47
+iteration: 863, accuracy: 0.2787, timestamp: 2026-03-02 22:29:10
+iteration: 864, accuracy: 0.2532, timestamp: 2026-03-02 22:29:36
+iteration: 865, accuracy: 0.1948, timestamp: 2026-03-02 22:30:00
+iteration: 866, accuracy: 0.1915, timestamp: 2026-03-02 22:30:26
+iteration: 867, accuracy: 0.2787, timestamp: 2026-03-02 22:30:53
+iteration: 868, accuracy: 0.2173, timestamp: 2026-03-02 22:31:19
+iteration: 869, accuracy: 0.2787, timestamp: 2026-03-02 22:31:45
+iteration: 870, accuracy: 0.2532, timestamp: 2026-03-02 22:32:10
+iteration: 871, accuracy: 0.1948, timestamp: 2026-03-02 22:32:37
+iteration: 872, accuracy: 0.2532, timestamp: 2026-03-02 22:33:03
+iteration: 873, accuracy: 0.2787, timestamp: 2026-03-02 22:33:28
+iteration: 874, accuracy: 0.2532, timestamp: 2026-03-02 22:33:49
+iteration: 875, accuracy: 0.2106, timestamp: 2026-03-02 22:34:15
+iteration: 876, accuracy: 0.2173, timestamp: 2026-03-02 22:34:40
+iteration: 877, accuracy: 0.1948, timestamp: 2026-03-02 22:35:07
+iteration: 878, accuracy: 0.2532, timestamp: 2026-03-02 22:35:31
+iteration: 879, accuracy: 0.1948, timestamp: 2026-03-02 22:36:00
+iteration: 880, accuracy: 0.2532, timestamp: 2026-03-02 22:36:25
+iteration: 881, accuracy: 0.2444, timestamp: 2026-03-02 22:36:51
+iteration: 882, accuracy: 0.2532, timestamp: 2026-03-02 22:37:17
+iteration: 883, accuracy: 0.1948, timestamp: 2026-03-02 22:37:41
+iteration: 884, accuracy: 0.2173, timestamp: 2026-03-02 22:38:07
+iteration: 885, accuracy: 0.2106, timestamp: 2026-03-02 22:38:35
+iteration: 886, accuracy: 0.2173, timestamp: 2026-03-02 22:38:58
+iteration: 887, accuracy: 0.2444, timestamp: 2026-03-02 22:39:25
+iteration: 888, accuracy: 0.2532, timestamp: 2026-03-02 22:39:51
+iteration: 889, accuracy: 0.2444, timestamp: 2026-03-02 22:40:17
+iteration: 890, accuracy: 0.2532, timestamp: 2026-03-02 22:40:41
+iteration: 891, accuracy: 0.1948, timestamp: 2026-03-02 22:41:07
+iteration: 892, accuracy: 0.2532, timestamp: 2026-03-02 22:41:31
+iteration: 893, accuracy: 0.1948, timestamp: 2026-03-02 22:41:58
+iteration: 894, accuracy: 0.2532, timestamp: 2026-03-02 22:42:22
+iteration: 895, accuracy: 0.1948, timestamp: 2026-03-02 22:42:49
+iteration: 896, accuracy: 0.2532, timestamp: 2026-03-02 22:43:15
+iteration: 897, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 22:43:37
+iteration: 898, accuracy: 0.2532, timestamp: 2026-03-02 22:44:02
+iteration: 899, accuracy: 0.1948, timestamp: 2026-03-02 22:44:27
+iteration: 900, accuracy: 0.2532, timestamp: 2026-03-02 22:44:51
+iteration: 901, accuracy: 0.1948, timestamp: 2026-03-02 22:45:15
+iteration: 902, accuracy: 0.2532, timestamp: 2026-03-02 22:45:40
+iteration: 903, accuracy: 0.2444, timestamp: 2026-03-02 22:46:05
+iteration: 904, accuracy: 0.2532, timestamp: 2026-03-02 22:46:30
+iteration: 905, accuracy: 0.1948, timestamp: 2026-03-02 22:46:57
+iteration: 906, accuracy: 0.2532, timestamp: 2026-03-02 22:47:23
+iteration: 907, accuracy: 0.2444, timestamp: 2026-03-02 22:47:48
+iteration: 908, accuracy: 0.2532, timestamp: 2026-03-02 22:48:14
+iteration: 909, accuracy: 0.1948, timestamp: 2026-03-02 22:48:39
+iteration: 910, accuracy: 0.2173, timestamp: 2026-03-02 22:49:07
+iteration: 911, accuracy: 0.1948, timestamp: 2026-03-02 22:49:33
+iteration: 912, accuracy: 0.2532, timestamp: 2026-03-02 22:49:56
+iteration: 913, accuracy: 0.1948, timestamp: 2026-03-02 22:50:19
+iteration: 914, accuracy: 0.2532, timestamp: 2026-03-02 22:50:42
+iteration: 915, accuracy: 0.1948, timestamp: 2026-03-02 22:51:07
+iteration: 916, accuracy: 0.2532, timestamp: 2026-03-02 22:51:33
+iteration: 917, accuracy: 0.2444, timestamp: 2026-03-02 22:51:58
+iteration: 918, accuracy: 0.2532, timestamp: 2026-03-02 22:52:22
+iteration: 919, accuracy: 0.2444, timestamp: 2026-03-02 22:52:46
+iteration: 920, accuracy: 0.2532, timestamp: 2026-03-02 22:53:13
+iteration: 921, accuracy: 0.2787, timestamp: 2026-03-02 22:53:37
+iteration: 922, accuracy: 0.2532, timestamp: 2026-03-02 22:54:00
+iteration: 923, accuracy: 0.2444, timestamp: 2026-03-02 22:54:24
+iteration: 924, accuracy: 0.2532, timestamp: 2026-03-02 22:54:49
+iteration: 925, accuracy: 0.1948, timestamp: 2026-03-02 22:55:16
+iteration: 926, accuracy: 0.2532, timestamp: 2026-03-02 22:55:41
+iteration: 927, accuracy: 0.1948, timestamp: 2026-03-02 22:56:06
+iteration: 928, accuracy: 0.2532, timestamp: 2026-03-02 22:56:30
+iteration: 929, accuracy: 0.1948, timestamp: 2026-03-02 22:56:55
+iteration: 930, accuracy: 0.1915, timestamp: 2026-03-02 22:57:22
+iteration: 931, accuracy: 0.1926, timestamp: 2026-03-02 22:57:49
+iteration: 932, accuracy: 0.1915, timestamp: 2026-03-02 22:58:16
+iteration: 933, accuracy: 0.2431, timestamp: 2026-03-02 22:58:41
+iteration: 934, accuracy: 0.2173, timestamp: 2026-03-02 22:59:08
+iteration: 935, accuracy: 0.2787, timestamp: 2026-03-02 22:59:35
+iteration: 936, accuracy: 0.1275, timestamp: 2026-03-02 23:00:05
+iteration: 937, accuracy: 0.1948, timestamp: 2026-03-02 23:00:31
+iteration: 938, accuracy: 0.1948, timestamp: 2026-03-02 23:00:58
+iteration: 939, accuracy: 0.2532, timestamp: 2026-03-02 23:01:21
+iteration: 940, accuracy: 0.2444, timestamp: 2026-03-02 23:01:48
+iteration: 941, accuracy: 0.2345, timestamp: 2026-03-02 23:02:11
+iteration: 942, accuracy: 0.1948, timestamp: 2026-03-02 23:02:37
+iteration: 943, accuracy: 0.2532, timestamp: 2026-03-02 23:03:01
+iteration: 944, accuracy: 0.1948, timestamp: 2026-03-02 23:03:28
+iteration: 945, accuracy: 0.1915, timestamp: 2026-03-02 23:03:52
+iteration: 946, accuracy: 0.2444, timestamp: 2026-03-02 23:04:17
+iteration: 947, accuracy: 0.2173, timestamp: 2026-03-02 23:04:42
+iteration: 948, accuracy: 0.1948, timestamp: 2026-03-02 23:05:08
+iteration: 949, accuracy: 0.2304, timestamp: 2026-03-02 23:05:33
+iteration: 950, accuracy: 0.2532, timestamp: 2026-03-02 23:05:59
+iteration: 951, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 23:06:18
+iteration: 952, accuracy: 0.2444, timestamp: 2026-03-02 23:06:46
+iteration: 953, accuracy: 0.2773, timestamp: 2026-03-02 23:07:15
+iteration: 954, accuracy: 0.0996, timestamp: 2026-03-02 23:07:39
+iteration: 955, accuracy: 0.1948, timestamp: 2026-03-02 23:08:06
+iteration: 956, accuracy: 0.1915, timestamp: 2026-03-02 23:08:32
+iteration: 957, accuracy: 0.1948, timestamp: 2026-03-02 23:08:58
+iteration: 958, accuracy: 0.2304, timestamp: 2026-03-02 23:09:23
+iteration: 959, accuracy: 0.2406, timestamp: 2026-03-02 23:09:53
+iteration: 960, accuracy: 0.2376, timestamp: 2026-03-02 23:10:24
+iteration: 961, accuracy: 0.2787, timestamp: 2026-03-02 23:10:48
+iteration: 962, accuracy: 0.2374, timestamp: 2026-03-02 23:11:13
+iteration: 963, accuracy: 0.2444, timestamp: 2026-03-02 23:11:38
+iteration: 964, accuracy: 0.2173, timestamp: 2026-03-02 23:12:05
+iteration: 965, accuracy: 0.1948, timestamp: 2026-03-02 23:12:32
+iteration: 966, accuracy: 0.2532, timestamp: 2026-03-02 23:13:00
+iteration: 967, accuracy: 0.2444, timestamp: 2026-03-02 23:13:23
+iteration: 968, accuracy: 0.2173, timestamp: 2026-03-02 23:13:48
+iteration: 969, accuracy: 0.2444, timestamp: 2026-03-02 23:14:13
+iteration: 970, accuracy: 0.2787, timestamp: 2026-03-02 23:14:35
+iteration: 971, accuracy: 0.2532, timestamp: 2026-03-02 23:15:01
+iteration: 972, accuracy: 0.1948, timestamp: 2026-03-02 23:15:27
+iteration: 973, accuracy: 0.1915, timestamp: 2026-03-02 23:15:53
+iteration: 974, accuracy: 0.2163, timestamp: 2026-03-02 23:16:22
+iteration: 975, accuracy: 0.2173, timestamp: 2026-03-02 23:16:51
+iteration: 976, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-03-02 23:17:14
+iteration: 977, accuracy: 0.2532, timestamp: 2026-03-02 23:17:39
+iteration: 978, accuracy: 0.2444, timestamp: 2026-03-02 23:18:05
+iteration: 979, accuracy: 0.2532, timestamp: 2026-03-02 23:18:29
+iteration: 980, accuracy: 0.2787, timestamp: 2026-03-02 23:18:52
+iteration: 981, accuracy: 0.2173, timestamp: 2026-03-02 23:19:17
+iteration: 982, accuracy: 0.2444, timestamp: 2026-03-02 23:19:43
+iteration: 983, accuracy: 0.2532, timestamp: 2026-03-02 23:20:07
+iteration: 984, accuracy: 0.2787, timestamp: 2026-03-02 23:20:31
+iteration: 985, accuracy: 0.2173, timestamp: 2026-03-02 23:20:55
+iteration: 986, accuracy: 0.2787, timestamp: 2026-03-02 23:21:18
+iteration: 987, accuracy: 0.2532, timestamp: 2026-03-02 23:21:41
+iteration: 988, accuracy: 0.2444, timestamp: 2026-03-02 23:22:07
+iteration: 989, accuracy: 0.2173, timestamp: 2026-03-02 23:22:32
+iteration: 990, accuracy: 0.1948, timestamp: 2026-03-02 23:22:58
+iteration: 991, accuracy: 0.2532, timestamp: 2026-03-02 23:23:23
+iteration: 992, accuracy: 0.1948, timestamp: 2026-03-02 23:23:48
+iteration: 993, accuracy: 0.2532, timestamp: 2026-03-02 23:24:13
+iteration: 994, accuracy: 0.1948, timestamp: 2026-03-02 23:24:37
+iteration: 995, accuracy: 0.1915, timestamp: 2026-03-02 23:25:04
+iteration: 996, accuracy: 0.1948, timestamp: 2026-03-02 23:25:34
+iteration: 997, accuracy: 0.1948, timestamp: 2026-03-02 23:25:59
+iteration: 998, accuracy: 0.1915, timestamp: 2026-03-02 23:26:23
+iteration: 999, accuracy: 0.1948, timestamp: 2026-03-02 23:26:53
+iteration: 1000, accuracy: 0.1915, timestamp: 2026-03-02 23:27:21
+iteration: 1001, accuracy: 0.2787, timestamp: 2026-03-02 23:27:46
+iteration: 1002, accuracy: 0.2173, timestamp: 2026-03-02 23:28:13
+iteration: 1003, accuracy: 0.2444, timestamp: 2026-03-02 23:28:40
+iteration: 1004, accuracy: 0.2532, timestamp: 2026-03-02 23:29:03
+iteration: 1005, accuracy: 0.1948, timestamp: 2026-03-02 23:29:27
+iteration: 1006, accuracy: 0.2026, timestamp: 2026-03-02 23:30:03
+iteration: 1007, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 4096, timestamp: 2026-03-02 23:30:31
+iteration: 1008, accuracy: 0.2787, timestamp: 2026-03-02 23:30:54
+iteration: 1009, accuracy: 0.2173, timestamp: 2026-03-02 23:31:21
+iteration: 1010, accuracy: 0.2444, timestamp: 2026-03-02 23:31:47
+iteration: 1011, accuracy: 0.1948, timestamp: 2026-03-02 23:32:14
+iteration: 1012, accuracy: 0.1915, timestamp: 2026-03-02 23:32:40
+iteration: 1013, accuracy: 0.1948, timestamp: 2026-03-02 23:33:08
+iteration: 1014, accuracy: 0.2137, timestamp: 2026-03-02 23:33:34
+iteration: 1015, accuracy: 0.1948, timestamp: 2026-03-02 23:34:02
+iteration: 1016, accuracy: 0.1915, timestamp: 2026-03-02 23:34:28
+iteration: 1017, accuracy: 0.1948, timestamp: 2026-03-02 23:34:53
+iteration: 1018, accuracy: 0.1658, timestamp: 2026-03-02 23:35:21
+iteration: 1019, accuracy: 0.2787, timestamp: 2026-03-02 23:35:45
+iteration: 1020, accuracy: 0.2532, timestamp: 2026-03-02 23:36:08
+iteration: 1021, accuracy: 0.2444, timestamp: 2026-03-02 23:36:33
+iteration: 1022, accuracy: 0.2345, timestamp: 2026-03-02 23:36:55
+iteration: 1023, accuracy: 0.1948, timestamp: 2026-03-02 23:37:20
+iteration: 1024, accuracy: 0.1915, timestamp: 2026-03-02 23:37:46
+iteration: 1025, accuracy: 0.2444, timestamp: 2026-03-02 23:38:13
+iteration: 1026, accuracy: 0.1948, timestamp: 2026-03-02 23:38:40
+iteration: 1027, accuracy: 0.1915, timestamp: 2026-03-02 23:39:05
+iteration: 1028, accuracy: 0.1948, timestamp: 2026-03-02 23:39:33
+iteration: 1029, accuracy: 0.0409, timestamp: 2026-03-02 23:40:02
+iteration: 1030, accuracy: 0.2787, timestamp: 2026-03-02 23:40:27
+iteration: 1031, accuracy: 0.2374, timestamp: 2026-03-02 23:40:53
+iteration: 1032, accuracy: 0.2787, timestamp: 2026-03-02 23:41:17
+iteration: 1033, accuracy: 0.2135, timestamp: 2026-03-02 23:41:42
+iteration: 1034, accuracy: 0.2444, timestamp: 2026-03-02 23:42:10
+iteration: 1035, accuracy: 0.2532, timestamp: 2026-03-02 23:42:35
+iteration: 1036, accuracy: 0.2444, timestamp: 2026-03-02 23:43:02
+iteration: 1037, accuracy: 0.2532, timestamp: 2026-03-02 23:43:27
+iteration: 1038, accuracy: 0.1948, timestamp: 2026-03-02 23:43:54
+iteration: 1039, accuracy: 0.1915, timestamp: 2026-03-02 23:44:20
+iteration: 1040, accuracy: 0.1948, timestamp: 2026-03-02 23:44:43
+iteration: 1041, accuracy: 0.1915, timestamp: 2026-03-02 23:45:07
+iteration: 1042, accuracy: 0.1948, timestamp: 2026-03-02 23:45:35
+iteration: 1043, accuracy: 0.1915, timestamp: 2026-03-02 23:46:05
+iteration: 1044, accuracy: 0.1948, timestamp: 2026-03-02 23:46:28
+iteration: 1045, accuracy: 0.1948, timestamp: 2026-03-02 23:46:54
+iteration: 1046, accuracy: 0.1915, timestamp: 2026-03-02 23:47:21
+iteration: 1047, accuracy: 0.1948, timestamp: 2026-03-02 23:47:49
+iteration: 1048, accuracy: 0.1715, timestamp: 2026-03-02 23:48:15
+iteration: 1049, accuracy: 0.1948, timestamp: 2026-03-02 23:48:43
+iteration: 1050, accuracy: 0.2532, timestamp: 2026-03-02 23:49:07
+iteration: 1051, accuracy: 0.2444, timestamp: 2026-03-02 23:49:32
+iteration: 1052, accuracy: 0.2532, timestamp: 2026-03-02 23:49:57
+iteration: 1053, accuracy: 0.2444, timestamp: 2026-03-02 23:50:22
+iteration: 1054, accuracy: 0.2532, timestamp: 2026-03-02 23:50:45
+iteration: 1055, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 256, timestamp: 2026-03-02 23:51:08
+iteration: 1056, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 128, timestamp: 2026-03-02 23:51:29
+iteration: 1057, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 512 elements not 128, timestamp: 2026-03-02 23:51:50
+iteration: 1058, error: Code validation failed: Validation error: RuntimeError: running_mean should contain 256 elements not 64, timestamp: 2026-03-02 23:52:11
+iteration: 1059, accuracy: 0.2304, timestamp: 2026-03-02 23:52:34
+iteration: 1060, accuracy: 0.1698, timestamp: 2026-03-02 23:53:01
+iteration: 1061, accuracy: 0.2304, timestamp: 2026-03-02 23:53:24
+iteration: 1062, accuracy: 0.2787, timestamp: 2026-03-02 23:53:48
+iteration: 1063, accuracy: 0.2135, timestamp: 2026-03-02 23:54:14
+iteration: 1064, accuracy: 0.2787, timestamp: 2026-03-02 23:54:37
+iteration: 1065, accuracy: 0.2173, timestamp: 2026-03-02 23:55:06
+iteration: 1066, accuracy: 0.1948, timestamp: 2026-03-02 23:55:31
+iteration: 1067, accuracy: 0.1948, timestamp: 2026-03-02 23:55:59
+iteration: 1068, accuracy: 0.1915, timestamp: 2026-03-02 23:56:24
+iteration: 1069, accuracy: 0.1791, timestamp: 2026-03-02 23:56:52
+iteration: 1070, accuracy: 0.1915, timestamp: 2026-03-02 23:57:16
+iteration: 1071, accuracy: 0.1948, timestamp: 2026-03-02 23:57:43
+iteration: 1072, accuracy: 0.2532, timestamp: 2026-03-02 23:58:09
+iteration: 1073, accuracy: 0.1948, timestamp: 2026-03-02 23:58:35
+iteration: 1074, accuracy: 0.1915, timestamp: 2026-03-02 23:59:02
+iteration: 1075, accuracy: 0.1948, timestamp: 2026-03-02 23:59:33
+iteration: 1076, accuracy: 0.1915, timestamp: 2026-03-02 23:59:57
+iteration: 1077, accuracy: 0.2304, timestamp: 2026-03-03 00:00:20
+iteration: 1078, accuracy: 0.2532, timestamp: 2026-03-03 00:00:42
+iteration: 1079, accuracy: 0.1948, timestamp: 2026-03-03 00:01:08
+iteration: 1080, accuracy: 0.2304, timestamp: 2026-03-03 00:01:31
+iteration: 1081, accuracy: 0.2532, timestamp: 2026-03-03 00:01:53
+iteration: 1082, accuracy: 0.2444, timestamp: 2026-03-03 00:02:17
+iteration: 1083, accuracy: 0.2532, timestamp: 2026-03-03 00:02:39
+iteration: 1084, accuracy: 0.1948, timestamp: 2026-03-03 00:03:05
+iteration: 1085, accuracy: 0.1915, timestamp: 2026-03-03 00:03:28
+iteration: 1086, accuracy: 0.1948, timestamp: 2026-03-03 00:03:54
+iteration: 1087, accuracy: 0.1915, timestamp: 2026-03-03 00:04:20
+iteration: 1088, accuracy: 0.2444, timestamp: 2026-03-03 00:04:46
+iteration: 1089, accuracy: 0.2173, timestamp: 2026-03-03 00:05:12
+iteration: 1090, accuracy: 0.1948, timestamp: 2026-03-03 00:05:36
+iteration: 1091, accuracy: 0.1915, timestamp: 2026-03-03 00:06:00
+iteration: 1092, accuracy: 0.2444, timestamp: 2026-03-03 00:06:26
+iteration: 1093, accuracy: 0.2173, timestamp: 2026-03-03 00:06:52
+iteration: 1094, accuracy: 0.2444, timestamp: 2026-03-03 00:07:17
+iteration: 1095, accuracy: 0.1978, timestamp: 2026-03-03 00:07:48
+iteration: 1096, accuracy: 0.2444, timestamp: 2026-03-03 00:08:14
+iteration: 1097, accuracy: 0.2532, timestamp: 2026-03-03 00:08:38
+iteration: 1098, accuracy: 0.2444, timestamp: 2026-03-03 00:09:03
+iteration: 1099, accuracy: 0.1915, timestamp: 2026-03-03 00:09:31
+iteration: 1100, accuracy: 0.1948, timestamp: 2026-03-03 00:09:57
+iteration: 1101, accuracy: 0.1915, timestamp: 2026-03-03 00:10:23
+iteration: 1102, accuracy: 0.1948, timestamp: 2026-03-03 00:10:47
+iteration: 1103, accuracy: 0.2532, timestamp: 2026-03-03 00:11:09
+iteration: 1104, accuracy: 0.1948, timestamp: 2026-03-03 00:11:35
+iteration: 1105, accuracy: 0.2532, timestamp: 2026-03-03 00:12:00
+iteration: 1106, accuracy: 0.1948, timestamp: 2026-03-03 00:12:25
+iteration: 1107, accuracy: 0.2444, timestamp: 2026-03-03 00:12:49
+iteration: 1108, accuracy: 0.2532, timestamp: 2026-03-03 00:13:13
+iteration: 1109, accuracy: 0.1948, timestamp: 2026-03-03 00:13:39
+iteration: 1110, accuracy: 0.1915, timestamp: 2026-03-03 00:14:05
+iteration: 1111, accuracy: 0.1948, timestamp: 2026-03-03 00:14:31
+iteration: 1112, accuracy: 0.1915, timestamp: 2026-03-03 00:14:56
+iteration: 1113, accuracy: 0.1948, timestamp: 2026-03-03 00:15:22
+iteration: 1114, accuracy: 0.1915, timestamp: 2026-03-03 00:15:46
+iteration: 1115, accuracy: 0.2787, timestamp: 2026-03-03 00:16:07
+iteration: 1116, accuracy: 0.2173, timestamp: 2026-03-03 00:16:34
+iteration: 1117, accuracy: 0.2444, timestamp: 2026-03-03 00:17:01
+iteration: 1118, accuracy: 0.2173, timestamp: 2026-03-03 00:17:28
+iteration: 1119, accuracy: 0.2444, timestamp: 2026-03-03 00:17:54
+iteration: 1120, accuracy: 0.2787, timestamp: 2026-03-03 00:18:17
+iteration: 1121, accuracy: 0.1915, timestamp: 2026-03-03 00:18:43
+iteration: 1122, accuracy: 0.1948, timestamp: 2026-03-03 00:19:07
+iteration: 1123, accuracy: 0.1715, timestamp: 2026-03-03 00:19:34
+iteration: 1124, accuracy: 0.2330, timestamp: 2026-03-03 00:19:57
+iteration: 1125, accuracy: 0.1948, timestamp: 2026-03-03 00:20:23
+iteration: 1126, accuracy: 0.2532, timestamp: 2026-03-03 00:20:46
+iteration: 1127, accuracy: 0.2444, timestamp: 2026-03-03 00:21:14
+iteration: 1128, accuracy: 0.2532, timestamp: 2026-03-03 00:21:37
+iteration: 1129, accuracy: 0.2861, timestamp: 2026-03-03 00:21:59
+iteration: 1130, accuracy: 0.2343, timestamp: 2026-03-03 00:22:21
+iteration: 1131, accuracy: 0.2053, timestamp: 2026-03-03 00:22:44
+iteration: 1132, accuracy: 0.2672, timestamp: 2026-03-03 00:23:06
+iteration: 1133, accuracy: 0.1857, timestamp: 2026-03-03 00:23:32
+iteration: 1134, accuracy: 0.1951, timestamp: 2026-03-03 00:24:00
+iteration: 1135, accuracy: 0.2532, timestamp: 2026-03-03 00:24:22
+iteration: 1136, accuracy: 0.2083, timestamp: 2026-03-03 00:24:47
+iteration: 1137, accuracy: 0.2327, timestamp: 2026-03-03 00:25:13
+iteration: 1138, accuracy: 0.1977, timestamp: 2026-03-03 00:25:42
+iteration: 1139, accuracy: 0.2232, timestamp: 2026-03-03 00:26:10
+iteration: 1140, accuracy: 0.2861, timestamp: 2026-03-03 00:26:33
+iteration: 1141, accuracy: 0.2343, timestamp: 2026-03-03 00:27:00
+iteration: 1142, accuracy: 0.2861, timestamp: 2026-03-03 00:27:23
+iteration: 1143, accuracy: 0.2047, timestamp: 2026-03-03 00:27:48
+iteration: 1144, accuracy: 0.1899, timestamp: 2026-03-03 00:28:14
+iteration: 1145, accuracy: 0.2232, timestamp: 2026-03-03 00:28:41
+iteration: 1146, accuracy: 0.2083, timestamp: 2026-03-03 00:29:07
+iteration: 1147, accuracy: 0.1223, timestamp: 2026-03-03 00:29:31
+iteration: 1148, accuracy: 0.2232, timestamp: 2026-03-03 00:29:57
+iteration: 1149, accuracy: 0.2083, timestamp: 2026-03-03 00:30:25
+iteration: 1150, accuracy: 0.2532, timestamp: 2026-03-03 00:30:51
+iteration: 1151, accuracy: 0.1977, timestamp: 2026-03-03 00:31:18
+iteration: 1152, accuracy: 0.1162, timestamp: 2026-03-03 00:31:41
+iteration: 1153, accuracy: 0.2232, timestamp: 2026-03-03 00:32:10
+iteration: 1154, accuracy: 0.1899, timestamp: 2026-03-03 00:32:37
+iteration: 1155, accuracy: 0.2672, timestamp: 2026-03-03 00:33:04
+iteration: 1156, accuracy: 0.0782, timestamp: 2026-03-03 00:33:31
+iteration: 1157, accuracy: 0.2343, timestamp: 2026-03-03 00:33:57
+iteration: 1158, accuracy: 0.0865, timestamp: 2026-03-03 00:34:24
+iteration: 1159, accuracy: 0.2327, timestamp: 2026-03-03 00:34:53
+iteration: 1160, accuracy: 0.2083, timestamp: 2026-03-03 00:35:21
+iteration: 1161, accuracy: 0.2327, timestamp: 2026-03-03 00:35:52
+iteration: 1162, accuracy: 0.0865, timestamp: 2026-03-03 00:36:19
+iteration: 1163, accuracy: 0.2327, timestamp: 2026-03-03 00:36:46
+iteration: 1164, accuracy: 0.2861, timestamp: 2026-03-03 00:37:13
+iteration: 1165, accuracy: 0.2044, timestamp: 2026-03-03 00:37:42
+iteration: 1166, accuracy: 0.2576, timestamp: 2026-03-03 00:38:09
+iteration: 1167, accuracy: 0.1114, timestamp: 2026-03-03 00:38:38
+iteration: 1168, accuracy: 0.0750, timestamp: 2026-03-03 00:39:02
+iteration: 1169, accuracy: 0.1710, timestamp: 2026-03-03 00:39:23
+iteration: 1170, accuracy: 0.2452, timestamp: 2026-03-03 00:39:50
+iteration: 1171, accuracy: 0.2573, timestamp: 2026-03-03 00:40:15
+iteration: 1172, accuracy: 0.2083, timestamp: 2026-03-03 00:40:41
+iteration: 1173, accuracy: 0.2562, timestamp: 2026-03-03 00:41:06
+iteration: 1174, accuracy: 0.2787, timestamp: 2026-03-03 00:41:30
+iteration: 1175, accuracy: 0.0906, timestamp: 2026-03-03 00:41:55
+iteration: 1176, accuracy: 0.1899, timestamp: 2026-03-03 00:42:21
+iteration: 1177, accuracy: 0.2068, timestamp: 2026-03-03 00:42:48
+iteration: 1178, accuracy: 0.2232, timestamp: 2026-03-03 00:43:13
+iteration: 1179, accuracy: 0.2083, timestamp: 2026-03-03 00:43:41
+iteration: 1180, accuracy: 0.2083, timestamp: 2026-03-03 00:44:06
+iteration: 1181, accuracy: 0.2213, timestamp: 2026-03-03 00:44:30
+iteration: 1182, accuracy: 0.2232, timestamp: 2026-03-03 00:44:55
+iteration: 1183, accuracy: 0.2787, timestamp: 2026-03-03 00:45:25
+iteration: 1184, accuracy: 0.2672, timestamp: 2026-03-03 00:45:48
+iteration: 1185, accuracy: 0.1977, timestamp: 2026-03-03 00:46:14
+iteration: 1186, accuracy: 0.2327, timestamp: 2026-03-03 00:46:37
+iteration: 1187, accuracy: 0.2213, timestamp: 2026-03-03 00:47:02
+iteration: 1188, accuracy: 0.2232, timestamp: 2026-03-03 00:47:28
+iteration: 1189, accuracy: 0.2083, timestamp: 2026-03-03 00:47:54
+iteration: 1190, accuracy: 0.2562, timestamp: 2026-03-03 00:48:18
+iteration: 1191, accuracy: 0.2787, timestamp: 2026-03-03 00:48:44
+iteration: 1192, accuracy: 0.1363, timestamp: 2026-03-03 00:49:10
+iteration: 1193, accuracy: 0.2083, timestamp: 2026-03-03 00:49:36
+iteration: 1194, accuracy: 0.2573, timestamp: 2026-03-03 00:50:01
+iteration: 1195, accuracy: 0.2304, timestamp: 2026-03-03 00:50:24
+iteration: 1196, accuracy: 0.2573, timestamp: 2026-03-03 00:50:50
+iteration: 1197, accuracy: 0.2304, timestamp: 2026-03-03 00:51:14
+iteration: 1198, accuracy: 0.2532, timestamp: 2026-03-03 00:51:38
+iteration: 1199, accuracy: 0.2083, timestamp: 2026-03-03 00:52:03
+iteration: 1200, accuracy: 0.2370, timestamp: 2026-03-03 00:52:28
+iteration: 1201, accuracy: 0.1977, timestamp: 2026-03-03 00:52:52
+iteration: 1202, accuracy: 0.2343, timestamp: 2026-03-03 00:53:16
+iteration: 1203, accuracy: 0.2083, timestamp: 2026-03-03 00:53:41
+iteration: 1204, accuracy: 0.2213, timestamp: 2026-03-03 00:54:06
+iteration: 1205, accuracy: 0.2532, timestamp: 2026-03-03 00:54:30
+iteration: 1206, accuracy: 0.2861, timestamp: 2026-03-03 00:54:52
+iteration: 1207, accuracy: 0.2232, timestamp: 2026-03-03 00:55:20
+iteration: 1208, accuracy: 0.2501, timestamp: 2026-03-03 00:55:45
+iteration: 1209, accuracy: 0.2232, timestamp: 2026-03-03 00:56:11
+iteration: 1210, accuracy: 0.2083, timestamp: 2026-03-03 00:56:38
+iteration: 1211, accuracy: 0.2562, timestamp: 2026-03-03 00:57:03
+iteration: 1212, accuracy: 0.2237, timestamp: 2026-03-03 00:57:31
+iteration: 1213, accuracy: 0.2327, timestamp: 2026-03-03 00:57:56
+iteration: 1214, accuracy: 0.1977, timestamp: 2026-03-03 00:58:22
+iteration: 1215, accuracy: 0.2370, timestamp: 2026-03-03 00:58:46
+iteration: 1216, accuracy: 0.2787, timestamp: 2026-03-03 00:59:12
+iteration: 1217, accuracy: 0.2672, timestamp: 2026-03-03 00:59:34
+iteration: 1218, accuracy: 0.2746, timestamp: 2026-03-03 01:00:00
+iteration: 1219, accuracy: 0.2532, timestamp: 2026-03-03 01:00:27
+iteration: 1220, accuracy: 0.2330, timestamp: 2026-03-03 01:00:52
+iteration: 1221, accuracy: 0.2343, timestamp: 2026-03-03 01:01:20
+iteration: 1222, accuracy: 0.2861, timestamp: 2026-03-03 01:01:43
+iteration: 1223, accuracy: 0.2232, timestamp: 2026-03-03 01:02:08
+iteration: 1224, accuracy: 0.1899, timestamp: 2026-03-03 01:02:34
+iteration: 1225, accuracy: 0.0906, timestamp: 2026-03-03 01:02:58
+iteration: 1226, accuracy: 0.2616, timestamp: 2026-03-03 01:03:25
+iteration: 1227, accuracy: 0.2573, timestamp: 2026-03-03 01:03:50
+iteration: 1228, error: Code validation failed: Validation error: TypeError: pic should be PIL Image or ndarray. Got <class 'torch.Tensor'>, timestamp: 2026-03-03 01:04:13
+iteration: 1229, error: Code validation failed: Validation error: TypeError: pic should be PIL Image or ndarray. Got <class 'torch.Tensor'>, timestamp: 2026-03-03 01:04:35
+iteration: 1230, accuracy: 0.2787, timestamp: 2026-03-03 01:05:01
+iteration: 1231, accuracy: 0.2672, timestamp: 2026-03-03 01:05:24
+iteration: 1232, accuracy: 0.1977, timestamp: 2026-03-03 01:05:51
+iteration: 1233, accuracy: 0.2573, timestamp: 2026-03-03 01:06:18
+iteration: 1234, accuracy: 0.2787, timestamp: 2026-03-03 01:06:42
+iteration: 1235, accuracy: 0.0970, timestamp: 2026-03-03 01:07:08
+iteration: 1236, accuracy: 0.2573, timestamp: 2026-03-03 01:07:33
+iteration: 1237, accuracy: 0.2787, timestamp: 2026-03-03 01:07:57
+iteration: 1238, accuracy: 0.2672, timestamp: 2026-03-03 01:08:21
+iteration: 1239, accuracy: 0.2452, timestamp: 2026-03-03 01:08:48
+iteration: 1240, accuracy: 0.2861, timestamp: 2026-03-03 01:09:10
+iteration: 1241, accuracy: 0.2232, timestamp: 2026-03-03 01:09:37
+iteration: 1242, accuracy: 0.2787, timestamp: 2026-03-03 01:10:05
+iteration: 1243, accuracy: 0.2672, timestamp: 2026-03-03 01:10:31
+iteration: 1244, accuracy: 0.2642, timestamp: 2026-03-03 01:11:01
+iteration: 1245, accuracy: 0.2471, timestamp: 2026-03-03 01:11:26
+iteration: 1246, accuracy: 0.2642, timestamp: 2026-03-03 01:11:56
+iteration: 1247, accuracy: 0.2861, timestamp: 2026-03-03 01:12:24
+iteration: 1248, accuracy: 0.2232, timestamp: 2026-03-03 01:12:51
+iteration: 1249, accuracy: 0.2787, timestamp: 2026-03-03 01:13:22
+iteration: 1250, accuracy: 0.2746, timestamp: 2026-03-03 01:13:51
+iteration: 1251, accuracy: 0.2232, timestamp: 2026-03-03 01:14:19
+iteration: 1252, accuracy: 0.2746, timestamp: 2026-03-03 01:14:43
+iteration: 1253, accuracy: 0.2232, timestamp: 2026-03-03 01:15:08
+iteration: 1254, accuracy: 0.2452, timestamp: 2026-03-03 01:15:37
+iteration: 1255, accuracy: 0.2232, timestamp: 2026-03-03 01:16:05
+iteration: 1256, accuracy: 0.2861, timestamp: 2026-03-03 01:16:32
+iteration: 1257, accuracy: 0.2672, timestamp: 2026-03-03 01:16:54
+iteration: 1258, accuracy: 0.2304, timestamp: 2026-03-03 01:17:24
+iteration: 1259, accuracy: 0.2532, timestamp: 2026-03-03 01:17:52
+iteration: 1260, accuracy: 0.2304, timestamp: 2026-03-03 01:18:17
+iteration: 1261, accuracy: 0.2672, timestamp: 2026-03-03 01:18:42
+iteration: 1262, accuracy: 0.2324, timestamp: 2026-03-03 01:19:06
+iteration: 1263, accuracy: 0.2532, timestamp: 2026-03-03 01:19:31
+iteration: 1264, accuracy: 0.2304, timestamp: 2026-03-03 01:19:55
+iteration: 1265, accuracy: 0.2672, timestamp: 2026-03-03 01:20:16
+iteration: 1266, accuracy: 0.2787, timestamp: 2026-03-03 01:20:44
+iteration: 1267, accuracy: 0.2672, timestamp: 2026-03-03 01:21:09
+iteration: 1268, accuracy: 0.2304, timestamp: 2026-03-03 01:21:37
+iteration: 1269, accuracy: 0.2672, timestamp: 2026-03-03 01:22:03
+iteration: 1270, accuracy: 0.2861, timestamp: 2026-03-03 01:22:30
+iteration: 1271, accuracy: 0.2672, timestamp: 2026-03-03 01:22:55
+iteration: 1272, accuracy: 0.2304, timestamp: 2026-03-03 01:23:20
+iteration: 1273, accuracy: 0.2861, timestamp: 2026-03-03 01:23:51
+iteration: 1274, accuracy: 0.2044, timestamp: 2026-03-03 01:24:17
+iteration: 1275, accuracy: 0.2861, timestamp: 2026-03-03 01:24:44
+iteration: 1276, error: Code validation failed: Validation error: TypeError: pic should be PIL Image or ndarray. Got <class 'torch.Tensor'>, timestamp: 2026-03-03 01:25:04
+iteration: 1277, accuracy: 0.2304, timestamp: 2026-03-03 01:25:30
+iteration: 1278, accuracy: 0.2532, timestamp: 2026-03-03 01:25:58
+iteration: 1279, accuracy: 0.2861, timestamp: 2026-03-03 01:26:23
+iteration: 1280, accuracy: 0.2725, timestamp: 2026-03-03 01:26:49
+iteration: 1281, accuracy: 0.2304, timestamp: 2026-03-03 01:27:20
+iteration: 1282, accuracy: 0.2682, timestamp: 2026-03-03 01:27:47
+iteration: 1283, accuracy: 0.2787, timestamp: 2026-03-03 01:28:13
+iteration: 1284, accuracy: 0.2672, timestamp: 2026-03-03 01:28:37
+iteration: 1285, accuracy: 0.2324, timestamp: 2026-03-03 01:29:03
+iteration: 1286, accuracy: 0.2532, timestamp: 2026-03-03 01:29:31
+iteration: 1287, accuracy: 0.2330, timestamp: 2026-03-03 01:29:59
+iteration: 1288, accuracy: 0.2304, timestamp: 2026-03-03 01:30:25
+iteration: 1289, accuracy: 0.2532, timestamp: 2026-03-03 01:30:50
+iteration: 1290, accuracy: 0.2861, timestamp: 2026-03-03 01:31:14
+iteration: 1291, accuracy: 0.0906, timestamp: 2026-03-03 01:31:39
+iteration: 1292, accuracy: 0.2861, timestamp: 2026-03-03 01:32:06
+iteration: 1293, accuracy: 0.2345, timestamp: 2026-03-03 01:32:33
+iteration: 1294, accuracy: 0.2861, timestamp: 2026-03-03 01:33:00
+iteration: 1295, accuracy: 0.2532, timestamp: 2026-03-03 01:33:24
+iteration: 1296, accuracy: 0.2861, timestamp: 2026-03-03 01:33:48
+iteration: 1297, accuracy: 0.2672, timestamp: 2026-03-03 01:34:12
+iteration: 1298, accuracy: 0.2304, timestamp: 2026-03-03 01:34:38
+iteration: 1299, accuracy: 0.2532, timestamp: 2026-03-03 01:35:03
+iteration: 1300, accuracy: 0.2861, timestamp: 2026-03-03 01:35:27
+iteration: 1301, accuracy: 0.2532, timestamp: 2026-03-03 01:35:54
+iteration: 1302, accuracy: 0.2861, timestamp: 2026-03-03 01:36:17
+iteration: 1303, accuracy: 0.2232, timestamp: 2026-03-03 01:36:44
+iteration: 1304, accuracy: 0.2861, timestamp: 2026-03-03 01:37:12
+iteration: 1305, accuracy: 0.2672, timestamp: 2026-03-03 01:37:36
+iteration: 1306, accuracy: 0.2304, timestamp: 2026-03-03 01:38:03
+iteration: 1307, accuracy: 0.2672, timestamp: 2026-03-03 01:38:28
+iteration: 1308, accuracy: 0.1977, timestamp: 2026-03-03 01:38:55
+iteration: 1309, accuracy: 0.2787, timestamp: 2026-03-03 01:39:20
+iteration: 1310, accuracy: 0.2672, timestamp: 2026-03-03 01:39:45
+iteration: 1311, accuracy: 0.2787, timestamp: 2026-03-03 01:40:09
+iteration: 1312, accuracy: 0.2725, timestamp: 2026-03-03 01:40:33
+iteration: 1313, accuracy: 0.2861, timestamp: 2026-03-03 01:41:00
+iteration: 1314, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-03 01:41:25
+iteration: 1315, accuracy: 0.2672, timestamp: 2026-03-03 01:41:50
+iteration: 1316, accuracy: 0.2324, timestamp: 2026-03-03 01:42:12
+iteration: 1317, accuracy: 0.2345, timestamp: 2026-03-03 01:42:39
+iteration: 1318, accuracy: 0.2861, timestamp: 2026-03-03 01:43:05
+iteration: 1319, accuracy: 0.2672, timestamp: 2026-03-03 01:43:30
+iteration: 1320, accuracy: 0.2304, timestamp: 2026-03-03 01:43:57
+iteration: 1321, accuracy: 0.2672, timestamp: 2026-03-03 01:44:19
+iteration: 1322, accuracy: 0.2787, timestamp: 2026-03-03 01:44:45
+iteration: 1323, accuracy: 0.2532, timestamp: 2026-03-03 01:45:10
+iteration: 1324, accuracy: 0.2861, timestamp: 2026-03-03 01:45:33
+iteration: 1325, accuracy: 0.2299, timestamp: 2026-03-03 01:45:58
+iteration: 1326, accuracy: 0.2861, timestamp: 2026-03-03 01:46:23
+iteration: 1327, accuracy: 0.2672, timestamp: 2026-03-03 01:46:47
+iteration: 1328, accuracy: 0.2304, timestamp: 2026-03-03 01:47:10
+iteration: 1329, accuracy: 0.2682, timestamp: 2026-03-03 01:47:36
+iteration: 1330, accuracy: 0.2304, timestamp: 2026-03-03 01:48:02
+iteration: 1331, accuracy: 0.2725, timestamp: 2026-03-03 01:48:26
+iteration: 1332, accuracy: 0.2616, timestamp: 2026-03-03 01:48:52
+iteration: 1333, accuracy: 0.2370, timestamp: 2026-03-03 01:49:17
+iteration: 1334, accuracy: 0.1977, timestamp: 2026-03-03 01:49:43
+iteration: 1335, accuracy: 0.2304, timestamp: 2026-03-03 01:50:06
+iteration: 1336, accuracy: 0.2682, timestamp: 2026-03-03 01:50:32
+iteration: 1337, accuracy: 0.2304, timestamp: 2026-03-03 01:50:58
+iteration: 1338, accuracy: 0.2682, timestamp: 2026-03-03 01:51:22
+iteration: 1339, accuracy: 0.2861, timestamp: 2026-03-03 01:51:47
+iteration: 1340, accuracy: 0.2047, timestamp: 2026-03-03 01:52:17
+iteration: 1341, accuracy: 0.2861, timestamp: 2026-03-03 01:52:41
+iteration: 1342, accuracy: 0.2366, timestamp: 2026-03-03 01:53:07
+iteration: 1343, accuracy: 0.2787, timestamp: 2026-03-03 01:53:36
+iteration: 1344, accuracy: 0.2366, timestamp: 2026-03-03 01:53:59
+iteration: 1345, accuracy: 0.2649, timestamp: 2026-03-03 01:54:26
+iteration: 1346, accuracy: 0.2725, timestamp: 2026-03-03 01:54:52
+iteration: 1347, accuracy: 0.2787, timestamp: 2026-03-03 01:55:16
+iteration: 1348, accuracy: 0.2861, timestamp: 2026-03-03 01:55:38
+iteration: 1349, accuracy: 0.2532, timestamp: 2026-03-03 01:56:04
+iteration: 1350, accuracy: 0.2861, timestamp: 2026-03-03 01:56:27
+iteration: 1351, accuracy: 0.2370, timestamp: 2026-03-03 01:56:51
+iteration: 1352, accuracy: 0.1899, timestamp: 2026-03-03 01:57:18
+iteration: 1353, accuracy: 0.2532, timestamp: 2026-03-03 01:57:47
+iteration: 1354, accuracy: 0.1621, timestamp: 2026-03-03 01:58:11
+iteration: 1355, accuracy: 0.2672, timestamp: 2026-03-03 01:58:36
+iteration: 1356, accuracy: 0.1925, timestamp: 2026-03-03 01:59:02
+iteration: 1357, accuracy: 0.1480, timestamp: 2026-03-03 01:59:28
+iteration: 1358, accuracy: 0.2540, timestamp: 2026-03-03 01:59:56
+iteration: 1359, accuracy: 0.2334, timestamp: 2026-03-03 02:00:24
+iteration: 1360, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-03 02:00:45
+iteration: 1361, accuracy: 0.2672, timestamp: 2026-03-03 02:01:09
+iteration: 1362, accuracy: 0.2324, timestamp: 2026-03-03 02:01:35
+iteration: 1363, accuracy: 0.2672, timestamp: 2026-03-03 02:01:59
+iteration: 1364, accuracy: 0.2616, timestamp: 2026-03-03 02:02:26
+iteration: 1365, accuracy: 0.2346, timestamp: 2026-03-03 02:02:49
+iteration: 1366, accuracy: 0.2787, timestamp: 2026-03-03 02:03:13
+iteration: 1367, accuracy: 0.2861, timestamp: 2026-03-03 02:03:35
+iteration: 1368, accuracy: 0.2232, timestamp: 2026-03-03 02:04:02
+iteration: 1369, accuracy: 0.2861, timestamp: 2026-03-03 02:04:29
+iteration: 1370, accuracy: 0.2787, timestamp: 2026-03-03 02:04:57
+iteration: 1371, accuracy: 0.2649, timestamp: 2026-03-03 02:05:20
+iteration: 1372, accuracy: 0.2672, timestamp: 2026-03-03 02:05:46
+iteration: 1373, accuracy: 0.2304, timestamp: 2026-03-03 02:06:10
+iteration: 1374, accuracy: 0.2861, timestamp: 2026-03-03 02:06:33
+iteration: 1375, accuracy: 0.2682, timestamp: 2026-03-03 02:06:58
+iteration: 1376, accuracy: 0.2304, timestamp: 2026-03-03 02:07:23
+iteration: 1377, accuracy: 0.2672, timestamp: 2026-03-03 02:07:48
+iteration: 1378, accuracy: 0.2330, timestamp: 2026-03-03 02:08:13
+iteration: 1379, accuracy: 0.2532, timestamp: 2026-03-03 02:08:38
+iteration: 1380, accuracy: 0.2330, timestamp: 2026-03-03 02:09:03
+iteration: 1381, accuracy: 0.2672, timestamp: 2026-03-03 02:09:25
+iteration: 1382, accuracy: 0.2787, timestamp: 2026-03-03 02:09:48
+iteration: 1383, accuracy: 0.2672, timestamp: 2026-03-03 02:10:11
+iteration: 1384, accuracy: 0.2787, timestamp: 2026-03-03 02:10:34
+iteration: 1385, accuracy: 0.2861, timestamp: 2026-03-03 02:11:01
+iteration: 1386, accuracy: 0.2532, timestamp: 2026-03-03 02:11:26
+iteration: 1387, accuracy: 0.2787, timestamp: 2026-03-03 02:11:50
+iteration: 1388, accuracy: 0.2672, timestamp: 2026-03-03 02:12:12
+iteration: 1389, accuracy: 0.2787, timestamp: 2026-03-03 02:12:38
+iteration: 1390, accuracy: 0.2672, timestamp: 2026-03-03 02:13:02
+iteration: 1391, accuracy: 0.2135, timestamp: 2026-03-03 02:13:28
+iteration: 1392, accuracy: 0.2135, timestamp: 2026-03-03 02:13:52
+iteration: 1393, accuracy: 0.2304, timestamp: 2026-03-03 02:14:15
+iteration: 1394, accuracy: 0.2672, timestamp: 2026-03-03 02:14:39
+iteration: 1395, accuracy: 0.2304, timestamp: 2026-03-03 02:15:07
+iteration: 1396, accuracy: 0.2682, timestamp: 2026-03-03 02:15:31
+iteration: 1397, accuracy: 0.2304, timestamp: 2026-03-03 02:15:57
+iteration: 1398, accuracy: 0.2672, timestamp: 2026-03-03 02:16:20
+iteration: 1399, accuracy: 0.2861, timestamp: 2026-03-03 02:16:43
+iteration: 1400, accuracy: 0.2532, timestamp: 2026-03-03 02:17:08
+iteration: 1401, accuracy: 0.2324, timestamp: 2026-03-03 02:17:32
+iteration: 1402, accuracy: 0.2532, timestamp: 2026-03-03 02:17:57
+iteration: 1403, accuracy: 0.2324, timestamp: 2026-03-03 02:18:20
+iteration: 1404, accuracy: 0.2304, timestamp: 2026-03-03 02:18:43
+iteration: 1405, accuracy: 0.2672, timestamp: 2026-03-03 02:19:05
+iteration: 1406, accuracy: 0.2861, timestamp: 2026-03-03 02:19:27
+iteration: 1407, accuracy: 0.2672, timestamp: 2026-03-03 02:19:50
+iteration: 1408, accuracy: 0.2324, timestamp: 2026-03-03 02:20:13
+iteration: 1409, accuracy: 0.2345, timestamp: 2026-03-03 02:20:38
+iteration: 1410, accuracy: 0.2861, timestamp: 2026-03-03 02:21:03
+iteration: 1411, accuracy: 0.2672, timestamp: 2026-03-03 02:21:28
+iteration: 1412, accuracy: 0.2861, timestamp: 2026-03-03 02:21:50
+iteration: 1413, accuracy: 0.2232, timestamp: 2026-03-03 02:22:13
+iteration: 1414, accuracy: 0.2787, timestamp: 2026-03-03 02:22:36
+iteration: 1415, accuracy: 0.2672, timestamp: 2026-03-03 02:22:59
+iteration: 1416, accuracy: 0.2787, timestamp: 2026-03-03 02:23:23
+iteration: 1417, accuracy: 0.2861, timestamp: 2026-03-03 02:23:45
+iteration: 1418, accuracy: 0.2672, timestamp: 2026-03-03 02:24:08
+iteration: 1419, accuracy: 0.2330, timestamp: 2026-03-03 02:24:36
+iteration: 1420, accuracy: 0.2532, timestamp: 2026-03-03 02:24:59
+iteration: 1421, accuracy: 0.2861, timestamp: 2026-03-03 02:25:21
+iteration: 1422, accuracy: 0.2672, timestamp: 2026-03-03 02:25:44
+iteration: 1423, accuracy: 0.2304, timestamp: 2026-03-03 02:26:10
+iteration: 1424, accuracy: 0.2672, timestamp: 2026-03-03 02:26:31
+iteration: 1425, accuracy: 0.2324, timestamp: 2026-03-03 02:26:54
+iteration: 1426, accuracy: 0.2047, timestamp: 2026-03-03 02:27:21
+iteration: 1427, accuracy: 0.2861, timestamp: 2026-03-03 02:27:44
+iteration: 1428, accuracy: 0.2232, timestamp: 2026-03-03 02:28:10
+iteration: 1429, accuracy: 0.2861, timestamp: 2026-03-03 02:28:34
+iteration: 1430, accuracy: 0.0906, timestamp: 2026-03-03 02:29:03
+iteration: 1431, accuracy: 0.2861, timestamp: 2026-03-03 02:29:30
+iteration: 1432, accuracy: 0.2672, timestamp: 2026-03-03 02:29:54
+iteration: 1433, accuracy: 0.1869, timestamp: 2026-03-03 02:30:19
+iteration: 1434, accuracy: 0.0808, timestamp: 2026-03-03 02:30:47
+iteration: 1435, accuracy: 0.2861, timestamp: 2026-03-03 02:31:12
+iteration: 1436, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x4096 and 32768x100), timestamp: 2026-03-03 02:31:30
+iteration: 1437, accuracy: 0.1389, timestamp: 2026-03-03 02:31:54
+iteration: 1438, accuracy: 0.0277, timestamp: 2026-03-03 02:32:21
+iteration: 1439, accuracy: 0.1535, timestamp: 2026-03-03 02:32:49
+iteration: 1440, accuracy: 0.2092, timestamp: 2026-03-03 02:33:14
+iteration: 1441, accuracy: 0.2612, timestamp: 2026-03-03 02:33:42
+iteration: 1442, accuracy: 0.1568, timestamp: 2026-03-03 02:34:06
+iteration: 1443, accuracy: 0.2304, timestamp: 2026-03-03 02:34:32
+iteration: 1444, accuracy: 0.2672, timestamp: 2026-03-03 02:34:56
+iteration: 1445, accuracy: 0.2861, timestamp: 2026-03-03 02:35:22
+iteration: 1446, accuracy: 0.2532, timestamp: 2026-03-03 02:35:46
+iteration: 1447, accuracy: 0.2861, timestamp: 2026-03-03 02:36:11
+iteration: 1448, accuracy: 0.2672, timestamp: 2026-03-03 02:36:34
+iteration: 1449, accuracy: 0.2787, timestamp: 2026-03-03 02:37:00
+iteration: 1450, accuracy: 0.0897, timestamp: 2026-03-03 02:37:27
+iteration: 1451, accuracy: 0.2083, timestamp: 2026-03-03 02:37:54
+iteration: 1452, accuracy: 0.2672, timestamp: 2026-03-03 02:38:15
+iteration: 1453, accuracy: 0.2330, timestamp: 2026-03-03 02:38:41
+iteration: 1454, accuracy: 0.2345, timestamp: 2026-03-03 02:39:09
+iteration: 1455, accuracy: 0.2861, timestamp: 2026-03-03 02:39:34
+iteration: 1456, accuracy: 0.2532, timestamp: 2026-03-03 02:39:57
+iteration: 1457, accuracy: 0.2304, timestamp: 2026-03-03 02:40:24
+iteration: 1458, accuracy: 0.2682, timestamp: 2026-03-03 02:40:46
+iteration: 1459, accuracy: 0.2324, timestamp: 2026-03-03 02:41:10
+iteration: 1460, accuracy: 0.2304, timestamp: 2026-03-03 02:41:34
+iteration: 1461, accuracy: 0.2672, timestamp: 2026-03-03 02:41:59
+iteration: 1462, accuracy: 0.2330, timestamp: 2026-03-03 02:42:24
+iteration: 1463, accuracy: 0.2672, timestamp: 2026-03-03 02:42:52
+iteration: 1464, accuracy: 0.2304, timestamp: 2026-03-03 02:43:19
+iteration: 1465, accuracy: 0.2672, timestamp: 2026-03-03 02:43:43
+iteration: 1466, accuracy: 0.2787, timestamp: 2026-03-03 02:44:08
+iteration: 1467, accuracy: 0.2682, timestamp: 2026-03-03 02:44:32
+iteration: 1468, accuracy: 0.2908, timestamp: 2026-03-03 02:44:55
+iteration: 1469, accuracy: 0.2736, timestamp: 2026-03-03 02:45:19
+iteration: 1470, accuracy: 0.2324, timestamp: 2026-03-03 02:45:43
+iteration: 1471, accuracy: 0.2787, timestamp: 2026-03-03 02:46:06
+iteration: 1472, accuracy: 0.2725, timestamp: 2026-03-03 02:46:30
+iteration: 1473, accuracy: 0.2585, timestamp: 2026-03-03 02:46:54
+iteration: 1474, accuracy: 0.2725, timestamp: 2026-03-03 02:47:20
+iteration: 1475, accuracy: 0.2585, timestamp: 2026-03-03 02:47:45
+iteration: 1476, accuracy: 0.2725, timestamp: 2026-03-03 02:48:10
+iteration: 1477, accuracy: 0.2908, timestamp: 2026-03-03 02:48:33
+iteration: 1478, accuracy: 0.2535, timestamp: 2026-03-03 02:48:58
+iteration: 1479, accuracy: 0.2908, timestamp: 2026-03-03 02:49:19
+iteration: 1480, accuracy: 0.2747, timestamp: 2026-03-03 02:49:43
+iteration: 1481, accuracy: 0.2856, timestamp: 2026-03-03 02:50:08
+iteration: 1482, accuracy: 0.2736, timestamp: 2026-03-03 02:50:32
+iteration: 1483, accuracy: 0.2787, timestamp: 2026-03-03 02:50:57
+iteration: 1484, accuracy: 0.2725, timestamp: 2026-03-03 02:51:21
+iteration: 1485, accuracy: 0.2787, timestamp: 2026-03-03 02:51:45
+iteration: 1486, accuracy: 0.2725, timestamp: 2026-03-03 02:52:08
+iteration: 1487, accuracy: 0.2585, timestamp: 2026-03-03 02:52:33
+iteration: 1488, accuracy: 0.2736, timestamp: 2026-03-03 02:52:56
+iteration: 1489, accuracy: 0.2431, timestamp: 2026-03-03 02:53:21
+iteration: 1490, accuracy: 0.2736, timestamp: 2026-03-03 02:53:48
+iteration: 1491, accuracy: 0.2330, timestamp: 2026-03-03 02:54:16
+iteration: 1492, accuracy: 0.2682, timestamp: 2026-03-03 02:54:40
+iteration: 1493, accuracy: 0.2787, timestamp: 2026-03-03 02:55:03
+iteration: 1494, accuracy: 0.2725, timestamp: 2026-03-03 02:55:29
+iteration: 1495, accuracy: 0.2585, timestamp: 2026-03-03 02:55:55
+iteration: 1496, accuracy: 0.2826, timestamp: 2026-03-03 02:56:18
+iteration: 1497, accuracy: 0.2820, timestamp: 2026-03-03 02:56:44
+iteration: 1498, accuracy: 0.2535, timestamp: 2026-03-03 02:57:09
+iteration: 1499, accuracy: 0.2820, timestamp: 2026-03-03 02:57:32
+iteration: 1500, accuracy: 0.2253, timestamp: 2026-03-03 02:57:57
+iteration: 1501, accuracy: 0.2908, timestamp: 2026-03-03 02:58:19
+iteration: 1502, accuracy: 0.2861, timestamp: 2026-03-03 02:58:43
+iteration: 1503, accuracy: 0.2431, timestamp: 2026-03-03 02:59:09
+iteration: 1504, accuracy: 0.2747, timestamp: 2026-03-03 02:59:33
+iteration: 1505, accuracy: 0.2431, timestamp: 2026-03-03 02:59:57
+iteration: 1506, accuracy: 0.2535, timestamp: 2026-03-03 03:00:24
+iteration: 1507, accuracy: 0.2908, timestamp: 2026-03-03 03:00:49
+iteration: 1508, accuracy: 0.2736, timestamp: 2026-03-03 03:01:12
+iteration: 1509, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-03 03:01:47
+iteration: 1510, accuracy: 0.2044, timestamp: 2026-03-03 03:02:14
+iteration: 1511, accuracy: 0.2908, timestamp: 2026-03-03 03:02:38
+iteration: 1512, accuracy: 0.2438, timestamp: 2026-03-03 03:03:04
+iteration: 1513, accuracy: 0.2908, timestamp: 2026-03-03 03:03:27
+iteration: 1514, accuracy: 0.2532, timestamp: 2026-03-03 03:03:50
+iteration: 1515, accuracy: 0.2908, timestamp: 2026-03-03 03:04:17
+iteration: 1516, error: Code validation failed: Output classes mismatch: expected 100, got 200, timestamp: 2026-03-03 03:04:35
+iteration: 1517, accuracy: 0.2787, timestamp: 2026-03-03 03:05:04
+iteration: 1518, accuracy: 0.2736, timestamp: 2026-03-03 03:05:26
+iteration: 1519, accuracy: 0.2787, timestamp: 2026-03-03 03:05:50
+iteration: 1520, accuracy: 0.1796, timestamp: 2026-03-03 03:06:13
+iteration: 1521, accuracy: 0.2787, timestamp: 2026-03-03 03:06:38
+iteration: 1522, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-03 03:07:04
+iteration: 1523, accuracy: 0.2889, timestamp: 2026-03-03 03:07:29
+iteration: 1524, accuracy: 0.2820, timestamp: 2026-03-03 03:07:52
+iteration: 1525, accuracy: 0.2535, timestamp: 2026-03-03 03:08:18
+iteration: 1526, accuracy: 0.2787, timestamp: 2026-03-03 03:08:44
+iteration: 1527, accuracy: 0.2736, timestamp: 2026-03-03 03:09:09
+iteration: 1528, accuracy: 0.2787, timestamp: 2026-03-03 03:09:37
+iteration: 1529, accuracy: 0.2908, timestamp: 2026-03-03 03:09:58
+iteration: 1530, accuracy: 0.2535, timestamp: 2026-03-03 03:10:24
+iteration: 1531, accuracy: 0.2908, timestamp: 2026-03-03 03:10:49
+iteration: 1532, accuracy: 0.2682, timestamp: 2026-03-03 03:11:12
+iteration: 1533, accuracy: 0.2787, timestamp: 2026-03-03 03:11:36
+iteration: 1534, accuracy: 0.2725, timestamp: 2026-03-03 03:12:04
+iteration: 1535, accuracy: 0.2585, timestamp: 2026-03-03 03:12:30
+iteration: 1536, accuracy: 0.2725, timestamp: 2026-03-03 03:12:52
+iteration: 1537, accuracy: 0.2431, timestamp: 2026-03-03 03:13:18
+iteration: 1538, accuracy: 0.2535, timestamp: 2026-03-03 03:13:41
+iteration: 1539, accuracy: 0.2908, timestamp: 2026-03-03 03:14:03
+iteration: 1540, accuracy: 0.2535, timestamp: 2026-03-03 03:14:29
+iteration: 1541, accuracy: 0.2908, timestamp: 2026-03-03 03:14:51
+iteration: 1542, accuracy: 0.2736, timestamp: 2026-03-03 03:15:14
+iteration: 1543, accuracy: 0.2746, timestamp: 2026-03-03 03:15:38
+iteration: 1544, accuracy: 0.2725, timestamp: 2026-03-03 03:15:59
+iteration: 1545, accuracy: 0.2431, timestamp: 2026-03-03 03:16:23
+iteration: 1546, accuracy: 0.2736, timestamp: 2026-03-03 03:16:46
+iteration: 1547, accuracy: 0.2585, timestamp: 2026-03-03 03:17:10
+iteration: 1548, accuracy: 0.2725, timestamp: 2026-03-03 03:17:30
+iteration: 1549, accuracy: 0.2774, timestamp: 2026-03-03 03:17:55
+iteration: 1550, accuracy: 0.2736, timestamp: 2026-03-03 03:18:21
+iteration: 1551, accuracy: 0.2431, timestamp: 2026-03-03 03:18:46
+iteration: 1552, accuracy: 0.2532, timestamp: 2026-03-03 03:19:11
+iteration: 1553, accuracy: 0.2908, timestamp: 2026-03-03 03:19:35
+iteration: 1554, accuracy: 0.2077, timestamp: 2026-03-03 03:20:02
+iteration: 1555, accuracy: 0.2856, timestamp: 2026-03-03 03:20:27
+iteration: 1556, accuracy: 0.2730, timestamp: 2026-03-03 03:20:50
+iteration: 1557, accuracy: 0.2861, timestamp: 2026-03-03 03:21:16
+iteration: 1558, accuracy: 0.2161, timestamp: 2026-03-03 03:21:44
+iteration: 1559, accuracy: 0.2861, timestamp: 2026-03-03 03:22:07
+iteration: 1560, accuracy: 0.2725, timestamp: 2026-03-03 03:22:29
+iteration: 1561, accuracy: 0.2330, timestamp: 2026-03-03 03:22:53
+iteration: 1562, accuracy: 0.2736, timestamp: 2026-03-03 03:23:17
+iteration: 1563, accuracy: 0.2330, timestamp: 2026-03-03 03:23:43
+iteration: 1564, accuracy: 0.2535, timestamp: 2026-03-03 03:24:05
+iteration: 1565, accuracy: 0.2431, timestamp: 2026-03-03 03:24:30
+iteration: 1566, accuracy: 0.2535, timestamp: 2026-03-03 03:24:53
+iteration: 1567, accuracy: 0.2908, timestamp: 2026-03-03 03:25:17
+iteration: 1568, accuracy: 0.2736, timestamp: 2026-03-03 03:25:44
+iteration: 1569, accuracy: 0.2908, timestamp: 2026-03-03 03:26:05
+iteration: 1570, accuracy: 0.2736, timestamp: 2026-03-03 03:26:27
+iteration: 1571, accuracy: 0.2787, timestamp: 2026-03-03 03:26:54
+iteration: 1572, accuracy: 0.2725, timestamp: 2026-03-03 03:27:14
+iteration: 1573, accuracy: 0.2431, timestamp: 2026-03-03 03:27:39
+iteration: 1574, accuracy: 0.2473, timestamp: 2026-03-03 03:28:04
+iteration: 1575, accuracy: 0.2908, timestamp: 2026-03-03 03:28:26
+iteration: 1576, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-03 03:28:44
+iteration: 1577, accuracy: 0.1504, timestamp: 2026-03-03 03:29:10
+iteration: 1578, accuracy: 0.2908, timestamp: 2026-03-03 03:29:32
+iteration: 1579, accuracy: 0.2535, timestamp: 2026-03-03 03:29:53
+iteration: 1580, accuracy: 0.2908, timestamp: 2026-03-03 03:30:15
+iteration: 1581, accuracy: 0.2535, timestamp: 2026-03-03 03:30:36
+iteration: 1582, accuracy: 0.2585, timestamp: 2026-03-03 03:30:58
+iteration: 1583, accuracy: 0.2908, timestamp: 2026-03-03 03:31:19
+iteration: 1584, accuracy: 0.2682, timestamp: 2026-03-03 03:31:39
+iteration: 1585, accuracy: 0.2585, timestamp: 2026-03-03 03:32:01
+iteration: 1586, accuracy: 0.2820, timestamp: 2026-03-03 03:32:21
+iteration: 1587, accuracy: 0.1795, timestamp: 2026-03-03 03:32:45
+iteration: 1588, accuracy: 0.2787, timestamp: 2026-03-03 03:33:12
+iteration: 1589, accuracy: 0.2535, timestamp: 2026-03-03 03:33:37
+iteration: 1590, accuracy: 0.2908, timestamp: 2026-03-03 03:33:56
+iteration: 1591, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-03-03 03:34:13
+iteration: 1592, accuracy: 0.2787, timestamp: 2026-03-03 03:34:35
+iteration: 1593, accuracy: 0.2725, timestamp: 2026-03-03 03:34:58
+iteration: 1594, accuracy: 0.2820, timestamp: 2026-03-03 03:35:19
+iteration: 1595, accuracy: 0.2826, timestamp: 2026-03-03 03:35:41
+iteration: 1596, accuracy: 0.2908, timestamp: 2026-03-03 03:36:02
+iteration: 1597, accuracy: 0.2535, timestamp: 2026-03-03 03:36:29
+iteration: 1598, accuracy: 0.2820, timestamp: 2026-03-03 03:36:51
+iteration: 1599, accuracy: 0.2725, timestamp: 2026-03-03 03:37:15
+iteration: 1600, accuracy: 0.2908, timestamp: 2026-03-03 03:37:38
+iteration: 1601, accuracy: 0.2826, timestamp: 2026-03-03 03:38:01
+iteration: 1602, accuracy: 0.2487, timestamp: 2026-03-03 03:38:25
+iteration: 1603, accuracy: 0.2725, timestamp: 2026-03-03 03:38:47
+iteration: 1604, accuracy: 0.2846, timestamp: 2026-03-03 03:39:12
+iteration: 1605, accuracy: 0.2725, timestamp: 2026-03-03 03:39:35
+iteration: 1606, accuracy: 0.2431, timestamp: 2026-03-03 03:39:59
+iteration: 1607, accuracy: 0.2736, timestamp: 2026-03-03 03:40:21
+iteration: 1608, accuracy: 0.2787, timestamp: 2026-03-03 03:40:44
+iteration: 1609, accuracy: 0.2725, timestamp: 2026-03-03 03:41:08
+iteration: 1610, accuracy: 0.2585, timestamp: 2026-03-03 03:41:32
+iteration: 1611, accuracy: 0.2725, timestamp: 2026-03-03 03:41:55
+iteration: 1612, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 16384]' is invalid for input of size 8192, timestamp: 2026-03-03 03:42:14
+iteration: 1613, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 4096, timestamp: 2026-03-03 03:42:34
+iteration: 1614, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 16384]' is invalid for input of size 8192, timestamp: 2026-03-03 03:42:53
+iteration: 1615, accuracy: 0.2908, timestamp: 2026-03-03 03:43:16
+iteration: 1616, accuracy: 0.2747, timestamp: 2026-03-03 03:43:46
+iteration: 1617, accuracy: 0.2915, timestamp: 2026-03-03 03:44:11
+iteration: 1618, accuracy: 0.2854, timestamp: 2026-03-03 03:44:36
+iteration: 1619, accuracy: 0.2585, timestamp: 2026-03-03 03:45:01
+iteration: 1620, accuracy: 0.2571, timestamp: 2026-03-03 03:45:25
+iteration: 1621, accuracy: 0.2585, timestamp: 2026-03-03 03:45:50
+iteration: 1622, accuracy: 0.2535, timestamp: 2026-03-03 03:46:15
+iteration: 1623, accuracy: 0.2459, timestamp: 2026-03-03 03:46:41
+iteration: 1624, accuracy: 0.2682, timestamp: 2026-03-03 03:47:03
+iteration: 1625, accuracy: 0.2459, timestamp: 2026-03-03 03:47:24
+iteration: 1626, accuracy: 0.2856, timestamp: 2026-03-03 03:47:46
+iteration: 1627, accuracy: 0.2459, timestamp: 2026-03-03 03:48:09
+iteration: 1628, accuracy: 0.2532, timestamp: 2026-03-03 03:48:33
+iteration: 1629, accuracy: 0.2856, timestamp: 2026-03-03 03:48:55
+iteration: 1630, accuracy: 0.2459, timestamp: 2026-03-03 03:49:23
+iteration: 1631, accuracy: 0.2532, timestamp: 2026-03-03 03:49:49
+iteration: 1632, accuracy: 0.2856, timestamp: 2026-03-03 03:50:14
+iteration: 1633, accuracy: 0.2884, timestamp: 2026-03-03 03:50:42
+iteration: 1634, accuracy: 0.1796, timestamp: 2026-03-03 03:51:06
+iteration: 1635, accuracy: 0.2459, timestamp: 2026-03-03 03:51:34
+iteration: 1636, accuracy: 0.2682, timestamp: 2026-03-03 03:52:01
+iteration: 1637, accuracy: 0.2517, timestamp: 2026-03-03 03:52:25
+iteration: 1638, accuracy: 0.2585, timestamp: 2026-03-03 03:52:51
+iteration: 1639, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 16384]' is invalid for input of size 8192, timestamp: 2026-03-03 03:53:15
+iteration: 1640, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 4096, timestamp: 2026-03-03 03:53:37
+iteration: 1641, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 4096]' is invalid for input of size 2048, timestamp: 2026-03-03 03:54:00
+iteration: 1642, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 4096, timestamp: 2026-03-03 03:54:23
+iteration: 1643, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 4096]' is invalid for input of size 2048, timestamp: 2026-03-03 03:54:46
+iteration: 1644, accuracy: 0.2562, timestamp: 2026-03-03 03:55:16
+iteration: 1645, accuracy: 0.2485, timestamp: 2026-03-03 03:55:46
+iteration: 1646, accuracy: 0.2562, timestamp: 2026-03-03 03:56:14
+iteration: 1647, accuracy: 0.2287, timestamp: 2026-03-03 03:56:39
+iteration: 1648, accuracy: 0.2075, timestamp: 2026-03-03 03:57:02
+iteration: 1649, accuracy: 0.2459, timestamp: 2026-03-03 03:57:27
+iteration: 1650, accuracy: 0.2856, timestamp: 2026-03-03 03:57:53
+iteration: 1651, accuracy: 0.2725, timestamp: 2026-03-03 03:58:17
+iteration: 1652, accuracy: 0.2585, timestamp: 2026-03-03 03:58:43
+iteration: 1653, accuracy: 0.2737, timestamp: 2026-03-03 03:59:07
+iteration: 1654, accuracy: 0.2725, timestamp: 2026-03-03 03:59:30
+iteration: 1655, accuracy: 0.2431, timestamp: 2026-03-03 03:59:55
+iteration: 1656, accuracy: 0.2747, timestamp: 2026-03-03 04:00:20
+iteration: 1657, accuracy: 0.2585, timestamp: 2026-03-03 04:00:44
+iteration: 1658, accuracy: 0.2725, timestamp: 2026-03-03 04:01:08
+iteration: 1659, accuracy: 0.2781, timestamp: 2026-03-03 04:01:34
+iteration: 1660, accuracy: 0.2747, timestamp: 2026-03-03 04:02:00
+iteration: 1661, accuracy: 0.2856, timestamp: 2026-03-03 04:02:22
+iteration: 1662, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-03-03 04:02:43
+iteration: 1663, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-03-03 04:03:01
+iteration: 1664, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-03-03 04:03:17
+iteration: 1665, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-03-03 04:03:33
+iteration: 1666, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-03-03 04:03:51
+iteration: 1667, accuracy: 0.2014, timestamp: 2026-03-03 04:04:15
+iteration: 1668, accuracy: 0.2747, timestamp: 2026-03-03 04:04:44
+iteration: 1669, accuracy: 0.2585, timestamp: 2026-03-03 04:05:12
+iteration: 1670, accuracy: 0.2747, timestamp: 2026-03-03 04:05:39
+iteration: 1671, accuracy: 0.2585, timestamp: 2026-03-03 04:06:05
+iteration: 1672, accuracy: 0.2725, timestamp: 2026-03-03 04:06:30
+iteration: 1673, accuracy: 0.2585, timestamp: 2026-03-03 04:06:58
+iteration: 1674, accuracy: 0.2747, timestamp: 2026-03-03 04:07:26
+iteration: 1675, accuracy: 0.2585, timestamp: 2026-03-03 04:07:51
+iteration: 1676, accuracy: 0.2747, timestamp: 2026-03-03 04:08:17
+iteration: 1677, accuracy: 0.2585, timestamp: 2026-03-03 04:08:41
+iteration: 1678, accuracy: 0.2737, timestamp: 2026-03-03 04:09:09
+iteration: 1679, accuracy: 0.2535, timestamp: 2026-03-03 04:09:35
+iteration: 1680, accuracy: 0.2487, timestamp: 2026-03-03 04:10:00
+iteration: 1681, accuracy: 0.2535, timestamp: 2026-03-03 04:10:27
+iteration: 1682, accuracy: 0.2861, timestamp: 2026-03-03 04:10:50
+iteration: 1683, accuracy: 0.2725, timestamp: 2026-03-03 04:11:15
+iteration: 1684, accuracy: 0.2856, timestamp: 2026-03-03 04:11:39
+iteration: 1685, accuracy: 0.2725, timestamp: 2026-03-03 04:12:03
+iteration: 1686, accuracy: 0.2431, timestamp: 2026-03-03 04:12:29
+iteration: 1687, accuracy: 0.2057, timestamp: 2026-03-03 04:12:59
+iteration: 1688, accuracy: 0.2085, timestamp: 2026-03-03 04:13:26
+iteration: 1689, accuracy: 0.2463, timestamp: 2026-03-03 04:13:51
+iteration: 1690, accuracy: 0.2613, timestamp: 2026-03-03 04:14:17
+iteration: 1691, accuracy: 0.2487, timestamp: 2026-03-03 04:14:42
+iteration: 1692, accuracy: 0.2535, timestamp: 2026-03-03 04:15:07
+iteration: 1693, accuracy: 0.2487, timestamp: 2026-03-03 04:15:32
+iteration: 1694, accuracy: 0.2057, timestamp: 2026-03-03 04:16:03
+iteration: 1695, accuracy: 0.2585, timestamp: 2026-03-03 04:16:26
+iteration: 1696, accuracy: 0.2737, timestamp: 2026-03-03 04:16:51
+iteration: 1697, accuracy: 0.2747, timestamp: 2026-03-03 04:17:17
+iteration: 1698, accuracy: 0.2431, timestamp: 2026-03-03 04:17:43
+iteration: 1699, accuracy: 0.2747, timestamp: 2026-03-03 04:18:06
+iteration: 1700, accuracy: 0.2585, timestamp: 2026-03-03 04:18:31
+iteration: 1701, accuracy: 0.2747, timestamp: 2026-03-03 04:18:56
+iteration: 1702, accuracy: 0.2585, timestamp: 2026-03-03 04:19:24
+iteration: 1703, accuracy: 0.2747, timestamp: 2026-03-03 04:19:48
+iteration: 1704, accuracy: 0.2431, timestamp: 2026-03-03 04:20:12
+iteration: 1705, accuracy: 0.2747, timestamp: 2026-03-03 04:20:36
+iteration: 1706, accuracy: 0.2585, timestamp: 2026-03-03 04:21:03
+iteration: 1707, accuracy: 0.2747, timestamp: 2026-03-03 04:21:30
+iteration: 1708, accuracy: 0.2585, timestamp: 2026-03-03 04:21:53
+iteration: 1709, accuracy: 0.2747, timestamp: 2026-03-03 04:22:18
+iteration: 1710, accuracy: 0.2585, timestamp: 2026-03-03 04:22:43
+iteration: 1711, accuracy: 0.2747, timestamp: 2026-03-03 04:23:11
+iteration: 1712, accuracy: 0.2585, timestamp: 2026-03-03 04:23:39
+iteration: 1713, accuracy: 0.2747, timestamp: 2026-03-03 04:24:04
+iteration: 1714, accuracy: 0.2585, timestamp: 2026-03-03 04:24:28
+iteration: 1715, accuracy: 0.2747, timestamp: 2026-03-03 04:24:53
+iteration: 1716, accuracy: 0.2585, timestamp: 2026-03-03 04:25:17
+iteration: 1717, accuracy: 0.2747, timestamp: 2026-03-03 04:25:42
+iteration: 1718, accuracy: 0.2585, timestamp: 2026-03-03 04:26:06
+iteration: 1719, accuracy: 0.2737, timestamp: 2026-03-03 04:26:30
+iteration: 1720, accuracy: 0.2846, timestamp: 2026-03-03 04:26:53
+iteration: 1721, accuracy: 0.2304, timestamp: 2026-03-03 04:27:17
+iteration: 1722, accuracy: 0.2216, timestamp: 2026-03-03 04:27:43
+iteration: 1723, accuracy: 0.2345, timestamp: 2026-03-03 04:28:07
+iteration: 1724, accuracy: 0.2216, timestamp: 2026-03-03 04:28:31
+iteration: 1725, accuracy: 0.2345, timestamp: 2026-03-03 04:28:56
+iteration: 1726, accuracy: 0.2304, timestamp: 2026-03-03 04:29:24
+iteration: 1727, accuracy: 0.2183, timestamp: 2026-03-03 04:29:49
+iteration: 1728, accuracy: 0.2304, timestamp: 2026-03-03 04:30:17
+iteration: 1729, accuracy: 0.2216, timestamp: 2026-03-03 04:30:40
+iteration: 1730, accuracy: 0.2345, timestamp: 2026-03-03 04:31:05
+iteration: 1731, accuracy: 0.2337, timestamp: 2026-03-03 04:31:30
+iteration: 1732, accuracy: 0.2535, timestamp: 2026-03-03 04:31:53
+iteration: 1733, accuracy: 0.2737, timestamp: 2026-03-03 04:32:16
+iteration: 1734, accuracy: 0.2613, timestamp: 2026-03-03 04:32:41
+iteration: 1735, accuracy: 0.2737, timestamp: 2026-03-03 04:33:06
+iteration: 1736, accuracy: 0.2613, timestamp: 2026-03-03 04:33:31
+iteration: 1737, accuracy: 0.2737, timestamp: 2026-03-03 04:33:56
+iteration: 1738, accuracy: 0.2747, timestamp: 2026-03-03 04:34:21
+iteration: 1739, accuracy: 0.2737, timestamp: 2026-03-03 04:34:47
+iteration: 1740, accuracy: 0.2747, timestamp: 2026-03-03 04:35:12
+iteration: 1741, accuracy: 0.2585, timestamp: 2026-03-03 04:35:36
+iteration: 1742, accuracy: 0.2747, timestamp: 2026-03-03 04:36:01
+iteration: 1743, accuracy: 0.2431, timestamp: 2026-03-03 04:36:26
+iteration: 1744, accuracy: 0.2487, timestamp: 2026-03-03 04:36:51
+iteration: 1745, accuracy: 0.2535, timestamp: 2026-03-03 04:37:16
+iteration: 1746, accuracy: 0.2737, timestamp: 2026-03-03 04:37:39
+iteration: 1747, accuracy: 0.2747, timestamp: 2026-03-03 04:38:04
+iteration: 1748, accuracy: 0.2737, timestamp: 2026-03-03 04:38:29
+iteration: 1749, accuracy: 0.2846, timestamp: 2026-03-03 04:38:53
+iteration: 1750, accuracy: 0.2737, timestamp: 2026-03-03 04:39:17
+iteration: 1751, accuracy: 0.2846, timestamp: 2026-03-03 04:39:40
+iteration: 1752, accuracy: 0.2747, timestamp: 2026-03-03 04:40:06
+iteration: 1753, accuracy: 0.2585, timestamp: 2026-03-03 04:40:30
+iteration: 1754, accuracy: 0.2057, timestamp: 2026-03-03 04:41:00
+iteration: 1755, accuracy: 0.2585, timestamp: 2026-03-03 04:41:30
+iteration: 1756, accuracy: 0.2747, timestamp: 2026-03-03 04:41:56
+iteration: 1757, accuracy: 0.2856, timestamp: 2026-03-03 04:42:19
+iteration: 1758, accuracy: 0.2725, timestamp: 2026-03-03 04:42:43
+iteration: 1759, accuracy: 0.2585, timestamp: 2026-03-03 04:43:08
+iteration: 1760, accuracy: 0.2747, timestamp: 2026-03-03 04:43:31
+iteration: 1761, accuracy: 0.2585, timestamp: 2026-03-03 04:43:57
+iteration: 1762, accuracy: 0.2737, timestamp: 2026-03-03 04:44:20
+iteration: 1763, accuracy: 0.2613, timestamp: 2026-03-03 04:44:47
+iteration: 1764, accuracy: 0.2487, timestamp: 2026-03-03 04:45:13
+iteration: 1765, accuracy: 0.2535, timestamp: 2026-03-03 04:45:38
+iteration: 1766, accuracy: 0.2737, timestamp: 2026-03-03 04:46:04
+iteration: 1767, accuracy: 0.2535, timestamp: 2026-03-03 04:46:29
+iteration: 1768, accuracy: 0.2737, timestamp: 2026-03-03 04:46:55
+iteration: 1769, accuracy: 0.2613, timestamp: 2026-03-03 04:47:20
+iteration: 1770, accuracy: 0.2487, timestamp: 2026-03-03 04:47:44
+iteration: 1771, accuracy: 0.2535, timestamp: 2026-03-03 04:48:11
+iteration: 1772, accuracy: 0.2737, timestamp: 2026-03-03 04:48:39
+iteration: 1773, accuracy: 0.2747, timestamp: 2026-03-03 04:49:05
+iteration: 1774, accuracy: 0.2585, timestamp: 2026-03-03 04:49:31
+iteration: 1775, accuracy: 0.2747, timestamp: 2026-03-03 04:49:59
+iteration: 1776, accuracy: 0.2585, timestamp: 2026-03-03 04:50:23
+iteration: 1777, accuracy: 0.2737, timestamp: 2026-03-03 04:50:50
+iteration: 1778, accuracy: 0.2359, timestamp: 2026-03-03 04:51:17
+iteration: 1779, accuracy: 0.2646, timestamp: 2026-03-03 04:51:42
+iteration: 1780, accuracy: 0.2535, timestamp: 2026-03-03 04:52:08
+iteration: 1781, accuracy: 0.2487, timestamp: 2026-03-03 04:52:34
+iteration: 1782, accuracy: 0.2585, timestamp: 2026-03-03 04:52:59
+iteration: 1783, accuracy: 0.2495, timestamp: 2026-03-03 04:53:27
+iteration: 1784, accuracy: 0.2585, timestamp: 2026-03-03 04:53:55
+iteration: 1785, accuracy: 0.2747, timestamp: 2026-03-03 04:54:26
+iteration: 1786, accuracy: 0.2431, timestamp: 2026-03-03 04:54:52
+iteration: 1787, accuracy: 0.2747, timestamp: 2026-03-03 04:55:18
+iteration: 1788, accuracy: 0.2431, timestamp: 2026-03-03 04:55:49
+iteration: 1789, accuracy: 0.2737, timestamp: 2026-03-03 04:56:16
+iteration: 1790, accuracy: 0.2345, timestamp: 2026-03-03 04:56:47
+iteration: 1791, accuracy: 0.2431, timestamp: 2026-03-03 04:57:16
+iteration: 1792, accuracy: 0.2737, timestamp: 2026-03-03 04:57:41
+iteration: 1793, accuracy: 0.2535, timestamp: 2026-03-03 04:58:17
+iteration: 1794, accuracy: 0.2487, timestamp: 2026-03-03 04:58:44
+iteration: 1795, accuracy: 0.2253, timestamp: 2026-03-03 04:59:14
+iteration: 1796, accuracy: 0.2487, timestamp: 2026-03-03 04:59:41
+iteration: 1797, accuracy: 0.2535, timestamp: 2026-03-03 05:00:12
+iteration: 1798, accuracy: 0.2737, timestamp: 2026-03-03 05:00:40
+iteration: 1799, accuracy: 0.2585, timestamp: 2026-03-03 05:01:06
+iteration: 1800, accuracy: 0.2747, timestamp: 2026-03-03 05:01:36
+iteration: 1801, accuracy: 0.2585, timestamp: 2026-03-03 05:02:02
+iteration: 1802, accuracy: 0.2737, timestamp: 2026-03-03 05:02:33
+iteration: 1803, accuracy: 0.2730, timestamp: 2026-03-03 05:03:00
+iteration: 1804, accuracy: 0.2585, timestamp: 2026-03-03 05:03:29
+iteration: 1805, accuracy: 0.2585, timestamp: 2026-03-03 05:04:02
+iteration: 1806, accuracy: 0.2585, timestamp: 2026-03-03 05:04:30
+iteration: 1807, accuracy: 0.2747, timestamp: 2026-03-03 05:05:00
+iteration: 1808, accuracy: 0.2163, timestamp: 2026-03-03 05:05:30
+iteration: 1809, accuracy: 0.2585, timestamp: 2026-03-03 05:06:01
+iteration: 1810, accuracy: 0.2737, timestamp: 2026-03-03 05:06:30
+iteration: 1811, accuracy: 0.2585, timestamp: 2026-03-03 05:07:01
+iteration: 1812, accuracy: 0.2737, timestamp: 2026-03-03 05:07:30
+iteration: 1813, accuracy: 0.2585, timestamp: 2026-03-03 05:08:02
+iteration: 1814, accuracy: 0.2737, timestamp: 2026-03-03 05:08:30
+iteration: 1815, accuracy: 0.2747, timestamp: 2026-03-03 05:09:01
+iteration: 1816, accuracy: 0.2846, timestamp: 2026-03-03 05:09:32
+iteration: 1817, accuracy: 0.2463, timestamp: 2026-03-03 05:10:01
+iteration: 1818, accuracy: 0.2725, timestamp: 2026-03-03 05:10:29
+iteration: 1819, accuracy: 0.2459, timestamp: 2026-03-03 05:10:56
+iteration: 1820, accuracy: 0.2585, timestamp: 2026-03-03 05:11:25
+iteration: 1821, accuracy: 0.2747, timestamp: 2026-03-03 05:11:58
+iteration: 1822, accuracy: 0.2304, timestamp: 2026-03-03 05:12:32
+iteration: 1823, accuracy: 0.2183, timestamp: 2026-03-03 05:13:02
+iteration: 1824, accuracy: 0.2649, timestamp: 2026-03-03 05:13:32
+iteration: 1825, accuracy: 0.2571, timestamp: 2026-03-03 05:13:58
+iteration: 1826, accuracy: 0.2585, timestamp: 2026-03-03 05:14:29
+iteration: 1827, accuracy: 0.2747, timestamp: 2026-03-03 05:14:58
+iteration: 1828, accuracy: 0.2459, timestamp: 2026-03-03 05:15:25
+iteration: 1829, accuracy: 0.2585, timestamp: 2026-03-03 05:15:51
+iteration: 1830, accuracy: 0.2304, timestamp: 2026-03-03 05:16:17
+iteration: 1831, accuracy: 0.2646, timestamp: 2026-03-03 05:16:46
+iteration: 1832, accuracy: 0.2473, timestamp: 2026-03-03 05:17:17
+iteration: 1833, accuracy: 0.2585, timestamp: 2026-03-03 05:17:44
+iteration: 1834, accuracy: 0.2737, timestamp: 2026-03-03 05:18:12
+iteration: 1835, accuracy: 0.2747, timestamp: 2026-03-03 05:18:43
+iteration: 1836, accuracy: 0.2585, timestamp: 2026-03-03 05:19:13
+iteration: 1837, accuracy: 0.2747, timestamp: 2026-03-03 05:19:45
+iteration: 1838, accuracy: 0.2585, timestamp: 2026-03-03 05:20:18
+iteration: 1839, accuracy: 0.2463, timestamp: 2026-03-03 05:20:53
+iteration: 1840, accuracy: 0.2747, timestamp: 2026-03-03 05:21:25
+iteration: 1841, accuracy: 0.2585, timestamp: 2026-03-03 05:21:57
+iteration: 1842, accuracy: 0.2747, timestamp: 2026-03-03 05:22:27
+iteration: 1843, accuracy: 0.2585, timestamp: 2026-03-03 05:22:58
+iteration: 1844, accuracy: 0.2747, timestamp: 2026-03-03 05:23:30
+iteration: 1845, accuracy: 0.2163, timestamp: 2026-03-03 05:24:02
+iteration: 1846, accuracy: 0.2737, timestamp: 2026-03-03 05:24:31
+iteration: 1847, accuracy: 0.2730, timestamp: 2026-03-03 05:25:05
+iteration: 1848, accuracy: 0.2585, timestamp: 2026-03-03 05:25:39
+iteration: 1849, accuracy: 0.2737, timestamp: 2026-03-03 05:26:08
+iteration: 1850, accuracy: 0.2747, timestamp: 2026-03-03 05:26:36
+iteration: 1851, accuracy: 0.2585, timestamp: 2026-03-03 05:27:05
+iteration: 1852, accuracy: 0.2737, timestamp: 2026-03-03 05:27:37
+iteration: 1853, accuracy: 0.2747, timestamp: 2026-03-03 05:28:08
+iteration: 1854, accuracy: 0.2737, timestamp: 2026-03-03 05:28:38
+iteration: 1855, accuracy: 0.2613, timestamp: 2026-03-03 05:29:06
+iteration: 1856, accuracy: 0.2737, timestamp: 2026-03-03 05:29:38
+iteration: 1857, accuracy: 0.2747, timestamp: 2026-03-03 05:30:05
+iteration: 1858, accuracy: 0.2585, timestamp: 2026-03-03 05:30:39
+iteration: 1859, accuracy: 0.2737, timestamp: 2026-03-03 05:31:10
+iteration: 1860, accuracy: 0.2730, timestamp: 2026-03-03 05:31:34
+iteration: 1861, accuracy: 0.2487, timestamp: 2026-03-03 05:32:00
+iteration: 1862, accuracy: 0.2535, timestamp: 2026-03-03 05:32:24
+iteration: 1863, accuracy: 0.2737, timestamp: 2026-03-03 05:32:48
+iteration: 1864, accuracy: 0.2846, timestamp: 2026-03-03 05:33:13
+iteration: 1865, accuracy: 0.2737, timestamp: 2026-03-03 05:33:36
+iteration: 1866, accuracy: 0.2613, timestamp: 2026-03-03 05:34:02
+iteration: 1867, accuracy: 0.2737, timestamp: 2026-03-03 05:34:25
+iteration: 1868, accuracy: 0.2846, timestamp: 2026-03-03 05:34:49
+iteration: 1869, accuracy: 0.2737, timestamp: 2026-03-03 05:35:12
+iteration: 1870, accuracy: 0.2846, timestamp: 2026-03-03 05:35:38
+iteration: 1871, accuracy: 0.2747, timestamp: 2026-03-03 05:36:03
+iteration: 1872, accuracy: 0.2585, timestamp: 2026-03-03 05:36:28
+iteration: 1873, accuracy: 0.2737, timestamp: 2026-03-03 05:36:54
+iteration: 1874, accuracy: 0.2846, timestamp: 2026-03-03 05:37:20
+iteration: 1875, accuracy: 0.2747, timestamp: 2026-03-03 05:37:47
+iteration: 1876, accuracy: 0.2585, timestamp: 2026-03-03 05:38:13
+iteration: 1877, accuracy: 0.2747, timestamp: 2026-03-03 05:38:39
+iteration: 1878, accuracy: 0.2585, timestamp: 2026-03-03 05:39:06
+iteration: 1879, accuracy: 0.2737, timestamp: 2026-03-03 05:39:33
+iteration: 1880, accuracy: 0.2535, timestamp: 2026-03-03 05:39:59
+iteration: 1881, accuracy: 0.2431, timestamp: 2026-03-03 05:40:24
+iteration: 1882, accuracy: 0.2585, timestamp: 2026-03-03 05:40:47
+iteration: 1883, accuracy: 0.2473, timestamp: 2026-03-03 05:41:17
+iteration: 1884, accuracy: 0.2856, timestamp: 2026-03-03 05:41:43
+iteration: 1885, accuracy: 0.2304, timestamp: 2026-03-03 05:42:15
+iteration: 1886, accuracy: 0.2535, timestamp: 2026-03-03 05:42:44
+iteration: 1887, accuracy: 0.2431, timestamp: 2026-03-03 05:43:14
+iteration: 1888, accuracy: 0.2747, timestamp: 2026-03-03 05:43:41
+iteration: 1889, accuracy: 0.2431, timestamp: 2026-03-03 05:44:06
+iteration: 1890, accuracy: 0.2163, timestamp: 2026-03-03 05:44:32
+iteration: 1891, accuracy: 0.1012, timestamp: 2026-03-03 05:45:05
+iteration: 1892, accuracy: 0.2585, timestamp: 2026-03-03 05:45:29
+iteration: 1893, accuracy: 0.2228, timestamp: 2026-03-03 05:45:58
+iteration: 1894, accuracy: 0.2737, timestamp: 2026-03-03 05:46:26
+iteration: 1895, accuracy: 0.2535, timestamp: 2026-03-03 05:46:49
+iteration: 1896, accuracy: 0.2585, timestamp: 2026-03-03 05:47:14
+iteration: 1897, accuracy: 0.1950, timestamp: 2026-03-03 05:47:41
+iteration: 1898, accuracy: 0.1950, timestamp: 2026-03-03 05:48:07
+iteration: 1899, accuracy: 0.1381, timestamp: 2026-03-03 05:48:42
+iteration: 1900, accuracy: 0.2585, timestamp: 2026-03-03 05:49:06
+iteration: 1901, accuracy: 0.2228, timestamp: 2026-03-03 05:49:31
+iteration: 1902, accuracy: 0.2228, timestamp: 2026-03-03 05:49:56
+iteration: 1903, accuracy: 0.2228, timestamp: 2026-03-03 05:50:24
+iteration: 1904, accuracy: 0.1381, timestamp: 2026-03-03 05:51:04
+iteration: 1905, accuracy: 0.2495, timestamp: 2026-03-03 05:51:29
+iteration: 1906, accuracy: 0.1609, timestamp: 2026-03-03 05:51:59
+iteration: 1907, accuracy: 0.2031, timestamp: 2026-03-03 05:52:29
+iteration: 1908, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-03-03 05:52:51
+iteration: 1909, accuracy: 0.2383, timestamp: 2026-03-03 05:53:19
+iteration: 1910, accuracy: 0.2041, timestamp: 2026-03-03 05:53:51
+iteration: 1911, accuracy: 0.2439, timestamp: 2026-03-03 05:54:22
+iteration: 1912, accuracy: 0.2207, timestamp: 2026-03-03 05:54:52
+iteration: 1913, accuracy: 0.2464, timestamp: 2026-03-03 05:55:21
+iteration: 1914, accuracy: 0.1589, timestamp: 2026-03-03 05:55:56
+iteration: 1915, accuracy: 0.1319, timestamp: 2026-03-03 05:56:40
+iteration: 1916, accuracy: 0.2315, timestamp: 2026-03-03 05:57:09
+iteration: 1917, accuracy: 0.2435, timestamp: 2026-03-03 05:57:39
+iteration: 1918, accuracy: 0.2062, timestamp: 2026-03-03 05:58:05
+iteration: 1919, accuracy: 0.1927, timestamp: 2026-03-03 05:58:34
+iteration: 1920, accuracy: 0.1927, timestamp: 2026-03-03 05:59:00
+iteration: 1921, accuracy: 0.2406, timestamp: 2026-03-03 05:59:27
+iteration: 1922, accuracy: 0.2383, timestamp: 2026-03-03 05:59:55
+iteration: 1923, accuracy: 0.2352, timestamp: 2026-03-03 06:00:22
+iteration: 1924, accuracy: 0.2383, timestamp: 2026-03-03 06:00:48
+iteration: 1925, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 16384, timestamp: 2026-03-03 06:01:11
+iteration: 1926, accuracy: 0.2562, timestamp: 2026-03-03 06:01:40
+iteration: 1927, accuracy: 0.2383, timestamp: 2026-03-03 06:02:09
+iteration: 1928, accuracy: 0.2021, timestamp: 2026-03-03 06:02:40
+iteration: 1929, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 262144]' is invalid for input of size 8192, timestamp: 2026-03-03 06:03:07
+iteration: 1930, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 16384]' is invalid for input of size 8192, timestamp: 2026-03-03 06:03:25
+iteration: 1931, accuracy: 0.2602, timestamp: 2026-03-03 06:03:52
+iteration: 1932, accuracy: 0.2410, timestamp: 2026-03-03 06:04:20
+iteration: 1933, accuracy: 0.2261, timestamp: 2026-03-03 06:04:49
+iteration: 1934, accuracy: 0.2119, timestamp: 2026-03-03 06:05:23
+iteration: 1935, accuracy: 0.2497, timestamp: 2026-03-03 06:05:53
+iteration: 1936, accuracy: 0.2314, timestamp: 2026-03-03 06:06:19
+iteration: 1937, accuracy: 0.1778, timestamp: 2026-03-03 06:06:49
+iteration: 1938, accuracy: 0.1452, timestamp: 2026-03-03 06:07:30
+iteration: 1939, accuracy: 0.1778, timestamp: 2026-03-03 06:08:01
+iteration: 1940, accuracy: 0.1452, timestamp: 2026-03-03 06:08:44
+iteration: 1941, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 512.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 285.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.88 GiB memory in use. Of the allocated memory 2.32 GiB is allocated by PyTorch, and 1.06 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 333, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 220, in train_epoch
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 512.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 285.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.88 GiB memory in use. Of the allocated memory 2.32 GiB is allocated by PyTorch, and 1.06 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-03-03 06:09:08
+iteration: 1942, accuracy: 0.2820, timestamp: 2026-03-03 06:09:37
+iteration: 1943, accuracy: 0.2064, timestamp: 2026-03-03 06:10:06
+iteration: 1944, accuracy: 0.2123, timestamp: 2026-03-03 06:10:38
+iteration: 1945, accuracy: 0.2668, timestamp: 2026-03-03 06:11:06
+iteration: 1946, accuracy: 0.2228, timestamp: 2026-03-03 06:11:33
+iteration: 1947, accuracy: 0.2003, timestamp: 2026-03-03 06:12:12
+iteration: 1948, accuracy: 0.2713, timestamp: 2026-03-03 06:12:39
+iteration: 1949, accuracy: 0.2292, timestamp: 2026-03-03 06:13:08
+iteration: 1950, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 333, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 220, in train_epoch
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-03-03 06:13:32
+iteration: 1951, accuracy: 0.1419, timestamp: 2026-03-03 06:14:11
+iteration: 1952, accuracy: 0.1025, timestamp: 2026-03-03 06:15:12
+iteration: 1953, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 333, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 220, in train_epoch
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-03-03 06:15:37
+iteration: 1954, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 333, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 220, in train_epoch
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-03-03 06:16:05
+iteration: 1955, accuracy: 0.2856, timestamp: 2026-03-03 06:16:33
+iteration: 1956, accuracy: 0.2846, timestamp: 2026-03-03 06:16:58
+iteration: 1957, accuracy: 0.2585, timestamp: 2026-03-03 06:17:29
+iteration: 1958, accuracy: 0.2292, timestamp: 2026-03-03 06:17:58
+iteration: 1959, accuracy: 0.1838, timestamp: 2026-03-03 06:18:45
+iteration: 1960, accuracy: 0.2585, timestamp: 2026-03-03 06:19:19
+iteration: 1961, accuracy: 0.2292, timestamp: 2026-03-03 06:19:49
+iteration: 1962, accuracy: 0.1838, timestamp: 2026-03-03 06:20:30
+iteration: 1963, accuracy: 0.2737, timestamp: 2026-03-03 06:21:05
+iteration: 1964, accuracy: 0.2585, timestamp: 2026-03-03 06:21:42
+iteration: 1965, accuracy: 0.2292, timestamp: 2026-03-03 06:22:17
+iteration: 1966, accuracy: 0.2228, timestamp: 2026-03-03 06:22:53
+iteration: 1967, accuracy: 0.2003, timestamp: 2026-03-03 06:23:38
+iteration: 1968, accuracy: 0.2228, timestamp: 2026-03-03 06:24:13
+iteration: 1969, accuracy: 0.2003, timestamp: 2026-03-03 06:24:59
+iteration: 1970, accuracy: 0.0352, timestamp: 2026-03-03 06:25:34
+iteration: 1971, accuracy: 0.0583, timestamp: 2026-03-03 06:26:37
+iteration: 1972, accuracy: 0.0627, timestamp: 2026-03-03 06:27:47
+iteration: 1973, accuracy: 0.1116, timestamp: 2026-03-03 06:28:28
+iteration: 1974, accuracy: 0.1254, timestamp: 2026-03-03 06:29:30
+iteration: 1975, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 333, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 220, in train_epoch
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-03-03 06:30:00
+iteration: 1976, accuracy: 0.1025, timestamp: 2026-03-03 06:31:04
+iteration: 1977, accuracy: 0.1285, timestamp: 2026-03-03 06:31:40
+iteration: 1978, accuracy: 0.1254, timestamp: 2026-03-03 06:32:42
+iteration: 1979, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 333, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 220, in train_epoch
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-03-03 06:33:12
+iteration: 1980, accuracy: 0.1254, timestamp: 2026-03-03 06:34:11
+iteration: 1981, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 333, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gu/prompt_improvement_for_ablation/train_script.py", line 220, in train_epoch
+    loss.backward()
+    ~~~~~~~~~~~~~^^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        self, gradient, retain_graph, create_graph, inputs=inputs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+    ~~~~~~~~~~~~~~~~~~~~^
+        tensors,
+        ^^^^^^^^
+    ...<5 lines>...
+        accumulate_grad=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/gu/miniconda3/lib/python3.13/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_outputs, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # Calls into the C++ engine to run the backward pass
+    ^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.49 GiB of which 813.44 MiB is free. Process 306117 has 19.19 GiB memory in use. Including non-PyTorch memory, this process has 3.37 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 980.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-03-03 06:34:33
+iteration: 1982, accuracy: 0.2854, timestamp: 2026-03-03 06:35:07
+iteration: 1983, accuracy: 0.2535, timestamp: 2026-03-03 06:35:42
+iteration: 1984, accuracy: 0.1781, timestamp: 2026-03-03 06:36:24
+iteration: 1985, accuracy: 0.2383, timestamp: 2026-03-03 06:36:57
+iteration: 1986, accuracy: 0.1818, timestamp: 2026-03-03 06:37:29
+iteration: 1987, accuracy: 0.1845, timestamp: 2026-03-03 06:38:04
+iteration: 1988, accuracy: 0.1818, timestamp: 2026-03-03 06:38:33
+iteration: 1989, accuracy: 0.1843, timestamp: 2026-03-03 06:39:08
+iteration: 1990, accuracy: 0.1818, timestamp: 2026-03-03 06:39:39
+iteration: 1991, accuracy: 0.1843, timestamp: 2026-03-03 06:40:17
+iteration: 1992, accuracy: 0.2253, timestamp: 2026-03-03 06:40:43
+iteration: 1993, accuracy: 0.1741, timestamp: 2026-03-03 06:41:15
+iteration: 1994, accuracy: 0.1247, timestamp: 2026-03-03 06:41:55
+iteration: 1995, accuracy: 0.1381, timestamp: 2026-03-03 06:42:51
+iteration: 1996, accuracy: 0.2398, timestamp: 2026-03-03 06:43:17
+iteration: 1997, accuracy: 0.1791, timestamp: 2026-03-03 06:43:44
+iteration: 1998, accuracy: 0.2632, timestamp: 2026-03-03 06:44:15
+iteration: 1999, accuracy: 0.2854, timestamp: 2026-03-03 06:44:41
+iteration: 2000, accuracy: 0.2755, timestamp: 2026-03-03 06:45:12

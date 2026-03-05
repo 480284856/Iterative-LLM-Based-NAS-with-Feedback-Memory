@@ -1,0 +1,100 @@
+iteration: 1, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 15:55:37
+iteration: 2, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 15:55:48
+iteration: 3, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 15:55:58
+iteration: 4, accuracy: 0.3772, timestamp: 2026-02-27 15:56:14
+iteration: 5, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 4096, timestamp: 2026-02-27 15:56:26
+iteration: 6, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 15:56:34
+iteration: 7, accuracy: 0.3772, timestamp: 2026-02-27 15:56:48
+iteration: 8, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 15:56:57
+iteration: 9, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 15:57:07
+iteration: 10, accuracy: 0.3772, timestamp: 2026-02-27 15:57:22
+iteration: 11, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 15:57:32
+iteration: 12, accuracy: 0.4609, timestamp: 2026-02-27 15:57:50
+iteration: 13, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 15:58:00
+iteration: 14, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 4096, timestamp: 2026-02-27 15:58:12
+iteration: 15, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 2704]' is invalid for input of size 800, timestamp: 2026-02-27 15:58:24
+iteration: 16, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 15:58:34
+iteration: 17, accuracy: 0.3772, timestamp: 2026-02-27 15:58:51
+iteration: 18, accuracy: 0.3772, timestamp: 2026-02-27 15:59:07
+iteration: 19, accuracy: 0.3772, timestamp: 2026-02-27 15:59:23
+iteration: 20, accuracy: 0.3772, timestamp: 2026-02-27 15:59:39
+iteration: 21, accuracy: 0.3772, timestamp: 2026-02-27 15:59:53
+iteration: 22, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 8192, timestamp: 2026-02-27 16:00:06
+iteration: 23, accuracy: 0.4488, timestamp: 2026-02-27 16:00:25
+iteration: 24, accuracy: 0.3772, timestamp: 2026-02-27 16:00:40
+iteration: 25, accuracy: 0.5285, timestamp: 2026-02-27 16:00:59
+iteration: 26, accuracy: 0.3772, timestamp: 2026-02-27 16:01:16
+iteration: 27, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 16:01:28
+iteration: 28, accuracy: 0.3772, timestamp: 2026-02-27 16:01:44
+iteration: 29, accuracy: 0.3772, timestamp: 2026-02-27 16:01:59
+iteration: 30, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:02:08
+iteration: 31, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:02:19
+iteration: 32, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:02:29
+iteration: 33, accuracy: 0.3772, timestamp: 2026-02-27 16:02:47
+iteration: 34, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:02:57
+iteration: 35, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 4096]' is invalid for input of size 2048, timestamp: 2026-02-27 16:03:11
+iteration: 36, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 512, timestamp: 2026-02-27 16:03:25
+iteration: 37, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:03:33
+iteration: 38, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 1024, timestamp: 2026-02-27 16:03:46
+iteration: 39, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:03:55
+iteration: 40, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:04:04
+iteration: 41, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x400 and 3136x120), timestamp: 2026-02-27 16:04:17
+iteration: 42, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 16:04:29
+iteration: 43, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:04:40
+iteration: 44, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:04:47
+iteration: 45, accuracy: 0.3772, timestamp: 2026-02-27 16:05:03
+iteration: 46, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 8192, timestamp: 2026-02-27 16:05:18
+iteration: 47, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 32768, timestamp: 2026-02-27 16:05:29
+iteration: 48, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:05:36
+iteration: 49, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:05:45
+iteration: 50, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:05:55
+iteration: 51, accuracy: 0.4530, timestamp: 2026-02-27 16:06:14
+iteration: 52, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:06:20
+iteration: 53, accuracy: 0.3772, timestamp: 2026-02-27 16:06:39
+iteration: 54, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 2048, timestamp: 2026-02-27 16:06:50
+iteration: 55, accuracy: 0.3772, timestamp: 2026-02-27 16:07:06
+iteration: 56, accuracy: 0.3772, timestamp: 2026-02-27 16:07:20
+iteration: 57, accuracy: 0.5628, timestamp: 2026-02-27 16:07:49
+iteration: 58, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:07:59
+iteration: 59, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 2048]' is invalid for input of size 1024, timestamp: 2026-02-27 16:08:13
+iteration: 60, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 16:08:23
+iteration: 61, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 65536]' is invalid for input of size 8192, timestamp: 2026-02-27 16:08:37
+iteration: 62, accuracy: 0.6592, timestamp: 2026-02-27 16:08:57
+iteration: 63, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:09:07
+iteration: 64, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:09:15
+iteration: 65, accuracy: 0.3772, timestamp: 2026-02-27 16:09:38
+iteration: 66, accuracy: 0.3772, timestamp: 2026-02-27 16:09:57
+iteration: 67, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:10:10
+iteration: 68, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:10:19
+iteration: 69, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:10:26
+iteration: 70, accuracy: 0.3772, timestamp: 2026-02-27 16:10:42
+iteration: 71, accuracy: 0.4609, timestamp: 2026-02-27 16:11:02
+iteration: 72, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:11:12
+iteration: 73, accuracy: 0.3772, timestamp: 2026-02-27 16:11:29
+iteration: 74, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:11:40
+iteration: 75, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:11:49
+iteration: 76, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:11:57
+iteration: 77, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x400 and 1600x120), timestamp: 2026-02-27 16:12:08
+iteration: 78, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:12:17
+iteration: 79, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 131072]' is invalid for input of size 4096, timestamp: 2026-02-27 16:12:27
+iteration: 80, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x400 and 1024x120), timestamp: 2026-02-27 16:12:39
+iteration: 81, accuracy: 0.3772, timestamp: 2026-02-27 16:12:53
+iteration: 82, accuracy: 0.4419, timestamp: 2026-02-27 16:13:13
+iteration: 83, accuracy: 0.3772, timestamp: 2026-02-27 16:13:29
+iteration: 84, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:13:38
+iteration: 85, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:13:48
+iteration: 86, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 256]' is invalid for input of size 800, timestamp: 2026-02-27 16:13:58
+iteration: 87, accuracy: 0.3772, timestamp: 2026-02-27 16:14:15
+iteration: 88, accuracy: 0.3772, timestamp: 2026-02-27 16:14:32
+iteration: 89, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 16:14:43
+iteration: 90, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 4096, timestamp: 2026-02-27 16:14:52
+iteration: 91, accuracy: 0.3772, timestamp: 2026-02-27 16:15:09
+iteration: 92, accuracy: 0.3772, timestamp: 2026-02-27 16:15:23
+iteration: 93, accuracy: 0.3772, timestamp: 2026-02-27 16:15:39
+iteration: 94, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1024]' is invalid for input of size 800, timestamp: 2026-02-27 16:15:49
+iteration: 95, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 1600]' is invalid for input of size 800, timestamp: 2026-02-27 16:15:58
+iteration: 96, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 4096, timestamp: 2026-02-27 16:16:11
+iteration: 97, accuracy: 0.3772, timestamp: 2026-02-27 16:16:25
+iteration: 98, accuracy: 0.3772, timestamp: 2026-02-27 16:16:41
+iteration: 99, accuracy: 0.4609, timestamp: 2026-02-27 16:16:59
+iteration: 100, accuracy: 0.3772, timestamp: 2026-02-27 16:17:15

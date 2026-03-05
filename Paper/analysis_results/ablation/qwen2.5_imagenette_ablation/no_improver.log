@@ -1,0 +1,1428 @@
+iteration: 1, error: Code validation failed: Validation error: RuntimeError: The size of tensor a (32) must match the size of tensor b (16) at non-singleton dimension 1, timestamp: 2026-02-27 17:31:04
+iteration: 2, error: Code validation failed: Validation error: OutOfMemoryError: CUDA out of memory. Tried to allocate 12.50 GiB. GPU 0 has a total capacity of 23.53 GiB of which 8.71 GiB is free. Including non-PyTorch memory, this process has 14.79 GiB memory in use. Of the allocated memory 14.23 GiB is allocated by PyTorch, and 90.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables), timestamp: 2026-02-27 17:31:28
+iteration: 3, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x6400 and 1638400x1024), timestamp: 2026-02-27 17:31:49
+iteration: 4, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 15.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 52, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 15.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:32:12
+iteration: 5, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 60, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:32:30
+iteration: 6, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 339.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.04 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 1.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 49, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 339.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.04 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 1.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:32:51
+iteration: 7, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 45, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:33:11
+iteration: 8, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.45 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 43, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.45 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:33:34
+iteration: 9, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 43, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:33:58
+iteration: 10, accuracy: 0.5954, timestamp: 2026-02-27 17:34:24
+iteration: 11, accuracy: 0.3671, timestamp: 2026-02-27 17:34:49
+iteration: 12, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x51200 and 5120x1024), timestamp: 2026-02-27 17:35:05
+iteration: 13, accuracy: 0.1852, timestamp: 2026-02-27 17:35:30
+iteration: 14, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 34, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:35:46
+iteration: 15, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 31, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:36:02
+iteration: 16, accuracy: 0.5445, timestamp: 2026-02-27 17:36:26
+iteration: 17, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 819200]' is invalid for input of size 25600, timestamp: 2026-02-27 17:36:45
+iteration: 18, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 120.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 57, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 120.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:37:07
+iteration: 19, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.49 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 37, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.49 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:37:24
+iteration: 20, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 36, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:37:44
+iteration: 21, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x25600 and 1638400x1024), timestamp: 2026-02-27 17:38:05
+iteration: 22, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 13.92 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 40, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 13.92 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:38:30
+iteration: 23, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 120.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 58, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 120.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:38:52
+iteration: 24, error: Code validation failed: Validation error: RuntimeError: The size of tensor a (64) must match the size of tensor b (32) at non-singleton dimension 1, timestamp: 2026-02-27 17:39:13
+iteration: 25, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.11 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 38, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.11 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:39:33
+iteration: 26, error: Code validation failed: Validation error: RuntimeError: The size of tensor a (64) must match the size of tensor b (32) at non-singleton dimension 1, timestamp: 2026-02-27 17:39:53
+iteration: 27, accuracy: 0.2721, timestamp: 2026-02-27 17:40:11
+iteration: 28, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x25600 and 1638400x1024), timestamp: 2026-02-27 17:40:31
+iteration: 29, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 32, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:40:48
+iteration: 30, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 34, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:41:05
+iteration: 31, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 393.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 1.99 GiB memory in use. Of the allocated memory 1.05 GiB is allocated by PyTorch, and 440.09 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 175, in train_epoch
+    loss.backward()
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 393.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 1.99 GiB memory in use. Of the allocated memory 1.05 GiB is allocated by PyTorch, and 440.09 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:41:26
+iteration: 32, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 5.98 MiB is allocated by PyTorch, and 16.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 5.98 MiB is allocated by PyTorch, and 16.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:41:47
+iteration: 33, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 33, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:42:06
+iteration: 34, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 339.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.04 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 1.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 47, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 339.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.04 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 1.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:42:27
+iteration: 35, accuracy: 0.1006, timestamp: 2026-02-27 17:42:46
+iteration: 36, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x51200 and 819200x1024), timestamp: 2026-02-27 17:43:04
+iteration: 37, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 101.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 38, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 101.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:43:15
+iteration: 38, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 15.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 68, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 319.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 15.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:43:41
+iteration: 39, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 103.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.27 GiB memory in use. Of the allocated memory 1.72 GiB is allocated by PyTorch, and 115.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 50, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 103.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.27 GiB memory in use. Of the allocated memory 1.72 GiB is allocated by PyTorch, and 115.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:44:01
+iteration: 40, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 5.93 MiB is allocated by PyTorch, and 16.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 5.93 MiB is allocated by PyTorch, and 16.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:44:31
+iteration: 41, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.45 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 42, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.45 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:44:56
+iteration: 42, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 44, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:45:13
+iteration: 43, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 7.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 39, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.61 GiB is allocated by PyTorch, and 7.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:45:36
+iteration: 44, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 41, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:45:50
+iteration: 45, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 68, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:46:10
+iteration: 46, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 45, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:46:33
+iteration: 47, accuracy: 0.6214, timestamp: 2026-02-27 17:47:01
+iteration: 48, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.00 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 386.00 MiB memory in use. Of the allocated memory 382.00 KiB is allocated by PyTorch, and 1.63 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.00 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 386.00 MiB memory in use. Of the allocated memory 382.00 KiB is allocated by PyTorch, and 1.63 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:47:20
+iteration: 49, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 5.98 MiB is allocated by PyTorch, and 16.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 5.98 MiB is allocated by PyTorch, and 16.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:47:43
+iteration: 50, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 6.00 MiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 1.98 GiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 6.00 MiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:48:13
+iteration: 51, accuracy: 0.5967, timestamp: 2026-02-27 17:48:43
+iteration: 52, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 42, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 385.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.00 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 20.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:49:06
+iteration: 53, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 101.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 40, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 101.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:49:24
+iteration: 54, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.80 GiB is allocated by PyTorch, and 18.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 43, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 119.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.80 GiB is allocated by PyTorch, and 18.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:49:53
+iteration: 55, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 45, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.13 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:50:11
+iteration: 56, error: Code validation failed: Validation error: OutOfMemoryError: CUDA out of memory. Tried to allocate 12.50 GiB. GPU 0 has a total capacity of 23.53 GiB of which 8.71 GiB is free. Including non-PyTorch memory, this process has 14.79 GiB memory in use. Of the allocated memory 14.23 GiB is allocated by PyTorch, and 90.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables), timestamp: 2026-02-27 17:50:39
+iteration: 57, accuracy: 0.5628, timestamp: 2026-02-27 17:51:00
+iteration: 58, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1.56 GiB. GPU 0 has a total capacity of 23.53 GiB of which 559.50 MiB is free. Process 1723908 has 16.62 GiB memory in use. Including non-PyTorch memory, this process has 6.34 GiB memory in use. Of the allocated memory 5.90 GiB is allocated by PyTorch, and 1.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 36, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.56 GiB. GPU 0 has a total capacity of 23.53 GiB of which 559.50 MiB is free. Process 1723908 has 16.62 GiB memory in use. Including non-PyTorch memory, this process has 6.34 GiB memory in use. Of the allocated memory 5.90 GiB is allocated by PyTorch, and 1.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:51:20
+iteration: 59, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 205.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.56 GiB memory in use. Of the allocated memory 3.17 GiB is allocated by PyTorch, and 13.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 39, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 205.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.56 GiB memory in use. Of the allocated memory 3.17 GiB is allocated by PyTorch, and 13.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:51:43
+iteration: 60, accuracy: 0.4963, timestamp: 2026-02-27 17:52:02
+iteration: 61, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.62 GiB memory in use. Of the allocated memory 3.16 GiB is allocated by PyTorch, and 20.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 68, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.62 GiB memory in use. Of the allocated memory 3.16 GiB is allocated by PyTorch, and 20.47 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:52:24
+iteration: 62, accuracy: 0.5954, timestamp: 2026-02-27 17:52:50
+iteration: 63, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 73.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.69 GiB memory in use. Of the allocated memory 3.13 GiB is allocated by PyTorch, and 53.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 175, in train_epoch
+    loss.backward()
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 73.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.69 GiB memory in use. Of the allocated memory 3.13 GiB is allocated by PyTorch, and 53.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:53:07
+iteration: 64, accuracy: 0.6064, timestamp: 2026-02-27 17:53:32
+iteration: 65, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.62 GiB memory in use. Of the allocated memory 3.17 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 49, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.62 GiB memory in use. Of the allocated memory 3.17 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:53:56
+iteration: 66, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 1.56 GiB. GPU 0 has a total capacity of 23.53 GiB of which 121.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.64 GiB memory in use. Of the allocated memory 3.19 GiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 51, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.56 GiB. GPU 0 has a total capacity of 23.53 GiB of which 121.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.64 GiB memory in use. Of the allocated memory 3.19 GiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:54:18
+iteration: 67, accuracy: 0.5748, timestamp: 2026-02-27 17:54:46
+iteration: 68, accuracy: 0.1806, timestamp: 2026-02-27 17:55:04
+iteration: 69, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.62 GiB memory in use. Of the allocated memory 3.17 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 50, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 19.74 GiB memory in use. Including non-PyTorch memory, this process has 3.62 GiB memory in use. Of the allocated memory 3.17 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:55:28
+iteration: 70, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x25600 and 1638400x1024), timestamp: 2026-02-27 17:55:48
+iteration: 71, error: AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 41, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+, timestamp: 2026-02-27 17:56:10
+iteration: 72, error: AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 41, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+, timestamp: 2026-02-27 17:56:33
+iteration: 73, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 339.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 59, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 339.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.06 GiB memory in use. Of the allocated memory 1.60 GiB is allocated by PyTorch, and 18.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:56:58
+iteration: 74, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x25600 and 1638400x1024), timestamp: 2026-02-27 17:57:16
+iteration: 75, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 279.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.12 GiB memory in use. Of the allocated memory 1.66 GiB is allocated by PyTorch, and 23.10 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 36, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 279.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.12 GiB memory in use. Of the allocated memory 1.66 GiB is allocated by PyTorch, and 23.10 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:57:30
+iteration: 76, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.02 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 386.00 MiB memory in use. Of the allocated memory 301.00 KiB is allocated by PyTorch, and 1.71 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.02 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 386.00 MiB memory in use. Of the allocated memory 301.00 KiB is allocated by PyTorch, and 1.71 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:57:48
+iteration: 77, accuracy: 0.1852, timestamp: 2026-02-27 17:58:12
+iteration: 78, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 159.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 101.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 30, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 159.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.24 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 101.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:58:24
+iteration: 79, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 59, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:58:43
+iteration: 80, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 59.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 45, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 59.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.33 GiB memory in use. Of the allocated memory 1.84 GiB is allocated by PyTorch, and 51.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:59:02
+iteration: 81, accuracy: 0.5860, timestamp: 2026-02-27 17:59:20
+iteration: 82, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 15.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.38 GiB memory in use. Of the allocated memory 1.79 GiB is allocated by PyTorch, and 91.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 175, in train_epoch
+    loss.backward()
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/_tensor.py", line 630, in backward
+    torch.autograd.backward(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/autograd/__init__.py", line 364, in backward
+    _engine_run_backward(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/autograd/graph.py", line 865, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 15.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.38 GiB memory in use. Of the allocated memory 1.79 GiB is allocated by PyTorch, and 91.93 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:59:41
+iteration: 83, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 739.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 1.67 GiB memory in use. Of the allocated memory 1.21 GiB is allocated by PyTorch, and 20.52 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 34, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 739.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 1.67 GiB memory in use. Of the allocated memory 1.21 GiB is allocated by PyTorch, and 20.52 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 17:59:59
+iteration: 84, error: AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 45, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+, timestamp: 2026-02-27 18:00:22
+iteration: 85, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.00 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 6.00 MiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.00 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 6.00 MiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:00:50
+iteration: 86, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 387.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.01 GiB memory in use. Of the allocated memory 1.63 GiB is allocated by PyTorch, and 13.98 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 43, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 387.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.01 GiB memory in use. Of the allocated memory 1.63 GiB is allocated by PyTorch, and 13.98 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:01:14
+iteration: 87, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 51200]' is invalid for input of size 25600, timestamp: 2026-02-27 18:01:30
+iteration: 88, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.02 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 386.00 MiB memory in use. Of the allocated memory 382.00 KiB is allocated by PyTorch, and 1.63 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.02 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 386.00 MiB memory in use. Of the allocated memory 382.00 KiB is allocated by PyTorch, and 1.63 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:01:54
+iteration: 89, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x51200 and 819200x1024), timestamp: 2026-02-27 18:02:10
+iteration: 90, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.35 GiB memory in use. Of the allocated memory 1.85 GiB is allocated by PyTorch, and 68.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 60, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 194, in forward
+    return F.batch_norm(
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 2846, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 39.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.35 GiB memory in use. Of the allocated memory 1.85 GiB is allocated by PyTorch, and 68.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:02:33
+iteration: 91, error: AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 38, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+, timestamp: 2026-02-27 18:02:51
+iteration: 92, error: AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 28, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+, timestamp: 2026-02-27 18:03:13
+iteration: 93, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 37.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.36 GiB memory in use. Of the allocated memory 1.85 GiB is allocated by PyTorch, and 67.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 41, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 37.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.36 GiB memory in use. Of the allocated memory 1.85 GiB is allocated by PyTorch, and 67.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:03:33
+iteration: 94, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 32, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:03:51
+iteration: 95, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 38, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/activation.py", line 143, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/functional.py", line 1721, in relu
+    result = torch.relu(input)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 139.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 2.26 GiB memory in use. Of the allocated memory 1.70 GiB is allocated by PyTorch, and 119.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:04:04
+iteration: 96, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x25600 and 1638400x1024), timestamp: 2026-02-27 18:04:23
+iteration: 97, error: AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 40, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+, timestamp: 2026-02-27 18:04:46
+iteration: 98, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.00 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 6.00 MiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 253, in main
+    model = model.to(device)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1381, in to
+    return self._apply(convert)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 964, in _apply
+    param_applied = fn(param)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1367, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.12 GiB. GPU 0 has a total capacity of 23.53 GiB of which 2.00 GiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 406.00 MiB memory in use. Of the allocated memory 6.00 MiB is allocated by PyTorch, and 16.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:05:13
+iteration: 99, error: OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 739.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 1.67 GiB memory in use. Of the allocated memory 1.21 GiB is allocated by PyTorch, and 20.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 43, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 800.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 739.50 MiB is free. Process 1723908 has 21.11 GiB memory in use. Including non-PyTorch memory, this process has 1.67 GiB memory in use. Of the allocated memory 1.21 GiB is allocated by PyTorch, and 20.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+, timestamp: 2026-02-27 18:05:35
+iteration: 100, error: AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 282, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation/train_script.py", line 173, in train_epoch
+    outputs = model(inputs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<string>", line 45, in forward
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 553, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/qu/miniconda3/envs/nngpt/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 548, in _conv_forward
+    return F.conv2d(
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+, timestamp: 2026-02-27 18:05:58

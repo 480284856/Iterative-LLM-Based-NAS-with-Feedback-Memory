@@ -6,14 +6,10 @@ Accuracy is extracted from results.log; failed iterations use the previous round
 import re
 import numpy as np
 import json
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
 from scipy import stats
 from pathlib import Path
 
-BASE = Path(__file__).parent.parent          # .../Paper
+BASE = Path(__file__).parent.parent.parent   # .../Paper
 EXPERIMENTAL_RESULT = BASE / "experimental_result"
 PROMPT_IMPROVEMENT = BASE.parent             # .../prompt_improvement
 OUTPUT_DIR = Path(__file__).parent
@@ -59,29 +55,39 @@ def load_acc(path):
         return np.array([float(line.strip()) for line in f if line.strip()])
 
 
-# ── Extract accuracy: deepseek/glm from results.log (errors → previous round); qwen2.5 from acc.txt + append 0.6636 ──
-deepseek_log = PROMPT_IMPROVEMENT / "output/deepseek_coder_6.7b_instruct_2000/results.log"
-glm_log = EXPERIMENTAL_RESULT / "glm5_500/results.log"
-qwen_acc_path = EXPERIMENTAL_RESULT / "qwen2.5_7b_instruct_2000/acc.txt"
-
+# ── Load accuracy arrays ──────────────────────────────────────────────────
+# DeepSeek: extracted from results.log (2000 iterations, errors filled with prev acc)
+deepseek_log = EXPERIMENTAL_RESULT / "cifar10/deepseek_coder_6.7b_instruct_2000/results.log"
 deepseek_acc = extract_acc_from_results_log(deepseek_log)
-glm_acc = extract_acc_from_results_log(glm_log)
-# Qwen2.5: 不参考 results.log，直接使用现有 acc.txt 并补足到 2000 条（不足部分填 0.6636）
-qwen_acc_raw = load_acc(qwen_acc_path)
-n_pad = 2000 - len(qwen_acc_raw)
-qwen_acc = np.append(qwen_acc_raw, np.full(n_pad, 0.6636)) if n_pad > 0 else qwen_acc_raw
 
-# Persist acc.txt for deepseek and glm only (qwen2.5 不写回，保留原 acc.txt + 仅在内存中补 0.6636)
-for path, acc in [
-    (PROMPT_IMPROVEMENT / "output/deepseek_coder_6.7b_instruct_2000/acc.txt", deepseek_acc),
-    (EXPERIMENTAL_RESULT / "glm5_500/acc.txt", glm_acc),
-]:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w") as f:
-        for v in acc:
-            f.write(f"{v}\n")
-    print(f"Wrote {len(acc)} values to {path}")
-print(f"Qwen2.5: loaded {len(qwen_acc_raw)} from acc.txt, padded to 2000 with 0.6636 (not overwriting file)")
+# Qwen2.5: extracted from full 56k-line log (2000 iterations)
+qwen_acc_path = EXPERIMENTAL_RESULT / "cifar10/qwen2.5_7b_instruct_2000/qwen2.5_7b_instruct_2000_acc.txt"
+qwen_acc = load_acc(qwen_acc_path)
+
+# GLM5: all-successful results.log (100 iterations, no errors)
+glm_log = EXPERIMENTAL_RESULT / "cifar10/glm5_cifar10/results.log"
+glm_acc = extract_acc_from_results_log(glm_log)
+
+# Count truly-successful (non-filled) iterations per model
+def count_successful_from_log(log_path):
+    """Count lines with 'accuracy:' in results.log (true successes, not error-filled)."""
+    count = 0
+    with open(log_path) as f:
+        for line in f:
+            if RE_ACC.search(line):
+                count += 1
+    return count
+
+deepseek_n_success = count_successful_from_log(deepseek_log)
+qwen_n_success = 376   # counted from full log in extract_qwen_acc.py
+glm_n_success = count_successful_from_log(glm_log)
+
+print(f"deepseek: {len(deepseek_acc)} total iters, {deepseek_n_success} successful, "
+      f"first={deepseek_acc[0]:.4f}, last={deepseek_acc[-1]:.4f}")
+print(f"qwen2.5:  {len(qwen_acc)} total iters, {qwen_n_success} successful, "
+      f"first={qwen_acc[0]:.4f}, last={qwen_acc[-1]:.4f}")
+print(f"glm5:     {len(glm_acc)} total iters, {glm_n_success} successful, "
+      f"first={glm_acc[0]:.4f}, last={glm_acc[-1]:.4f}")
 
 print(f"deepseek: {len(deepseek_acc)} entries, first={deepseek_acc[0]:.4f}, last={deepseek_acc[-1]:.4f}")
 print(f"qwen2.5:  {len(qwen_acc)}  entries, first={qwen_acc[0]:.4f}, last={qwen_acc[-1]:.4f}")
@@ -89,7 +95,7 @@ print(f"glm5:     {len(glm_acc)}   entries, first={glm_acc[0]:.4f}, last={glm_ac
 
 
 # ── Statistical analysis ───────────────────────────────────────────────────
-def analyze(name, acc):
+def analyze(name, acc, n_success=None):
     n = len(acc)
     x = np.arange(1, n + 1)
 
@@ -120,7 +126,9 @@ def analyze(name, acc):
 
     result = {
         "model": name,
-        "n_successful_iterations": int(n),
+        "n_total_iterations": int(n),
+        "n_successful_iterations": int(n_success) if n_success is not None else int(n),
+        "success_rate": round(float(n_success / n) if n_success is not None else 1.0, 4),
         "spearman_rho": {
             "value": round(float(spearman_rho), 4),
             "p_value": round(float(spearman_p), 6),
@@ -163,10 +171,12 @@ def analyze(name, acc):
 
 
 results = []
-for name, acc in [("deepseek_coder_6.7b", deepseek_acc),
-                  ("qwen2.5_7b_instruct", qwen_acc),
-                  ("glm5", glm_acc)]:
-    r, _ = analyze(name, acc)
+for name, acc, n_succ in [
+    ("deepseek_coder_6.7b", deepseek_acc, deepseek_n_success),
+    ("qwen2.5_7b_instruct", qwen_acc, qwen_n_success),
+    ("glm5", glm_acc, glm_n_success),
+]:
+    r, _ = analyze(name, acc, n_success=n_succ)
     results.append(r)
     print(f"\n=== {name} ===")
     print(json.dumps(r, ensure_ascii=False, indent=2))
@@ -175,103 +185,3 @@ for name, acc in [("deepseek_coder_6.7b", deepseek_acc),
 with open(OUTPUT_DIR / "statistics.json", "w", encoding="utf-8") as f:
     json.dump(results, f, ensure_ascii=False, indent=2)
 print(f"\nStatistics saved to {OUTPUT_DIR / 'statistics.json'}")
-
-
-# ── Research-quality figure ────────────────────────────────────────────────
-plt.rcParams.update({
-    "font.family": "serif",
-    "font.serif": ["Times New Roman", "DejaVu Serif"],
-    "font.size": 11,
-    "axes.titlesize": 12,
-    "axes.labelsize": 11,
-    "legend.fontsize": 10,
-    "xtick.labelsize": 10,
-    "ytick.labelsize": 10,
-    "axes.linewidth": 0.8,
-    "grid.linewidth": 0.4,
-    "lines.linewidth": 1.2,
-    "figure.dpi": 300,
-    "savefig.dpi": 300,
-    "savefig.bbox": "tight",
-    "axes.spines.top": False,
-    "axes.spines.right": False,
-})
-
-
-def rolling_max(arr):
-    return np.maximum.accumulate(arr)
-
-
-def smooth(arr, window=5):
-    """Simple moving average smoothing."""
-    kernel = np.ones(window) / window
-    padded = np.pad(arr, (window // 2, window // 2), mode='edge')
-    return np.convolve(padded, kernel, mode='valid')[:len(arr)]
-
-
-fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
-
-# ── Subplot 1: DeepSeek + Qwen2.5 ─────────────────────────────────────────
-ax1 = axes[0]
-
-colors = {
-    "deepseek": "#E64B35",
-    "qwen": "#4DBBD5",
-}
-
-for label, acc, color in [
-    ("DeepSeek-Coder-6.7B", deepseek_acc, colors["deepseek"]),
-    ("Qwen2.5-7B-Instruct", qwen_acc, colors["qwen"]),
-]:
-    x = np.arange(1, len(acc) + 1)
-    rm = rolling_max(acc)
-    # Raw data (thin, transparent)
-    ax1.plot(x, acc, color=color, alpha=0.25, linewidth=0.8, zorder=1)
-    # Rolling max (bold)
-    ax1.plot(x, rm, color=color, linewidth=2.0, label=f"{label} (best-so-far)", zorder=2)
-    # Mark final best
-    ax1.scatter([x[-1]], [rm[-1]], color=color, s=50, zorder=3)
-
-# Y-axis range
-all_vals = np.concatenate([deepseek_acc, qwen_acc])
-ymin = max(0, np.percentile(all_vals, 1) - 0.03)
-ymax = min(1.0, np.max(all_vals) + 0.05)
-ax1.set_ylim(ymin, ymax)
-
-ax1.set_xlabel("Iteration")
-ax1.set_ylabel("Accuracy")
-ax1.set_title("(a) DeepSeek-Coder-6.7B & Qwen2.5-7B-Instruct")
-ax1.legend(loc="lower right", framealpha=0.85, edgecolor='gray')
-ax1.grid(True, linestyle='--', alpha=0.5)
-ax1.xaxis.set_major_locator(plt.MaxNLocator(integer=True, nbins=6))
-
-# ── Subplot 2: GLM ────────────────────────────────────────────────────────
-ax2 = axes[1]
-
-glm_color = "#00A087"
-x_glm = np.arange(1, len(glm_acc) + 1)
-rm_glm = rolling_max(glm_acc)
-
-ax2.plot(x_glm, glm_acc, color=glm_color, alpha=0.25, linewidth=0.8, zorder=1)
-ax2.plot(x_glm, rm_glm, color=glm_color, linewidth=2.0,
-         label="GLM-5 (best-so-far)", zorder=2)
-ax2.scatter([x_glm[-1]], [rm_glm[-1]], color=glm_color, s=50, zorder=3)
-
-ymin_g = max(0, np.percentile(glm_acc, 1) - 0.03)
-ymax_g = min(1.0, np.max(glm_acc) + 0.05)
-ax2.set_ylim(ymin_g, ymax_g)
-
-ax2.set_xlabel("Iteration")
-ax2.set_ylabel("Accuracy")
-ax2.set_title("(b) GLM-5")
-ax2.legend(loc="lower right", framealpha=0.85, edgecolor='gray')
-ax2.grid(True, linestyle='--', alpha=0.5)
-ax2.xaxis.set_major_locator(plt.MaxNLocator(integer=True, nbins=6))
-
-plt.tight_layout(pad=2.0)
-
-fig_path = OUTPUT_DIR / "accuracy_curves.pdf"
-fig_png_path = OUTPUT_DIR / "accuracy_curves.png"
-plt.savefig(fig_path)
-plt.savefig(fig_png_path)
-print(f"Figure saved to {fig_path} and {fig_png_path}")

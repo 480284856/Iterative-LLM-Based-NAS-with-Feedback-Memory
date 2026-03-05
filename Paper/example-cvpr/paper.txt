@@ -1,0 +1,724 @@
+CVPR                                                                                                                                        CVPR
+ #                                                                                                                                               #
+                                 CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+
+                              Iterative LLM-Based NAS with Feedback Memory
+
+                                                  Anonymous CVPR submission
+
+                                                               Paper ID
+
+
+                               Abstract                                   networks, achieving competitive or superior performance to       038
+                                                                          hand-crafted architectures across diverse tasks [18, 23, 37].    039
+ 001      Neural Architecture Search (NAS) automates network              However, conventional NAS methods—whether based on               040
+ 002   design but typically demands substantial computational re-         reinforcement learning [37], evolutionary algorithms [23],       041
+ 003   sources. We propose a closed-loop pipeline that leverages          or differentiable relaxations [18]—remain computationally        042
+ 004   large language models (LLMs) to iteratively generate, eval-        expensive, often requiring hundreds or thousands of GPU          043
+ 005   uate, and refine convolutional neural network architectures        hours to search a single architecture. This cost has mo-         044
+ 006   for image classification. Central to our approach is a his-        tivated training-free approaches that use proxy metrics to       045
+ 007   torical feedback memory mechanism inspired by Markov               rank architectures without full training [16, 19], yet these     046
+ 008   chains: a sliding window of the most recent improvement            methods still operate within predefined, discrete search         047
+ 009   attempts is fed back to the LLM, enabling it to learn from         spaces.                                                          048
+ 010   past successes and failures without additional training. Us-          Recent advances in large language models (LLMs) have          049
+ 011   ing one-epoch proxy accuracy on CIFAR-10 [15] and Im-              opened a fundamentally different avenue: using LLMs as           050
+ 012   ageNette as a fast architecture ranking signal, we evalu-          architecture generators that produce executable neural net-      051
+ 013   ate the pipeline with three instruction-tuned LLMs across          work code directly [12, 14, 30]. Unlike traditional NAS,         052
+ 014   up to 2000 iterations. DeepSeek-Coder-6.7B-Instruct im-            LLM-based approaches operate in the space of programs            053
+ 015   proves generated architectures from 28.2% to a peak of             rather than fixed cell-based encodings, enabling more flex-      054
+ 016   69.2% over 1519 successful evaluations within 2000 itera-          ible and expressive architecture design. Prior work within       055
+ 017   tions, Qwen2.5-7B-Instruct improves from 50.0% to a peak           the NNGPT framework [14] and related efforts [10, 21, 28]        056
+ 018   of 71.5% over 376 successful evaluations within 2000 it-           have demonstrated that LLMs can generate functional vi-          057
+ 019   erations, and GLM-5 improves from 55.1% to 68.1% over              sion models, but predominantly through single-shot or few-       058
+ 020   86 successful evaluations within 100 iterations. All mod-          shot generation without iterative self-improvement.              059
+ 021   els exhibit statistically significant upward trends. Com-
+                                                                             A critical limitation of single-shot LLM generation is        060
+ 022   pared to prior iterative LLM optimization methods that
+                                                                          that it treats architecture design as a one-pass prediction,     061
+ 023   rely on global elite retention (discarding failure trajecto-
+                                                                          discarding the evaluation signal entirely. In contrast, human    062
+ 024   ries) [24, 32], require complex population maintenance [3],
+                                                                          engineers iterate: they build, test, analyze failures, and re-   063
+ 025   or operate in constrained discrete search spaces [36], our
+                                                                          fine their designs based on accumulated experience. This         064
+ 026   bounded Markovian memory explicitly models sequential
+                                                                          observation motivates our central question: Can a small          065
+ 027   code execution failures in an open code space. This struc-
+                                                                          LLM iteratively improve neural network architectures by          066
+ 028   tured causal learning from recent mistakes is a critical re-
+                                                                          learning from a structured history of its own attempts?          067
+ 029   quirement for neural architecture generation that distin-
+ 030   guishes our approach from existing work. These results                We propose a closed-loop pipeline comprising three            068
+
+ 031   establish that LLMs of varied origins and specializations          components: (1) a Code Generator that prompts an                 069
+
+ 032   can serve as effective architecture designers when equipped        instruction-tuned LLM to produce PyTorch model imple-            070
+
+ 033   with iterative feedback and historical memory, offering a          mentations, (2) an Evaluator that trains each generated          071
+
+ 034   lightweight and accessible paradigm for LLM-driven NAS.            model for a single epoch on CIFAR-10 or ImageNette as            072
+                                                                          a fast proxy for architecture quality, and (3) a Prompt Im-      073
+                                                                          prover that analyzes evaluation results alongside a sliding      074
+
+ 035   1. Introduction                                                    window of recent iteration history—a mechanism we term           075
+                                                                          historical feedback memory—to produce targeted improve-          076
+ 036   Neural Architecture Search (NAS) has emerged as a pow-             ment suggestions for the next iteration. This design draws       077
+ 037   erful paradigm for automating the design of deep neural            on the Markov property: the improvement decision at each         078
+
+
+                                                                      1
+CVPR                                                                                                                                          CVPR
+ #                                                                                                                                                 #
+                                  CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+ 079   step depends on the current best architecture and a bounded          a closed-loop pipeline with historical memory that enables       130
+ 080   window of recent transitions, rather than the full trajectory.       progressive architecture improvement.                            131
+ 081      Our main contributions are:
+ 082   • A closed-loop, iterative NAS pipeline driven by LLMs
+                                                                            Iterative LLM Optimization. Recent work has explored             132
+ 083     that progressively discovers better architectures through
+                                                                            using LLMs as iterative optimizers that progressively            133
+ 084     code generation, evaluation, and prompt refinement.
+                                                                            improve solutions by learning from historical attempts.          134
+ 085   • A historical feedback memory mechanism that maintains
+                                                                            OPRO [32] demonstrated that LLMs can optimize text               135
+ 086     a sliding window of past improvement attempts, enabling
+                                                                            prompts and discrete solutions by conditioning on sorted         136
+ 087     the LLM to mitigate repeating failed strategies and build
+                                                                            history of past candidates and scores. FunSearch [24] ex-        137
+ 088     on successful ones.
+                                                                            tended this to program synthesis for mathematical discov-        138
+ 089   • An empirical demonstration across three LLMs of differ-
+                                                                            ery using island-based evolutionary search. EvoPrompt-           139
+ 090     ent origins and specializations showing that the pipeline
+                                                                            ing [3] applied evolutionary prompting with LLMs as mu-          140
+ 091     consistently improves architecture quality—from 28.2%
+                                                                            tation operators for code-level neural architecture search.      141
+ 092     to 69.2% (DeepSeek-Coder-6.7B, 2000 iterations), 50.0%
+                                                                            ReEvo [33] introduced dual-layer reflective memory for           142
+ 093     to 71.5% (Qwen2.5-7B, 2000 iterations), and 55.1% to
+                                                                            LLM-driven heuristic algorithm design. More directly re-         143
+ 094     68.1% (GLM-5, 100 iterations)
+                                                                            lated to NAS, LLMO [36] used LLMs as combinatorial               144
+
+ 095   2. Related Work                                                      optimizers within the predefined cell-based search space         145
+                                                                            of NAS-Bench-201, replacing traditional meta-heuristics.         146
+ 096   Neural Architecture Search. NAS methods aim to au-                   However, existing methods face key limitations: reliance         147
+ 097   tomate the design of neural network architectures. Early             on global elite histories that discard crucial failure trajec-   148
+ 098   approaches employed reinforcement learning [37] and evo-             tories [24, 32], the computational overhead of maintaining       149
+ 099   lutionary algorithms [23] to explore architecture search             evolutionary populations [3], operation in constrained dis-      150
+ 100   spaces, but required thousands of GPU hours per search.              crete search spaces [36], or targeting domains without struc-    151
+ 101   Parameter-sharing methods such as ENAS [22] and dif-                 tural code constraints [33]. Our work introduces bounded         152
+ 102   ferentiable approaches like DARTS [18] substantially re-             Markovian memory specifically designed for iterative neu-        153
+ 103   duced search cost by amortizing evaluation across architec-          ral architecture code generation in open search spaces, with     154
+ 104   tures. More recently, zero-shot or training-free NAS meth-           explicit failure modeling enabling effectiveness on small        155
+ 105   ods [16, 19] bypass training entirely by scoring architec-           frozen LLMs.                                                     156
+ 106   tures at initialization using proxy metrics such as activa-
+ 107   tion overlap [19] or gradient-based indicators. While ef-            3. Methodology                                                   157
+ 108   fective within their respective search spaces, these methods
+ 109   remain constrained to predefined, discrete architecture pa-          Inspired by recent advancements in the application of LLMs       158
+ 110   rameterizations (e.g., cell-based structures) and cannot gen-        across various domains [8, 11, 13, 26] and prior archi-          159
+ 111   erate truly novel architectural patterns.                            tectural synthesis experiments within the NNGPT frame-           160
+                                                                            work [10, 12, 13, 21, 27, 28, 30], and leveraging the exist-     161
+
+ 112   LLMs for Code Generation and AutoML. Large lan-                      ing LEMUR dataset of a broad range of high-capacity and          162
+
+ 113   guage models have demonstrated strong capabilities in code           edge-optimized models [6, 9, 29], we developed an itera-         163
+
+ 114   generation [4], and their application to machine learning au-        tive NAS pipeline based on the NNGPT framework [14].             164
+
+ 115   tomation is an active research area. The NNGPT frame-                The pipeline consists of three core modules operating in a       165
+
+ 116   work [14] pioneered the use of LLMs as neural network                closed loop, as illustrated in Figure 1.                         166
+
+ 117   generators, showing that language models can produce
+                                                                            3.1. Pipeline Overview                                           167
+ 118   functional vision models from textual prompts. Subsequent
+ 119   work explored fractal-inspired architectures [21], few-shot          At each iteration t, the pipeline executes the following cy-     168
+ 120   prompting strategies [30], novel architecture creativity [12],       cle: (1) the Code Generator produces a candidate architec-       169
+ 121   and non-standard channel priors [28]. LLMs have also been            ture At as executable PyTorch code; (2) the generated code       170
+ 122   applied to hyperparameter optimization [13], data trans-             is validated and, if structurally correct, trained and evalu-    171
+ 123   formation design [27], and collaborative vision-language             ated by the Evaluator to obtain a proxy accuracy at ; (3) the    172
+ 124   pipelines [8, 11, 26]. These efforts are supported by curated        Prompt Improver analyzes the result in the context of the        173
+ 125   datasets of neural network architectures [9, 29] and deploy-         current best architecture and recent iteration history, pro-     174
+ 126   ment pipelines [6]. However, most existing approaches treat          ducing improvement suggestions st for the next iteration.        175
+ 127   LLM-based architecture generation as a single-step pro-              The best-performing architecture A∗ = arg maxi≤t ai is           176
+ 128   cess, without leveraging iterative refinement from evalua-           maintained as the reference implementation throughout the        177
+ 129   tion feedback. Our work extends this line by introducing             search.                                                          178
+
+
+                                                                        2
+CVPR                                                                                                                                            CVPR
+ #                                                                                                                                                   #
+                                 CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+ 179   3.2. Code Generator                                                 context overflow while providing sufficient signal for the          229
+                                                                           LLM to identify recurring failure patterns.                         230
+ 180   The Code Generator uses a pre-trained, instruction-tuned
+ 181   LLM to produce a complete PyTorch model class imple-
+ 182   menting nn.Module. The LLM receives a fixed prompt                  Markov Property Formalization. Let At denote the ar-                231
+ 183   template comprising: (i) a role description positioning the         chitecture generated at step t, at its evaluation outcome           232
+ 184   model as a “visionary deep learning architect,” (ii) the task       (accuracy or error), and st the improvement suggestions.            233
+                                                                                                               (K)
+ 185   specification (CIFAR-10 or ImageNette image classification          Our historical feedback memory Ht        maintains exactly          234
+ 186   without pre-trained weights), (iii) the current best imple-         the most recent K=5 improvement attempts:                           235
+ 187   mentation A∗ as reference code, and (iv) the improvement
+                                                                                     (K)
+ 188   suggestions st−1 from the previous iteration. The generated                Ht       = {(st−K , at−K ), . . . , (st−1 , at−1 )}.   (1)   236
+ 189   code must define a Net(nn.Module) class with standard
+ 190     init and forward methods. Generation uses temper-                 The improvement suggestion generation satisfies the K-              237
+ 191   ature τ = 0.7 and nucleus sampling (p = 0.9) to balance             order Markov property:                                              238
+ 192   architectural diversity with code coherence.
+                                                                                                                            (K)
+                                                                                       P (st | A∗ , Ht ) = P (st | A∗ , Ht        ),     (2)   239
+ 193   3.3. Evaluator
+                                                                           meaning the next suggestion depends only on the current             240
+ 194   Generated code undergoes a two-stage evaluation process.
+                                                                           best architecture and the bounded recent history, not the           241
+ 195       Quick validation. The model is instantiated and a for-          complete trajectory. This design ensures constant context           242
+ 196   ward pass is performed with a dummy input tensor of shape           size and avoids the context overflow problem faced by un-           243
+ 197   corresponding to the dataset (e.g., 2×3×32×32 for CIFAR-            bounded history approaches like OPRO [32].                          244
+ 198   10). The output shape is verified to match B × C (for batch
+                                                                              Each history entry (si , ai ) is structured as a diagnostic      245
+ 199   size B and C classes). Models failing this check are dis-
+                                                                           triple:                                                             246
+ 200   carded with an error message forwarded to the Prompt Im-
+ 201   prover.                                                                      si = (problemi , suggestioni , outcomei ),           (3)   247
+ 202       Proxy training. Models passing validation are trained
+ 203   for one epoch on the respective dataset (CIFAR-10 or Im-            where problemi identifies the architectural deficiency,             248
+ 204   ageNette) using SGD (momentum 0.9, weight decay 5 ×                 suggestioni proposes concrete code modifications, and               249
+ 205   10−4 ), an initial learning rate of 0.01 with cosine anneal-        outcomei records whether the suggestion succeeded (accu-            250
+ 206   ing, and a batch size of 128. Standard data augmentation is         racy gain) or failed (error type). This structured format en-       251
+ 207   applied: random crop with padding and random horizontal             ables the LLM to learn causal patterns between design de-           252
+ 208   flip. Top-1 test accuracy serves as the proxy metric. Train-        cisions and outcomes, unlike scalar-score histories in prior        253
+ 209   ing is executed in an isolated subprocess with a 30-minute          work [24, 32].                                                      254
+ 210   timeout. This one-epoch accuracy provides a fast, infor-               The Prompt Improver produces a structured response               255
+ 211   mative signal for ranking architectures [25], enabling rapid        containing: (a) a reason diagnosing the current result,             256
+ 212   iteration without the cost of full convergence training.            (b) an inspiration drawing on cross-disciplinary insights,          257
+                                                                           and (c) concrete improvement suggestions for the next it-           258
+ 213   3.4. Prompt Improver with Historical Feedback                       eration. These suggestions, together with the best code,            259
+ 214        Memory                                                         form the input to the Code Generator in the subsequent iter-        260
+ 215   The Prompt Improver is the central component enabling it-           ation, closing the feedback loop.                                   261
+ 216   erative learning. After each evaluation, it receives three
+ 217   inputs: (1) the best code A∗ and its accuracy a∗ , (2) the          4. Experiments                                                      262
+ 218   current iteration’s code At and its evaluation outcome (ac-
+                                                                           4.1. Experimental Setup                                             263
+ 219   curacy value or error message), and (3) a historical feed-
+ 220   back memory Ht containing the last K=5 improvement at-              Dataset. We evaluate our approach on two datasets:                  264
+ 221   tempts.                                                             CIFAR-10 [15] and ImageNette. CIFAR-10 comprises                    265
+ 222      Each history entry hi ∈ Ht is a triple recording: the            60,000 32×32 color images across 10 classes (50,000 train-          266
+ 223   identified problem, the suggested improvement, and the re-          ing, 10,000 test). ImageNette is a subset of 10 easily clas-        267
+ 224   sulting outcome (accuracy achieved or error encountered).           sified classes from ImageNet, providing a higher-resolution         268
+ 225   This sliding-window design draws on the Markov property:            benchmark for the generated architectures. Standard aug-            269
+ 226   the improvement decision at step t depends on the current           mentation (random crop with padding, random horizon-                270
+ 227   state (best architecture plus recent history window) rather         tal flip, normalization) is applied during training, inspired       271
+ 228   than the complete trajectory. The bounded window prevents           by [2].                                                             272
+
+
+                                                                       3
+CVPR                                                                                                                                            CVPR
+ #                                                                                                                                                   #
+                                   CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+
+         Algorithm 1: Iterative LLM-Driven NAS Pipeline                       tuning of LLMs and training of computer vision models are        290
+
+          Input: LLM L, max iterations T , history window K                   performed on NVIDIA GeForce RTX 4090 24G GPU.                    291
+            ∗         ∗
+        1 A ← ∅; a ← 0; H ← ∅; s0 ← ∅;
+        2 for t ← 1 to T do                                                   Baseline. We compare against single-shot generation:             292
+        3     At ← Generate(L, A∗ , st−1 );                                   the accuracy of the first successfully generated and evalu-      293
+        4     if Validate(At ) succeeds then                                  ated architecture (iteration 1), representing what the LLM       294
+        5         at ← TrainAndEvaluate(At );                                 produces from its pre-trained knowledge alone without any        295
+        6     else                                                            feedback signal.                                                 296
+        7         at ← error message;
+        8       if at > a∗ then
+                                                                              4.2. Evaluation Metrics                                          297
+
+        9           A∗ ← At ; a∗ ← at ;                                       To evaluate our approach rigorously, we adopt true valida-       298
+       10       Append (st−1 , at ) to H; keep last K entries;                tion accuracy after the first training epoch as our primary      299
+       11       st ← Improve(L, A∗ , At , at , H);                            architecture quality metric [7], rather than relying on zero-    300
+                                                                              shot NAS proxies. Although zero-shot proxies are corre-          301
+       12   return A∗ , a∗
+                                                                              lated with fully trained accuracy [5, 17, 20], they remain       302
+                                                                              indirect indicators of performance. Even the strongest re-       303
+                                   candidate                                  ported Spearman rank-correlation coefficients (ρ ≈ 0.5–          304
+                      Code
+                     Generator
+                                     code        Validator &                  0.82) on standard benchmarks such as NAS-Bench-101 and           305
+                                                  Evaluator                   NAS-Bench-201 correspond to a coefficient of determina-          306
+                         (LLM)
+                                                                              tion of at most R2 ≈ 0.67, leaving substantial variance un-      307
+                                                             accuracy         explained [1, 31, 34, 35]. By using first-epoch validation       308
+             history +                                       or error
+             best code                                                        accuracy instead, we aim to demonstrate more directly that       309
+
+                                                   Prompt                     our algorithm can reliably influence and accelerate early-       310
+                     Historical                                               stage performance trajectories of neural networks.               311
+                                                  Improver
+                     Feedback      suggestions                                   To characterize search dynamics, we compute: Spear-           312
+                                                    (LLM)
+                     Memory
+                                                                              man rank correlation ρ and Kendall τ between iteration in-       313
+                                                                              dex and accuracy (trend strength, where Kendall τ serves as      314
+       Figure 1. Overview of the iterative NAS pipeline. The Code
+                                                                              a noise-robust cross-validation of ρ), linear regression slope   315
+       Generator produces candidate architectures as executable PyTorch
+       code. The Evaluator validates and trains them using one-epoch          (improvement rate per 10 successful evaluations), coeffi-        316
+       proxy evaluation. The Prompt Improver analyzes results with his-       cient of determination R2 , and descriptive statistics (mean     317
+       torical feedback memory to generate targeted improvement sug-          ± SD) for the first and last 5 successful evaluations. All       318
+       gestions for the next iteration.                                       trends are evaluated for statistical significance.               319
+
+                                                                              4.3. Main Results                                                320
+ 273   Language models. To evaluate the pipeline across                       Table 1 compares the key results for all three LLMs. All         321
+ 274   model specializations, we run separate experiments                     models exhibit statistically significant upward trends in ar-    322
+ 275   with three instruction-tuned LLMs: code-specialized                    chitecture quality (Spearman ρ ≥ 0.62, p ≈ 0), confirming        323
+ 276   DeepSeek-Coder-6.7B-Instruct, small generalist Qwen2.5-                that the iterative pipeline with historical feedback memory      324
+ 277   7B-Instruct, and large generalist GLM-5. All models use                consistently drives improvement regardless of model origin       325
+ 278   the same generation parameters: temperature 0.7, nucleus               or specialization.                                               326
+ 279   sampling p = 0.9, maximum 2,048 new tokens. A fixed
+ 280   seed with incremental call counter ensures reproducible but
+ 281   diverse generation across iterations. DeepSeek-Coder-6.7B              DeepSeek-Coder-6.7B-Instruct. The code-specialized               327
+ 282   and Qwen2.5-7B are each run for 2000 iterations; GLM-5                 model achieved 1519 successful evaluations out of 2000           328
+ 283   is only run for 100 iterations for economic reasons.                   iterations (76% success rate). One-epoch proxy accuracy          329
+                                                                              improved from 28.2% (single-shot baseline) to a peak of          330
+                                                                              69.2% at the 1436th successful evaluation, with the last         331
+ 284   Training protocol. Each candidate architecture is trained              5 successful evaluations averaging 67.0% ± 1.1%. The             332
+ 285   for one epoch with SGD (momentum 0.9, weight decay                     Spearman correlation between evaluation index and accu-          333
+ 286   5 × 10−4 ), learning rate 0.01 with cosine annealing, and              racy is ρ = 0.764 (p ≈ 0), and the linear regression slope is    334
+ 287   batch size 128. A fixed random seed (43) and determinis-               +0.11 percentage points per 10 evaluations (R2 = 0.474).         335
+ 288   tic CUDA operations ensure reproducibility. Training runs              The total improvement from first to last 5-eval average is       336
+ 289   in isolated subprocesses with a 30-minute timeout. Fine-               +38.8 percentage points.                                         337
+
+
+                                                                          4
+CVPR                                                                                                                                           CVPR
+ #                                                                                                                                                  #
+                                  CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+ 338   Qwen2.5-7B-Instruct. The generalist model achieved                    the log reveals that over longer horizons the model increas-     388
+ 339   376 successful evaluations out of 2000 iterations (19%                ingly attempts more complex architectures (e.g., elaborate       389
+ 340   success rate). One-epoch proxy accuracy improved from                 skip connections, custom attention modules) that frequently      390
+ 341   50.0% (single-shot baseline) to a peak of 71.5% at the 370th          produce tensor dimension mismatches. This suggests that          391
+ 342   successful evaluation, with the last 5 successful evaluations         the Markovian improvement process, when iterated thou-           392
+ 343   averaging 67.2% ± 2.9%. The Spearman correlation is                   sands of times, encourages the generalist model to explore       393
+ 344   ρ = 0.623 (p ≈ 0), with a linear slope of +0.19 per-                  increasingly ambitious designs—trading success rate for ar-      394
+ 345   centage points per 10 evaluations (R2 = 0.293). Despite               chitectural diversity and, ultimately, higher peak accuracy      395
+ 346   a high error rate (81% of iterations failed validation), suc-         (71.5% vs. DeepSeek’s 69.2%).                                    396
+ 347   cessful evaluations consistently improve, demonstrating the              GLM-5 achieved an 86% success rate (86 of 100 itera-          397
+ 348   pipeline’s resilience to high failure rates.                          tions), the highest among the three models. Its low failure      398
+                                                                             rate (14 of 100) with only minor validation errors reflects a    399
+                                                                             conservative exploration strategy that rapidly converges to      400
+ 349   GLM-5. The generalist model from ZhipuAI achieved 86
+                                                                             a stable high-quality architecture (peak 68.1% at the 24th       401
+ 350   successful evaluations out of 100 iterations (86% success
+                                                                             successful evaluation, plateau thereafter).                      402
+ 351   rate). One-epoch proxy accuracy improved from 55.1%
+                                                                                The dominant validation failure modes for all mod-            403
+ 352   (single-shot baseline) to a peak of 68.1% at the 24th suc-
+                                                                             els are tensor shape mismatches between layers and               404
+ 353   cessful evaluation, thereafter reaching a stable plateau, with
+                                                                             AttributeErrors from undefined modules. Despite the              405
+ 354   the last 5 successful evaluations averaging 68.1% ± 0.0%.
+                                                                             substantially different success rates (19–86%), all models       406
+ 355   The Spearman correlation is ρ = 0.704 (p ≈ 0), with a
+                                                                             produce architectures that exhibit consistent improvement        407
+ 356   linear slope of +1.53 percentage points per 10 evaluations
+                                                                             across their respective successful evaluations, confirming       408
+ 357   (R2 = 0.297). The early convergence to a stable best ar-
+                                                                             the pipeline’s resilience to high failure rates and its broad    409
+ 358   chitecture (+13.0 pp in 100 iterations) demonstrates rapid
+                                                                             applicability across LLM families.                               410
+ 359   adaptation with a high success rate.
+ 360      Figure 2 and Figure 3 show the accuracy trajectories               6. Discussion                                                    411
+ 361   for all models on CIFAR-10 and ImageNette, respectively.
+ 362   All curves display consistent upward trends: DeepSeek-                Effectiveness of iterative refinement. All models ex-            412
+ 363   Coder achieves the largest absolute improvement, Qwen2.5              hibit statistically significant positive correlations between    413
+ 364   reaches the highest peak accuracy, and GLM-5 demon-                   evaluation index and accuracy (ρ ∈ [0.62, 0.76], Kendall         414
+ 365   strates the fastest initial convergence rate among its 100 it-        τ ∈ [0.41, 0.57], all p ≈ 0), confirming that historical feed-   415
+ 366   erations. Both datasets respond well to the iterative process,        back memory enables systematic architectural improvement         416
+ 367   confirming the general applicability of our approach.                 across different LLM origins and specializations. Access         417
+                                                                             to the last K=5 improvement attempts provides the LLM            418
+
+ 368   5. Ablation Study                                                     with sufficient context to identify recurring failure pat-       419
+                                                                             terns and avoid previously unsuccessful strategies. All ac-      420
+ 369   The three models exhibit markedly different failure profiles,         curacy curves display characteristic increasing behavior—        421
+ 370   which shed light on the relationship between model spe-               rapid early gains followed by gradual flattening—mirroring       422
+ 371   cialization, iteration scale, and code generation reliability.        patterns in traditional optimization and suggesting that the     423
+ 372   Additionally, the ablation experiments (Figure 4) involving           LLM-driven search exhibits meaningful optimization dy-           424
+ 373   DeepSeek-Coder-6.7B on both CIFAR-10 and ImageNette                   namics rather than random exploration.                           425
+ 374   highlight how removing historical feedback or reference ar-
+ 375   chitectures impacts the search trajectory.                            Effect of model specialization and iteration scale.              426
+ 376      DeepSeek-Coder-6.7B-Instruct achieved a 76% suc-                   The three models reveal distinct behavior along two              427
+ 377   cess rate (1519 of 2000 iterations). Failures are pri-                axes. DeepSeek-Coder-6.7B (code-specialized) achieves            428
+ 378   marily code validation errors—tensor shape mismatches                 the largest absolute improvement (+41.0 pp from single-          429
+ 379   across skip connections, channel dimension conflicts, and             shot to peak) with a high and stable success rate (76%)          430
+ 380   AttributeErrors from hallucinated layer names. Syn-                   over 2000 iterations, suggesting that code specialization        431
+ 381   tactical extraction errors are rare, consistent with the              yields both reliable generation and systematic progres-          432
+ 382   model’s code-generation specialization. The high success              sion. Qwen2.5-7B (generalist) achieves the highest peak          433
+ 383   rate over 2000 iterations indicates stable and reliable code          accuracy (71.5%) at the cost of a dramatically lower suc-        434
+ 384   generation across extended runs.                                      cess rate (19%) over 2000 iterations—its Markovian explo-        435
+ 385      Qwen2.5-7B-Instruct achieved only a 19% success rate               ration increasingly targets complex, ambitious architectures     436
+ 386   (376 of 2000 iterations), a notable contrast to its higher suc-       that more often fail validation but, when successful, sur-       437
+ 387   cess rate observed in shorter 100-iteration runs. Analysis of         pass DeepSeek-Coder’s best. GLM-5 (generalist, ZhipuAI)          438
+
+
+                                                                         5
+CVPR                                                                                                                                                                                                                                                                                                                    CVPR
+ #                                                                                                                                                                                                                                                                                                                           #
+                                                                           CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+       Table 1. Comparison of the iterative NAS pipeline across three LLMs. All models show statistically significant improvement over single-
+       shot generation.
+
+                                                                     Metric                                                           DeepSeek-Coder-6.7B                                        Qwen2.5-7B                                          GLM-5
+                                                                     Total iterations                                                                                        2000                                  2000                                    100
+                                                                     Successful evaluations                                                                                  1519                                   376                                     86
+                                                                     Success rate                                                                                            76%                                   19%                                    86%
+                                                                     Single-shot accuracy                                                                    0.282                                    0.500                                            0.551
+                                                                     Best accuracy (eval #)                                                          0.692 (#1436)                             0.715 (#370)                                      0.681 (#24)
+                                                                     First 5 evals (mean ± SD)                                                       0.282 ± 0.000                        0.492 ± 0.030                                     0.512 ± 0.041
+                                                                     Last 5 evals (mean ± SD)                                                        0.670 ± 0.011                        0.672 ± 0.029                                     0.681 ± 0.000
+                                                                     Improvement (last − first 5)                                                          +0.388                               +0.180                                            +0.169
+                                                                     Spearman ρ (p-value)                                                                0.764 (≈ 0)                             0.623 (≈ 0)                                 0.704 (≈ 0)
+                                                                     Kendall τ                                                                                 0.551                                   0.407                                       0.574
+                                                                     Slope (per 10 evals)                                                                   +0.0011                                 +0.0019                                     +0.0153
+                                                                     R2                                                                                        0.474                                   0.293                                       0.297
+
+                                                                                                                                                                                                                                                          GLM-5 Accuracy over 100 Iterations
+                                                                                                                                                                                                                                     0.70
+                               DeepSeek-Coder-6.7B-Instruct Accuracy over 2000 Iterations                                                    Qwen2.5-7B-Instruct Accuracy over 2000 Iterations
+                                                                                                                           0.75
+                                                                                                                                                                                                                                     0.65
+                  0.7
+
+                                                                                                                           0.70                                                                                                      0.60
+
+
+
+
+                                                                                                                                                                                                                          Accuracy
+                  0.6
+
+                                                                                                                           0.65                                                                                                      0.55
+                                                                                                                Accuracy
+       Accuracy
+
+
+
+
+                  0.5
+
+                                                                                                                           0.60                                                                                                      0.50
+                  0.4
+                                                                                                                           0.55                                                                                                      0.45                                                      Accuracy (error prev)
+                  0.3                                                                   Accuracy (error prev)                                                                                     Accuracy (error prev)                                                                        Smoothed (w=15)
+                                                                                        Smoothed (w=15)
+                                                                                                                           0.50
+                                                                                                                                                                                                  Smoothed (w=15)                                                                              Best So Far
+                                                                                        Best So Far                                                                                               Best So Far                        0.40
+                  0.2                                                                                                                                                                                                                        0       15      30       45           60    75            90
+                        0     300         600         900           1200      1500          1800                                  0   300          600          900           1200      1500          1800
+                                                        Iteration                                                                                                Iteration                                                                                             Iteration
+
+                            (a) DeepSeek-Coder-6.7B-Instruct                                                                                (b) Qwen2.5-7B-Instruct                                                                                               (c) GLM-5
+
+       Figure 2. One-epoch proxy accuracy on CIFAR-10 across all iterations. Light curves show per-iteration accuracy (errors fall back to
+       previous value), dashed lines show the smoothed trend (window w=15), and bold lines show the best-so-far trajectory. All models exhibit
+       clear upward trends.
+
+
+ 439   demonstrates rapid early convergence (peak at eval #24,                                                                                                               syntax errors) as first-class entries in the history, enabling                                                                            461
+ 440   +13.0 pp improvement), reaching stable high-quality archi-                                                                                                            the LLM to learn from structural mistakes. This is funda-                                                                                 462
+ 441   tectures within 100 iterations, making it the most iteration-                                                                                                         mentally different from prior work where low-performing                                                                                   463
+ 442   efficient of the three.                                                                                                                                               solutions are simply discarded from the prompt [24, 32] or                                                                                464
+                                                                                                                                                                             managed implicitly through population selection [3]. As                                                                                   465
+                                                                                                                                                                             shown in Section 4, failure rates of 23–59% across our runs                                                                               466
+ 443   Comparison with iterative LLM optimization methods.                                                                                                                   highlight that code generation for neural architectures is in-                                                                            467
+ 444   Our approach shares conceptual similarities with recent                                                                                                               herently error-prone; ignoring these failures would discard                                                                               468
+ 445   work on using LLMs as iterative optimizers [24, 32, 33],                                                                                                              critical learning signals.                                                                                                                469
+ 446   but differs in three critical dimensions that enable its effec-
+ 447   tiveness on neural architecture search:                                                                                                                                   Small-model viability. Our results demonstrate that                                                                                   470
+ 448       Bounded Markovian memory. Unlike OPRO [32] or                                                                                                                     ≤7B LLMs of diverse origins (DeepSeek AI, Alibaba                                                                                         471
+ 449   FunSearch [24], which populate prompts with historically                                                                                                              Cloud) can effectively perform NAS when equipped with                                                                                     472
+ 450   global top-performing solutions (global elite retention), our                                                                                                         structured feedback (all ρ ≥ 0.62, all p ≈ 0), whereas prior                                                                              473
+ 451   sliding window maintains strictly the last K=5 sequential                                                                                                             iterative LLM optimization work primarily relies on large                                                                                 474
+ 452   attempts. In code-level NAS, the architecture’s structure                                                                                                             models (OPRO uses GPT-4 and PaLM 2-L [32]). We hy-                                                                                        475
+ 453   evolves rapidly; therefore, ancient successes are less infor-                                                                                                         pothesize this is enabled by our dual-LLM specialization:                                                                                 476
+ 454   mative than immediate recent failures. The Markov prop-                                                                                                               the Code Generator focuses solely on code synthesis given                                                                                 477
+ 455   erty enforces that the LLM focuses entirely on local causal                                                                                                           structured suggestions, while the Prompt Improver handles                                                                                 478
+ 456   relationships (what modification just caused what specific                                                                                                            diagnostic reasoning. This task decomposition reduces per-                                                                                479
+ 457   error), avoiding the distraction of irrelevant global history.                                                                                                        call cognitive load compared to end-to-end generation [3].                                                                                480
+
+ 458       Structured failure modeling. Our diagnostic triples ex-                                                                                                              Table 2 positions our method relative to the five most                                                                                 481
+ 459   plicitly encode code execution failures (tensor shape mis-                                                                                                            similar LLM-based NAS and optimization approaches. We                                                                                     482
+ 460   matches, AttributeErrors from undefined modules,                                                                                                                      are the only method that simultaneously satisfies three crit-                                                                             483
+
+
+                                                                                                                                                                6
+CVPR                                                                                                                                                                                                                                                                                                                   CVPR
+ #                                                                                                                                                                                                                                                                                                                          #
+                                                                         CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+                                                                                                                                                                                                                                                         GLM-5 Accuracy over 100 Iterations
+                                                                                                                                                                                                                                     0.60
+
+                                 DeepSeek-Coder-6.7B-Instruct Accuracy over 2000 Iterations                                                   Qwen2.5-7B-Instruct Accuracy over 2000 Iterations                                      0.55
+                                                                                                                                                                                                                                     0.50
+                  0.6
+                                                                                                                             0.5                                                                                                     0.45
+
+
+
+
+                                                                                                                                                                                                                          Accuracy
+                  0.5                                                                                                                                                                                                                0.40
+
+
+
+
+                                                                                                                  Accuracy
+       Accuracy
+
+
+
+
+                                                                                                                             0.4
+                                                                                                                                                                                                                                     0.35
+                  0.4
+                                                                                                                             0.3                                                                                                     0.30
+                                                                                                                                                                                                                                                                                              Accuracy (error prev)
+                  0.3
+                                                                                          Accuracy (error prev)                                                                                   Accuracy (error prev)              0.25                                                     Smoothed (w=15)
+                                                                                          Smoothed (w=15)                    0.2                                                                  Smoothed (w=15)                                                                             Best So Far
+                                                                                          Best So Far                                                                                             Best So Far                        0.20
+                  0.2                                                                                                                                                                                                                       0       15      30       45           60    75            90
+                        0    4          8          12          16        20          24           28                               0   300          600          900           1200      1500         1800
+                                                          Iteration                                                                                                Iteration                                                                                          Iteration
+
+                            (a) DeepSeek-Coder-6.7B-Instruct                                                                                 (b) Qwen2.5-7B-Instruct                                                                                             (c) GLM-5
+
+       Figure 3. One-epoch proxy accuracy on ImageNette across all iterations. Similar to CIFAR-10, the models demonstrate clear upward
+       optimization trajectories over iterations.
+
+       Table 2. Systematic comparison with most similar LLM-based NAS and optimization methods. NAS target: method aims at neural
+       architecture search; Open code space search: search over executable code rather than fixed cell encodings; Failure model: structured
+       modeling of code execution failures (e.g., diagnostic triples); Small model: demonstrated effective with ≤7B LLMs. Our method uniquely
+       combines all four dimensions.
+
+                                                                      Method                                      NAS target                  Open code space search                               Failure model                                Small model
+                                                                      OPRO [32]                                                    ×                                   ×                                          ×                                 ×
+                                                                      FunSearch [24]                                               ×                               ✓                                              ×                                 ×
+                                                                      EvoPrompting [3]                                             ✓                               ✓                                              ×                                 ✓
+                                                                      ReEvo [33]                                                   ×                               ✓                                              ✓                                 ×
+                                                                      LLMO [36]                                                    ✓                                   ×                                          ×                                 ×
+
+                                                                      Ours                                                         ✓                               ✓                                              ✓                                 ✓
+
+
+
+ 484   ical properties: (1) open code space with structural con-                                                                                                               experiments on larger-scale benchmarks and diverse tasks                                                                               510
+ 485   straints, (2) bounded Markovian memory with explicit fail-                                                                                                              would better demonstrate versatility.                                                                                                  511
+ 486   ure handling, and (3) demonstrated effectiveness on small
+ 487   (≤7B) instruction-tuned LLMs without additional training.                                                                                                               Future work. Promising directions include: (1) retrain-                                                                                512
+ 488   Notably, while LLMO also applies LLMs to NAS without                                                                                                                    ing the top-K discovered architectures with full training                                                                              513
+ 489   training, it operates in predefined discrete search spaces that                                                                                                         schedules to verify their converged performance; (2) ex-                                                                               514
+ 490   fundamentally limit architectural expressiveness.                                                                                                                       tending the cross-model comparison to additional LLM                                                                                   515
+                                                                                                                                                                               families and sizes; (3) integrating zero-shot proxy met-                                                                               516
+ 491   One-epoch proxy as architecture ranking signal. Us-                                                                                                                     rics [16, 19] as complementary evaluation signals to further                                                                           517
+ 492   ing one-epoch accuracy as a ranking signal offers a prag-                                                                                                               accelerate the search; (4) extending to larger datasets (e.g.,                                                                         518
+ 493   matic trade-off between evaluation cost and informative-                                                                                                                ImageNet) and tasks beyond image classification; and (5)                                                                               519
+ 494   ness. While the absolute accuracy values are well be-                                                                                                                   apply genetic algorithm for historical feedback memory.                                                                                520
+ 495   low state-of-the-art results with full training, prior work
+ 496   on training-free NAS [16, 19] has established that cheap                                                                                                                7. Conclusion                                                                                                                          521
+ 497   proxy metrics can effectively rank architectures. Our one-                                                                                                              We presented an iterative NAS pipeline that leverages                                                                                  522
+ 498   epoch proxy serves a similar role: it distinguishes between                                                                                                             instruction-tuned LLMs to progressively generate and im-                                                                               523
+ 499   architectures of varying quality at minimal cost, enabling                                                                                                              prove neural network architectures through a closed loop                                                                               524
+ 500   the feedback loop to guide the LLM toward better designs.                                                                                                               of code generation, evaluation, and prompt refinement with                                                                             525
+ 501   Retraining the best-discovered architectures with full train-                                                                                                           historical feedback memory. Evaluated on CIFAR-10 and                                                                                  526
+ 502   ing schedules could verify whether the one-epoch ranking                                                                                                                ImageNette with three LLMs of different origins and spe-                                                                               527
+ 503   transfers to converged performance.                                                                                                                                     cializations across up to 2000 iterations, the pipeline sig-                                                                           528
+                                                                                                                                                                               nificantly improved one-epoch proxy accuracy across all                                                                                529
+ 504   Limitations. Our study has several limitations. First, the                                                                                                              models—from 28.2% to a peak of 69.2% with DeepSeek-                                                                                    530
+ 505   code generation success rates vary substantially (19–86%),                                                                                                              Coder-6.7B (ρ = 0.76), from 50.0% to 71.5% with                                                                                        531
+ 506   and the causes of Qwen2.5’s high failure rate at scale (19%                                                                                                             Qwen2.5-7B (ρ = 0.62), and from 55.1% to 68.1% with                                                                                    532
+ 507   over 2000 iterations) merit further investigation into prompt                                                                                                           GLM-5 (ρ = 0.70)—demonstrating that iterative feedback                                                                                 533
+ 508   design and constrained decoding strategies. Second, our                                                                                                                 with bounded historical memory significantly outperforms                                                                               534
+ 509   primary evaluation focuses on CIFAR-10 and ImageNette;                                                                                                                  single-shot generation across model origins and specializa-                                                                            535
+
+
+                                                                                                                                                                  7
+CVPR                                                                                                                                                             CVPR
+  #                                                                                                                                                                #
+                                        CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+                  0.7
+                                                                                                 boost gesture recognition performance? arXiv preprint,         557
+                  0.6                                                                            arXiv:2506.07216, 2025. 3                                      558
+                                                                                             [3] Angelica Chen, David Dohan, and Daved Hutchins. Evo-           559
+                  0.5
+                                                                                                 prompting: Language models for code-level neural architec-     560
+       Accuracy
+
+
+
+
+                  0.4                                                                            ture search. In Advances in Neural Information Processing      561
+                  0.3                                                                            Systems, 2023. 1, 2, 6, 7                                      562
+                                                                                             [4] Mark Chen et al. Evaluating large language models trained      563
+                  0.2
+                                                                                                 on code. arXiv preprint, arXiv:2107.03374, 2021. 2             564
+                  0.1                                             Base DeepSeek Coder        [5] Wuyang Chen, Xinyu Gong, and Zhangyang Wang. Neural            565
+                                                                  w/o Improver                   architecture search on ImageNet in four GPU hours: A the-      566
+                  0.0
+                        0   15   30        45           60   75          90                      oretically inspired perspective. In International Conference   567
+                                            Iteration
+                                                                                                 on Learning Representations, 2021. 4                           568
+                                      (a) CIFAR-10
+                                                                                             [6] Saif U Din, Muhammad Ahsan Hussain, Mohsin Ikram,              569
+                                                                                                 Dmitry Ignatov, and Radu Timofte. Ai on the edge: An           570
+                  0.6                                                                            automated pipeline for pytorch-to-android deployment and       571
+                                                                                                 benchmarking. Preprints, 2025. 2                               572
+                  0.5
+                                                                                             [7] Romain Egele, Felix Mohr, Tom Viering, and Prasanna Bal-       573
+                  0.4                                                                            aprakash. The unreasonable effectiveness of early discarding   574
+       Accuracy
+
+
+
+
+                                                                                                 after one epoch in neural network hyperparameter optimiza-     575
+                  0.3
+                                                                                                 tion. Neurocomputing, 597:127964, 2024. 4                      576
+                  0.2                                                                        [8] Mohamed Gado, Towhid Taliee, Muhammad Danish                   577
+                                                                                                 Memon, Dmitry Ignatov, and Radu Timofte. Vist-gpt: Ush-        578
+                  0.1
+                                                                  Base DeepSeek Coder            ering in the era of visual storytelling with llms? arXiv       579
+                                                                  w/o Improver
+                  0.0                                                                            preprint, arXiv:2504.19267, 2025. 2                            580
+                        0   15   30        45           60   75          90
+                                            Iteration                                        [9] Arash Torabi Goodarzi, Roman Kochnev, Waleed Khalid,           581
+                                      (b) ImageNette                                             Furui Qin, Tolgay Atinc Uzun, Yashkumar Sanjaybhai             582
+                                                                                                 Dhameliya, Yash Kanubhai Kathiriya, Zofia Antonina Ben-        583
+       Figure 4. Ablation study of DeepSeek-Coder-6.7B-Instruct on                               tyn, Dmitry Ignatov, and Radu Timofte. LEMUR Neu-              584
+       CIFAR-10 and ImageNette datasets. The results highlight the ef-                           ral Network Dataset: Towards Seamless AutoML. arXiv            585
+       fectiveness of the complete iterative loop with historical feedback                       preprint, arXiv:2504.10552, 2025. 2                            586
+       memory compared to its ablated variants.                                             [10] Krunal Jesani, Dmitry Ignatov, and Radu Timofte. Llm           587
+                                                                                                 as a neural architect: Controlled generation of image cap-     588
+                                                                                                 tioning models under strict api contracts. arXiv preprint,     589
+ 536   tions. Three design principles distinguish our approach                                   arXiv:2512.14706, 2025. 1, 2                                   590
+ 537   from prior iterative LLM optimization methods: (1) oper-                             [11] Waleed Khalid, Dmitry Ignatov, and Radu Timofte. A             591
+ 538   ating in an open code space rather than constrained pre-                                  retrieval-augmented generation approach to extracting al-      592
+ 539   defined cells, (2) bounded K-step Markovian memory pre-                                   gorithmic logic from neural networks. arXiv preprint,          593
+ 540   vents context overflow while retaining relevant failure pat-                              arXiv:2512.04329, 2025. 2                                      594
+
+ 541   terns, and (3) structured diagnostic triples explicitly model                        [12] Waleed Khalid, Dmitry Ignatov, and Radu Timofte. From          595
+                                                                                                 memorization to creativity: Llm as a designer of novel         596
+ 542   code execution failures, which alongside dual-LLM spe-
+                                                                                                 neural-architectures. arXiv preprint, arXiv:2601.02997,        597
+ 543   cialization (Code Generator and Prompt Improver) enables
+                                                                                                 2026. 1, 2                                                     598
+ 544   effective operation on small frozen models without fine-
+                                                                                            [13] Roman Kochnev, Arash Torabi Goodarzi, Zofia Antonina           599
+ 545   tuning. Our results establish that even ≤7B LLMs from                                     Bentyn, Dmitry Ignatov, and Radu Timofte. Optuna vs            600
+ 546   diverse AI ecosystems can serve as effective architecture                                 Code Llama: Are LLMs a New Paradigm for Hyperparame-           601
+ 547   search agents when equipped with structured iterative feed-                               ter Tuning? In Proceedings of the IEEE/CVF International       602
+ 548   back, offering a lightweight and accessible approach to neu-                              Conference on Computer Vision Workshops (ICCVW), pages         603
+ 549   ral architecture search.                                                                  5664–5674, 2025. 2                                             604
+                                                                                            [14] Roman Kochnev, Waleed Khalid, Tolgay Atinc Uzun, Xi            605
+ 550   References                                                                                Zhang, Yashkumar Sanjaybhai Dhameliya, Furui Qin, Chan-        606
+                                                                                                 dini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Dmitry Igna-      607
+ 551       [1] Mohamed S. Abdelfattah, Abhinav Mehrotra, Łukasz                                  tov, and Radu Timofte. Nngpt: Rethinking automl with large     608
+ 552           Dudziak, and Nicholas D. Lane. Zero-cost proxies for                              language models. arXiv preprint, arXiv:2511.2033, 2025. 1,     609
+ 553           lightweight NAS. In International Conference on Learning                          2                                                              610
+ 554           Representations, 2021. 4                                                     [15] Alex Krizhevsky. Learning multiple layers of features from     611
+ 555       [2] Nada Aboudeshish, Dmitry Ignatov, and Radu Timofte.                               tiny images. Technical report, University of Toronto, 2009.    612
+ 556           Augmentgest: Can random data cropping augmentation                                1, 3                                                           613
+
+
+                                                                                        8
+CVPR                                                                                                                                                  CVPR
+ #                                                                                                                                                         #
+                                   CVPR Submission #. CONFIDENTIAL REVIEW COPY. DO NOT DISTRIBUTE.
+
+
+
+ 614   [16] Guihong Li et al. Zero-shot neural architecture search: Chal-       [31] Colin White, Mahmoud Safari, Rhea Sukthanker, Binxin Ru,        672
+ 615        lenges, solutions, and opportunities. IEEE TPAMI, 46(6):                 Thomas Elsken, Arber Zela, Debadeepta Dey, and Frank            673
+ 616        4071–4088, 2024. 1, 2, 7                                                 Hutter. Neural architecture search: Insights from 1000 pa-      674
+ 617   [17] Ming Lin, Pichao Wang, Zhenhong Sun, Hesen Chen, Xi-                     pers. arXiv preprint arXiv:2301.08727, 2023. 4                  675
+ 618        uyu Sun, Qi Qian, Hao Li, and Rong Jin. Zen-NAS: A                  [32] Chengrun Yang, Xuezhi Wang, Yifeng Lu, Hanxiao Liu,             676
+ 619        zero-shot NAS for high-performance image recognition. In                 Quoc V Le, Denny Zhou, and Xinyun Chen. Large language          677
+ 620        Proceedings of the IEEE/CVF International Conference on                  models as optimizers. arXiv preprint arXiv:2309.03409,          678
+ 621        Computer Vision, pages 12265–12275, 2021. 4                              2023. 1, 2, 3, 6, 7                                             679
+ 622   [18] Hanxiao Liu, Karen Simonyan, and Yiming Yang. DARTS:                [33] Fei Ye, Haoran Yang, Xiaohan Cai, et al. Reevo: Large           680
+ 623        Differentiable architecture search. In ICLR, 2019. 1, 2                  language models as hyper-heuristics with reflective evolu-      681
+ 624   [19] Joseph Mellor, Jack Turner, Amos Shersby, and Elliot J.                  tion. In Advances in Neural Information Processing Systems,     682
+ 625        Shersby. Neural architecture search without training. In                 2024. 2, 6, 7                                                   683
+ 626        ICML, pages 7588–7598, 2021. 1, 2, 7                                [34] Yihang Yin, Siyu Huang, and Xiang Zhang. BM-NAS:                684
+ 627   [20] Joe Mellor, Jack Turner, Amos Storkey, and Elliot J. Crow-               Bilevel multimodal neural architecture search. In Proceed-      685
+ 628        ley. Neural architecture search without training. In Proceed-            ings of the AAAI Conference on Artificial Intelligence, pages   686
+ 629        ings of the 38th International Conference on Machine Learn-              8901–8909, 2022. 4                                              687
+ 630        ing, pages 7588–7598. PMLR, 2021. 4                                 [35] Kaicheng Yu, Christian Sciuto, Martin Jaggi, Claudiu Musat,     688
+ 631   [21] Yash Mittal, Dmitry Ignatov, and Radu Timofte. Prepara-                  and Mathieu Salzmann. Evaluating the search phase of            689
+ 632        tion of fractal-inspired computational architectures for ad-             neural architecture search. In International Conference on      690
+ 633        vanced large language model analysis. arXiv preprint,                    Learning Representations, 2020. 4                               691
+ 634        arXiv:2511.07329, 2025. 1, 2                                        [36] Yuhang Zhong, Yuhao Liu, Xiaotong Liu, and Tao Chen.            692
+ 635   [22] Hieu Pham, Melody Guan, Barret Zoph, Quoc V. Le, and                     Large language model assisted adversarial robustness neural     693
+ 636        Jeff Dean. Efficient neural architecture search via parameter            architecture search. IEEE Transactions on Artificial Intelli-   694
+ 637        sharing. In ICML, pages 4095–4104, 2018. 2                               gence, 2024. 1, 2, 7                                            695
+ 638   [23] Esteban Real, Alok Aggarwal, Yanping Huang, and Quoc V.             [37] Barret Zoph and Quoc V. Le. Neural architecture search with     696
+ 639        Le. Regularized evolution for image classifier architecture              reinforcement learning. In ICLR, 2017. 1, 2                     697
+ 640        search. In AAAI, pages 4780–4789, 2019. 1, 2
+ 641   [24] Bernardino Romera-Paredes, Mohammadamin Barekatain,
+ 642        Alexander Novikov, et al. Mathematical discoveries from
+ 643        program search with large language models. Nature, 625
+ 644        (7995):468–475, 2023. 1, 2, 3, 6, 7
+ 645   [25] Robin Ru, Clare Lyle, Lisa Schut, Miroslav Fil, Mark van der
+ 646        Wilk, and Yarin Gal. Speedy performance estimation for
+ 647        neural architecture search. Advances in Neural Information
+ 648        Processing Systems, 34:4079–4092, 2021. 3
+ 649   [26] Bhavya Rupani, Dmitry Ignatov, and Radu Timofte. Explor-
+ 650        ing the collaboration between vision models and llms for en-
+ 651        hanced image classification. Preprints, 2025. 2
+ 652   [27] Usha Shrestha, Dmitry Ignatov, and Radu Timofte. From
+ 653        brute force to semantic insight: Performance-guided
+ 654        data transformation design with llms. arXiv preprint,
+ 655        arXiv:2601.03808, 2026. 2
+ 656   [28] Tolgay Atinc Uzun, Dmitry Ignatov, and Radu Timofte.
+ 657        Closed-loop llm discovery of non-standard channel priors in
+ 658        vision models. arXiv preprint, arXiv:2601.08517, 2026. 1, 2
+ 659   [29] Tolgay Atincand Uzun, Waleed Khalid, Saif U Din, Sai Re-
+ 660        vanth Mulukuledu, Akashdeep Singh, Chandini Vysyaraju,
+ 661        Raghuvir Duvvuri, Avi Goyal, Yashkumar Rajeshbhai
+ 662        Lukhi, Ahsan Hussain, Krunal Jesani, Usha Shrestha, Yash
+ 663        Mittal, Roman Kochnev, Pritam Kadam, Mohsin Ikram,
+ 664        Harsh Rameshbhai Moradiya, Alice Arslanian, Dmitry Igna-
+ 665        tov, and Radu Timofte. Lemur 2: Unlocking neural network
+ 666        diversity for ai. arXiv preprint, 2026. 2
+ 667   [30] Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Dmitry
+ 668        Ignatov, and Radu Timofte. Enhancing llm-based neural
+ 669        network generation: Few-shot prompting and efficient val-
+ 670        idation for automated architecture design. arXiv preprint,
+ 671        arXiv:2512.24120, 2025. 1, 2
+
+
+                                                                            9
+

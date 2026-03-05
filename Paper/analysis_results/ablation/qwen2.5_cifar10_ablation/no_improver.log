@@ -1,0 +1,100 @@
+iteration: 1, accuracy: 0.5002, timestamp: 2026-02-27 16:17:51
+iteration: 2, accuracy: 0.6592, timestamp: 2026-02-27 16:18:15
+iteration: 3, accuracy: 0.6621, timestamp: 2026-02-27 16:18:34
+iteration: 4, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 4096, timestamp: 2026-02-27 16:18:45
+iteration: 5, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x2048 and 8192x512), timestamp: 2026-02-27 16:18:57
+iteration: 6, accuracy: 0.6155, timestamp: 2026-02-27 16:19:23
+iteration: 7, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x512 and 32768x4096), timestamp: 2026-02-27 16:19:44
+iteration: 8, accuracy: 0.5510, timestamp: 2026-02-27 16:20:09
+iteration: 9, accuracy: 0.4849, timestamp: 2026-02-27 16:20:39
+iteration: 10, accuracy: 0.6184, timestamp: 2026-02-27 16:21:05
+iteration: 11, accuracy: 0.5170, timestamp: 2026-02-27 16:21:30
+iteration: 12, accuracy: 0.5441, timestamp: 2026-02-27 16:21:51
+iteration: 13, accuracy: 0.5481, timestamp: 2026-02-27 16:22:11
+iteration: 14, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 4096x1024), timestamp: 2026-02-27 16:22:24
+iteration: 15, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x2048 and 32768x512), timestamp: 2026-02-27 16:22:37
+iteration: 16, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 4096]' is invalid for input of size 2048, timestamp: 2026-02-27 16:22:51
+iteration: 17, accuracy: 0.5196, timestamp: 2026-02-27 16:23:17
+iteration: 18, accuracy: 0.5874, timestamp: 2026-02-27 16:23:41
+iteration: 19, accuracy: 0.5789, timestamp: 2026-02-27 16:24:15
+iteration: 20, accuracy: 0.6621, timestamp: 2026-02-27 16:24:48
+iteration: 21, accuracy: 0.5507, timestamp: 2026-02-27 16:25:15
+iteration: 22, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x2048 and 32768x512), timestamp: 2026-02-27 16:25:34
+iteration: 23, accuracy: 0.5170, timestamp: 2026-02-27 16:26:02
+iteration: 24, accuracy: 0.5721, timestamp: 2026-02-27 16:26:36
+iteration: 25, accuracy: 0.6621, timestamp: 2026-02-27 16:27:09
+iteration: 26, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 4096, timestamp: 2026-02-27 16:27:28
+iteration: 27, accuracy: 0.5874, timestamp: 2026-02-27 16:27:54
+iteration: 28, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x1024 and 4096x1024), timestamp: 2026-02-27 16:28:15
+iteration: 29, accuracy: 0.6260, timestamp: 2026-02-27 16:28:53
+iteration: 30, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 1024x1024), timestamp: 2026-02-27 16:29:11
+iteration: 31, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x1024 and 4096x1024), timestamp: 2026-02-27 16:29:33
+iteration: 32, accuracy: 0.5170, timestamp: 2026-02-27 16:30:01
+iteration: 33, accuracy: 0.5126, timestamp: 2026-02-27 16:30:37
+iteration: 34, accuracy: 0.6141, timestamp: 2026-02-27 16:31:03
+iteration: 35, accuracy: 0.5002, timestamp: 2026-02-27 16:31:27
+iteration: 36, accuracy: 0.3646, timestamp: 2026-02-27 16:31:50
+iteration: 37, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 4096x1024), timestamp: 2026-02-27 16:32:05
+iteration: 38, accuracy: 0.4730, timestamp: 2026-02-27 16:32:30
+iteration: 39, accuracy: 0.5708, timestamp: 2026-02-27 16:32:48
+iteration: 40, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 4096x512), timestamp: 2026-02-27 16:32:58
+iteration: 41, accuracy: 0.5639, timestamp: 2026-02-27 16:33:20
+iteration: 42, accuracy: 0.5734, timestamp: 2026-02-27 16:33:42
+iteration: 43, accuracy: 0.5760, timestamp: 2026-02-27 16:34:07
+iteration: 44, accuracy: 0.5989, timestamp: 2026-02-27 16:34:34
+iteration: 45, accuracy: 0.5220, timestamp: 2026-02-27 16:34:57
+iteration: 46, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x2048 and 8192x512), timestamp: 2026-02-27 16:35:08
+iteration: 47, accuracy: 0.5872, timestamp: 2026-02-27 16:35:33
+iteration: 48, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 1024x1024), timestamp: 2026-02-27 16:35:52
+iteration: 49, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 4096x512), timestamp: 2026-02-27 16:36:04
+iteration: 50, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 8192]' is invalid for input of size 4096, timestamp: 2026-02-27 16:36:18
+iteration: 51, accuracy: 0.4483, timestamp: 2026-02-27 16:36:36
+iteration: 52, accuracy: 0.6061, timestamp: 2026-02-27 16:37:01
+iteration: 53, accuracy: 0.5220, timestamp: 2026-02-27 16:37:25
+iteration: 54, accuracy: 0.5776, timestamp: 2026-02-27 16:37:42
+iteration: 55, accuracy: 0.5170, timestamp: 2026-02-27 16:38:02
+iteration: 56, accuracy: 0.5167, timestamp: 2026-02-27 16:38:19
+iteration: 57, accuracy: 0.6621, timestamp: 2026-02-27 16:38:43
+iteration: 58, accuracy: 0.5622, timestamp: 2026-02-27 16:39:04
+iteration: 59, accuracy: 0.5988, timestamp: 2026-02-27 16:39:27
+iteration: 60, accuracy: 0.5002, timestamp: 2026-02-27 16:39:45
+iteration: 61, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x8192 and 2048x512), timestamp: 2026-02-27 16:39:58
+iteration: 62, accuracy: 0.6444, timestamp: 2026-02-27 16:40:19
+iteration: 63, accuracy: 0.5002, timestamp: 2026-02-27 16:40:36
+iteration: 64, accuracy: 0.6538, timestamp: 2026-02-27 16:41:00
+iteration: 65, accuracy: 0.5961, timestamp: 2026-02-27 16:41:20
+iteration: 66, accuracy: 0.5170, timestamp: 2026-02-27 16:41:39
+iteration: 67, accuracy: 0.5507, timestamp: 2026-02-27 16:41:58
+iteration: 68, accuracy: 0.6155, timestamp: 2026-02-27 16:42:24
+iteration: 69, accuracy: 0.6444, timestamp: 2026-02-27 16:42:45
+iteration: 70, error: Code validation failed: Output batch size mismatch: expected 2, got 32, timestamp: 2026-02-27 16:42:57
+iteration: 71, accuracy: 0.6260, timestamp: 2026-02-27 16:43:21
+iteration: 72, error: Code validation failed: Output batch size mismatch: expected 2, got 8, timestamp: 2026-02-27 16:43:29
+iteration: 73, accuracy: 0.5170, timestamp: 2026-02-27 16:43:50
+iteration: 74, accuracy: 0.5507, timestamp: 2026-02-27 16:44:09
+iteration: 75, accuracy: 0.5220, timestamp: 2026-02-27 16:44:32
+iteration: 76, accuracy: 0.5507, timestamp: 2026-02-27 16:44:53
+iteration: 77, accuracy: 0.5481, timestamp: 2026-02-27 16:45:12
+iteration: 78, accuracy: 0.6260, timestamp: 2026-02-27 16:45:38
+iteration: 79, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 4096x512), timestamp: 2026-02-27 16:45:49
+iteration: 80, accuracy: 0.5678, timestamp: 2026-02-27 16:46:13
+iteration: 81, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x16384 and 4096x1024), timestamp: 2026-02-27 16:46:31
+iteration: 82, error: Code validation failed: Validation error: RuntimeError: The size of tensor a (128) must match the size of tensor b (64) at non-singleton dimension 1, timestamp: 2026-02-27 16:46:49
+iteration: 83, error: Code validation failed: Validation error: RuntimeError: Given groups=1, weight of size [64, 32, 3, 3], expected input[2, 64, 16, 16] to have 32 channels, but got 64 channels instead, timestamp: 2026-02-27 16:47:01
+iteration: 84, accuracy: 0.6272, timestamp: 2026-02-27 16:47:32
+iteration: 85, accuracy: 0.5303, timestamp: 2026-02-27 16:47:59
+iteration: 86, accuracy: 0.6601, timestamp: 2026-02-27 16:48:21
+iteration: 87, accuracy: 0.5300, timestamp: 2026-02-27 16:48:48
+iteration: 88, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 4096, timestamp: 2026-02-27 16:49:04
+iteration: 89, error: Code validation failed: Output batch size mismatch: expected 2, got 32, timestamp: 2026-02-27 16:49:18
+iteration: 90, accuracy: 0.6248, timestamp: 2026-02-27 16:49:45
+iteration: 91, accuracy: 0.5002, timestamp: 2026-02-27 16:50:07
+iteration: 92, accuracy: 0.6049, timestamp: 2026-02-27 16:50:37
+iteration: 93, accuracy: 0.3765, timestamp: 2026-02-27 16:51:03
+iteration: 94, accuracy: 0.5789, timestamp: 2026-02-27 16:51:35
+iteration: 95, error: Code extraction failed: Code structure error: Code does not contain a 'class Net' definition, timestamp: 2026-02-27 16:51:52
+iteration: 96, error: Code validation failed: Validation error: RuntimeError: shape '[-1, 32768]' is invalid for input of size 4096, timestamp: 2026-02-27 16:52:06
+iteration: 97, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x1024 and 4096x1024), timestamp: 2026-02-27 16:52:27
+iteration: 98, error: Code validation failed: Validation error: RuntimeError: mat1 and mat2 shapes cannot be multiplied (2x2048 and 8192x512), timestamp: 2026-02-27 16:52:41
+iteration: 99, accuracy: 0.6260, timestamp: 2026-02-27 16:53:14
+iteration: 100, accuracy: 0.5789, timestamp: 2026-02-27 16:53:47

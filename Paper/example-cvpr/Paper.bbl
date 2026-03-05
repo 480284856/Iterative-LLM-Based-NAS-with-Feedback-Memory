@@ -1,9 +1,16 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abdelfattah et~al.(2021)Abdelfattah, Mehrotra, Dudziak, and
+  Lane]{abdelfattah2021zerocost}
+Mohamed~S. Abdelfattah, Abhinav Mehrotra, {\L}ukasz Dudziak, and Nicholas~D.
+  Lane.
+\newblock Zero-cost proxies for lightweight {NAS}.
+\newblock In \emph{International Conference on Learning Representations}, 2021.
 
 \bibitem[Aboudeshish et~al.(2025)Aboudeshish, Ignatov, and
   Timofte]{Aboudeshish2025augmentation}
@@ -18,10 +25,17 @@ Angelica Chen, David Dohan, and Daved Hutchins.
   search.
 \newblock In \emph{Advances in Neural Information Processing Systems}, 2023.
 
-\bibitem[Chen et~al.(2021)]{Chen2021Codex}
+\bibitem[Chen et~al.(2021{\natexlab{a}})]{Chen2021Codex}
 Mark Chen et~al.
 \newblock Evaluating large language models trained on code.
-\newblock \emph{arXiv preprint}, arXiv:2107.03374, 2021.
+\newblock \emph{arXiv preprint}, arXiv:2107.03374, 2021{\natexlab{a}}.
+
+\bibitem[Chen et~al.(2021{\natexlab{b}})Chen, Gong, and Wang]{chen2021tenas}
+Wuyang Chen, Xinyu Gong, and Zhangyang Wang.
+\newblock Neural architecture search on {ImageNet} in four {GPU} hours: A
+  theoretically inspired perspective.
+\newblock In \emph{International Conference on Learning Representations},
+  2021{\natexlab{b}}.
 
 \bibitem[Din et~al.(2025)Din, Hussain, Ikram, Ignatov, and
   Timofte]{ABrain.NN-Lite}
@@ -30,6 +44,19 @@ Saif~U Din, Muhammad~Ahsan Hussain, Mohsin Ikram, Dmitry Ignatov, and Radu
 \newblock Ai on the edge: An automated pipeline for pytorch-to-android
   deployment and benchmarking.
 \newblock \emph{Preprints}, 2025.
+
+\bibitem[Dong and Yang(2020)]{dong2020nas}
+Xuanyi Dong and Yi Yang.
+\newblock Nas-bench-201: Extending the scope of reproducible neural
+  architecture search.
+\newblock In \emph{International Conference on Learning Representations}, 2020.
+
+\bibitem[Egele et~al.(2024)Egele, Mohr, Viering, and
+  Balaprakash]{egele2024unreasonable}
+Romain Egele, Felix Mohr, Tom Viering, and Prasanna Balaprakash.
+\newblock The unreasonable effectiveness of early discarding after one epoch in
+  neural network hyperparameter optimization.
+\newblock \emph{Neurocomputing}, 597:\penalty0 127964, 2024.
 
 \bibitem[Gado et~al.(2025)Gado, Taliee, Memon, Ignatov, and
   Timofte]{Gado2025llm}
@@ -45,6 +72,11 @@ Arash~Torabi Goodarzi, Roman Kochnev, Waleed Khalid, Furui Qin, Tolgay~Atinc
   Bentyn, Dmitry Ignatov, and Radu Timofte.
 \newblock {LEMUR Neural Network Dataset: Towards Seamless AutoML}.
 \newblock \emph{arXiv preprint}, arXiv:2504.10552, 2025.
+
+\bibitem[Howard(2019)]{imagenette}
+Jeremy Howard.
+\newblock Imagenette: A smaller subset of 10 easily classified classes from
+  imagenet, 2019.
 
 \bibitem[Jesani et~al.(2025)Jesani, Ignatov, and
   Timofte]{ABrain.NN-Captioning_2025}
@@ -94,15 +126,31 @@ Guihong Li et~al.
   opportunities.
 \newblock \emph{IEEE TPAMI}, 46\penalty0 (6):\penalty0 4071--4088, 2024.
 
+\bibitem[Lin et~al.(2021)Lin, Wang, Sun, Chen, Sun, Qian, Li, and
+  Jin]{lin2021zen}
+Ming Lin, Pichao Wang, Zhenhong Sun, Hesen Chen, Xiuyu Sun, Qi Qian, Hao Li,
+  and Rong Jin.
+\newblock {Zen-NAS}: A zero-shot {NAS} for high-performance image recognition.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision}, pages 12265--12275, 2021.
+
 \bibitem[Liu et~al.(2019)Liu, Simonyan, and Yang]{Liu2019DARTS}
 Hanxiao Liu, Karen Simonyan, and Yiming Yang.
 \newblock {DARTS}: Differentiable architecture search.
 \newblock In \emph{ICLR}, 2019.
 
-\bibitem[Mellor et~al.(2021)Mellor, Turner, Shersby, and Shersby]{Mellor2021}
+\bibitem[Mellor et~al.(2021{\natexlab{a}})Mellor, Turner, Shersby, and
+  Shersby]{Mellor2021}
 Joseph Mellor, Jack Turner, Amos Shersby, and Elliot~J. Shersby.
 \newblock Neural architecture search without training.
-\newblock In \emph{ICML}, pages 7588--7598, 2021.
+\newblock In \emph{ICML}, pages 7588--7598, 2021{\natexlab{a}}.
+
+\bibitem[Mellor et~al.(2021{\natexlab{b}})Mellor, Turner, Storkey, and
+  Crowley]{mellor2021neural}
+Joe Mellor, Jack Turner, Amos Storkey, and Elliot~J. Crowley.
+\newblock Neural architecture search without training.
+\newblock In \emph{Proceedings of the 38th International Conference on Machine
+  Learning}, pages 7588--7598. PMLR, 2021{\natexlab{b}}.
 
 \bibitem[Mittal et~al.(2025)Mittal, Ignatov, and Timofte]{ABrain.NNGPT-Fractal}
 Yash Mittal, Dmitry Ignatov, and Radu Timofte.
@@ -126,6 +174,14 @@ Bernardino Romera-Paredes, Mohammadamin Barekatain, Alexander Novikov, et~al.
 \newblock Mathematical discoveries from program search with large language
   models.
 \newblock \emph{Nature}, 625\penalty0 (7995):\penalty0 468--475, 2023.
+
+\bibitem[Ru et~al.(2021)Ru, Lyle, Schut, Fil, van~der Wilk, and
+  Gal]{ru2021speedy}
+Robin Ru, Clare Lyle, Lisa Schut, Miroslav Fil, Mark van~der Wilk, and Yarin
+  Gal.
+\newblock Speedy performance estimation for neural architecture search.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  34:\penalty0 4079--4092, 2021.
 
 \bibitem[Rupani et~al.(2025)Rupani, Ignatov, and Timofte]{Rupani2025llm}
 Bhavya Rupani, Dmitry Ignatov, and Radu Timofte.
@@ -165,6 +221,13 @@ Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Dmitry Ignatov, and Radu
   efficient validation for automated architecture design.
 \newblock \emph{arXiv preprint}, arXiv:2512.24120, 2025.
 
+\bibitem[White et~al.(2023)White, Safari, Sukthanker, Ru, Elsken, Zela, Dey,
+  and Hutter]{white2023neural}
+Colin White, Mahmoud Safari, Rhea Sukthanker, Binxin Ru, Thomas Elsken, Arber
+  Zela, Debadeepta Dey, and Frank Hutter.
+\newblock Neural architecture search: Insights from 1000 papers.
+\newblock \emph{arXiv preprint arXiv:2301.08727}, 2023.
+
 \bibitem[Yang et~al.(2023)Yang, Wang, Lu, Liu, Le, Zhou, and
   Chen]{Yang2023OPRO}
 Chengrun Yang, Xuezhi Wang, Yifeng Lu, Hanxiao Liu, Quoc~V Le, Denny Zhou, and
@@ -177,6 +240,27 @@ Fei Ye, Haoran Yang, Xiaohan Cai, et~al.
 \newblock Reevo: Large language models as hyper-heuristics with reflective
   evolution.
 \newblock In \emph{Advances in Neural Information Processing Systems}, 2024.
+
+\bibitem[Yin et~al.(2022)Yin, Huang, and Zhang]{yin2022bmnas}
+Yihang Yin, Siyu Huang, and Xiang Zhang.
+\newblock {BM-NAS}: Bilevel multimodal neural architecture search.
+\newblock In \emph{Proceedings of the AAAI Conference on Artificial
+  Intelligence}, pages 8901--8909, 2022.
+
+\bibitem[Ying et~al.(2019)Ying, Klein, Christiansen, Real, Murphy, and
+  Hutter]{ying2019nas}
+Chris Ying, Aaron Klein, Eric Christiansen, Esteban Real, Kevin Murphy, and
+  Frank Hutter.
+\newblock Nas-bench-101: Towards reproducible neural architecture search.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  7105--7114. PMLR, 2019.
+
+\bibitem[Yu et~al.(2020)Yu, Sciuto, Jaggi, Musat, and
+  Salzmann]{yu2020evaluating}
+Kaicheng Yu, Christian Sciuto, Martin Jaggi, Claudiu Musat, and Mathieu
+  Salzmann.
+\newblock Evaluating the search phase of neural architecture search.
+\newblock In \emph{International Conference on Learning Representations}, 2020.
 
 \bibitem[Zhong et~al.(2024)Zhong, Liu, Liu, and Chen]{Zhong2024LLMO}
 Yuhang Zhong, Yuhao Liu, Xiaotong Liu, and Tao Chen.
