@@ -1,4 +1,4 @@
-# Prompt Improvement for Ablation
+# Iterative-LLM-Based-NAS-with-Feedback-Memory
 
 Iterative prompt-improvement pipeline: uses an LLM to generate model code, then trains and evaluates it. Supports CIFAR-10, CIFAR-100, and ImageNette. You can turn off the improver or reference via flags for ablation runs.
 
@@ -12,7 +12,8 @@ Iterative prompt-improvement pipeline: uses an LLM to generate model code, then 
 ## Installation
 
 ```bash
-cd prompt_improvement_for_ablation
+git clone https://github.com/480284856/Iterative-LLM-Based-NAS-with-Feedback-Memory.git
+cd Iterative-LLM-Based-NAS-with-Feedback-Memory
 pip install -r requirements.txt
 ```
 
