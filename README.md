@@ -1,6 +1,6 @@
-# Iterative-LLM-Based-NAS-with-Feedback-Memory
+# Resource-Efficient Iterative LLM-Based NAS with Feedback Memory
 
-Iterative prompt-improvement pipeline: uses an LLM to generate model code, then trains and evaluates it. Supports CIFAR-10, CIFAR-100, and ImageNette. You can turn off the improver or reference via flags for ablation runs.
+Resource-Efficient Iterative prompt-improvement pipeline: uses an LLM to generate model code, then trains and evaluates it. Supports CIFAR-10, CIFAR-100, and ImageNette. You can turn off the improver or reference via flags for ablation runs.
 
 ## Environment and dependencies
 
