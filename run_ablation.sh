@@ -8,7 +8,6 @@ else
     echo "错误：未找到 conda 初始化脚本，请检查 CONDA_PATH 是否正确！"
     exit 1
 fi
-conda activate nngpt
 
 SCRIPT_PATH=$(readlink -f "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
@@ -17,8 +16,7 @@ mkdir -p ./output ./log
 
 MODELS=("deepseek-ai/deepseek-coder-6.7b-instruct")
 MODEL_NAMES=("deepseek_coder_6.7b")
-# DATASETS=("cifar10" "imagenette")   # 新增 imagenette 数据集
-DATASETS=("cifar100")
+DATASETS=("cifar10" "cifar100" "imagenette")   # 新增 imagenette 数据集
 ITERATIONS=100
 TARGET=1.0
 

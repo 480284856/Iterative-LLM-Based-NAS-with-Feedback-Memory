@@ -14,19 +14,28 @@ SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
 cd "$SCRIPT_DIR"
 mkdir -p ./output ./log
 
-python pipeline.py  --model Qwen/Qwen2.5-7B-Instruct \
-                    --dataset cifar100 \
-                    --max-iterations 2000 \
-                    --target-accuracy 1.0 \
-                    --output-dir ./output/qwen2.5_7b_instruct_cifar100_2000_latest \
-| tee ./log/qwen2.5_7b_instruct_cifar100_2000_latest.log
+MODELS=("Qwen/Qwen2.5-7B-Instruct" "deepseek-ai/deepseek-coder-6.7b-instruct")
+MODEL_NAMES=("qwen2.5_7b_instruct" "deepseek_coder_6.7b")
+DATASETS=("cifar10" "cifar100" "imagenette")
+ITERATIONS=2000
+TARGET=1.0
 
-python pipeline.py  --model deepseek-ai/deepseek-coder-6.7b-instruct \
-                    --dataset cifar100 \
-                    --max-iterations 2000 \
-                    --target-accuracy 1.0 \
-                    --output-dir ./output/deepseek_coder_6.7b_instruct_cifar100_2000 \
-| tee ./log/deepseek_coder_6.7b_instruct_cifar100_2000.log
+for DATASET in "${DATASETS[@]}"; do
+    for i in "${!MODELS[@]}"; do
+        MODEL="${MODELS[$i]}"
+        MODEL_NAME="${MODEL_NAMES[$i]}"
+
+        echo "========================================"
+        echo "Running $MODEL_NAME on $DATASET"
+        echo "========================================"
+        python pipeline.py  --model "$MODEL" \
+                            --dataset "$DATASET" \
+                            --max-iterations $ITERATIONS \
+                            --target-accuracy $TARGET \
+                            --output-dir ./output/${MODEL_NAME}_${DATASET} \
+        | tee ./log/${MODEL_NAME}_${DATASET}.log
+    done
+done
 
 # python pipeline.py  --model Pro/zai-org/GLM-5 \
 #                     --remote \
@@ -44,8 +53,8 @@ python pipeline.py  --model deepseek-ai/deepseek-coder-6.7b-instruct \
 #                     --output-dir ./output/glm5_cifar10 \
 # | tee ./log/glm5_cifar10.log
 
-# copy the output to the data directory
-# chmod +w ../data
-# cp -rf ./output/glm5_cifar100 ../data/glm5_cifar100
-# cp -rf ./output/glm5_cifar10 ../data/glm5_cifar10
-# chmod -w ../data
+echo "========================================"
+echo "All experiments complete!"
+echo "Results saved in ./output/"
+echo "Logs saved in ./log/"
+echo "========================================"
