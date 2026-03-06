@@ -10,7 +10,9 @@ else
 fi
 conda activate nngpt
 
-cd /home/qu/Desktop/nngpt/prompt_improvement/prompt_improvement_for_ablation
+SCRIPT_PATH=$(readlink -f "$0")
+SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
+cd "$SCRIPT_DIR"
 mkdir -p ./output ./log
 
 MODELS=("deepseek-ai/deepseek-coder-6.7b-instruct")
