@@ -12,3 +12,5 @@ tqdm>=4.66.0
 # Plotting (for output/plot_acc.py)
 numpy>=1.24.0
 matplotlib>=3.7.0
+
+requests

@@ -12,12 +12,14 @@ Resource-Efficient Iterative prompt-improvement pipeline: uses an LLM to generat
 ## Installation
 
 ```bash
-git clone https://github.com/480284856/Iterative-LLM-Based-NAS-with-Feedback-Memory.git
+# git clone [the url]
 cd Iterative-LLM-Based-NAS-with-Feedback-Memory
+conda create -n tmp python=3.10 -y
+conda activate tmp
 pip install -r requirements.txt
 ```
 
-Run the above inside the `nngpt` environment. If you use a remote API, set the env var (e.g. `export SiliconCloud_Key="..."`) and do not commit the key.
+Run the above inside the `tmp` environment. If you use a remote API, set the env var (e.g. `export SiliconCloud_Key="..."`) and do not commit the key.
 
 ## How to run
 
