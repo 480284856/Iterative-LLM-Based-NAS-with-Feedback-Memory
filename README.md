@@ -5,8 +5,6 @@ Resource-Efficient Iterative prompt-improvement pipeline: uses an LLM to generat
 ## Environment and dependencies
 
 - **Python**: 3.10 recommended
-- **Conda**: use env `nngpt` (`conda activate nngpt`)
-- **Dependencies**: `pip install -r requirements.txt`
 - **Data**: default `./data`; CIFAR is downloaded automatically; ImageNette is fetched from the URL in the script
 
 ## Installation
@@ -23,21 +21,7 @@ Run the above inside the `tmp` environment. If you use a remote API, set the env
 
 ## How to run
 
-### Option 1: Call the pipeline directly
-
-```bash
-python pipeline.py --model <HuggingFace_model_name> --dataset <cifar10|cifar100|imagenette> \
-  --max-iterations <N> --target-accuracy <0~1> --output-dir <output_directory>
-```
-
-- Add `--remote` when using a remote API
-- Common args: `--epochs`, `--batch-size`, `--history-size`
-- Ablation: `--no-improver`, `--no-reference`, `--no-history`
-
-### Option 2: Use the scripts
-
-- **Full pipeline**: run `./run.sh` (activates conda, creates `output` and `log`, runs `pipeline.py` per script config). Edit the `cd` path in the script for your machine.
-- **Ablation (no improver, no reference)**: run `./run_ablation.sh` (default: DeepSeek-Coder-6.7B + CIFAR-100, 100 iterations). Results under `./output/*_ablation_*`, logs under `./log/*_ablation_*.log`. Edit paths in the script for your machine.
+- **Full pipeline**: run `./run.sh`. 
 
 ## Output
 
@@ -50,4 +34,3 @@ Under `--output-dir` you get:
 ## Notes
 
 - Remote API requires network and a valid key; local large models need enough GPU memory
-- Update the paths in `run.sh` and `run_ablation.sh` for your machine
